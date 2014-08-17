@@ -1,7 +1,10 @@
 /* Space out content a bit */
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
+}
+
+a {
+  color: #aa0f13;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -15,7 +18,9 @@ body {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
+  padding-top: 10px;
 }
+
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -37,6 +42,7 @@ body {
     max-width: 730px;
   }
 }
+
 .container-narrow > hr {
   margin: 30px 0;
 }
@@ -59,15 +65,31 @@ body {
   margin-top: 28px;
 }
 
+/*
+
+  Header
+
+*/
+
+.nameOfSite {
+  font-family: 'Sacramento', cursive;
+  color: #aa0f13;
+}
+
+.nameOfSite h1 {
+  margin-top: 5px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: #aa0f13;
+}
+
+.nav-pills > li > a:hover {
+  color: #aa0f13;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
