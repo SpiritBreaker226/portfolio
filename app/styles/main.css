@@ -94,6 +94,33 @@ a {
 
 */
 
+#carouselTagline .carousel-caption {
+  background-color: rgb(97, 101, 104);
+  background-color: rgba(97, 101, 104, 0.8);
+  top: 0;
+  bottom: 200px;
+  right: 50%;
+  padding: 200px 0 0 30px;
+  text-align: left;
+  font-size: 24px;
+}
+
+#carouselTagline .carousel-caption h1 {
+  font-size: 56px;
+}
+
+#carouselTagline .carousel-caption h2 {
+  font-size: 50px;
+}
+
+#carouselTagline .carousel-caption h3 {
+  font-size: 44px;
+}
+
+#carouselTagline .carousel-caption h1, #carouselTagline .carousel-caption h2, #carouselTagline .carousel-caption h3 {
+  margin-top: 10px;
+}
+
 .jumbotron {
   padding: 0;
   background-color: #FFF;
@@ -103,7 +130,6 @@ a {
   text-align: center;
   max-width: 100%;
 }
-
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
