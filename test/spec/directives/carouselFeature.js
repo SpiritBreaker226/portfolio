@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: banner', function () {
+describe('Directive: carouselFeature', function () {
 
   // load the directive's module
   beforeEach(module('spiritBreaker226GitHubPageApp'));
@@ -13,8 +13,8 @@ describe('Directive: banner', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<banner></banner>');
+    element = angular.element('<carousel-feature></carousel-feature>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the banner directive');
+    expect(element.text()).toBe('this is the carouselFeature directive');
   }));
 });

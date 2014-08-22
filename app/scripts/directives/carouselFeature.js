@@ -7,9 +7,9 @@
  * # caruselFeature
  */
 angular.module('spiritBreaker226GitHubPageApp')
-  .directive('caruselFeature', function () {
+  .directive('carouselFeature', function () {
     return {
-      templateUrl: 'views/caruselFeature.html',
+      templateUrl: 'views/carouselFeature.html',
       restrict: 'E'
     };
   });
