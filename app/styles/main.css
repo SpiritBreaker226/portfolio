@@ -88,12 +88,25 @@ a {
   color: #aa0f13;
 }
 
+/*
+
+  Banners
+
+*/
+
+.jumbotron {
+  padding: 0;
+  background-color: #FFF;
+}
+
+.tagLineBanner {
+  text-align: center;
+  max-width: 100%;
+}
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
