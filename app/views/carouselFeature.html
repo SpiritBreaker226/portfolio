@@ -1,0 +1,38 @@
+<section id="sectionCarusel">
+	<h2 hidden>Carusel</h2>
+
+	<div id="carouselFeatures" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselFeatures" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselFeatures" data-slide-to="1"></li>
+			<li data-target="#carouselFeatures" data-slide-to="2"></li>
+		</ol>
+
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="../images/Banners/taglinebricks.png" alt="">
+			</div>
+			<div class="item">
+				
+			</div>
+			<div class="item">
+				
+			</div>
+		</div>
+
+		<a class="carousel-control left" href="#carouselFeatures" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+		<a class="carousel-control right" href="#carouselFeatures" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right"></span>
+		</a>
+	</div>
+</section>
+
+<script>
+	$(document).ready(function(){
+		$('.carousel').carousel({
+			interval: 5000
+		});
+	});
+</script>
