@@ -1,6 +1,6 @@
 /* Space out content a bit */
 body {
-  padding-bottom: 20px;
+  padding: 70px 0 20px;
 }
 
 a {
@@ -26,25 +26,10 @@ blockquote:before {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
 .marketing,
 .footer {
   padding-left: 15px;
   padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  padding-top: 10px;
-}
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
 }
 
 /* Custom page footer */
@@ -87,7 +72,17 @@ blockquote:before {
 
 .navbar-default {
   border: 0;
-  background-color: #FFF;
+  background-color: rgb(250, 250, 250);
+  background-color: rgba(250, 250, 250, 0.8);
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 15px;
+}
+
+.navbar-default h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
 }
 
 .navbar-default .navbar-brand {
@@ -103,6 +98,10 @@ blockquote:before {
 
 .navbar-default .navbar-nav > li > a:hover {
   color: #aa0f13;
+}
+
+.navbar-brand {
+  padding: 15px 0;
 }
 
 /*
