@@ -9,7 +9,7 @@
 angular.module('spiritBreaker226GitHubPageApp')
   .directive('aboutMe', function () {
     return {
-      templateUrl: 'views/aboutme.html',
+      templateUrl: 'views/templates/aboutme.html',
       restrict: 'E'
     };
   });
