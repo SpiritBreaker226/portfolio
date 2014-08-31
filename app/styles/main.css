@@ -1,6 +1,6 @@
 /* Space out content a bit */
 body {
-  padding: 70px 0 20px;
+  padding: 70px 0 0;
 }
 
 a {
@@ -23,20 +23,6 @@ blockquote:before {
   margin-left: -.64em;
   font: italic 400%/1 Cochin,Georgia,"Times New Roman", serif;
   color: #999;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
 }
 
 /* Customize container */
@@ -212,7 +198,7 @@ blockquote:before {
 
 */
 
-#sectionContact {
+#sectionContact, .footer {
   background-color: #aa0f13;
 }
 
@@ -224,7 +210,7 @@ blockquote:before {
   margin-top: 25px;
 }
 
-#sectionContact, #sectionContact h1, #sectionContact a {
+#sectionContact, #sectionContact h1, #sectionContact a, .footer {
   color: #FFF;
 }
 
@@ -236,6 +222,18 @@ blockquote:before {
 #sectionContact p#contactingMeByEmail {
   font-size: 50px;
   margin: 50px 0;
+}
+
+/*
+
+  Footer
+
+*/
+
+.footer {
+  padding: 25px 0;
+  color: #FFF;
+  border-top: 1px solid #e5e5e5;
 }
 
 /* Responsive: Portrait tablets and up */
