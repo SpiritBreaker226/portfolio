@@ -216,6 +216,14 @@ blockquote:before {
   background-color: #aa0f13;
 }
 
+#sectionSocialMedia {
+  margin: 25px 0;  
+}
+
+#socialMediaIcons {
+  margin-top: 25px;
+}
+
 #sectionContact, #sectionContact h1, #sectionContact a {
   color: #FFF;
 }
