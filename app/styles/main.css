@@ -206,6 +206,30 @@ blockquote:before {
   margin-bottom: 15px; 
 }
 
+/*
+
+  Contact
+
+*/
+
+#sectionContact {
+  background-color: #aa0f13;
+}
+
+#sectionContact, #sectionContact h1, #sectionContact a {
+  color: #FFF;
+}
+
+#sectionContact p {
+  text-align: center;
+  font-size: 25px;
+}
+
+#sectionContact p#contactingMeByEmail {
+  font-size: 50px;
+  margin: 50px 0;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the bottom border on the jumbotron for visual effect */

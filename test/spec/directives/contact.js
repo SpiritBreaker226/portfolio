@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: portfolio', function () {
+describe('Directive: contact', function () {
 
   // load the directive's module
   beforeEach(module('spiritBreaker226GitHubPageApp'));
@@ -13,8 +13,8 @@ describe('Directive: portfolio', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<portfolio></portfolio>');
+    element = angular.element('<contact></contact>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('<h1>Portfolio</h1>');
+    expect(element.text()).toBe('this is the contact directive');
   }));
 });
