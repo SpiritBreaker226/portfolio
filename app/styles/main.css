@@ -157,6 +157,10 @@ blockquote:before {
 #sectionAboutMe p {
 }
 
+#aboutMeTitle {
+  margin-bottom: .67em;
+}
+
 .divAboutMeImage {
   margin-top: 22px;
 }
