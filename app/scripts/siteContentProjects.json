@@ -1,5 +1,5 @@
 {
-	"Open Source Projects": [
+	"Projects": [
 		{
 			"name": "A Simple Chess Game (iOS)",
 			"summary": "A simple chess game created for iOS devices",
@@ -8,7 +8,8 @@
 			"feature": "featureASChess.png",
 			"icon": "iconASChess.png",
 			"sampleCode": "",
-			"ProjectURL": "",
+			"projectType": "Open",
+			"projectURL": "",
 			"projectStartDate": "2014-07-08T23:28:56.782Z",
 			"projectEndDate": ""
 		},
@@ -20,12 +21,11 @@
 			"feature": "featureMySite.png",
 			"icon": "iconMySite.png",
 			"sampleCode": "",
-			"ProjectURL": "jstats.me",
+			"projectType": "Open",
+			"projectURL": "jstats.me",
 			"projectStartDate": "2014-08-11T23:28:56.782Z",
 			"projectEndDate": ""
-		}
-	],
-	"Close Projects": [
+		},
 		{
 			"name": "Elementary Teacher of Toronto",
 			"summary": "",
@@ -34,7 +34,8 @@
 			"feature": "featureETT.png",
 			"icon": "iconETT.png",
 			"sampleCode": "",
-			"ProjectURL": "ett.ca",
+			"projectType": "Close",
+			"projectURL": "ett.ca",
 			"projectStartDate": "2012-07-16T23:28:56.782Z",
 			"projectEndDate": "2013-12-16T23:28:56.782Z"
 		},
@@ -46,7 +47,8 @@
 			"feature": "featureOxford.png",
 			"icon": "iconOxford.png",
 			"sampleCode": "",
-			"ProjectURL": "",
+			"projectType": "Close",
+			"projectURL": "",
 			"projectStartDate": "2011-11-01T23:28:56.782Z",
 			"projectEndDate": "2014-08-18T23:28:56.782Z"
 		},
@@ -58,7 +60,8 @@
 			"feature": "featureGeriatRx.png",
 			"icon": "iconGeriatRx.png",
 			"sampleCode": "",
-			"ProjectURL": "",
+			"projectType": "Close",
+			"projectURL": "",
 			"projectStartDate": "2013-04-03T23:28:56.782Z",
 			"projectEndDate": "2014-04-21T23:28:56.782Z"
 		},
@@ -70,7 +73,8 @@
 			"feature": "featureOLP.png",
 			"icon": "iconOLP.png",
 			"sampleCode": "",
-			"ProjectURL": "ontarioliberal.ca",
+			"projectType": "Close",
+			"projectURL": "ontarioliberal.ca",
 			"projectStartDate": "2010-08-04T23:28:56.782Z",
 			"projectEndDate": "2011-09-04T23:28:56.782Z"
 		},
@@ -82,7 +86,8 @@
 			"feature": "featureObituaries.png",
 			"icon": "iconObituaries.png",
 			"sampleCode": "",
-			"ProjectURL": "theObituaries.ca",
+			"projectType": "Close",
+			"projectURL": "theObituaries.ca",
 			"projectStartDate": "2013-02-12T23:28:56.782Z",
 			"projectEndDate": "2013-09-16T23:28:56.782Z"
 		},
@@ -94,7 +99,8 @@
 			"feature": "featureChatr.png",
 			"icon": "iconChatr.png",
 			"sampleCode": "",
-			"ProjectURL": "",
+			"projectType": "Close",
+			"projectURL": "",
 			"projectStartDate": "2012-10-22T23:28:56.782Z",
 			"projectEndDate": "2013-01-16T23:28:56.782Z"
 		},
@@ -106,7 +112,8 @@
 			"feature": "featureFred.png",
 			"icon": "iconFred.png",
 			"sampleCode": "",
-			"ProjectURL": "fRed.ca",
+			"projectType": "Close",
+			"projectURL": "fRed.ca",
 			"projectStartDate": "2010-10-12T23:28:56.782Z",
 			"projectEndDate": "2012-03-22T23:28:56.782Z"
 		},
@@ -118,7 +125,8 @@
 			"feature": "featureBenjamin.png",
 			"icon": "iconBenjamin.png",
 			"sampleCode": "",
-			"ProjectURL": "benjaminsparkmemorialchapel.ca",
+			"projectType": "Close",
+			"projectURL": "benjaminsparkmemorialchapel.ca",
 			"projectStartDate": "2007-09-10T23:28:56.782Z",
 			"projectEndDate": "2014-08-18T23:28:56.782Z"
 		},
@@ -130,7 +138,8 @@
 			"feature": "featureNorthcott.png",
 			"icon": "iconNorthcott.png",
 			"sampleCode": "",
-			"ProjectURL": "",
+			"projectType": "Close",
+			"projectURL": "",
 			"projectStartDate": "2014-03-10T23:28:56.782Z",
 			"projectEndDate": "2014-08-18T23:28:56.782Z"
 		},
@@ -142,7 +151,8 @@
 			"feature": "featureArthritis.png",
 			"icon": "iconArthritis.png",
 			"sampleCode": "",
-			"ProjectURL": "",
+			"projectType": "Close",
+			"projectURL": "",
 			"projectStartDate": "2010-09-04T23:28:56.782Z",
 			"projectEndDate": "2010-09-30T23:28:56.782Z"
 		},
@@ -154,7 +164,8 @@
 			"feature": "featureJH.png",
 			"icon": "iconJH.png",
 			"sampleCode": "",
-			"ProjectURL": "",
+			"projectType": "Close",
+			"projectURL": "",
 			"projectStartDate": "2013-09-04T23:28:56.782Z",
 			"projectEndDate": "2014-05-30T23:28:56.782Z"
 		},
@@ -166,7 +177,8 @@
 			"feature": "",
 			"icon": "iconCityVaughan.png",
 			"sampleCode": "",
-			"ProjectURL": "itunes.apple.com/us/app/city-of-vaughan/id896731406",
+			"projectType": "Close",
+			"projectURL": "itunes.apple.com/us/app/city-of-vaughan/id896731406",
 			"projectStartDate": "2014-04-04T23:28:56.782Z",
 			"projectEndDate": "2014-08-30T23:28:56.782Z"
 		}
