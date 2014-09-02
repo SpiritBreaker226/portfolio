@@ -224,6 +224,26 @@ blockquote:before {
   margin: 50px 0;
 }
 
+#socialMediaIcons .clearfix {
+  margin-bottom: 25px;
+}
+
+#socialMediaIcons div {
+  text-align: center;
+}
+
+#socialMediaIcons a {
+  background-color: #Fff;
+  color: #aa0f13; 
+  border-radius: 8px;
+  width: 80px;
+}
+
+#socialMediaIcons a:hover {
+  background-color: transparent;
+  color: #FFF;
+}
+
 /*
 
   Footer
