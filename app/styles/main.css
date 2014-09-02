@@ -220,7 +220,7 @@ blockquote:before {
 }
 
 #sectionContact p#contactingMeByEmail {
-  font-size: 50px;
+  font-size: 40px;
   margin: 50px 0;
 }
 
@@ -256,10 +256,9 @@ blockquote:before {
   border-top: 1px solid #e5e5e5;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media (max-width: 768px) {
   /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
+  #sectionContact p#contactingMeByEmail {
+    font-size: 30px;
   }
 }
