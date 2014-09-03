@@ -7,6 +7,10 @@ a {
   color: #aa0f13;
 }
 
+a:hover {
+  color: #7e0f13;
+}
+
 h1, .jumbotron h1 {
   color: #aa0f13;
 }
@@ -261,7 +265,7 @@ blockquote:before {
 }
 
 @media (max-width: 768px) {
-  /* Remove the bottom border on the jumbotron for visual effect */
+  /* email in contact section */
   #sectionContact p#contactingMeByEmail {
     font-size: 30px;
   }
