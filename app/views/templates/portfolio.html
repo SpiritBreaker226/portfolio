@@ -1,57 +1,28 @@
-<section id="sectionPortfolio">
+<section id="sectionPortfolio" ng-controller="PortfolioCtrl as portfolio">
 	<div class="container">
-		<h1>Portfolio</h1>
+		<h1>Feature Portfolio</h1>
+		
+		<div class="row" ng-repeat="projectRow in portfolio.projects | limitTo: portfolio.numberOfProjects">
+			<div ng-repeat="project in portfolio.projects | limitTo: ($index * 4) | limitTo: -4">
+				<div class="col-md-3 col-xs-6">
+					<div class="thumbnail">
+						<div class="caption">
+							<header class="projectHeader">
+								<a href="javascript:void()"><img ng-src="images/ProjectIcons/{{project.icon}}" alt="{{project.name}}" class="img-circle img-responsive">
+								<h3>{{project.name}}</h3></a>
+								(
+									<time datetime="{{project.projectStartDate}}">{{project.projectStartDate | date: 'MMM yyyy'}}</time> - 
+									<time ng-hide="portfolio.hideProjectEndDate({{project.projectEndDate}})" datetime="{{project.projectEndDate}}">{{project.projectEndDate | date: 'MMM yyyy'}}</time>
+								)
+							</header>
 
-		<div class="row">
-			<div class="col-md-3 col-xs-6">
-				<div class="thumbnail">
-					<div class="caption">
-						<header class="projectHeader">
-							<a href="javascript:void()"><img src="images/ProjectIcons/iconArthritis.png" alt="Arthritis" class="img-circle img-responsive">
-							<h3>Arthritis Society</h3></a>
-							(<time datetime="2012-07-16T23:28:56.782Z">Aug 2014</time> - <time datetime="2012-07-16T23:28:56.782Z">Sep 2015</time>)
-						</header>
-						<span class="hidden-sm hidden-xs">Created an internal management system to keep track of patient progress and what treatment they are currently using. The system will notify the doctor of the progress of the patient</span>	
+							<span class="hidden-sm hidden-xs">{{project.summary}}</span>	
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-md-3 col-xs-6">
-				<div class="thumbnail">
-					<div class="caption">
-						<header class="projectHeader">
-							<a href="javascript:void()"><img src="images/ProjectIcons/iconArthritis.png" alt="Arthritis" class="img-circle img-responsive">
-							<h3>Arthritis Society</h3></a>
-							(<time datetime="2012-07-16T23:28:56.782Z">Aug 2014</time> - <time datetime="2012-07-16T23:28:56.782Z">Sep 2015</time>)
-						</header>
-						<span class="hidden-sm hidden-xs">Created an internal management system to keep track of patient progress and what treatment they are currently using. The system will notify the doctor of the progress of the patient</span>	
-					</div>
-				</div>
-			</div>
-			<div class="clearfix visible-sm visible-xs"></div>
-			<div class="col-md-3 col-xs-6">
-				<div class="thumbnail">
-					<div class="caption">
-						<header class="projectHeader">
-							<a href="javascript:void()"><img src="images/ProjectIcons/iconArthritis.png" alt="Arthritis" class="img-circle img-responsive">
-							<h3>Arthritis Society</h3></a>
-							(<time datetime="2012-07-16T23:28:56.782Z">Aug 2014</time> - <time datetime="2012-07-16T23:28:56.782Z">Sep 2015</time>)
-						</header>
-						<span class="hidden-sm hidden-xs">Created an internal management system to keep track of patient progress and what treatment they are currently using. The system will notify the doctor of the progress of the patient</span>	
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 col-xs-6">
-				<div class="thumbnail">
-					<div class="caption">
-						<header class="projectHeader">
-							<a href="javascript:void()"><img src="images/ProjectIcons/iconASChess.png" alt="A Simple Chess Game" class="img-circle img-responsive">
-							<h3>A Simple Chess Game</h3></a>
-							(<time datetime="2012-07-16T23:28:56.782Z">Aug 2014</time> - <time datetime="2012-07-16T23:28:56.782Z">Sep 2015</time>)
-						</header>
-						<span class="hidden-sm hidden-xs">Created an internal management system to keep track of patient progress and what treatment they are currently using. The system will notify the doctor of the progress of the patient</span>
-					</div>
-				</div>
-			</div>
+
+				<div class="clearfix visible-sm visible-xs" ng-if="portfolio.showClearfix($index)"></div>
+			</div> 
 		</div>
 	</div>
 </section>
