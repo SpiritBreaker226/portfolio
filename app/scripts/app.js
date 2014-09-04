@@ -14,5 +14,5 @@ angular
     'ngResource',
     'ngRoute'
   ])
-  .config(function ($routeProvider) {
+  .config(function () {
   });
