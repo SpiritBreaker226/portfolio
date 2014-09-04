@@ -195,6 +195,14 @@ blockquote:before {
   border: 0;
 }
 
+#selectSortBy {
+  margin-top: 25px;
+}
+
+#titleAndSorting {
+  margin-bottom: 20px;
+}
+
 .projectHeader {
   text-align: center;
   margin-bottom: 15px; 

@@ -32,7 +32,7 @@ angular.module('spiritBreaker226GitHubPageApp')
 
 		// this scope service is for the select element in order for it to do a selction
 		// when the page first loads up
-		//portfolio.projectOrder = 'name';
+		portfolio.projectOrder = 'name';
 	});
   })
   .directive('portfolio', function () {
