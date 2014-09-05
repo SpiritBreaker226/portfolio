@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row" id="titleAndSorting">
 			<div class="col-md-6">
-				<h1>Feature Portfolio</h1>	
+				<h1>Feature Projects</h1>	
 			</div>
 			<div class="col-md-6">
 				<select ng-model="portfolio.projectOrder" class="form-control" id="selectSortBy">
@@ -22,13 +22,13 @@
 							<header class="projectHeader">
 								<a href="javascript:void()"><img ng-src="images/ProjectIcons/{{project.icon}}" alt="{{project.name}}" class="img-circle img-responsive">
 								<h3>{{project.name}}</h3></a>
-								(
+								<span class="hidden-xs">(
 									<time datetime="{{project.projectStartDate}}">{{project.projectStartDate | date: 'MMM yyyy'}}</time> - 
 									<time ng-hide="portfolio.hideProjectEndDate({{project.projectEndDate}})" datetime="{{project.projectEndDate}}">{{project.projectEndDate | date: 'MMM yyyy'}}</time>
-								)
+								)</span>
 							</header>
 
-							<span class="hidden-sm hidden-xs">{{project.summary}}</span>	
+							<span class="hidden-sm hidden-xs">{{project.summary}}</span>
 						</div>
 					</div>
 				</div>
