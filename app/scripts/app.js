@@ -12,7 +12,10 @@ angular
   .module('spiritBreaker226GitHubPageApp', [
     'ngAnimate',
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'duScroll'
   ])
   .config(function () {
+  })
+  .controller('mainCtrl', function(){
   });

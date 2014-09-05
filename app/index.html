@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="spiritBreaker226GitHubPageApp">
   <head>
     <meta charset="utf-8">
     <title>Jason Stathopulos: Talented, Focused, Experienced</title>
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="spiritBreaker226GitHubPageApp">
+  <body ng-controller="mainCtrl">
     <h1 hidden>Jason Stathopulos: Talented, Focused, Experienced</h1>
 
     <header class="header">
@@ -37,15 +37,16 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a ng-href="#">Home</a></li>
-              <li><a ng-href="#">About</a></li>
-              <li><a ng-href="#">Portfolio</a></li>
-              <li><a ng-href="#">Contact</a></li>
+            <ul class="nav navbar-nav navbar-right" role="tablist" du-spy-context>
+              <li du-scrollspy="carousel" offset="300"><a du-smooth-scroll offset="300" href="#carousel">Home</a></li>
+              <li du-scrollspy="portfolio" offset="70"><a du-smooth-scroll offset="70" href="#portfolio">Portfolio</a></li>
+              <li du-scrollspy="about" offset="70"><a du-smooth-scroll offset="70" href="#about">About</a></li>
+              <li du-scrollspy="contact" offset="100"><a du-smooth-scroll offset="100" href="#contact">Contact</a></li>
             </ul>
         </div>
       </nav>
-    </header> 
+    </header>
+
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -89,15 +90,16 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-scroll/angular-scroll.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/directives/carouselFeature.js"></script>
-        <script src="scripts/directives/aboutme.js"></script>
-        <script src="scripts/directives/portfolio.js"></script>
-        <script src="scripts/directives/contact.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/directives/carouselFeature.js"></script>
+    <script src="scripts/directives/aboutme.js"></script>
+    <script src="scripts/directives/portfolio.js"></script>
+    <script src="scripts/directives/contact.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
