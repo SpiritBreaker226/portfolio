@@ -14,8 +14,8 @@
 			</div>
 		</div>
 
-		<div ng-repeat="project in portfolio.projects | orderBy: portfolio.projectOrder">
-			<div ng-class="($index % 4) === 3 ? 'row' : ''">
+		<div class="row">
+			<div ng-repeat="project in portfolio.projects | orderBy: portfolio.projectOrder">
 				<div class="col-md-3 col-xs-6">
 					<div class="thumbnail">
 						<div class="caption">
@@ -32,9 +32,10 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="clearfix visible-sm visible-xs" ng-if="portfolio.showClearfix($index)"></div>
-			</div>
-		</div> 
+ 
+				<div ng-class="($index % 2) === 1 ? 'visible-sm visible-xs clearfix' : ''"></div>
+				<div ng-class="($index % 4) === 3 ? 'clearfix' : ''"></div>
+			</div> 
+		</div>
 	</div>
 </section>

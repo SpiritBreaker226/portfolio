@@ -12,12 +12,6 @@ angular.module('spiritBreaker226GitHubPageApp')
 
   	portfolio.projects = [];
 
-  	// checks if index is odd after 1
-	// because the clearfix can only be used in the middle of a row
-	this.showClearfix = function (indexOfProject) {
-		return indexOfProject !== 3 && (indexOfProject % 2) === 1;
-	};// end of showClearfix()
-
 	// checks if there is an end date for the project
 	this.hideProjectEndDate = function (dateProjectEndDate) {
 		return dateProjectEndDate === '';
