@@ -277,4 +277,8 @@ blockquote:before {
   #contact p#contactingMeByEmail {
     font-size: 30px;
   }
+
+  .projectHeader h3 {
+    font-size: 20px;
+  }
 }
