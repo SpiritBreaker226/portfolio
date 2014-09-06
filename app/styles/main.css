@@ -1,3 +1,22 @@
+/*
+
+  Credit to Font Squirrel for providing the tools to make this font web friendly
+
+  Also, credit to "Flat-it" (http://flat-it.com/) for creating Boycoot font
+
+ */
+
+@font-face {
+    font-family: 'boycottregular';
+    src: url('fonts/boycott_-webfont.eot');
+    src: url('fonts/boycott_-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/boycott_-webfont.woff') format('woff'),
+         url('fonts/boycott_-webfont.ttf') format('truetype'),
+         url('fonts/boycott_-webfont.svg#boycottregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Space out content a bit */
 body {
   padding: 70px 0 0;
@@ -101,18 +120,16 @@ blockquote:before {
 */
 
 #carouselTagline .carousel-caption {
-  background-color: rgb(97, 101, 104);
-  background-color: rgba(97, 101, 104, 0.8);
+  font-family: boycottregular;
   top: 0;
   bottom: 200px;
-  right: 50%;
+  right: 40%;
   padding: 10% 0 0 30px;
   text-align: left;
-  font-size: 24px;
 }
 
 #carouselTagline .carousel-caption h2 {
-  font-size: 56px;
+  font-size: 100px;
   color: #FFF;
 }
 
@@ -272,6 +289,22 @@ blockquote:before {
   border-top: 1px solid #e5e5e5;
 }
 
+@media (min-width: 992px) and (max-width: 1200px) {
+  /*
+
+    Banner
+
+  */
+ 
+  #carouselTagline .carousel-caption {
+    padding-top: 5%;
+  }
+
+  #carouselTagline .carousel-caption h2 {
+    font-size: 75px;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 992px) {
   /*
 
@@ -280,16 +313,11 @@ blockquote:before {
   */
  
   #carouselTagline .carousel-caption {
-    background-color: transparent;
     padding-top: 5%;
   }
 
   #carouselTagline .carousel-caption h2 {
-    font-size: 46px;
-  }
-
-  #carouselTagline .carousel-caption {
-    font-size: 20px;
+    font-size: 75px;
   }
 }
 
@@ -301,16 +329,11 @@ blockquote:before {
   */
  
   #carouselTagline .carousel-caption {
-    background-color: transparent;
     padding-top: 5%;
   }
 
   #carouselTagline .carousel-caption h2 {
-    font-size: 36px;
-  }
-
-  #carouselTagline .carousel-caption {
-    font-size: 14px;
+    font-size: 50px;
   }
 
   /*
@@ -330,6 +353,22 @@ blockquote:before {
   */
 
   #contact p#contactingMeByEmail {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 568px) {
+  /*
+
+    Banner
+
+  */
+ 
+  #carouselTagline .carousel-caption {
+    padding-top: 3%;
+  }
+
+  #carouselTagline .carousel-caption h2 {
     font-size: 30px;
   }
 }
