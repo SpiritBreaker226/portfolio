@@ -106,7 +106,7 @@ blockquote:before {
   top: 0;
   bottom: 200px;
   right: 50%;
-  padding: 200px 0 0 30px;
+  padding: 10% 0 0 30px;
   text-align: left;
   font-size: 24px;
 }
@@ -272,13 +272,64 @@ blockquote:before {
   border-top: 1px solid #e5e5e5;
 }
 
-@media (max-width: 768px) {
-  /* email in contact section */
-  #contact p#contactingMeByEmail {
-    font-size: 30px;
+@media (min-width: 768px) and (max-width: 992px) {
+  /*
+
+    Banner
+
+  */
+ 
+  #carouselTagline .carousel-caption {
+    background-color: transparent;
+    padding-top: 5%;
   }
+
+  #carouselTagline .carousel-caption h2 {
+    font-size: 46px;
+  }
+
+  #carouselTagline .carousel-caption {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  /*
+
+    Banner
+
+  */
+ 
+  #carouselTagline .carousel-caption {
+    background-color: transparent;
+    padding-top: 5%;
+  }
+
+  #carouselTagline .carousel-caption h2 {
+    font-size: 36px;
+  }
+
+  #carouselTagline .carousel-caption {
+    font-size: 14px;
+  }
+
+  /*
+
+    Portfolio
+
+  */
 
   .projectHeader h3 {
     font-size: 20px;
+  }
+  
+  /*
+
+    Contact
+
+  */
+
+  #contact p#contactingMeByEmail {
+    font-size: 30px;
   }
 }
