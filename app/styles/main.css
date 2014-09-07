@@ -44,6 +44,14 @@ h1, .jumbotron h1 {
   color: #aa0f13;
 }
 
+noscript {
+  background-color: rgb(97, 101, 104);
+  width: 100%;
+  text-align: center;
+  color: #FFF; 
+  padding: 15px 0;
+}
+
 blockquote {
   border-left: 0;
   font-size: 14px;
