@@ -14,9 +14,19 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+  
+  // loads the greante sitemap
+  grunt.loadNpmTasks('grunt-sitemap');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+	sitemap: {
+		dist: {
+	        siteRoot: 'dist/',
+			homepage: "http://jstats.me/",
+			pattern: "/*.html"
+		}
+	},
 
     // Project settings
     yeoman: {

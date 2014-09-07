@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+ <url>
+	<loc>http://jstats.me/index.html</loc>
+   	<image:image>
+    	<image:loc>http://jstats.me/images/Banners/taglinebricks.jpg</image:loc>
+		<image:caption>Talented, Focused, Experienced</image:caption>
+   	</image:image>
+   	<image:image>
+    	<image:loc>http://jstats.me/images/JasonStats.jpg</image:loc>
+		<image:caption>Professional Picture</image:caption>
+		<image:title>Jason Stathopulos</image:title>
+   	</image:image>
+   	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconASChess.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: A Simple Chess Game</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconBenjamin.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: Benjamin Memorial Chapel</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconChatr.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: Chatr</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconCityVaughan.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: City of Vaughan</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconETT.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: Elementary Teacher of Toronto</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconFred.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: fRed.ca</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconGeriatRx.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: GeriatRx Pharmacy</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconJH.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: John Hancock: Retirement Plan Services</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconNorthcott.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: Northcott</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconObituaries.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: theObituaries.ca</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconOLP.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: Ontario Liberal Party</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconOxford.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: Oxford Properties Recycling Game</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>http://jstats.me/images/ProjectIcons/iconMySite.png</image:loc>
+		<image:caption>Jason Stathopulos's Feature Project: My Portfolio Site</image:caption>
+	</image:image>
+ </url> 
+</urlset> 
