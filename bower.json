@@ -1,6 +1,6 @@
 {
   "name": "spirit-breaker226-git-hub-page",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "dependencies": {
     "angular": "1.2.16",
     "json3": "~3.3.1",
