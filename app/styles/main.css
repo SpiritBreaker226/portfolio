@@ -1,7 +1,6 @@
 /*
 
   Credit to Font Squirrel for providing the tools to make this font web friendly
-
   Also, credit to "Flat-it" (http://flat-it.com/) for creating Boycoot font
 
  */
@@ -13,6 +12,17 @@
          url('fonts/boycott_-webfont.woff') format('woff'),
          url('fonts/boycott_-webfont.ttf') format('truetype'),
          url('fonts/boycott_-webfont.svg#boycottregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sacramentoregular';
+    src: url('fonts/sacramento-regular-webfont.eot');
+    src: url('fonts/sacramento-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/sacramento-regular-webfont.woff') format('woff'),
+         url('fonts/sacramento-regular-webfont.ttf') format('truetype'),
+         url('fonts/sacramento-regular-webfont.svg#sacramentoregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -95,7 +105,7 @@ blockquote:before {
 }
 
 .navbar-default .navbar-brand {
-  font-family: 'Sacramento', cursive;
+  font-family: 'sacramentoregular', cursive;
   font-size: 36px;
   color: #aa0f13;
 }
