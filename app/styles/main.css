@@ -47,6 +47,7 @@ h1, .jumbotron h1 {
 noscript {
   background-color: rgb(97, 101, 104);
   width: 100%;
+  display: block;
   text-align: center;
   color: #FFF; 
   padding: 15px 0;
