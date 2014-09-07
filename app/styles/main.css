@@ -390,3 +390,39 @@ blockquote:before {
     font-size: 30px;
   }
 }
+
+@media (max-width: 360px) {
+  /*
+
+    Banner
+
+  */
+ 
+  #carouselTagline .carousel-caption {
+    padding-top: 0;
+  }
+
+  #carouselTagline .carousel-caption h2 {
+    font-size: 25px;
+  }
+
+  /*
+
+    Portfolio
+
+  */
+
+  .projectHeader h3 {
+    font-size: 14px;
+  }
+  
+  /*
+
+    Contact
+
+  */
+
+  #contact p#contactingMeByEmail {
+    font-size: 25px;
+  }
+}
