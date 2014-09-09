@@ -23,8 +23,8 @@ module.exports = function (grunt) {
 	sitemap: {
 		dist: {
 	        siteRoot: 'dist/',
-			homepage: "http://jstats.me/",
-			pattern: "/*.html"
+			homepage: 'http://jstats.me/',
+			pattern: '/*.html'
 		}
 	},
 
