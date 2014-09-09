@@ -30,8 +30,13 @@
 
 							<span class="hidden-sm hidden-xs">{{project.summary}}</span>
 
-							<div id="{{portfolio.removeCharFromName(project.name)}}" class="panel-collapse collapse in">
+							<div id="{{portfolio.removeCharFromName(project.name)}}" class="panel-collapse collapse">
 								<div class="panel-body">
+									<strong>Responsibility</strong>
+									<ul ng-repeat="responsibilities in project.responsibilities">
+										<li>{{responsibilities}}</li>
+									</ul>
+
 									{{project.description}}
 								</div>
 							</div>
