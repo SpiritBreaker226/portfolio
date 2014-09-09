@@ -17,6 +17,11 @@ angular.module('spiritBreaker226GitHubPageApp')
 		return dateProjectEndDate === '';
 	};// end of hideProjectEndDate())
 
+  	// removes spaces from strProjectName
+  	this.removeCharFromName = function(strProjectName) {
+  		return strProjectName.replace(/ /g, '').replace(/\./g, '').replace(/:/g, '');
+  	};// end of removeCharFromName()
+
 	// calls the file 
 	$http.get('scripts/siteContentProjects.json').success(function(data) {
 		// loads the data into an service for data 

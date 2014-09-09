@@ -20,7 +20,7 @@
 					<div class="thumbnail">
 						<div class="caption">
 							<header class="projectHeader">
-								<a href="javascript:void()"><img ng-src="images/ProjectIcons/{{project.icon}}" alt="{{project.name}}" class="img-circle img-responsive">
+								<a data-toggle="collapse" data-parent="#portfolio" href="#{{portfolio.removeCharFromName(project.name)}}"><img ng-src="images/ProjectIcons/{{project.icon}}" alt="{{project.name}}" class="img-circle img-responsive">
 								<h3>{{project.name}}</h3></a>
 								<span class="hidden-xs">(
 									<time datetime="{{project.projectStartDate}}">{{project.projectStartDate | date: 'MMM yyyy'}}</time> - 
@@ -29,6 +29,12 @@
 							</header>
 
 							<span class="hidden-sm hidden-xs">{{project.summary}}</span>
+
+							<div id="{{portfolio.removeCharFromName(project.name)}}" class="panel-collapse collapse in">
+								<div class="panel-body">
+									{{project.description}}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
