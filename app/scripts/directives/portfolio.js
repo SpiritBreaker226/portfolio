@@ -1,26 +1,35 @@
 'use strict';
 
+var app = angular.module('spiritBreaker226GitHubPageApp');
+
+app.factory('ProjectCommService', function(){
+   var sharedService = {};
+    
+    sharedService.data = {};
+    sharedService.data.index = -1;
+
+    return sharedService;
+});
+
 /**
  * @ngdoc directive
  * @name spiritBreaker226GitHubPageApp.directive:portfolio
  * @description
  * # portfolio
  */
-angular.module('spiritBreaker226GitHubPageApp')
-  .controller('PortfolioCtrl', function($scope, $http){
-  	var portfolio = this;
-
-  	portfolio.projects = [];
+app
+  .controller('PortfolioCtrl', function($scope, $http, ProjectCommService){
+  	$scope.sharedData = ProjectCommService.data;
 
 	// checks if there is an end date for the project
 	$scope.hideProjectEndDate = function (dateProjectEndDate) {
 		return dateProjectEndDate === '';
 	};// end of hideProjectEndDate())
 
-  	// removes spaces from strProjectName
-  	$scope.removeCharFromName = function(strProjectName) {
-  		return strProjectName.replace(/ /g, '').replace(/\./g, '').replace(/:/g, '');
-  	};// end of removeCharFromName()
+  	// sets the current project index
+  	$scope.setProjectIndex = function(intProjectIndex) {
+  		ProjectCommService.data.index = intProjectIndex;
+  	};// end of setProjectIndex()
 
 	// calls the file 
 	$http.get('scripts/siteContentProjects.json').success(function(data) {
@@ -49,18 +58,19 @@ angular.module('spiritBreaker226GitHubPageApp')
  * # project details
   */
  
-angular.module('spiritBreaker226GitHubPageApp')
-  .controller('ProjectDetailsCtrl', function($scope, $http, $routeParams){
-  	var portfolio = this;
-
-  	portfolio.projects = [];
+app
+  .controller('ProjectDetailsCtrl', function($scope, $http, ProjectCommService){
+  	$scope.sharedData = ProjectCommService.data;
 
 	// calls the file 
 	$http.get('scripts/siteContentProjects.json').success(function(data) {
 		// loads the data into an service for data 
 		// if the http gets is able to access the data
 		$scope.projects = data;
-		$scope.itemIndex = $routeParams.itemId;
+	    $scope.$watch('sharedData.index', function(index) {
+			$scope.itemIndex = index;
+	    });
+
 	});
   })
   .directive('portfolioDetails', function () {

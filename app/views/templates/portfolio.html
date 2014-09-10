@@ -23,7 +23,7 @@
 								<div class="thumbnail">
 									<div class="caption">
 										<header class="projectHeader">
-											<a data-toggle="collapse" data-parent="#projectsPanelGroup" href="#projectsDetails">
+											<a data-toggle="collapse" data-parent="#projectsPanelGroup" href="#projectsDetails" ng-click="setProjectIndex(projects.indexOf(project))">
 												<img ng-src="images/ProjectIcons/{{project.icon}}" alt="{{project.name}}" class="img-circle img-responsive">
 												<h3>{{project.name}}</h3>
 											</a>
@@ -34,17 +34,6 @@
 										</header>
 
 										<span class="hidden-sm hidden-xs">{{project.summary}}</span>
-
-										<div id="{{portfolio.removeCharFromName(project.name)}}" class="panel-collapse collapse">
-											<div class="panel-body">
-												<strong>Responsibility</strong>
-												<ul ng-repeat="responsibilities in project.responsibilities">
-													<li>{{responsibilities}}</li>
-												</ul>
-
-												{{project.description}}
-											</div>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -60,6 +49,8 @@
 					<span aria-hidden="true">&times;</span>
 					<span class="sr-only">Close</span>
 				</a>
+
+				<portfolio-details></portfolio-details>
 			</div>
 		</div>
 	</div>
