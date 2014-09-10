@@ -1,0 +1,14 @@
+<section id="portfolioDetails">
+	<div class="panel-body" ng-model="projects">
+		<strong>Project Description</strong>
+		<p>
+			{{projects[itemIndex].summary}}
+		</p>
+		<strong>Responsibility</strong>
+		<ul ng-repeat="responsibilities in projects.responsibilities">
+			<li>{{responsibilities}}</li>
+		</ul>
+
+		{{projects.description}}
+	</div>
+</div>

@@ -41,3 +41,31 @@ angular.module('spiritBreaker226GitHubPageApp')
       controllerAs: 'project'
     };
   });
+
+ /** 
+ * @ngdoc directive
+ * @name spiritBreaker226GitHubPageApp.directive:portfolio
+ * @description
+ * # project details
+  */
+ 
+angular.module('spiritBreaker226GitHubPageApp')
+  .controller('ProjectDetailsCtrl', function($scope, $http, $routeParams){
+  	var portfolio = this;
+
+  	portfolio.projects = [];
+  	
+	// calls the file 
+	$http.get('scripts/siteContentProjects.json').success(function(data) {
+		// loads the data into an service for data 
+		// if the http gets is able to access the data
+		portfolio.projects = data;
+		portfolio.itemIndex = $routeParams.itemId;
+	});
+  })
+  .directive('portfolioDetails', function () {
+    return {
+      templateUrl: 'views/templates/portfolioDetails.html',
+      restrict: 'E'
+    };
+  });
