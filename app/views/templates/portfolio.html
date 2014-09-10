@@ -8,7 +8,7 @@
 							<h1>Feature Projects</h1>	
 						</div>
 						<div class="col-md-6">
-							<select ng-model="portfolio.projectOrder" class="form-control" id="selectSortBy">
+							<select ng-model="projectOrder" class="form-control" id="selectSortBy">
 								<option value="name">Name (A-Z)</option>
 								<option value="-name">Name (Z-A)</option>
 								<option value="-projectType">Type (Open Source First)</option>
@@ -18,7 +18,7 @@
 					</div>
 
 					<div class="row">
-						<div ng-repeat="project in portfolio.projects | orderBy: portfolio.projectOrder">
+						<div ng-repeat="project in projects | orderBy: projectOrder">
 							<div class="col-md-3 col-xs-6">
 								<div class="thumbnail">
 									<div class="caption">
@@ -29,7 +29,7 @@
 											</a>
 											<span class="hidden-xs">(
 												<time datetime="{{project.projectStartDate}}">{{project.projectStartDate | date: 'MMM yyyy'}}</time> - 
-												<time ng-hide="portfolio.hideProjectEndDate({{project.projectEndDate}})" datetime="{{project.projectEndDate}}">{{project.projectEndDate | date: 'MMM yyyy'}}</time>
+												<time ng-hide="hideProjectEndDate({{project.projectEndDate}})" datetime="{{project.projectEndDate}}">{{project.projectEndDate | date: 'MMM yyyy'}}</time>
 											)</span>
 										</header>
 
@@ -60,7 +60,7 @@
 					<span aria-hidden="true">&times;</span>
 					<span class="sr-only">Close</span>
 				</a>
-			</div>	
+			</div>
 		</div>
 	</div>
 </section>

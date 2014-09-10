@@ -13,12 +13,12 @@ angular.module('spiritBreaker226GitHubPageApp')
   	portfolio.projects = [];
 
 	// checks if there is an end date for the project
-	this.hideProjectEndDate = function (dateProjectEndDate) {
+	$scope.hideProjectEndDate = function (dateProjectEndDate) {
 		return dateProjectEndDate === '';
 	};// end of hideProjectEndDate())
 
   	// removes spaces from strProjectName
-  	this.removeCharFromName = function(strProjectName) {
+  	$scope.removeCharFromName = function(strProjectName) {
   		return strProjectName.replace(/ /g, '').replace(/\./g, '').replace(/:/g, '');
   	};// end of removeCharFromName()
 
@@ -26,12 +26,12 @@ angular.module('spiritBreaker226GitHubPageApp')
 	$http.get('scripts/siteContentProjects.json').success(function(data) {
 		// loads the data into an service for data 
 		// if the http gets is able to access the data
-		portfolio.projects = data;
-		portfolio.numberOfProjects = (Math.ceil(portfolio.projects.length / 4) + 1);
+		$scope.projects = data;
+		$scope.numberOfProjects = (Math.ceil($scope.projects.length / 4) + 1);
 
 		// this scope service is for the select element in order for it to do a selction
 		// when the page first loads up
-		portfolio.projectOrder = 'name';
+		$scope.projectOrder = 'name';
 	});
   })
   .directive('portfolio', function () {
@@ -54,13 +54,13 @@ angular.module('spiritBreaker226GitHubPageApp')
   	var portfolio = this;
 
   	portfolio.projects = [];
-  	
+
 	// calls the file 
 	$http.get('scripts/siteContentProjects.json').success(function(data) {
 		// loads the data into an service for data 
 		// if the http gets is able to access the data
-		portfolio.projects = data;
-		portfolio.itemIndex = $routeParams.itemId;
+		$scope.projects = data;
+		$scope.itemIndex = $routeParams.itemId;
 	});
   })
   .directive('portfolioDetails', function () {
