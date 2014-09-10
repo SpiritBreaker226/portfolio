@@ -16,6 +16,4 @@ angular
     'duScroll'
   ])
   .config(function () {
-  })
-  .controller('mainCtrl', function(){
   });
