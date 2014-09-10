@@ -1,52 +1,66 @@
-<section id="portfolio" ng-controller="PortfolioCtrl as portfolio">
-	<div class="container">
-		<div class="row" id="titleAndSorting">
-			<div class="col-md-6">
-				<h1>Feature Projects</h1>	
-			</div>
-			<div class="col-md-6">
-				<select ng-model="portfolio.projectOrder" class="form-control" id="selectSortBy">
-					<option value="name">Name (A-Z)</option>
-					<option value="-name">Name (Z-A)</option>
-					<option value="-projectType">Type (Open Source First)</option>
-					<option value="projectType">Type (Close Source First)</option>
-				</select>
-			</div>
-		</div>
-
-		<div class="row">
-			<div ng-repeat="project in portfolio.projects | orderBy: portfolio.projectOrder">
-				<div class="col-md-3 col-xs-6">
-					<div class="thumbnail">
-						<div class="caption">
-							<header class="projectHeader">
-								<a data-toggle="collapse" data-parent="#portfolio" href="#{{portfolio.removeCharFromName(project.name)}}"><img ng-src="images/ProjectIcons/{{project.icon}}" alt="{{project.name}}" class="img-circle img-responsive">
-								<h3>{{project.name}}</h3></a>
-								<span class="hidden-xs">(
-									<time datetime="{{project.projectStartDate}}">{{project.projectStartDate | date: 'MMM yyyy'}}</time> - 
-									<time ng-hide="portfolio.hideProjectEndDate({{project.projectEndDate}})" datetime="{{project.projectEndDate}}">{{project.projectEndDate | date: 'MMM yyyy'}}</time>
-								)</span>
-							</header>
-
-							<span class="hidden-sm hidden-xs">{{project.summary}}</span>
-
-							<div id="{{portfolio.removeCharFromName(project.name)}}" class="panel-collapse collapse">
-								<div class="panel-body">
-									<strong>Responsibility</strong>
-									<ul ng-repeat="responsibilities in project.responsibilities">
-										<li>{{responsibilities}}</li>
-									</ul>
-
-									{{project.description}}
-								</div>
-							</div>
+<section id="portfolio">
+	<div class="panel-group" id="projectsPanelGroup">
+		<div class="panel panel-default">
+			<div id="projectsList" class="collapse panel-collapse in">
+				<div class="container" ng-controller="PortfolioCtrl as portfolio">
+					<div class="row" id="titleAndSorting">
+						<div class="col-md-6">
+							<h1>Feature Projects</h1>	
+						</div>
+						<div class="col-md-6">
+							<select ng-model="portfolio.projectOrder" class="form-control" id="selectSortBy">
+								<option value="name">Name (A-Z)</option>
+								<option value="-name">Name (Z-A)</option>
+								<option value="-projectType">Type (Open Source First)</option>
+								<option value="projectType">Type (Close Source First)</option>
+							</select>
 						</div>
 					</div>
+
+					<div class="row">
+						<div ng-repeat="project in portfolio.projects | orderBy: portfolio.projectOrder">
+							<div class="col-md-3 col-xs-6">
+								<div class="thumbnail">
+									<div class="caption">
+										<header class="projectHeader">
+											<a data-toggle="collapse" data-parent="#projectsPanelGroup" href="#projectsDetails">
+												<img ng-src="images/ProjectIcons/{{project.icon}}" alt="{{project.name}}" class="img-circle img-responsive">
+												<h3>{{project.name}}</h3>
+											</a>
+											<span class="hidden-xs">(
+												<time datetime="{{project.projectStartDate}}">{{project.projectStartDate | date: 'MMM yyyy'}}</time> - 
+												<time ng-hide="portfolio.hideProjectEndDate({{project.projectEndDate}})" datetime="{{project.projectEndDate}}">{{project.projectEndDate | date: 'MMM yyyy'}}</time>
+											)</span>
+										</header>
+
+										<span class="hidden-sm hidden-xs">{{project.summary}}</span>
+
+										<div id="{{portfolio.removeCharFromName(project.name)}}" class="panel-collapse collapse">
+											<div class="panel-body">
+												<strong>Responsibility</strong>
+												<ul ng-repeat="responsibilities in project.responsibilities">
+													<li>{{responsibilities}}</li>
+												</ul>
+
+												{{project.description}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+			 
+							<div ng-class="($index % 2) === 1 ? 'visible-sm visible-xs clearfix' : ''"></div>
+							<div ng-class="($index % 4) === 3 ? 'clearfix' : ''"></div>
+						</div> 
+					</div>
 				</div>
- 
-				<div ng-class="($index % 2) === 1 ? 'visible-sm visible-xs clearfix' : ''"></div>
-				<div ng-class="($index % 4) === 3 ? 'clearfix' : ''"></div>
-			</div> 
+			</div>
+			<div id="projectsDetails" class="collapse panel-collapse">
+				<a data-toggle="collapse" data-parent="#projectsPanelGroup" href="#projectsList">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">Close</span>
+				</a>
+			</div>	
 		</div>
 	</div>
 </section>
