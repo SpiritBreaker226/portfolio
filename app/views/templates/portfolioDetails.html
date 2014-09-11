@@ -20,14 +20,15 @@
 				<ul ng-repeat="responsibilities in projects[itemIndex].responsibilities">
 					<li>{{responsibilities}}</li>
 				</ul>
+				<p>
+					<a class="btn btn-danger btn-lg" href="{{projects[itemIndex].projectURL}}" target="_blank" ng-show="showProjectURL(projects[itemIndex].projectURL);">
+						View Site
+					</a>
 
-				<a class="btn btn-danger btn-lg" href="{{projects[itemIndex].projectURL}}" target="_blank" ng-show="showProjectURL(projects[itemIndex].projectURL);">
-					View Site
-				</a>
-
-				<a class="btn btn-danger btn-lg" href="{{projects[itemIndex].sampleCode}}" target="_blank" ng-show="showProjectURL(projects[itemIndex].sampleCode);">
-					View Source Code
-				</a>
+					<a class="btn btn-danger btn-lg" href="{{projects[itemIndex].sampleCode}}" target="_blank" ng-show="showProjectURL(projects[itemIndex].sampleCode);">
+						View Source Code
+					</a>
+				</p>
 			</article>
 			<aside class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-8">
 				<dl>
