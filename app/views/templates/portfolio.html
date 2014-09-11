@@ -1,6 +1,6 @@
 <section id="portfolio">
 	<div class="panel-group" id="projectsPanelGroup">
-		<div class="panel panel-default">
+		<div class="panel">
 			<div id="projectsList" class="collapse panel-collapse in">
 				<div class="container" ng-controller="PortfolioCtrl as portfolio">
 					<div class="row" id="titleAndSorting">
@@ -45,11 +45,6 @@
 				</div>
 			</div>
 			<div id="projectsDetails" class="collapse panel-collapse">
-				<a data-toggle="collapse" data-parent="#projectsPanelGroup" href="#projectsList">
-					<span aria-hidden="true">&times;</span>
-					<span class="sr-only">Close</span>
-				</a>
-
 				<portfolio-details></portfolio-details>
 			</div>
 		</div>

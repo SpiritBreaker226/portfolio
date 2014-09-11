@@ -32,11 +32,11 @@ body {
   padding: 70px 0 0;
 }
 
-a {
+a, .close {
   color: #aa0f13;
 }
 
-a:hover, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus  {
+a:hover, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .close:hover  {
   color: #7e0f13;
 }
 
@@ -222,13 +222,16 @@ blockquote:before {
   margin-bottom: 25px;
 }
 
-#portfolio img {
-  border: 1px solid #939ca4;
-  margin: 0 auto;
-}
-
 #portfolio .thumbnail {
   border: 0;
+}
+
+#portfolio img {
+  border: 1px solid #939ca4;
+}
+
+#projectsList img {
+  margin: 0 auto;
 }
 
 #selectSortBy {
@@ -242,6 +245,17 @@ blockquote:before {
 .projectHeader {
   text-align: center;
   margin-bottom: 15px; 
+}
+
+/*
+
+  Portfolio Detials
+
+ */
+
+
+#closeProjectDetails {
+  margin-top: 14px;
 }
 
 /*

@@ -2,14 +2,16 @@
 
 var app = angular.module('spiritBreaker226GitHubPageApp');
 
+// creates a service that will communcationed between controllers
 app.factory('ProjectCommService', function(){
-   var sharedService = {};
+   var sharedService = {};// holds the data that is being shared
     
+    // sets the default of the database
     sharedService.data = {};
     sharedService.data.index = -1;
 
     return sharedService;
-});
+});// end of ProjectCommService Service
 
 /**
  * @ngdoc directive
@@ -18,7 +20,8 @@ app.factory('ProjectCommService', function(){
  * # portfolio
  */
 app
-  .controller('PortfolioCtrl', function($scope, $http, ProjectCommService){
+  .controller('PortfolioCtrl', function($scope, $document, $http, ProjectCommService){
+  	// sets the sharing of the communcation service for this controller
   	$scope.sharedData = ProjectCommService.data;
 
 	// checks if there is an end date for the project
@@ -28,7 +31,12 @@ app
 
   	// sets the current project index
   	$scope.setProjectIndex = function(intProjectIndex) {
+  		// sets the selected index the user has selcted to the serivce to communcated between 
+  		// controllers
   		ProjectCommService.data.index = intProjectIndex;
+
+  		// scrolls to the top of the portfolio in order for the user to see the details clearly
+  		$document.scrollToElement(angular.element(document.getElementById('portfolio')), 70);
   	};// end of setProjectIndex()
 
 	// calls the file 
@@ -60,6 +68,7 @@ app
  
 app
   .controller('ProjectDetailsCtrl', function($scope, $http, ProjectCommService){
+  	// sets the sharing of the communcation service for this controller
   	$scope.sharedData = ProjectCommService.data;
 
 	// calls the file 
@@ -67,6 +76,8 @@ app
 		// loads the data into an service for data 
 		// if the http gets is able to access the data
 		$scope.projects = data;
+
+		// sets the index that has been set in PortfolioCtrl
 	    $scope.$watch('sharedData.index', function(index) {
 			$scope.itemIndex = index;
 	    });
