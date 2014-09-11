@@ -40,6 +40,14 @@ a:hover, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focu
   color: #7e0f13;
 }
 
+.btn-danger {
+  background-color: #aa0f13;
+}
+
+.btn-danger:hover  {
+  background-color: #7e0f13;
+}
+
 h1, .jumbotron h1 {
   color: #aa0f13;
 }

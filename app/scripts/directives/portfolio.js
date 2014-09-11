@@ -71,6 +71,16 @@ app
   	// sets the sharing of the communcation service for this controller
   	$scope.sharedData = ProjectCommService.data;
 
+  	// checks if there is a URL for this project
+  	$scope.showProjectURL = function (strProjectURL) {
+		return strProjectURL !== '';
+	};// end of hideProjectTeamSize())
+
+  	// checks if there is team size is lesser 
+	$scope.hideProjectTeamSize = function (intTeamSize) {
+		return intTeamSize > 1;
+	};// end of hideProjectTeamSize())
+
 	// calls the file 
 	$http.get('scripts/siteContentProjects.json').success(function(data) {
 		// loads the data into an service for data 

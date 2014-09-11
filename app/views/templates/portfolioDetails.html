@@ -20,16 +20,24 @@
 				<ul ng-repeat="responsibilities in projects[itemIndex].responsibilities">
 					<li>{{responsibilities}}</li>
 				</ul>
+
+				<a class="btn btn-danger btn-lg" href="{{projects[itemIndex].projectURL}}" target="_blank" ng-show="showProjectURL(projects[itemIndex].projectURL);">
+					View Site
+				</a>
+
+				<a class="btn btn-danger btn-lg" href="{{projects[itemIndex].sampleCode}}" target="_blank" ng-show="showProjectURL(projects[itemIndex].sampleCode);">
+					View Source Code
+				</a>
 			</article>
 			<aside class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-8">
 				<dl>
 					<dt>Project Date</dt>
 						<dd>
 							<time datetime="{{projects[itemIndex].projectStartDate}}">{{projects[itemIndex].projectStartDate | date: 'MMM yyyy'}}</time> - 
-							<time ng-hide="hideProjectEndDate({{projects[itemIndex].projectEndDate}})" datetime="{{projects[itemIndex].projectEndDate}}">{{projects[itemIndex].projectEndDate | date: 'MMM yyyy'}}</time>
+							<time datetime="{{projects[itemIndex].projectEndDate}}">{{projects[itemIndex].projectEndDate | date: 'MMM yyyy'}}</time>
 						</dd>
-					<dt>Team Size</dt>
-						<dd>{{projects[itemIndex].TeamSize}}</dd>
+					<dt ng-show="hideProjectTeamSize(projects[itemIndex].TeamSize)">Team Size</dt>
+						<dd ng-show="hideProjectTeamSize(projects[itemIndex].TeamSize)">{{projects[itemIndex].TeamSize}}</dd>
 					<dt>Platforms</dt>
 						<dd>{{projects[itemIndex].Platforms}}</dd>
 					<dt>Environment</dt>
