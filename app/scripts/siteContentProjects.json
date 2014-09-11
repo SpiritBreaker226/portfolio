@@ -8,7 +8,7 @@
 		"tags": "Objective-C, iOS",
 		"feature": "featureASChess.png",
 		"icon": "iconASChess.png",
-		"sampleCode": "",
+		"sampleCode": "https://github.com/SpiritBreaker226/asimplechessgame",
 		"TeamSize": 1,
 		"Platforms": "iOS",
 		"projectType": "Open",
@@ -31,7 +31,7 @@
 		"TeamSize": 2,
 		"Platforms": "Web",
 		"projectType": "Close",
-		"projectURL": "ett.ca",
+		"projectURL": "http://ett.ca",
 		"projectStartDate": "2012-07-16",
 		"projectEndDate": "2013-12-16"
 	},
@@ -89,7 +89,7 @@
 		"TeamSize": 4,
 		"Platforms": "Web",
 		"projectType": "Close",
-		"projectURL": "ontarioliberal.ca",
+		"projectURL": "http://ontarioliberal.ca",
 		"projectStartDate": "2010-08-04",
 		"projectEndDate": "2011-09-04"
 	},
@@ -111,7 +111,7 @@
 		"TeamSize": 5,
 		"Platforms": "Web",
 		"projectType": "Close",
-		"projectURL": "theObituaries.ca",
+		"projectURL": "http://theobituaries.ca",
 		"projectStartDate": "2013-02-12",
 		"projectEndDate": "2013-09-16"
 	},
@@ -151,7 +151,7 @@
 		"TeamSize": 7,
 		"Platforms": "Web",
 		"projectType": "Close",
-		"projectURL": "fRed.ca",
+		"projectURL": "http://fred.ca",
 		"projectStartDate": "2010-10-12",
 		"projectEndDate": "2012-03-22"
 	},
@@ -171,7 +171,7 @@
 		"TeamSize": 3,
 		"Platforms": "Web",
 		"projectType": "Close",
-		"projectURL": "benjaminsparkmemorialchapel.ca",
+		"projectURL": "http://benjaminsparkmemorialchapel.ca",
 		"projectStartDate": "2007-09-10",
 		"projectEndDate": "2014-08-18"
 	},
@@ -224,13 +224,13 @@
 				"Constructed News and Event sections to bring in news and events from an admin site to allow the administrators to add or remove news or events from the app."
 			],
 		"tags": "C#, Javascript, jQuery, CSS3, HTML5, SQL Server, Phonegap",
-		"feature": "",
+		"feature": "featureCityVaughan.png",
 		"icon": "iconCityVaughan.png",
 		"sampleCode": "",
 		"TeamSize": 2,
 		"Platforms": "iOS & Android",
 		"projectType": "Close",
-		"projectURL": "itunes.apple.com/us/app/city-of-vaughan/id896731406",
+		"projectURL": "http://itunes.apple.com/us/app/city-of-vaughan/id896731406",
 		"projectStartDate": "2014-04-04",
 		"projectEndDate": "2014-08-30"
 	}
