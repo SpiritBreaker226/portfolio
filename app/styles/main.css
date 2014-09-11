@@ -40,6 +40,10 @@ a:hover, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focu
   color: #7e0f13;
 }
 
+.close, .close:hover {
+  opacity: 1;
+}
+
 .btn-danger {
   background-color: #aa0f13;
 }
