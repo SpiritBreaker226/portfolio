@@ -39,6 +39,12 @@ app
   		$document.scrollToElement(angular.element(document.getElementById('portfolio')), 70);
   	};// end of setProjectIndex()
 
+
+  // sort banner randomlly
+  $scope.randomSort = function () {
+    return Math.random();
+  };// end of randomSort()
+
 	// calls the file 
 	$http.get('scripts/siteContentProjects.json').success(function(data) {
 		// loads the data into an service for data 
