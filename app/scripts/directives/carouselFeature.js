@@ -7,7 +7,7 @@
  * # caruselFeature
  */
 angular.module('spiritBreaker226GitHubPageApp')
-  .controller('caruselFeatureCtrl', function($scope, $document, ProjectCommService, ProjectPortfolioHttpService) {
+  .controller('caruselFeatureCtrl', function($scope, $document, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails) {
   	// sets the sharing of the communcation service for this controller
   	$scope.sharedData = ProjectCommService.data;
 
@@ -29,6 +29,9 @@ angular.module('spiritBreaker226GitHubPageApp')
 
       // scrolls to the top of the portfolio in order for the user to see the details clearly
       $document.scrollToElement(angular.element(document.getElementById('portfolio')), 70);
+
+      // display the project details
+      doDisplayPortfolioDetails(true);
     };// end of setProjectIndex()
 
     // gets the need banenrs to display to the user

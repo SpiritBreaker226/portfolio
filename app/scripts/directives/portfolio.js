@@ -9,7 +9,7 @@ var app = angular.module('spiritBreaker226GitHubPageApp');
  * # portfolio
  */
 app
-  .controller('PortfolioCtrl', function($scope, $document, ProjectCommService, ProjectPortfolioHttpService){
+  .controller('PortfolioCtrl', function($scope, $document, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails){
   	// sets the sharing of the communcation service for this controller
   	$scope.sharedData = ProjectCommService.data;
     
@@ -37,6 +37,9 @@ app
 
   		// scrolls to the top of the portfolio in order for the user to see the details clearly
   		$document.scrollToElement(angular.element(document.getElementById('portfolio')), 70);
+
+      // display the project details
+      doDisplayPortfolioDetails(true);
   	};// end of setProjectIndex()
   })
   .directive('portfolio', function () {
@@ -55,7 +58,7 @@ app
   */
  
 app
-  .controller('ProjectDetailsCtrl', function($scope, ProjectCommService, ProjectPortfolioHttpService){
+  .controller('ProjectDetailsCtrl', function($scope, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails) {
   	// sets the sharing of the communcation service for this controller
   	$scope.sharedData = ProjectCommService.data;
 
@@ -80,6 +83,12 @@ app
   	$scope.hideProjectTeamSize = function (intTeamSize) {
   		return intTeamSize > 1;
   	};// end of hideProjectTeamSize())
+
+    // sets the closing of the project details
+    $scope.setProjectDetailsClose = function() {
+      // display the project details
+      doDisplayPortfolioDetails(false);
+    };// end of setProjectIndex()
   })
   .directive('portfolioDetails', function () {
     return {

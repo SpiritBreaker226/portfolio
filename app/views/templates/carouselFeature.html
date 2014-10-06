@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="item" ng-repeat="project in bannerProjects track by $index">
-				<a data-toggle="collapse" data-parent="#projectsPanelGroup" href="#projectsDetails" ng-click="setProjectIndex(projects.indexOf(project))">
+				<a data-parent="#projectsPanelGroup" href="#projectsDetails" ng-click="setProjectIndex(projects.indexOf(project))">
 					<img ng-src="../images/Banners/{{project.feature}}" alt="{{project.name}} Banner">
 				</a>
 			</div>
