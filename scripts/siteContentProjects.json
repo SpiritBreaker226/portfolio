@@ -6,7 +6,7 @@
 				"Everything"
 			],
 		"tags": "Objective-C, iOS",
-		"feature": "featureASChess.png",
+		"feature": "featureASChess.jpg",
 		"icon": "iconASChess.png",
 		"sampleCode": "https://github.com/SpiritBreaker226/asimplechessgame",
 		"TeamSize": 1,
@@ -17,7 +17,7 @@
 		"projectEndDate": ""
 	},
 	{
-		"name": "Elementary Teacher of Toronto",
+		"name": "Elementary Teachers of Toronto",
 		"summary": "Worked with a partner company (design vendor) to develop the frontend of the site using WordPress as the backbone, which supported the integration with their current organizational structure.",
 		"responsibilities": [
 			"Lead Developer on the project",
@@ -25,7 +25,7 @@
 			"Developed a different type of post, such as an event post which would have a different layout than that of a news post, where both needed to be displayed on the homepage. Add in code that would use the same data and layout but would detect if there was a file for different post type.  If so, then the function would send the data over to that file and use it instead."
 			],
 		"tags": "Wordpress, PHP, mySQL, Javascript, CSS, HTML",
-		"feature": "featureETT.png",
+		"feature": "featureETT.jpg",
 		"icon": "iconETT.png",
 		"sampleCode": "",
 		"TeamSize": 2,
@@ -45,7 +45,7 @@
 				"Created a connection to WordPress to DotNetNuke a C# CMS to display blogs from WordPress."
 			],
 		"tags": "C#, Javascript, jQuery, CSS3, HTML5, SQL Server, Phonegap",
-		"feature": "featureOxford.png",
+		"feature": "featureOxford.jpg",
 		"icon": "iconOxford.png",
 		"sampleCode": "",
 		"TeamSize": 2,
@@ -64,7 +64,7 @@
 				"The process of finding the patient and drugs was time consuming by creating an instant search for patients and drugs this cuts the process time in half and allows the doctors to quickly prescribe prescriptions to their patients more quickly."
 			],
 		"tags": "C#, Javascript, jQuery, CSS3, HTML5, SQL Server, Phonegap",
-		"feature": "featureGeriatRx.png",
+		"feature": "featureGeriatRx.jpg",
 		"icon": "iconGeriatRx.png",
 		"sampleCode": "",
 		"TeamSize": 2,
@@ -83,7 +83,7 @@
 				"Created a function to read a non-web standard from their non-standard XML stream and converted it over to be read onto the website. This resulted in internal data being displayed on their website, meaning less administration on the website."
 			],
 		"tags": "C#, Javascript, CSS, HTML, SQL Server, DotNetNuke, XML",
-		"feature": "featureOLP.png",
+		"feature": "featureOLP.jpg",
 		"icon": "iconOLP.png",
 		"sampleCode": "",
 		"TeamSize": 4,
@@ -105,7 +105,7 @@
 				"The game also needed to be bilingual. Added in a JSON file with all of the text for the game in both English and French, which allows the game not only to be in two languages but allows for further expansion into other languages, if necessary."
 			],
 		"tags": "C#, Javascript, jQuery, CSS3, HTML5, SQL Server, DotNetNuke, PHP, mySQL, WordPress",
-		"feature": "featureObituaries.png",
+		"feature": "featureObituaries.jpg",
 		"icon": "iconObituaries.png",
 		"sampleCode": "",
 		"TeamSize": 5,
@@ -126,7 +126,7 @@
 				"Performed application troubleshooting and developed comprehensive reporting."
 			],
 		"tags": "C#, Javascript, CSS, HTML, SQL Server, XML",
-		"feature": "featureChatr.png",
+		"feature": "featureChatr.jpg",
 		"icon": "iconChatr.png",
 		"sampleCode": "",
 		"TeamSize": 2,
@@ -145,7 +145,7 @@
 				"Created a points system to allow the users on the site to do some activities in order to collect points. For example, a user could refer a friend and receive 8 points."
 			],
 		"tags": "C#, Javascript, CSS3, HTML5, SQL Server",
-		"feature": "featureFred.png",
+		"feature": "featureFred.jpg",
 		"icon": "iconFred.png",
 		"sampleCode": "",
 		"TeamSize": 7,
@@ -165,7 +165,7 @@
 				"Generated the displays of Jewish Holiday messages in the eBlast and website, as required."
 			],
 		"tags": "C#, Javascript, CSS3, HTML5, SQL Server, Coldfusion",
-		"feature": "featureBenjamin.png",
+		"feature": "featureBenjamin.jpg",
 		"icon": "iconBenjamin.png",
 		"sampleCode": "",
 		"TeamSize": 3,
@@ -184,7 +184,7 @@
 				"Tied in the existing online ordering system which uses Java and ColdFusion, with the app which uses C#. By calling the page that is already being used for the online ordering, we were able to add in the items in the cart from the app, into the existing ordering system which resulted in having a unified ordering system."
 			],
 		"tags": "C#, Javascript, jQuery, CSS3, HTML5, SQL Server, Phonegap",
-		"feature": "featureNorthcott.png",
+		"feature": "featureNorthcott.jpg",
 		"icon": "iconNorthcott.png",
 		"sampleCode": "",
 		"TeamSize": 2,
@@ -204,7 +204,7 @@
 				"Reverse engineered in order to automatically add in new representatives newsletter and newsletter list in the blog because each representative has an email sent out every time a new post is added to their blog."
 			],
 		"tags": "#, Javascript, jQuery, CSS3, HTML5, SQL Server, DotNetNuke, PHP, mySQL, WordPress",
-		"feature": "featureJH.png",
+		"feature": "featureJH.jpg",
 		"icon": "iconJH.png",
 		"sampleCode": "",
 		"TeamSize": 5,
@@ -224,7 +224,7 @@
 				"Constructed News and Event sections to bring in news and events from an admin site to allow the administrators to add or remove news or events from the app."
 			],
 		"tags": "C#, Javascript, jQuery, CSS3, HTML5, SQL Server, Phonegap",
-		"feature": "featureCityVaughan.png",
+		"feature": "featureCityVaughan.jpg",
 		"icon": "iconCityVaughan.png",
 		"sampleCode": "",
 		"TeamSize": 2,
