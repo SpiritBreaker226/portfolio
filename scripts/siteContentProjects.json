@@ -160,9 +160,8 @@
 		"summary": "This is a popular Jewish funeral home website which is managed by our team.",
 		"responsibilities": [
 				"Assisted in developing the website",
-				"Fixed content and updates to the site regarding current services, Shiva and unveilings.",
-				"Rejuvenated the eBlast which goes out to users on the website twice each day.",
-				"Generated the displays of Jewish Holiday messages in the eBlast and website, as required."
+				"Client wanted to have a newsletter detailing which services were going on at the chapel in the next 7 days. Reinstated and maintained the newsletter. Resulting in having over 1000 subscribers receiving this newsletter twice a day.",
+				"On most Jewish Holidays, there is a message that needs to go up to website and newsletter, at different points during that holiday. Created a function using Test Driven Development to display a holiday message for a given time on both the website and newsletter. Resulting in less work in maintaining the website and newsletter during those days."
 			],
 		"tags": "C#, Javascript, CSS3, HTML5, SQL Server, Coldfusion",
 		"feature": "featureBenjamin.jpg",
