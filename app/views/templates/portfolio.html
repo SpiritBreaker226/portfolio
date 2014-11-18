@@ -1,4 +1,4 @@
-<section id="portfolio">
+<section id="portfolio" du-scroll-container>
 	<div class="panel-group" id="projectsPanelGroup">
 		<div class="panel">
 			<div id="projectsList" class="collapse panel-collapse in">
@@ -20,8 +20,8 @@
 							<div class="col-md-3 col-xs-6">
 								<div class="thumbnail">
 									<div class="caption">
-										<header class="projectHeader">
-											<a data-parent="#projectsPanelGroup" href="#projectsDetails" ng-click="setProjectIndex(projects.indexOf(project))">
+										<header class="projectHeader" du-scrollspy="portfolio" offset="70">
+											<a data-parent="#projectsPanelGroup" href="#projectsDetails" du-smooth-scroll offset="70" ng-click="setProjectIndex(projects.indexOf(project))">
 												<img ng-src="images/ProjectIcons/{{project.icon}}" alt="{{project.name}}" class="img-circle img-responsive">
 												<h3>{{project.name}}</h3>
 											</a>
