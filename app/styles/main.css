@@ -256,14 +256,28 @@ blockquote:before {
 
 .projectHeader {
   text-align: center;
-  margin-bottom: 15px; 
+  margin-bottom: 15px;
+  height: 250px;
+}
+
+.projectSummary {
+  height: 150px;
+}
+
+.projectFooter {
+  text-align: center;
+  margin-top: 15px; 
+}
+
+.projectFooter .btn-lg {
+  white-space: normal;
 }
 
 /*
 
   Portfolio Detials
 
- */
+*/
 
 
 #closeProjectDetails {
@@ -364,9 +378,17 @@ blockquote:before {
   #carouselTagline .carousel-caption h2 {
     font-size: 75px;
   }
+
+  /*
+
+    Portfolio
+
+  */
+
+
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   /*
 
     Banner
@@ -386,6 +408,10 @@ blockquote:before {
     Portfolio
 
   */
+ 
+  .projectHeader {
+    height: 200px;
+  }
 
   .projectHeader h3 {
     font-size: 20px;
@@ -416,6 +442,16 @@ blockquote:before {
   #carouselTagline .carousel-caption h2 {
     font-size: 30px;
   }
+
+  /*
+
+    Portfolio
+
+  */
+ 
+  .projectHeader {
+    height: 225px;
+  }
 }
 
 @media (max-width: 360px) {
@@ -438,7 +474,16 @@ blockquote:before {
     Portfolio
 
   */
+ 
+  .projectFooter .btn-lg {
+    font-size: 12px;
+    padding: 5px 16px;
+  }
 
+  .projectHeader {
+    height: 175px;
+  }
+ 
   .projectHeader h3 {
     font-size: 14px;
   }
