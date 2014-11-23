@@ -311,7 +311,8 @@ blockquote:before {
   font-size: 25px;
 }
 
-#contact p#contactingMeByEmail {
+#contact #contactingMeByEmail {
+  text-align: center;
   font-size: 40px;
   margin: 50px 0;
 }
@@ -423,7 +424,7 @@ blockquote:before {
 
   */
 
-  #contact p#contactingMeByEmail {
+  #contact #contactingMeByEmail {
     font-size: 30px;
   }
 }
@@ -494,7 +495,7 @@ blockquote:before {
 
   */
 
-  #contact p#contactingMeByEmail {
+  #contact #contactingMeByEmail {
     font-size: 25px;
   }
 }
