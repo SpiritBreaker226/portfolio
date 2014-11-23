@@ -30,8 +30,8 @@
 												<time ng-hide="hideProjectEndDate(project.projectEndDate)" datetime="{{project.projectEndDate}}">{{project.projectEndDate | date: 'MMM yyyy'}}</time>
 											)</span>
 										</header>
-
-										<span class="hidden-sm hidden-xs">{{project.summary}}</span>
+										
+										<span class="hidden-sm hidden-xs">{{displayProjectSummary(project.summary)}}</span>
 									</div>
 								</div>
 							</div>

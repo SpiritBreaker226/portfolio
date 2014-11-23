@@ -10,17 +10,17 @@ var app = angular.module('spiritBreaker226GitHubPageApp');
  */
 app
   .controller('PortfolioCtrl', function($scope, $document, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails){
-  	// sets the sharing of the communcation service for this controller
+  	// sets the sharing of the communication service for this controller
   	$scope.sharedData = ProjectCommService.data;
     
     // gets the data from the JSON
     ProjectPortfolioHttpService.success(function(data) {
       // loads the data into an service for data 
-      // if the http gets is able to access the data
+      // if the HTTP gets is able to access the data
       $scope.projects = data;
     });
 
-    // this scope service is for the select element in order for it to do a selction
+    // this scope service is for the select element in order for it to do a selection
     // when the page first loads up
     $scope.projectOrder = 'name';
 
@@ -29,9 +29,22 @@ app
   		return dateProjectEndDate === '';
   	};// end of hideProjectEndDate())
 
+    // displays the project summary were only the first sentience is display or 140 characters if no period is found
+    $scope.displayProjectSummary = function(strProjectDesc) {
+      var intPeriodLocationOfFirstSentence = strProjectDesc.indexOf('.');
+
+      // checks if there is a period found 
+      if(intPeriodLocationOfFirstSentence > 0) {
+        return strProjectDesc.substr(0,(intPeriodLocationOfFirstSentence + 1));
+      }// end of if
+      else {
+        return strProjectDesc.substr(0,140);
+      }// end of else
+    };// end of displayProjectSummary()
+
   	// sets the current project index
   	$scope.setProjectIndex = function(intProjectIndex) {
-  		// sets the selected index the user has selcted to the serivce to communcated between 
+  		// sets the selected index the user has selected to the service to communicated between 
   		// controllers
   		ProjectCommService.data.index = intProjectIndex;
 
@@ -59,13 +72,13 @@ app
  
 app
   .controller('ProjectDetailsCtrl', function($scope, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails) {
-  	// sets the sharing of the communcation service for this controller
+  	// sets the sharing of the communication service for this controller
   	$scope.sharedData = ProjectCommService.data;
 
     // gets the data from the JSON
     ProjectPortfolioHttpService.success(function(data) {
       // loads the data into an service for data 
-      // if the http gets is able to access the data
+      // if the HTTP gets is able to access the data
       $scope.projects = data;
     });
 
