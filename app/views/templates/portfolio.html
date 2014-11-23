@@ -30,8 +30,15 @@
 												<time ng-hide="hideProjectEndDate(project.projectEndDate)" datetime="{{project.projectEndDate}}">{{project.projectEndDate | date: 'MMM yyyy'}}</time>
 											)</span>
 										</header>
-										
-										<span class="hidden-sm hidden-xs">{{displayProjectSummary(project.summary)}}</span>
+										<div class="projectSummary hidden-sm hidden-xs">
+											{{displayProjectSummary(project.summary)}}
+										</div>
+
+										<footer class="projectFooter" ng-show="showProjectURL(project.sampleCode);">
+											<a class="btn btn-danger btn-lg" href="{{project.sampleCode}}" target="_blank">
+												View Source Code
+											</a>
+										</footer>
 									</div>
 								</div>
 							</div>

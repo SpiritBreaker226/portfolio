@@ -9,7 +9,7 @@ var app = angular.module('spiritBreaker226GitHubPageApp');
  * # portfolio
  */
 app
-  .controller('PortfolioCtrl', function($scope, $document, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails){
+  .controller('PortfolioCtrl', function($scope, $document, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails, projectShowURL){
   	// sets the sharing of the communication service for this controller
   	$scope.sharedData = ProjectCommService.data;
     
@@ -24,11 +24,6 @@ app
     // when the page first loads up
     $scope.projectOrder = 'name';
 
-  	// checks if there is an end date for the project
-  	$scope.hideProjectEndDate = function (dateProjectEndDate) {
-  		return dateProjectEndDate === '';
-  	};// end of hideProjectEndDate())
-
     // displays the project summary were only the first sentience is display or 140 characters if no period is found
     $scope.displayProjectSummary = function(strProjectDesc) {
       var intPeriodLocationOfFirstSentence = strProjectDesc.indexOf('.');
@@ -42,6 +37,11 @@ app
       }// end of else
     };// end of displayProjectSummary()
 
+  	// checks if there is an end date for the project
+  	$scope.hideProjectEndDate = function (dateProjectEndDate) {
+  		return dateProjectEndDate === '';
+  	};// end of hideProjectEndDate())
+
   	// sets the current project index
   	$scope.setProjectIndex = function(intProjectIndex) {
   		// sets the selected index the user has selected to the service to communicated between 
@@ -54,6 +54,11 @@ app
       // display the project details
       doDisplayPortfolioDetails(true);
   	};// end of setProjectIndex()
+
+    // checks if there is a URL for this project
+    $scope.showProjectURL = function(strProjectURL) {
+      return projectShowURL(strProjectURL);
+    };// end of showProjectURL()
   })
   .directive('portfolio', function () {
     return {
@@ -71,7 +76,7 @@ app
   */
  
 app
-  .controller('ProjectDetailsCtrl', function($scope, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails) {
+  .controller('ProjectDetailsCtrl', function($scope, ProjectCommService, ProjectPortfolioHttpService, doDisplayPortfolioDetails, projectShowURL) {
   	// sets the sharing of the communication service for this controller
   	$scope.sharedData = ProjectCommService.data;
 
@@ -87,11 +92,6 @@ app
       $scope.itemIndex = index;
     });
 
-  	// checks if there is a URL for this project
-  	$scope.showProjectURL = function (strProjectURL) {
-		  return strProjectURL !== '';
-	  };// end of hideProjectTeamSize())
-
   	// checks if there is team size is lesser 
   	$scope.hideProjectTeamSize = function (intTeamSize) {
   		return intTeamSize > 1;
@@ -102,6 +102,11 @@ app
       // display the project details
       doDisplayPortfolioDetails(false);
     };// end of setProjectIndex()
+
+    // checks if there is a URL for this project
+    $scope.showProjectURL = function(strProjectURL) {
+      return projectShowURL(strProjectURL);
+    };// end of showProjectURL()
   })
   .directive('portfolioDetails', function () {
     return {

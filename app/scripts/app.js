@@ -43,6 +43,13 @@ app.factory('ProjectPortfolioHttpService', function($http) {
   return $http.get('scripts/siteContentProjects.json', { cache: true });
 });// end of ProjectPortfolioHttpService Service
 
+// checks if there is a URL for this project
+app.factory('projectShowURL', function() {
+	return function (strProjectURL) {
+		return strProjectURL !== '';
+	};// end of projectShowURL()
+});// end of projectShowURL Service
+
 /**
  * @ngdoc overview
  * @name spiritBreaker226GitHubPageApp
