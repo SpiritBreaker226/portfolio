@@ -138,7 +138,7 @@
 	},
 	{
 		"name": "fRed.ca",
-		"summary": "Custom social media network was developed for Ontario Liberal Party (fred.ca), where party members can join a certain group and message each other through an internal messaging system.",
+		"summary": "Custom social media network was developed for Ontario Liberal Party, where party members can join a certain group and message each other through an internal messaging system.",
 		"responsibilities": [
 				"Added group mechanism to allow users to communicate with each other.",
 				"Developed event management system which allows OLP to solicit registrations from members and integrate with OLP internal payment engine.",
