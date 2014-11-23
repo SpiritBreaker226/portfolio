@@ -1,7 +1,7 @@
 [
 	{
 		"name": "A Simple Chess Game",
-		"summary": "A simple chess game created for iOS devices",
+		"summary": "This is a chess game for iPhone devices that supports 2 player gameplay, in order to play against your friend.",
 		"responsibilities": [
 				"Everything"
 			],
@@ -116,7 +116,7 @@
 		"projectEndDate": "2013-09-16"
 	},
 	{
-		"name": "Chatr",
+		"name": "Chatr Wireless",
 		"summary": "Coordinated the execution of a full-cycle online/mobile contest on a short deadline and restricted budget for Rogers Chatr Wireless customers. The online portion of the contest allowed Rogers Chatr wireless customers to enter a valid Chatr phone number to participate in the contest and possibly win prizes. They would receive text messages if they won a prize or receive a number to enter into the web site.",
 		"responsibilities": [
 				"Lead developer of the project when the contest launched and maintained the site and reports while the contest was going on.",
@@ -138,7 +138,7 @@
 	},
 	{
 		"name": "fRed.ca",
-		"summary": "Custom social media network was developed for Ontario Liberal Party (fred.ca), where party members can join a certain group and message each other through an internal messaging system.",
+		"summary": "Custom social media network was developed for Ontario Liberal Party, where party members can join a certain group and message each other through an internal messaging system.",
 		"responsibilities": [
 				"Added group mechanism to allow users to communicate with each other.",
 				"Developed event management system which allows OLP to solicit registrations from members and integrate with OLP internal payment engine.",
