@@ -247,11 +247,10 @@ blockquote:before {
 }
 
 #selectSortBy {
-  margin-top: 25px;
 }
 
-#titleAndSorting {
-  margin-bottom: 20px;
+#searchAndSorting {
+  margin: 20px 0;
 }
 
 .projectHeader {
@@ -386,7 +385,9 @@ blockquote:before {
 
   */
 
-
+  #searchHolder {
+    margin-bottom: 8px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -409,6 +410,10 @@ blockquote:before {
     Portfolio
 
   */
+ 
+  #searchHolder {
+    margin-bottom: 10px;
+  }
  
   .projectHeader {
     height: 200px;
