@@ -3,9 +3,14 @@
 		<div class="panel">
 			<div id="projectsList" class="collapse panel-collapse in">
 				<div class="container" ng-controller="PortfolioCtrl as portfolio">
-					<div class="row" id="titleAndSorting">
-						<div class="col-md-6">
-							<h1>Feature Projects</h1>	
+					<div class="row">
+						<div class="col-md-12">
+							<h1>Feature Projects</h1>
+						</div>
+					</div>
+					<div class="row" id="searchAndSorting">
+						<div class="col-md-6" id="searchHolder">
+							<input placeholder="Search for Names, Technologies, Platforms" autofocus ng-model="query" class="form-control">
 						</div>
 						<div class="col-md-6">
 							<select ng-model="projectOrder" class="form-control" id="selectSortBy">
@@ -16,7 +21,7 @@
 					</div>
 
 					<div class="row">
-						<div ng-repeat="project in projects | orderBy: projectOrder">
+						<div ng-repeat="project in projects | filter: query | orderBy: projectOrder">
 							<div class="col-md-3 col-xs-6">
 								<div class="thumbnail">
 									<div class="caption">
