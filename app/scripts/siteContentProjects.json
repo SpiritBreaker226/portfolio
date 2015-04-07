@@ -17,12 +17,12 @@
 		"projectEndDate": ""
 	},
 	{
-		"name": "OKCouncillor",
-		"summary": "OKCouncillor is a data scraper, API, and civic engagement app for the City of Toronto. The scraper pulls data from the City of Toronto council meetings and parses it into a database, the API serves the data up as JSON, and the app allows people to discover how their Councillor matches with their political leanings.",
+		"name": "OKCouncillr",
+		"summary": "OKCouncillr is a data scraper, API, and civic engagement app for the City of Toronto. The scraper pulls data from the City of Toronto council meetings and parses it into a database, the API serves the data up as JSON, and the app allows people to discover how their Councillor matches with their political leanings.",
 		"responsibilities": [
-			"Created and maintain the API which allows other developers access to the City of Toronto's data that the application scraped from their site.",
-			"Implemented the database diagram that our group had created as well as added in a late addition of the wards model as many other models require them, such as the Councillor's model.",
-			"Helped when needed on the application and on the scraper resulting in the creation of a fully function application and scraper."
+			"Created and maintain the API which allows other developers access to the City of Toronto's data which the application scraped from their site.",
+			"Implemented the database diagram that my group and I had created.",
+			"Assisted on the application and on the scraper, resulting in the creation of a fully functional application and scraper."
 			],
 		"tags": "Ruby, Rails, PostgresSQL, Javascript, CSS, HTML",
 		"feature": "",
