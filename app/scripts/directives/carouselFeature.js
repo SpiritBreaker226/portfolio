@@ -39,6 +39,11 @@ angular.module('spiritBreaker226GitHubPageApp')
       var arrNumberOfProjectBanners = [];
       var arrProjectsOnSite = $scope.projects.slice(0);
 
+      // remove any projects that do not have a feature image
+      arrProjectsOnSite = arrProjectsOnSite.filter(function(project) {
+        return project.feature !== ""
+      });
+
       // checks if intNumberOfProjectsToDisplay is zero or lesser or is more then number of projects
       // if so then only display one banner in order to just show  something
       if(intNumberOfProjectsToDisplay <= 0 || intNumberOfProjectsToDisplay > arrProjectsOnSite.length) {
