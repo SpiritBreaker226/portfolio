@@ -137,25 +137,6 @@
 		"projectEndDate": "2013-01-16"
 	},
 	{
-		"name": "fRed.ca",
-		"summary": "Custom social media network was developed for Ontario Liberal Party, where party members can join a certain group and message each other through an internal messaging system.",
-		"responsibilities": [
-				"Added group mechanism to allow users to communicate with each other.",
-				"Developed event management system which allows OLP to solicit registrations from members and integrate with OLP internal payment engine.",
-				"Created a points system to allow the users on the site to do some activities in order to collect points. For example, a user could refer a friend and receive 8 points."
-			],
-		"tags": "C#, Javascript, CSS3, HTML5, SQL Server",
-		"feature": "featureFred.jpg",
-		"icon": "iconFred.png",
-		"sampleCode": "",
-		"TeamSize": 7,
-		"Platforms": "Web",
-		"projectType": "Close",
-		"projectURL": "http://fred.ca",
-		"projectStartDate": "2010-10-12",
-		"projectEndDate": "2012-03-22"
-	},
-	{
 		"name": "Benjamin Memorial Chapel",
 		"summary": "This is a popular Jewish funeral home website which is managed by our team.",
 		"responsibilities": [
@@ -192,26 +173,6 @@
 		"projectURL": "",
 		"projectStartDate": "2014-03-10",
 		"projectEndDate": "2014-08-18"
-	},
-	{
-		"name": "John Hancock: Retirement Plan Services",
-		"summary": "A portal is created for each of the representatives, in order to allow the user to find a representative in their area, and get basic information on investments from them. Each representative has their own blog to inform the user what is happening at John Hancock.",
-		"responsibilities": [
-				"Lead Developer on the project.",
-				"Created an instant search of all of the representatives in order for the user to quickly find their representative.",
-				"Masterminded the implementation of the design and logistics of the blog.",
-				"Reverse engineered in order to automatically add in new representatives newsletter and newsletter list in the blog because each representative has an email sent out every time a new post is added to their blog."
-			],
-		"tags": "#, Javascript, jQuery, CSS3, HTML5, SQL Server, DotNetNuke, PHP, mySQL, WordPress",
-		"feature": "featureJH.jpg",
-		"icon": "iconJH.png",
-		"sampleCode": "",
-		"TeamSize": 5,
-		"Platforms": "Web",
-		"projectType": "Close",
-		"projectURL": "",
-		"projectStartDate": "2013-09-04",
-		"projectEndDate": "2014-05-30"
 	},
 	{
 		"name": "City of Vaughan",
