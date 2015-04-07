@@ -242,6 +242,11 @@ blockquote:before {
   border: 1px solid #939ca4;
 }
 
+#portfolio img[src$=".svg"] {
+  width: 130px;
+  height: 130px;
+}
+
 #projectsList img {
   margin: 0 auto;
 }
