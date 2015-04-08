@@ -2,10 +2,10 @@
 
 This is my portfolio with some of the projects that I have done over the year. 
 
-The site contents 
+Here are the different sections of the site
 
-	* Projects
-	* Code samples
-	* About me
-	* Contact information
-	* Links to other social media I have accounts on
+- Projects
+- Code samples
+- About me
+- Contact information
+- Links to other social media I have accounts on
