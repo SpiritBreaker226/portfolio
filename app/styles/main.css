@@ -310,15 +310,17 @@ blockquote:before {
   color: #FFF;
 }
 
-#contact p {
+#contact p, #contact form {
   text-align: center;
   font-size: 25px;
 }
 
-#contact #contactingMeByEmail {
-  text-align: center;
-  font-size: 40px;
-  margin: 50px 0;
+#contact form {
+  text-align: left;
+}
+
+#contact .form-submit {
+  font-size: 25px;
 }
 
 #socialMediaIcons .clearfix {
@@ -339,6 +341,25 @@ blockquote:before {
 #socialMediaIcons a:hover {
   background-color: transparent;
   color: #FFF;
+}
+
+#contact .form-horizontal .control-label {
+  padding-top: 0;
+}
+
+#contact .form-required-label {
+  text-align: right;
+}
+
+#contact .form-horizontal .btn-default {
+  color: #aa0f13;
+  background-color: #ffffff;
+  border: 0;
+}
+
+#contact .form-horizontal .btn-default:hover {
+  color: #ffffff;
+  background-color: #aa0f13;
 }
 
 /*
@@ -427,16 +448,6 @@ blockquote:before {
   .projectHeader h3 {
     font-size: 20px;
   }
-  
-  /*
-
-    Contact
-
-  */
-
-  #contact #contactingMeByEmail {
-    font-size: 30px;
-  }
 }
 
 @media (max-width: 568px) {
@@ -497,15 +508,5 @@ blockquote:before {
  
   .projectHeader h3 {
     font-size: 14px;
-  }
-  
-  /*
-
-    Contact
-
-  */
-
-  #contact #contactingMeByEmail {
-    font-size: 25px;
   }
 }
