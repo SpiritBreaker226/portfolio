@@ -16,5 +16,9 @@
     "angular-mocks": "1.2.16",
     "angular-scenario": "1.2.16"
   },
-  "appPath": "app"
+  "appPath": "app",
+  "resolutions": {
+    "angular": "1.2.16",
+    "angular-animate": "1.2.16"
+  }
 }
