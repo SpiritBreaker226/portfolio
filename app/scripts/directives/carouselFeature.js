@@ -41,7 +41,7 @@ angular.module('spiritBreaker226GitHubPageApp')
 
       // remove any projects that do not have a feature image
       arrProjectsOnSite = arrProjectsOnSite.filter(function(project) {
-        return project.feature !== ""
+        return project.feature !== '';
       });
 
       // checks if intNumberOfProjectsToDisplay is zero or lesser or is more then number of projects
