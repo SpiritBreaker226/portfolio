@@ -315,12 +315,6 @@ blockquote:before {
   font-size: 25px;
 }
 
-#contact #contactingMeByEmail {
-  text-align: center;
-  font-size: 40px;
-  margin: 50px 0;
-}
-
 #socialMediaIcons .clearfix {
   margin-bottom: 25px;
 }
@@ -427,16 +421,6 @@ blockquote:before {
   .projectHeader h3 {
     font-size: 20px;
   }
-  
-  /*
-
-    Contact
-
-  */
-
-  #contact #contactingMeByEmail {
-    font-size: 30px;
-  }
 }
 
 @media (max-width: 568px) {
@@ -497,15 +481,5 @@ blockquote:before {
  
   .projectHeader h3 {
     font-size: 14px;
-  }
-  
-  /*
-
-    Contact
-
-  */
-
-  #contact #contactingMeByEmail {
-    font-size: 25px;
   }
 }
