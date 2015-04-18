@@ -37,7 +37,7 @@
 	},
 	{
 		"name": "Elementary Teachers of Toronto",
-		"summary": "Worked with a partner company (design vendor) to develop the frontend of the site using WordPress as the backbone, which supported the integration with their current organizational structure.",
+		"summary": "Elementary Teachers of Toronto (ETT) is the Toronto-local of the Elementary Teachers’ Federation of Ontario (ETFO). The local—the largest in Canada—acts as the representative body for more than 11,000 elementary teachers (K-8) employed by the Toronto District School Board (TDSB). Working with a partner company (design vendor) to develop the frontend of the site using WordPress as the backbone, which supported the integration with their current organizational structure as well as orginziing events for their members.",
 		"responsibilities": [
 			"Lead Developer on the project",
 			"Developed the backend member data management system to support the growth and marketing initiatives of ETT organization and re-engineered WordPress so that multiple plugins can post onto the website.",
@@ -56,7 +56,7 @@
 	},
 	{
 		"name": "Oxford Properties Recycling Game",
-		"summary": "Developed an iPad game for Oxford Properties to promote recycling and sustainability in their buildings. Gave the tenants a fun way of learning what is recyclable.",
+		"summary": "Oxford Properties a real estate properties company, their team of 1,700 takes a hands-on approach to investment, development and management of their global property portfolio. Developing an iPad game for Oxford Properties to promote recycling and sustainability in their buildings. Gave the tenants a fun way of learning what is recyclable.",
 		"responsibilities": [
 				"Lead Developer on the project",
 				"Developed an image uploader and manager component that keeps track of the user's image that they uploaded for either their obituary or funeral home.",
@@ -76,7 +76,7 @@
 	},
 	{
 		"name": "GeriatRx Pharmacy",
-		"summary": "Allows a doctor to view a patient's history, drug interactions, as well as enter their patient's prescriptions, from a tablet.",
+		"summary": "GeriatRx Pharmacy is a unique player in the LTC (Long Term Care) industry. Their mission is to provide unparalleled service to their LTC clientele. Created an app to allow doctors to view their patient's history, drug interactions, as well as enter their patient's prescriptions, from a tablet.",
 		"responsibilities": [
 				"Lead Developer on the project",
 				"Worked on the styling and most of the coding. This app is able to search by patient’s name and by drugs. The doctor can authorize by signing a prescription on the app. A PDF is automatically sent to the doctor and patient.",
@@ -114,7 +114,7 @@
 	},
 	{
 		"name": "theObituaries.ca",
-		"summary": "A site that gives you the opportunity to create an obituary or memorial for a friend or family member. You can also share obituaries on Facebook or Twitter.",
+		"summary": "theObituaries is a site that allows you the opportunity to create an obituary or memorial for a friend or family member. You can also share obituaries on Facebook or Twitter.",
 		"responsibilities": [
 				"Lead Developer on the project",
 				"Masterminded the implementation of the design, local database and game algorithm on a tight deadline.",
@@ -136,7 +136,7 @@
 	},
 	{
 		"name": "Chatr Wireless",
-		"summary": "Coordinated the execution of a full-cycle online/mobile contest on a short deadline and restricted budget for Rogers Chatr Wireless customers. The online portion of the contest allowed Rogers Chatr wireless customers to enter a valid Chatr phone number to participate in the contest and possibly win prizes. They would receive text messages if they won a prize or receive a number to enter into the web site.",
+		"summary": "Chatr Wireless is a subsidiary of Rogers Communication and focus on providing plans on phone and text, quick and less expensive. Coordinated the execution of a full-cycle online/mobile contest with a short deadline and restricted budget for Rogers Chatr Wireless customers. The online portion of the contest allowed Rogers Chatr wireless customers to enter a valid Chatr Wireless phone number to participate in the contest and possibly win prizes. They would receive text messages if they won a prize or receive a number to enter into the website.",
 		"responsibilities": [
 				"Lead developer of the project when the contest launched and maintained the site and reports while the contest was going on.",
 				"Developed a complex algorithm to manage data duplication and prize allocation.",
@@ -157,7 +157,7 @@
 	},
 	{
 		"name": "Benjamin Memorial Chapel",
-		"summary": "This is a popular Jewish funeral home website which is managed by our team.",
+		"summary": "The Benjamin Memorial Chapel site is part of the Benjamin Group of sites that allow visitors to be inform of the loss of a love one and provided information to the visitors, of the site, about Jewish funnel traditions. Those sites were developed and maintain be Adlure Media Inc which I worked for.",
 		"responsibilities": [
 				"Assisted in developing the website",
 				"Client wanted to have a newsletter detailing which services were going on at the chapel in the next 7 days. Reinstated and maintained the newsletter. Resulting in having over 1000 subscribers receiving this newsletter twice a day.",
@@ -176,7 +176,7 @@
 	},
 	{
 		"name": "Northcott",
-		"summary": "Created an eShop app to allow the sales people to quickly place orders of fabric and designs, while they are with their customers in their shop or home.",
+		"summary": "Northcott is an International Distributor and Converter of fine cotton printed fabrics for the quilt, craft and home decor industries. Created an eShop app to allow the sales people to quickly place orders of fabric and designs, while they are with their customers in their shop or home.",
 		"responsibilities": [
 				"Lead Developer on the project",
 				"Added in complex business rules from Northcott, for example, if a customer is in Canada, they have an option to buy all fabrics at half the quantity. However, this only applies to fabrics that are metre(s), if the fabric are inch(es) then they should be in the cart but at 0 quantity.",
