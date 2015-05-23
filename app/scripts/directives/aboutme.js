@@ -10,43 +10,73 @@ var app = angular.module('spiritBreaker226GitHubPageApp');
  */
 app
   .controller('AboutMeCtrl', function($scope) {
-  	 $scope.chart = new CanvasJS.Chart('chartContainer', {
-        theme: 'theme2',
-        backgroundColor: 'rgb(97, 101, 104)',
-        axisY: {
-					labelFontSize: 12,
-					labelFontColor: '#FFF',
-					gridColor: '#FFF',
-					minimum: 0,
-					maximum: 10
-        },
-        axisX: {
-					labelFontSize: 12,
-					labelFontColor: '#FFF'
-        },
-        data: [
-	        {
-	          type: 'bar',
-	          color: '#aa0f13',
-	          dataPoints: [
-	            { label: 'Git', y: 9 },
-	            { label: 'SQL', y: 7.8 },
-	            { label: 'Bootstrap / Foundation', y: 7.5 },
-							{ label: 'Cordova / Phonegap', y: 7.5 },
-							{ label: 'HTML5 / CSS3', y: 8 },
-							{ label: 'AngularJS', y: 6.5 },
-	            { label: 'jQuery', y: 7.5 },
-							{ label: 'JavaScript', y: 8.5 },
-							{ label: 'C#', y: 7.5 },
-							{ label: 'PHP', y: 7.5 },
-							{ label: 'Ruby on Rails', y: 8 },
-	          ]
-	        }
-        ]
-    });
+  	var data = {
+		    labels: [
+		    	'Ruby on Rails',
+		    	'PHP',
+					'C#',
+					'Objective-C',
+					'JavaScript',
+					'jQuery',
+		    	'AngularJS',
+		    	'AJAX', 
+		    	'JSON',
+		    	'HTML5',
+		    	'CSS3',
+		    	'Sass',
+		    	'Cordova / Phonegap',
+					'Bootstrap',
+					'Foundation',
+		    	'SQL',
+		    	'MS SQL', 
+		    	'mySQL', 
+		    	'SQLite', 
+		    	'PostgreSQL',
+		    	'Git'
+		    ],
+		    datasets: [
+		        {
+		            label: 'Skill Set',
+		            fillColor: 'rgb(170, 15, 19)',
+		            highlightFill: 'rgba(170, 15, 19, 0.75)',
+		            highlightStroke: 'rgba(170, 15, 19, 1)',
+		            data: [
+		            	8.5,
+		            	7.5,
+		            	7.5,
+		            	6,
+		            	8,
+		            	7.5,
+		            	6.5,
+		            	8,
+		            	7,
+		            	8,
+		            	8,
+		            	6,
+									7.5,
+		            	7.5,
+									6.5,
+		            	7.8,
+		            	7.5,
+		            	7.5,
+		            	6.8,
+		            	6.5,
+		            	9
+		            ]
+		        }
+		    ]
+		};
 
-    $scope.chart.render(); //render the chart for the first time
-            
+		var options = {
+			scaleShowVerticalLines: false,
+			scaleFontSize: 12,
+    	scaleFontColor: '#FFF',
+    	scaleGridLineColor: '#FFF',
+    	tooltipFillColor: 'rgba(97, 101, 104, 0.8)'
+		};
+
+  	 $scope.chart = new Chart(document.getElementById('chartContainer').getContext('2d')).Bar(data, options);
+
     $scope.changeChartType = function(chartType) {
         $scope.chart.options.data[0].type = chartType;
         $scope.chart.render(); //re-render the chart to display the new layout
