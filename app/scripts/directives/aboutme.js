@@ -68,6 +68,7 @@ app
 		};
 
 		var options = {
+			responsive: true,
 			scaleShowVerticalLines: false,
 			scaleFontSize: 12,
     	scaleFontColor: '#FFF',
