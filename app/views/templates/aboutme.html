@@ -1,15 +1,24 @@
 <section id="about">
-	<div class="container">
+	<div class="container" ng-controller = "AboutMeCtrl">
 		<div class="row">
 			<div class="col-lg-2 col-sm-3 divAboutMeImage">
-	            <img ng-src="images/JasonStats.jpg" alt="Jason Stathopulos" class="img-responsive img-circle hidden-xs">
-	        </div>
+          <img ng-src="images/JasonStats.jpg" alt="Jason Stathopulos" class="img-responsive img-circle hidden-xs">
+      </div>
 			<div class="col-lg-10 col-sm-9">
 				<h1 id="aboutMeTitle">About Jason Stathopulos</h1>
 				<p>
 					In search of a full-stack web developer who is fluent in Ruby on Rails, PHP, Objective-C, C++, JavaScript and a few more? Look no further. Because... me. Armed with a diploma in computer analysis and with a knack for integrating back end and front end, responsive design, JSON, AJAX and database creation and management are all part of my bag of tricks. A recent grad from Bitmaker Lab's intensive 9-week web development bootcamp, I am ready to put my coding and problem solving expertise to work.
 				</p>
 	        </div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<section id="sectionSkills">
+					<h2>Most Used Skills</h2>
+
+					<div id="chartContainer"></div>
+				</section>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-12">
