@@ -213,6 +213,11 @@ blockquote:before {
   margin-bottom: .67em;
 }
 
+#chartContainer {
+  height: 400px; 
+  width: 100%;
+}
+
 .divAboutMeImage {
   margin-top: 22px;
 }
