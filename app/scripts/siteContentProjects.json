@@ -24,7 +24,7 @@
 			"Implemented the database diagram that my group and I had created.",
 			"Assisted on the application and on the scraper, resulting in the creation of a fully functional application and scraper."
 			],
-		"tags": "Ruby, Rails, PostgresSQL, Javascript, CSS, HTML",
+		"tags": "Ruby, Rails, PostgreSQL, Javascript, CSS, Sass, HTML, Foundation",
 		"feature": "",
 		"icon": "iconOKCouncillr.svg",
 		"sampleCode": "https://github.com/CivicHaxx/ok_councillr",
