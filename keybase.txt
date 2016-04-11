@@ -1,1 +1,54 @@
+==================================================================
+https://keybase.io/jasonstats
+--------------------------------------------------------------------
 
+I hereby claim:
+
+  * I am an admin of https://jstats.me
+  * I am jasonstats (https://keybase.io/jasonstats) on keybase.
+  * I have a public key ASA9w9WypZmluzR_R2wYz-ldBtfp3QYtrCRhrJs8ZOKcGQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01016b7fc755a788a1e4d08193f406d748d635baf190a6e61d2bd12958aca104107d0a",
+            "host": "keybase.io",
+            "kid": "01203dc3d5b2a599a5bb347f476c18cfe95d06d7e9dd062dac2461ac9b3c64e29c190a",
+            "uid": "b64ec45a6a9af7ef51a41971f827aa19",
+            "username": "jasonstats"
+        },
+        "service": {
+            "hostname": "jstats.me",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.14"
+    },
+    "ctime": 1460368863,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1460368669,
+        "hash": "ee8b12f1ac2f14ebff28d85cf8bcc2f9a588f470af3358fdc17b694d1467b0640b9ab5347525f70204e22ff2ad8329ca80e07c8468835b34581781ab658c8047",
+        "seqno": 438109
+    },
+    "prev": "0c1b6578dbfdf929a5878f615c68a9c8fcb6075829eb3b718b8c2a4ba716fa31",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+g6Rib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgPcPVsqWZpbs0f0dsGM/pXQbX6d0GLawkYaybPGTinBkKp3BheWxvYWTFAvN7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxNmI3ZmM3NTVhNzg4YTFlNGQwODE5M2Y0MDZkNzQ4ZDYzNWJhZjE5MGE2ZTYxZDJiZDEyOTU4YWNhMTA0MTA3ZDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwM2RjM2Q1YjJhNTk5YTViYjM0N2Y0NzZjMThjZmU5NWQwNmQ3ZTlkZDA2MmRhYzI0NjFhYzliM2M2NGUyOWMxOTBhIiwidWlkIjoiYjY0ZWM0NWE2YTlhZjdlZjUxYTQxOTcxZjgyN2FhMTkiLCJ1c2VybmFtZSI6Imphc29uc3RhdHMifSwic2VydmljZSI6eyJob3N0bmFtZSI6ImpzdGF0cy5tZSIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE0In0sImN0aW1lIjoxNDYwMzY4ODYzLCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0NjAzNjg2NjksImhhc2giOiJlZThiMTJmMWFjMmYxNGViZmYyOGQ4NWNmOGJjYzJmOWE1ODhmNDcwYWYzMzU4ZmRjMTdiNjk0ZDE0NjdiMDY0MGI5YWI1MzQ3NTI1ZjcwMjA0ZTIyZmYyYWQ4MzI5Y2E4MGUwN2M4NDY4ODM1YjM0NTgxNzgxYWI2NThjODA0NyIsInNlcW5vIjo0MzgxMDl9LCJwcmV2IjoiMGMxYjY1NzhkYmZkZjkyOWE1ODc4ZjYxNWM2OGE5YzhmY2I2MDc1ODI5ZWIzYjcxOGI4YzJhNGJhNzE2ZmEzMSIsInNlcW5vIjo5LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQKmI3K3JNT2JnU1PThydWp0zumRdEmh5X68maIqaEPT4vdHP0RoPuFTqFXLJOkKnJmC8ONYXzSU7R/kY7YVFegSoc2lnX3R5cGUgo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jasonstats
+
+==================================================================
