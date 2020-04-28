@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc directive
@@ -6,10 +6,11 @@
  * @description
  * # viewButtons
  */
-angular.module('spiritBreaker226GitHubPageApp')
-  .directive('viewButtons', function () {
+angular
+  .module("spiritBreaker226GitHubPageApp")
+  .directive("viewButtons", function () {
     return {
-      templateUrl: 'views/templates/viewbuttons.html',
-      restrict: 'E'
+      templateUrl: "views/templates/viewbuttons.html",
+      restrict: "E",
     };
   });

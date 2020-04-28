@@ -1,47 +1,67 @@
 <section id="carousel" ng-controller="caruselFeatureCtrl" ng-model="index">
-	<h1 hidden>Carusel</h1>
+  <h1 hidden>Carusel</h1>
 
-	<div id="carouselFeatures" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		  <ol class="carousel-indicators">
-		    <li data-target="#carouselFeatures" data-slide-to="0" class="active"></li>
-		    <li data-target="#carouselFeatures" data-slide-to="1"></li>
-		    <li data-target="#carouselFeatures" data-slide-to="2"></li>
-		  </ol>
+  <div id="carouselFeatures" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carouselFeatures" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselFeatures" data-slide-to="1"></li>
+      <li data-target="#carouselFeatures" data-slide-to="2"></li>
+    </ol>
 
-		<div class="carousel-inner">
-			<div class="item active" id="carouselTagline">
-				<img ng-src="../images/Banners/taglinebricks.jpg" alt="Brick Background With Jason Stathopulos">
-				<div class="carousel-caption">
-					<hgroup>
-						<h2 hidden>Tagline</h2>
-						<h2>Talented.</h2>
-						<h2>Focused.</h2>
-						<h2>Experienced.</h2>
-					</hgroup>
-				</div>
-			</div>
-			<div class="item" ng-repeat="project in bannerProjects track by $index">
-				<a data-parent="#projectsPanelGroup" href="#projectsDetails" ng-click="setProjectIndex(projects.indexOf(project))">
-					<img ng-src="../images/Banners/{{project.feature}}" alt="{{project.name}} Banner">
-				</a>
-			</div>
-		</div>
+    <div class="carousel-inner">
+      <div class="item active" id="carouselTagline">
+        <img
+          ng-src="../images/Banners/taglinebricks.jpg"
+          alt="Brick Background With Jason Stathopulos"
+        />
+        <div class="carousel-caption">
+          <hgroup>
+            <h2 hidden>Tagline</h2>
+            <h2>Talented.</h2>
+            <h2>Focused.</h2>
+            <h2>Experienced.</h2>
+          </hgroup>
+        </div>
+      </div>
+      <div class="item" ng-repeat="project in bannerProjects track by $index">
+        <a
+          data-parent="#projectsPanelGroup"
+          href="#projectsDetails"
+          ng-click="setProjectIndex(projects.indexOf(project))"
+        >
+          <img
+            ng-src="../images/Banners/{{project.feature}}"
+            alt="{{project.name}} Banner"
+          />
+        </a>
+      </div>
+    </div>
 
-		<!-- Controls -->
-		<a class="left carousel-control" href="#carouselFeatures" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left"></span>
-		</a>
-		<a class="right carousel-control" href="#carouselFeatures" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right"></span>
-		</a>
-	</div>
+    <!-- Controls -->
+    <a
+      class="left carousel-control"
+      href="#carouselFeatures"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a
+      class="right carousel-control"
+      href="#carouselFeatures"
+      role="button"
+      data-slide="next"
+    >
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
 </section>
 
 <script>
-	$(document).ready(function(){
-		$('.carousel').carousel({
-			interval: 5000
-		});
-	});
+  $(document).ready(function () {
+    $(".carousel").carousel({
+      interval: 5000,
+    });
+  });
 </script>

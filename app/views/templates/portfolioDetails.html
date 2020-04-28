@@ -1,47 +1,72 @@
-<section id="portfolioDetails" ng-controller="ProjectDetailsCtrl" ng-model="index">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-11 col-sm-9 col-xs-6">
-				<h3>{{projects[itemIndex].name}}</h3>
-			</div>
-			<div class="col-md-1 col-sm-3 col-xs-6">
-				<button type="button" class="close" data-parent="#projectsPanelGroup" href="#projectsList" id="closeProjectDetails" ng-click="setProjectDetailsClose()">
-					<span aria-hidden="true"><i class="fa fa-times fa-2x"></i></span><span class="sr-only">Close</span>
-				</button>
-			</div>
-		</div>
-		<div class="row">
-			<article class="col-lg-offset-1 col-sm-offset-1 col-lg-8 col-sm-7 col-lg-push-3 col-sm-push-4">
-            	<strong>Project Description</strong>
-				<p>
-					{{projects[itemIndex].summary}}
-				</p>
-				<strong>Responsibility</strong>
-				<ul ng-repeat="responsibilities in projects[itemIndex].responsibilities">
-					<li>{{responsibilities}}</li>
-				</ul>
-				<p class="hidden-xs">
-					<view-buttons></view-buttons>
-				</p>
-			</article>
-			<aside class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-8">
-				<dl>
-					<dt>Project Date</dt>
-						<dd>
-							<time datetime="{{projects[itemIndex].projectStartDate}}">{{projects[itemIndex].projectStartDate | date: 'MMM yyyy'}}</time> - 
-							<time datetime="{{projects[itemIndex].projectEndDate}}">{{projects[itemIndex].projectEndDate | date: 'MMM yyyy'}}</time>
-						</dd>
-					<dt ng-show="hideProjectTeamSize(projects[itemIndex].TeamSize)">Team Size</dt>
-						<dd ng-show="hideProjectTeamSize(projects[itemIndex].TeamSize)">{{projects[itemIndex].TeamSize}}</dd>
-					<dt>Platforms</dt>
-						<dd>{{projects[itemIndex].Platforms}}</dd>
-					<dt>Environment</dt>
-						<dd>{{projects[itemIndex].tags}}</dd>
-				</dl>
-				<p class="visible-xs">
-					<view-buttons></view-buttons>
-				</p>
-			</aside>
-		</div>
-	</div>
+<section
+  id="portfolioDetails"
+  ng-controller="ProjectDetailsCtrl"
+  ng-model="index"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-11 col-sm-9 col-xs-6">
+        <h3>{{projects[itemIndex].name}}</h3>
+      </div>
+      <div class="col-md-1 col-sm-3 col-xs-6">
+        <button
+          type="button"
+          class="close"
+          data-parent="#projectsPanelGroup"
+          href="#projectsList"
+          id="closeProjectDetails"
+          ng-click="setProjectDetailsClose()"
+        >
+          <span aria-hidden="true"><i class="fa fa-times fa-2x"></i></span
+          ><span class="sr-only">Close</span>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <article
+        class="col-lg-offset-1 col-sm-offset-1 col-lg-8 col-sm-7 col-lg-push-3 col-sm-push-4"
+      >
+        <strong>Project Description</strong>
+        <p>
+          {{projects[itemIndex].summary}}
+        </p>
+        <strong>Responsibility</strong>
+        <ul
+          ng-repeat="responsibilities in projects[itemIndex].responsibilities"
+        >
+          <li>{{responsibilities}}</li>
+        </ul>
+        <p class="hidden-xs">
+          <view-buttons></view-buttons>
+        </p>
+      </article>
+      <aside class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-8">
+        <dl>
+          <dt>Project Date</dt>
+          <dd>
+            <time datetime="{{projects[itemIndex].projectStartDate}}"
+              >{{projects[itemIndex].projectStartDate | date: 'MMM yyyy'}}</time
+            >
+            -
+            <time datetime="{{projects[itemIndex].projectEndDate}}"
+              >{{projects[itemIndex].projectEndDate | date: 'MMM yyyy'}}</time
+            >
+          </dd>
+          <dt ng-show="hideProjectTeamSize(projects[itemIndex].TeamSize)">
+            Team Size
+          </dt>
+          <dd ng-show="hideProjectTeamSize(projects[itemIndex].TeamSize)">
+            {{projects[itemIndex].TeamSize}}
+          </dd>
+          <dt>Platforms</dt>
+          <dd>{{projects[itemIndex].Platforms}}</dd>
+          <dt>Environment</dt>
+          <dd>{{projects[itemIndex].tags}}</dd>
+        </dl>
+        <p class="visible-xs">
+          <view-buttons></view-buttons>
+        </p>
+      </aside>
+    </div>
+  </div>
 </section>

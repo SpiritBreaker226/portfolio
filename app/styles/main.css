@@ -6,25 +6,26 @@
  */
 
 @font-face {
-    font-family: 'boycottregular';
-    src: url('fonts/boycott_-webfont.eot');
-    src: url('fonts/boycott_-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/boycott_-webfont.woff') format('woff'),
-         url('fonts/boycott_-webfont.ttf') format('truetype'),
-         url('fonts/boycott_-webfont.svg#boycottregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "boycottregular";
+  src: url("fonts/boycott_-webfont.eot");
+  src: url("fonts/boycott_-webfont.eot?#iefix") format("embedded-opentype"),
+    url("fonts/boycott_-webfont.woff") format("woff"),
+    url("fonts/boycott_-webfont.ttf") format("truetype"),
+    url("fonts/boycott_-webfont.svg#boycottregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'sacramentoregular';
-    src: url('fonts/sacramento-regular-webfont.eot');
-    src: url('fonts/sacramento-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/sacramento-regular-webfont.woff') format('woff'),
-         url('fonts/sacramento-regular-webfont.ttf') format('truetype'),
-         url('fonts/sacramento-regular-webfont.svg#sacramentoregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "sacramentoregular";
+  src: url("fonts/sacramento-regular-webfont.eot");
+  src: url("fonts/sacramento-regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("fonts/sacramento-regular-webfont.woff") format("woff"),
+    url("fonts/sacramento-regular-webfont.ttf") format("truetype"),
+    url("fonts/sacramento-regular-webfont.svg#sacramentoregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Space out content a bit */
@@ -32,15 +33,20 @@ body {
   padding: 70px 0 0;
 }
 
-a, .close {
+a,
+.close {
   color: #aa0f13;
 }
 
-a:hover, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus, .close:hover  {
+a:hover,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.close:hover {
   color: #7e0f13;
 }
 
-.close, .close:hover {
+.close,
+.close:hover {
   opacity: 1;
 }
 
@@ -48,11 +54,12 @@ a:hover, .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focu
   background-color: #aa0f13;
 }
 
-.btn-danger:hover  {
+.btn-danger:hover {
   background-color: #7e0f13;
 }
 
-h1, .jumbotron h1 {
+h1,
+.jumbotron h1 {
   color: #aa0f13;
 }
 
@@ -61,7 +68,7 @@ noscript {
   width: 100%;
   display: block;
   text-align: center;
-  color: #FFF; 
+  color: #fff;
   padding: 15px 0;
 }
 
@@ -74,8 +81,8 @@ blockquote:before {
   display: block;
   height: 0;
   content: "“";
-  margin-left: -.64em;
-  font: italic 400%/1 Cochin,Georgia,"Times New Roman", serif;
+  margin-left: -0.64em;
+  font: italic 400%/1 Cochin, Georgia, "Times New Roman", serif;
   color: #999;
 }
 
@@ -126,14 +133,16 @@ blockquote:before {
 }
 
 .navbar-default .navbar-brand {
-  font-family: 'sacramentoregular', cursive;
+  font-family: "sacramentoregular", cursive;
   font-size: 36px;
   color: #aa0f13;
 }
 
-.navbar-default .navbar-nav > li.active > a, .navbar-default .navbar-nav > li.active > a:hover, .navbar-default .navbar-nav > li.active > a:focus {
+.navbar-default .navbar-nav > li.active > a,
+.navbar-default .navbar-nav > li.active > a:hover,
+.navbar-default .navbar-nav > li.active > a:focus {
   background-color: #aa0f13;
-  color: #FFF;
+  color: #fff;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
@@ -161,7 +170,7 @@ blockquote:before {
 
 #carouselTagline .carousel-caption h2 {
   font-size: 100px;
-  color: #FFF;
+  color: #fff;
 }
 
 #carouselTagline .carousel-caption h3 {
@@ -172,13 +181,15 @@ blockquote:before {
   font-size: 44px;
 }
 
-#carouselTagline .carousel-caption h2, #carouselTagline .carousel-caption h3, #carouselTagline .carousel-caption h4 {
+#carouselTagline .carousel-caption h2,
+#carouselTagline .carousel-caption h3,
+#carouselTagline .carousel-caption h4 {
   margin-top: 10px;
 }
 
 .jumbotron {
   padding: 0;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .tagLineBanner {
@@ -195,10 +206,11 @@ blockquote:before {
 #about {
   padding: 25px 0;
   background-color: rgb(97, 101, 104);
-  color: #FFF;
+  color: #fff;
 }
 
-#about h1, #about h2 {
+#about h1,
+#about h2 {
   color: #939ca4;
 }
 
@@ -210,11 +222,11 @@ blockquote:before {
 }
 
 #aboutMeTitle {
-  margin-bottom: .67em;
+  margin-bottom: 0.67em;
 }
 
 #chartContainer {
-  height: 400px; 
+  height: 400px;
   width: 100%;
 }
 
@@ -275,7 +287,7 @@ blockquote:before {
 
 .projectFooter {
   text-align: center;
-  margin-top: 15px; 
+  margin-top: 15px;
 }
 
 .projectFooter .btn-lg {
@@ -288,7 +300,6 @@ blockquote:before {
 
 */
 
-
 #closeProjectDetails {
   margin-top: 14px;
 }
@@ -299,23 +310,28 @@ blockquote:before {
 
 */
 
-#contact, .footer {
+#contact,
+.footer {
   background-color: #aa0f13;
 }
 
 #sectionSocialMedia {
-  margin: 25px 0;  
+  margin: 25px 0;
 }
 
 #socialMediaIcons {
   margin-top: 25px;
 }
 
-#contact, #contact h1, #contact a, .footer {
-  color: #FFF;
+#contact,
+#contact h1,
+#contact a,
+.footer {
+  color: #fff;
 }
 
-#contact p, #contact form {
+#contact p,
+#contact form {
   text-align: center;
   font-size: 25px;
 }
@@ -337,15 +353,15 @@ blockquote:before {
 }
 
 #socialMediaIcons a {
-  background-color: #Fff;
-  color: #aa0f13; 
+  background-color: #fff;
+  color: #aa0f13;
   border-radius: 8px;
   width: 80px;
 }
 
 #socialMediaIcons a:hover {
   background-color: transparent;
-  color: #FFF;
+  color: #fff;
 }
 
 #contact .form-horizontal .control-label {
@@ -375,7 +391,7 @@ blockquote:before {
 
 .footer {
   padding: 25px 0;
-  color: #FFF;
+  color: #fff;
   border-top: 1px solid #e5e5e5;
 }
 
@@ -385,7 +401,7 @@ blockquote:before {
     Banner
 
   */
- 
+
   #carouselTagline .carousel-caption {
     padding-top: 5%;
   }
@@ -401,7 +417,7 @@ blockquote:before {
     Banner
 
   */
- 
+
   #carouselTagline .carousel-caption {
     padding-top: 5%;
   }
@@ -427,7 +443,7 @@ blockquote:before {
     Banner
 
   */
- 
+
   #carouselTagline .carousel-caption {
     padding-top: 5%;
   }
@@ -441,11 +457,11 @@ blockquote:before {
     Portfolio
 
   */
- 
+
   #searchHolder {
     margin-bottom: 10px;
   }
- 
+
   .projectHeader {
     height: 200px;
   }
@@ -461,7 +477,7 @@ blockquote:before {
     Banner
 
   */
- 
+
   #carouselTagline .carousel-caption {
     padding-top: 3%;
   }
@@ -475,7 +491,7 @@ blockquote:before {
     Portfolio
 
   */
- 
+
   .projectHeader {
     height: 225px;
   }
@@ -487,7 +503,7 @@ blockquote:before {
     Banner
 
   */
- 
+
   #carouselTagline .carousel-caption {
     padding-top: 0;
   }
@@ -501,7 +517,7 @@ blockquote:before {
     Portfolio
 
   */
- 
+
   .projectFooter .btn-lg {
     font-size: 12px;
     padding: 5px 16px;
@@ -510,7 +526,7 @@ blockquote:before {
   .projectHeader {
     height: 175px;
   }
- 
+
   .projectHeader h3 {
     font-size: 14px;
   }

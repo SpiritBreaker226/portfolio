@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /**
  * @ngdoc directive
@@ -6,10 +6,11 @@
  * @description
  * # caruselFeature
  */
-angular.module('spiritBreaker226GitHubPageApp')
-  .directive('caruselFeature', function () {
+angular
+  .module("spiritBreaker226GitHubPageApp")
+  .directive("caruselFeature", function () {
     return {
-      templateUrl: 'views/caruselFeature.html',
-      restrict: 'E'
+      templateUrl: "views/caruselFeature.html",
+      restrict: "E",
     };
   });
