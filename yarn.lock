@@ -2198,6 +2198,11 @@ grunt-ngmin@^0.0.3:
   dependencies:
     ngmin "~0.4.0"
 
+grunt-sitemap@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/grunt-sitemap/-/grunt-sitemap-2.0.1.tgz#96bc32653463a5a588c8f5376390de55e96132a4"
+  integrity sha512-iJ5ay3xUns4AwHCmJYHZ69lyWGNQumm0Iq9dK5vd9Y6gj/RQT11yzA1RoH0RqfqxJ0Ps9FdpIXayRepQAW4JCg==
+
 grunt-svgmin@^3.2.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/grunt-svgmin/-/grunt-svgmin-3.3.0.tgz#610953dc91aec18f670fc28c6c5696fbb8037bb0"
