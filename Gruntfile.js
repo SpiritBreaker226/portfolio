@@ -330,6 +330,25 @@ module.exports = function (grunt) {
           },
         ],
       },
+      distToRoot: {
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: "<%= yeoman.dist %>",
+            dest: "./",
+            src: [
+              "*.{ico,png,txt}",
+              ".htaccess",
+              "*.html",
+              "views/{,*/}*.html",
+              "images/{,*/}*.{webp}",
+              "styles/fonts/*",
+              "scripts/{,*/}*.json",
+            ],
+          },
+        ],
+      },
       styles: {
         expand: true,
         cwd: "<%= yeoman.app %>/styles",
@@ -396,6 +415,7 @@ module.exports = function (grunt) {
     "filerev",
     "usemin",
     "htmlmin",
+    "copy:distToRoot",
   ]);
 
   grunt.registerTask("default", ["newer:jshint", "test", "build"]);
