@@ -29,6 +29,7 @@
     "grunt-usemin": "^3.1.1",
     "grunt-wiredep": "^3.0.1",
     "jshint-stylish": "^2.1.0",
+    "karma": "^5.0.4",
     "karma-jasmine": "^0.3.8",
     "karma-phantomjs-launcher": "^1.0.0",
     "load-grunt-tasks": "^3.5.0",
