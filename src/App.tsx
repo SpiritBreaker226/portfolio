@@ -1,3 +1,5 @@
-const App = () => <div className="App">Testing</div>
+import ErrorBoundary from './Components/ErrorBoundary'
+
+const App = () => <ErrorBoundary>Testing</ErrorBoundary>
 
 export default App
