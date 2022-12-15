@@ -1,7 +1,14 @@
 import { createGlobalStyle } from 'styled-components'
+
 import { theme } from './theme'
 
 export default createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   @font-face {
     font-family: "Boycott";
     src: url("../theme/fonts/Boycott.ttf");
