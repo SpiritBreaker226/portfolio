@@ -19,7 +19,7 @@ const Title = styled.h1`
 export const AppHeader: FC = () => (
   <Container>
     <Title>
-      <Link to="/">Jason Stathopulos</Link>
+      <Link to="/">{process.env.REACT_APP_DEVELOPER_NAME}</Link>
     </Title>
 
     <Navigation />
