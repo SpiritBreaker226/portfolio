@@ -1,9 +1,12 @@
 import ErrorBoundary from './Components/ErrorBoundary'
 import { ThemeProvider } from './theme'
+import { AppFooter } from './AppFooter'
 
 const App = () => (
   <ErrorBoundary>
-    <ThemeProvider>Testing</ThemeProvider>
+    <ThemeProvider>
+      <AppFooter />
+    </ThemeProvider>
   </ErrorBoundary>
 )
 
