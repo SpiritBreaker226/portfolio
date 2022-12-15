@@ -37,9 +37,9 @@ export const SocialMediaLink: FC<SocialMediaLinkProps> = ({ type, link }) => {
   return (
     <Link
       href={link}
-      title={`See Jason Stathopulos account on ${type[0].toUpperCase()}${type
-        .slice(1)
-        .toLowerCase()}`}
+      title={`See ${
+        process.env.REACT_APP_DEVELOPER_NAME
+      } account on ${type[0].toUpperCase()}${type.slice(1).toLowerCase()}`}
       target="_blank"
       rel="noreferrer">
       <FontAwesomeIcon icon={iconDefinition} size="4x" />
