@@ -1,5 +1,6 @@
 import { Formik } from 'formik'
 import { FC, ReactNode } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 export type RenderProps = {
   children: ReactNode
@@ -7,8 +8,10 @@ export type RenderProps = {
 
 export const DefaultWrapper: FC<RenderProps> = ({ children }) => {
   return (
-    <Formik initialValues={{ requireField: '' }} onSubmit={() => {}}>
-      {children}
-    </Formik>
+    <BrowserRouter>
+      <Formik initialValues={{ requireField: '' }} onSubmit={() => {}}>
+        {children}
+      </Formik>
+    </BrowserRouter>
   )
 }

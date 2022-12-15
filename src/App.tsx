@@ -1,3 +1,5 @@
+import { BrowserRouter as Router } from 'react-router-dom'
+
 import ErrorBoundary from './Components/ErrorBoundary'
 import { ThemeProvider } from './theme'
 import { AppFooter } from './AppFooter'
@@ -5,7 +7,9 @@ import { AppFooter } from './AppFooter'
 const App = () => (
   <ErrorBoundary>
     <ThemeProvider>
-      <AppFooter />
+      <Router>
+        <AppFooter />
+      </Router>
     </ThemeProvider>
   </ErrorBoundary>
 )
