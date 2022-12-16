@@ -43,6 +43,10 @@ export default createGlobalStyle`
     }
   }
 
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
   #root{
     margin:0 auto;
   }
