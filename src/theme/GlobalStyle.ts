@@ -24,8 +24,8 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    color: ${theme.text};
-    background: ${theme.secondary};
+    color: ${theme.colors.text};
+    background: ${theme.colors.secondary};
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -35,11 +35,11 @@ export default createGlobalStyle`
     text-decoration: none;
     font-weight: 600;
     transition: all 0.1s ease 0s;
-    color: ${theme.primary};
+    color: ${theme.colors.primary};
 
     &:active,
     &:hover {
-      color: ${theme.hoverForLinks};
+      color: ${theme.colors.hoverForLinks};
     }
   }
 

@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom'
 
 const NavigationLinkContainer = styled(NavLink)`
   padding: 1rem;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.colors.text};
 
   &:hover,
   &.active {
-    background-color: ${(props) => props.theme.primary};
-    color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.secondary};
   }
 `
 

@@ -9,7 +9,7 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0.75rem;
-  border-bottom: 1px solid ${(props) => props.theme.border};
+  border-bottom: 1px solid ${(props) => props.theme.colors.border};
 `
 
 const Title = styled.h1`

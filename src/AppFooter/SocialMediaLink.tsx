@@ -13,12 +13,12 @@ import styled from 'styled-components'
 const Link = styled.a`
   border-radius: 8px;
   padding: 0.5rem 1rem;
-  background-color: ${(props) => props.theme.secondary};
+  background-color: ${(props) => props.theme.colors.secondary};
 
   &:active,
   &:hover {
-    background-color: ${(props) => props.theme.primary};
-    color: ${(props) => props.theme.secondary};
+    background-color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.secondary};
   }
 `
 
