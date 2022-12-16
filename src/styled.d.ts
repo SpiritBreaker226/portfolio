@@ -1,3 +1,4 @@
+import { Skills } from './Skills/Skills'
 import 'styled-components'
 
 // and extend them!
@@ -14,6 +15,9 @@ declare module 'styled-components' {
     pageStyles: {
       about: {
         bg: string
+      }
+      skills: {
+        barColor: string
       }
     }
   }
