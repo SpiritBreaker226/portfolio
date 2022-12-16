@@ -6,14 +6,14 @@ const Container = styled.section`
 `
 
 const Image = styled.img`
-  border-bottom: 2px solid ${(props) => props.theme.border};
+  border-bottom: 2px solid ${(props) => props.theme.colors.border};
 `
 
 const TextContainer = styled.article`
   padding: 1rem;
   margin: 1rem 0;
-  background-color: ${(props) => props.theme.aboutBg};
-  color: ${(props) => props.theme.secondary};
+  background-color: ${(props) => props.theme.pageStyles.about.bg};
+  color: ${(props) => props.theme.colors.secondary};
 
   p {
     margin-bottom: 1rem;

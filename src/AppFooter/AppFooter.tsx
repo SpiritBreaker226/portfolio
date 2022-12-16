@@ -5,11 +5,11 @@ import { SocialMediaLink } from './SocialMediaLink'
 
 const Container = styled.footer`
   padding: 3rem;
-  background-color: ${(props) => props.theme.primary};
+  background-color: ${(props) => props.theme.colors.primary};
 `
 
 const Title = styled.h3`
-  color: ${(props) => props.theme.secondary};
+  color: ${(props) => props.theme.colors.secondary};
   margin-bottom: 2rem;
 `
 

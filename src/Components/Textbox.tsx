@@ -15,21 +15,21 @@ const Textfield = styled.input.attrs<{ isErroring: boolean }>((props) => ({
 }))<{ isErroring: boolean }>`
   margin-top: 0.25rem;
   padding: 0.75rem;
-  border: 1px solid ${(props) => props.theme.border};
+  border: 1px solid ${(props) => props.theme.colors.border};
   border-radius: 4px;
 
   ${(props) =>
     props.isErroring &&
     `
     border: 0;
-    outline-color: ${props.theme.error};
+    outline-color: ${props.theme.colors.error};
     outline-style: solid;
     outline-width: 1px;`}}
 `
 
 const ErrorMessage = styled.div`
   font-size: 0.75rem;
-  color: ${(props) => props.theme.error};
+  color: ${(props) => props.theme.colors.error};
   margin: 0.5rem 0;
 `
 

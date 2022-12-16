@@ -6,7 +6,7 @@ const ErrorMessageContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 1rem 0;
-  color: ${(props) => props.theme.error};
+  color: ${(props) => props.theme.colors.error};
 `
 
 export type ErrorMessageProps = {
