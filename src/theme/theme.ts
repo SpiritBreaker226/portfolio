@@ -13,5 +13,8 @@ export const theme: DefaultTheme = {
     about: {
       bg: '#46505a',
     },
+    skills: {
+      barColor: 'rgba(170, 15, 19, 1)',
+    },
   },
 }
