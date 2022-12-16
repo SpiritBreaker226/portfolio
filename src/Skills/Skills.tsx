@@ -9,41 +9,30 @@ import {
 import { Bar } from 'react-chartjs-2'
 import { useTheme } from 'styled-components'
 
+import { skillSet } from '../data'
+import { useObjectToChartData } from '../hooks'
+
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip)
+
+const options = {
+  indexAxis: 'y' as const,
+  elements: {
+    bar: {
+      borderWidth: 2,
+    },
+  },
+  responsive: true,
+}
 
 export const Skills: FC = () => {
   const theme = useTheme()
-
-  const options = {
-    indexAxis: 'y' as const,
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
-    responsive: true,
-  }
-
-  const labels = [
-    'Ruby on Rails',
-    'Ruby',
-    'C++',
-    'JavaScript',
-    'ReactJS',
-    'Redux',
-    'JSON',
-    'HTML5',
-    'CSS3',
-    'MUI',
-    'SQL',
-    'Git',
-  ]
+  const { labels, dataSet } = useObjectToChartData(skillSet)
 
   const data = {
     labels,
     datasets: [
       {
-        data: [6.5, 5.5, 5, 8.5, 8, 7.5, 7.5, 7.5, 6, 7.5, 7, 9],
+        data: dataSet,
         backgroundColor: theme.pageStyles.skills.barColor,
       },
     ],
