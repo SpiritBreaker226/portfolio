@@ -15,6 +15,6 @@ const NavigationLinkContainer = styled(NavLink)`
 
 export const Navigation: FC = () => (
   <nav>
-    <NavigationLinkContainer to="/">Home</NavigationLinkContainer>
+    <NavigationLinkContainer to="/">About</NavigationLinkContainer>
   </nav>
 )
