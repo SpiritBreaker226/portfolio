@@ -1,0 +1,18 @@
+export enum Tag {
+  'Rails' = 'Ruby on Rails',
+  Ruby = 'Ruby',
+  'C++' = 'C++',
+  'C#' = 'C#',
+  'Objective-C' = 'Objective-C',
+  PHP = 'PHP',
+  JavaScript = 'JavaScript',
+  ReactJS = 'ReactJS',
+  Phonegap = 'Phonegap',
+  HTML = 'HTML',
+  CSS = 'CSS',
+  SQL = 'SQL',
+  SQLServer = 'SQL Server',
+  PostgreSQL = 'PostgreSQL',
+  mySQL = 'mySQL',
+  Git = 'Git',
+}
