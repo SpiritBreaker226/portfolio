@@ -1,1 +1,1 @@
-export * from './useObjectToChartData'
+export * from './useSkills'

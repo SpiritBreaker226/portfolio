@@ -1,6 +1,6 @@
 type RawData = { [key: string]: number }
 
-export const useObjectToChartData = (rawDataSet: RawData) => {
+export const objectToChartData = (rawDataSet: RawData) => {
   const labels: string[] = []
   const dataSet: number[] = []
 
