@@ -9,8 +9,7 @@ import {
 import { Bar } from 'react-chartjs-2'
 import { useTheme } from 'styled-components'
 
-import { skillSet } from '../data'
-import { useObjectToChartData } from '../hooks'
+import { useSkills } from '../hooks'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip)
 
@@ -26,7 +25,7 @@ const options = {
 
 export const Skills: FC = () => {
   const theme = useTheme()
-  const { labels, dataSet } = useObjectToChartData(skillSet)
+  const { labels, dataSet } = useSkills()
 
   const data = {
     labels,
