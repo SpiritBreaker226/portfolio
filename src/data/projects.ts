@@ -11,6 +11,7 @@ export const projects: Project[] = [
     teamSize: 1,
     platforms: [Platform['mobile']],
     type: ProjectType['Open'],
+    icon: 'iconASChess.png',
     sampleCodeUrl: 'https://github.com/SpiritBreaker226/asimplechessgame',
     isFeature: false,
   },
@@ -35,6 +36,7 @@ export const projects: Project[] = [
     teamSize: 3,
     platforms: [Platform['web']],
     type: ProjectType['Open'],
+    icon: 'iconOKCouncillr.svg',
     sampleCodeUrl: 'https://github.com/CivicHaxx/ok_councillr',
     isFeature: false,
   },
@@ -58,6 +60,7 @@ export const projects: Project[] = [
     teamSize: 2,
     platforms: [Platform['web']],
     type: ProjectType['Close'],
+    icon: 'iconETT.png',
     sampleCodeUrl: 'https://github.com/SpiritBreaker226/codesamples-ETT',
     isFeature: false,
   },
@@ -85,6 +88,7 @@ export const projects: Project[] = [
     teamSize: 2,
     platforms: [Platform['mobile']],
     type: ProjectType['Close'],
+    icon: 'iconOxford.png',
     sampleCodeUrl:
       'https://github.com/SpiritBreaker226/codesamples-Oxford-RecyclingKiosk',
     isFeature: true,
@@ -110,6 +114,7 @@ export const projects: Project[] = [
     teamSize: 2,
     platforms: [Platform['mobile']],
     type: ProjectType['Close'],
+    icon: 'iconGeriatRx.png',
     isFeature: false,
   },
   {
@@ -132,6 +137,7 @@ export const projects: Project[] = [
     teamSize: 4,
     platforms: [Platform['web']],
     type: ProjectType['Close'],
+    icon: 'iconOLP.png',
     isFeature: true,
   },
   {
@@ -155,6 +161,7 @@ export const projects: Project[] = [
     teamSize: 5,
     platforms: [Platform['web']],
     type: ProjectType['Close'],
+    icon: 'iconObituaries.png',
     sampleCodeUrl:
       'https://github.com/SpiritBreaker226/codesamples-theobituaries',
     isFeature: false,
@@ -182,6 +189,7 @@ export const projects: Project[] = [
     teamSize: 2,
     platforms: [Platform['web']],
     type: ProjectType['Close'],
+    icon: 'iconChatr.png',
     isFeature: false,
   },
   {
@@ -198,6 +206,7 @@ export const projects: Project[] = [
     teamSize: 3,
     platforms: [Platform['web']],
     type: ProjectType['Close'],
+    icon: 'iconBenjamin.png',
     url: 'http://benjaminsparkmemorialchapel.ca',
     sampleCodeUrl: 'https://github.com/SpiritBreaker226/codesamples-Benjamins',
     isFeature: true,
@@ -223,6 +232,7 @@ export const projects: Project[] = [
     teamSize: 2,
     platforms: [Platform['mobile']],
     type: ProjectType['Close'],
+    icon: 'iconNorthcott.png',
     sampleCodeUrl: 'https://github.com/SpiritBreaker226/codesamples-Nothcott',
     isFeature: false,
   },
@@ -248,6 +258,7 @@ export const projects: Project[] = [
     teamSize: 2,
     platforms: [Platform['mobile']],
     type: ProjectType['Close'],
+    icon: 'iconCityVaughan.png',
     url: 'http://itunes.apple.com/us/app/city-of-vaughan/id896731406',
     sampleCodeUrl:
       'https://github.com/SpiritBreaker226/codesamples-CityOfVaughan',

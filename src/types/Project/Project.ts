@@ -9,6 +9,7 @@ export type Project = {
   teamSize: number
   platforms: Platform[]
   type: ProjectType
+  icon: string
   isFeature: boolean
   url?: string
   sampleCodeUrl?: string
