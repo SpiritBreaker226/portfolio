@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: '43011847d0927ccecf77d4609372ba3a727cb0c5',
     name: 'A Simple Chess Game',
-    summary:
+    description:
       'A Simple Chess Game is a chess game for iOS that supports 2-player gameplay to play against your friends.',
     responsibilities: ['Everything'],
     tags: [Tag['Objective-C']],
@@ -18,7 +18,7 @@ export const projects: Project[] = [
   {
     id: 'd85e18a48dde748c472caa41c6dae45d5461ab4f',
     name: 'OKCouncillr',
-    summary:
+    description:
       'OKCouncillr is a data scraper, API, and civic engagement app for the City of Toronto. The scraper pulls data from the City of Toronto council meetings and parses it into a database, the API serves the data up as JSON, and the app allows people to discover how their Councillor matches their political leanings.',
     responsibilities: [
       "Created and maintained the API, which allows other developers access to the City of Toronto's data which the application scraped from their site.",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
   {
     id: 'a9ff2fa44a6c138fe9605337d6c85563485f22c3',
     name: 'Elementary Teachers of Toronto',
-    summary:
+    description:
       "Elementary Teachers of Toronto (ETT) is the Toronto local of the Elementary Teachers' Federation of Ontario (ETFO). The local—the largest in Canada—acts as the representative body for more than 11,000 elementary teachers (K-8) employed by the Toronto District School Board (TDSB). In addition, we worked with a partner company (design vendor) to develop the site's frontend using WordPress as the backbone, which supported the integration with their current organizational structure and organizing events for their members.",
     responsibilities: [
       'Lead Developer on the project',
@@ -67,7 +67,7 @@ export const projects: Project[] = [
   {
     id: 'd1ed515f27f28e290e12da95e6acffc0fef85e9c',
     name: 'Oxford Properties Recycling Game',
-    summary:
+    description:
       'Oxford Properties, a real estate properties company with a team of 1,700, takes a hands-on approach to investment, development and management of their global property portfolio. I developed an iPad game for Oxford Properties to promote recycling and sustainability in their buildings. It gave the tenants a fun way of learning what is recyclable.',
     responsibilities: [
       'Lead Developer on the project',
@@ -96,7 +96,7 @@ export const projects: Project[] = [
   {
     id: 'e3b71db13db244c95da199cbe3d95c5c6ad39762',
     name: 'GeriatRx Pharmacy',
-    summary:
+    description:
       "GeriatRx Pharmacy is a unique player in the LTC (Long Term Care) industry. Their mission is to provide unparalleled service to their LTC clientele. I created an app to allow doctors to view their patient's history and drug interactions and enter their patient's prescriptions from a tablet.",
     responsibilities: [
       'Lead Developer on the project',
@@ -120,7 +120,7 @@ export const projects: Project[] = [
   {
     id: '5a11e98b05b31bc1d9d4528f1b73d9e1c59053f4',
     name: 'Ontario Liberal Party',
-    summary:
+    description:
       'I implemented two new content-managed websites for the Ontario Liberal Party. It had a short timeline and rapid development for September 2010 release. The first website accommodated the DotNetNuke CMS engine, and the second website performed custom integration with OLP internal web services that were utilized as a data source.',
     responsibilities: [
       'I was the sole Developer on the project, and other team members were a designer and Q&A testers.',
@@ -143,7 +143,7 @@ export const projects: Project[] = [
   {
     id: '21e4d3134d22e7a30acbaf8a084610d098c08882',
     name: 'theObituaries.ca',
-    summary:
+    description:
       'The Obituaries is a site that allows you to create an obituary or memorial for a friend or family member. You can also share obituaries on Facebook or Twitter.',
     responsibilities: [
       'Lead Developer on the project',
@@ -169,7 +169,7 @@ export const projects: Project[] = [
   {
     id: 'c1d3506b343b10d8ab7ba2ba9c70fa4a07d1da92',
     name: 'Chatr Wireless',
-    summary:
+    description:
       'Chatr Wireless is a subsidiary of Rogers Communication and focuses on providing quick and less expensive plans for phone and text. I coordinated the execution of a full-cycle online/mobile contest with a short deadline and restricted budget for Rogers Chatr Wireless customers. The online portion of the contest allowed Rogers Chatr wireless customers to enter a valid Chatr Wireless phone number to participate in the contest and possibly win prizes. In addition, they would receive text messages if they won an award or receive a number to enter into the website.',
     responsibilities: [
       'I was the lead developer of the project when the contest launched and maintained the site and reports while the contest was going on.',
@@ -195,7 +195,7 @@ export const projects: Project[] = [
   {
     id: 'f4cad025a5ad80e6f1c185941ebf4f0c9c5f8602',
     name: "Benjamin Memorial Chapel's Email Program",
-    summary:
+    description:
       "The Benjamin Memorial Chapel site is part of the Benjamin Group of sites that allow visitors to be informed of the loss of a loved one and provide information to the visitors, of site, about Jewish funnel traditions. In addition, they wanted an email program to send out newsletters twice daily to their subscribers about the coming funeral services at Benjamin's.",
     responsibilities: [
       'I maintained and improved existing code',
@@ -214,7 +214,7 @@ export const projects: Project[] = [
   {
     id: 'af9a9e5b591f165e19c4f6e768301c692a0ae646',
     name: 'Northcott',
-    summary:
+    description:
       'Northcott is an International Distributor and Converter of fine cotton printed fabrics for the quilt, craft and home decor industries. Created an eShop app to allow the sales people to quickly place orders of fabric and designs, while they are with their customers in their shop or home.',
     responsibilities: [
       'Lead Developer on the project',
@@ -239,7 +239,7 @@ export const projects: Project[] = [
   {
     id: '1f23d276aafeb6d5a3cd0290cf5ab61b90e414c6',
     name: 'City of Vaughan',
-    summary:
+    description:
       'The official app for the City of Vaughan allows its citizens to know what is going on in Vaughan and contact information for their city hall.',
     responsibilities: [
       'Lead Developer on the project.',

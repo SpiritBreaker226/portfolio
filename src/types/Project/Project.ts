@@ -3,7 +3,7 @@ import { Platform, Tag, ProjectType } from './enum'
 export type Project = {
   id: string
   name: string
-  summary: string
+  description: string
   responsibilities: string[]
   tags: Tag[]
   teamSize: number
