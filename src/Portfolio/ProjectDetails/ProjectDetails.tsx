@@ -40,6 +40,14 @@ const Icon = styled.img`
   margin-bottom 1rem;
 `
 
+const ButtonContainer = styled.footer`
+  text-align: right;
+
+  a {
+    margin-left: 1rem;
+  }
+`
+
 export const ProjectDetails: FC = () => {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -98,6 +106,21 @@ export const ProjectDetails: FC = () => {
             ))}
           </Details>
         </Body>
+
+        {(project.sampleCodeUrl || project.url) && (
+          <ButtonContainer>
+            {project.sampleCodeUrl && (
+              <a href={project.sampleCodeUrl} target="_blank" rel="noreferrer">
+                View Sample Code
+              </a>
+            )}
+            {project.url && (
+              <a href={project.url} target="_blank" rel="noreferrer">
+                View {project.name}
+              </a>
+            )}
+          </ButtonContainer>
+        )}
       </section>
     </>
   )
