@@ -11,6 +11,7 @@ const Navigate = () => <div>Redirected</div>
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
   useParams: () => mockUseParams,
+  useNavigate: () => jest.fn(),
   Navigate,
 }))
 
