@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import { Project } from '../../types'
+import { projectSummary } from './helpers'
 
 const fade = keyframes`
   0% {
@@ -32,6 +33,10 @@ const Name = styled.p`
   font-weight: bold;
 `
 
+const Summary = styled.p`
+  margin-bottom 1rem;
+`
+
 export type ProjectItemProps = {
   project: Project
 }
@@ -41,5 +46,7 @@ export const ProjectItem: FC<ProjectItemProps> = ({ project }) => (
     <Icon src={`/image/project-icons/${project.icon}`} alt={project.name} />
 
     <Name>{project.name}</Name>
+
+    <Summary>{projectSummary(project.description)}</Summary>
   </Container>
 )
