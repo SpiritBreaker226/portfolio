@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { LinkButton } from '../../Components'
 import { usePortfolio } from '../../hooks'
+import { Icon } from '../Project.style'
 
 const Body = styled.div`
   display: flex;
@@ -30,14 +31,6 @@ const ContentType = styled.span`
 
 const ResponsibilityContainer = styled.ul`
   margin-bottom: 1rem;
-`
-
-const Icon = styled.img`
-  border-radius: 50%;
-  border: 1px solid ${(props) => props.theme.colors.border};
-  height: 128px;
-  width: 128px;
-  margin-bottom 1rem;
 `
 
 const TagContainer = styled.div`

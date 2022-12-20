@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components'
 
 import { Button } from '../../Components'
 import { Project } from '../../types'
+import { Icon } from '../Project.style'
 import { projectSummary } from './helpers'
 
 const fade = keyframes`
@@ -20,14 +21,6 @@ const Container = styled.article`
   max-width: 20rem;
   text-align: center;
   margin-bottom: 2.5rem;
-`
-
-const Icon = styled.img`
-  border-radius: 50%;
-  border: 1px solid ${(props) => props.theme.colors.border};
-  height: 128px;
-  width: 128px;
-  margin-bottom 1rem;
 `
 
 const Name = styled.p`
