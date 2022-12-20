@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { About } from '../About'
 import { PageNotFound } from '../Components'
+import { Portfolio } from '../Portfolio'
 import { Skills } from '../Skills'
 import { AppBodyContainer } from './AppBody.style'
 import { Banner } from './Banner'
@@ -20,6 +21,7 @@ export const AppBody: FC = () => (
 
     <Route element={<Banner />}>
       <Route path="skills" element={<Skills />} />
+      <Route path="portfolio" element={<Portfolio />} />
     </Route>
 
     <Route
