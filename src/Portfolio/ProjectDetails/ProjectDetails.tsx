@@ -40,6 +40,18 @@ const Icon = styled.img`
   margin-bottom 1rem;
 `
 
+const TagContainer = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`
+
+const Tag = styled.div`
+  background: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.secondary};
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+`
+
 const ButtonContainer = styled.footer`
   text-align: right;
 
@@ -101,9 +113,12 @@ export const ProjectDetails: FC = () => {
             <Content>
               <ContentType>Tags:</ContentType>
             </Content>
-            {project.tags.map((tag) => (
-              <div key={`${tag}`}>{tag}</div>
-            ))}
+
+            <TagContainer>
+              {project.tags.map((tag) => (
+                <Tag key={`${tag}`}>{tag}</Tag>
+              ))}
+            </TagContainer>
           </Details>
         </Body>
 
