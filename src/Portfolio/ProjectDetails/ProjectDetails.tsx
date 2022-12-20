@@ -1,11 +1,17 @@
-import { FC } from 'react'
-import { useParams, Navigate } from 'react-router-dom'
+import { FC, useCallback } from 'react'
+import { useParams, Navigate, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { LinkButton } from '../../Components'
 import { usePortfolio } from '../../hooks'
 
-const Container = styled.section`
+const Body = styled.div`
   display: flex;
+`
+
+const Header = styled.div`
+  text-align: left;
+  margin-bottom: 2rem;
 `
 
 const Details = styled.div`
@@ -36,48 +42,63 @@ const Icon = styled.img`
 
 export const ProjectDetails: FC = () => {
   const { id } = useParams()
+  const navigate = useNavigate()
+
   const { getPortfolio } = usePortfolio()
 
   const project = getPortfolio(id as string)
+  const backButton = useCallback(() => navigate(-1), [navigate])
 
   if (!project) {
     return <Navigate replace to="/page-not-found" />
   }
 
   return (
-    <Container>
-      <aside>
-        <Icon src={`/image/project-icons/${project.icon}`} alt={project.name} />
-        <Content>{project.name}</Content>
-        <Content>
-          <ContentType>Type:</ContentType> {project.type}
-        </Content>
-        <Content>
-          <ContentType>Platforms:</ContentType> {project.platforms.join(', ')}
-        </Content>
-        <Content>
-          <ContentType>Team Size:</ContentType> {project.teamSize}
-        </Content>
-      </aside>
-      <Details>
-        <Content>{project.description}</Content>
+    <>
+      <section>
+        <Header>
+          <LinkButton onClick={backButton}>Back</LinkButton>
+        </Header>
+        <Body>
+          <aside>
+            <Icon
+              src={`/image/project-icons/${project.icon}`}
+              alt={project.name}
+            />
+            <Content>{project.name}</Content>
+            <Content>
+              <ContentType>Type:</ContentType> {project.type}
+            </Content>
+            <Content>
+              <ContentType>Platforms:</ContentType>{' '}
+              {project.platforms.join(', ')}
+            </Content>
+            <Content>
+              <ContentType>Team Size:</ContentType> {project.teamSize}
+            </Content>
+          </aside>
 
-        <Content>
-          <ContentType>Responsibilities:</ContentType>
-        </Content>
-        <ResponsibilityContainer>
-          {project.responsibilities.map((responsibility) => (
-            <li key={`${responsibility}`}>{responsibility}</li>
-          ))}
-        </ResponsibilityContainer>
+          <Details>
+            <Content>{project.description}</Content>
 
-        <Content>
-          <ContentType>Tags:</ContentType>
-        </Content>
-        {project.tags.map((tag) => (
-          <div key={`${tag}`}>{tag}</div>
-        ))}
-      </Details>
-    </Container>
+            <Content>
+              <ContentType>Responsibilities:</ContentType>
+            </Content>
+            <ResponsibilityContainer>
+              {project.responsibilities.map((responsibility) => (
+                <li key={`${responsibility}`}>{responsibility}</li>
+              ))}
+            </ResponsibilityContainer>
+
+            <Content>
+              <ContentType>Tags:</ContentType>
+            </Content>
+            {project.tags.map((tag) => (
+              <div key={`${tag}`}>{tag}</div>
+            ))}
+          </Details>
+        </Body>
+      </section>
+    </>
   )
 }
