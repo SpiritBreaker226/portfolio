@@ -1,8 +1,8 @@
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 
-import { Button } from '../../Components'
+import { Button, LinkButton } from '../../Components'
 import { Project } from '../../types'
 import { Icon } from '../Project.style'
 import { projectSummary } from './helpers'
@@ -40,15 +40,22 @@ export type ProjectItemProps = {
 export const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
   const navigate = useNavigate()
 
+  const toProjectDetailsButton = useCallback(
+    () => navigate(project.id),
+    [navigate, project]
+  )
+
   return (
     <Container aria-label={project.name}>
-      <Icon src={`/image/project-icons/${project.icon}`} alt={project.name} />
+      <LinkButton onClick={toProjectDetailsButton}>
+        <Icon src={`/image/project-icons/${project.icon}`} alt={project.name} />
+      </LinkButton>
 
       <Name>{project.name}</Name>
 
       <Summary>{projectSummary(project.description)}</Summary>
 
-      <Button onClick={() => navigate(project.id)}>View Details</Button>
+      <Button onClick={toProjectDetailsButton}>View Details</Button>
     </Container>
   )
 }
