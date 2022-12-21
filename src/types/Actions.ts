@@ -2,13 +2,13 @@ import {
   DisplayOption,
   Platform,
   Project,
-  Projects,
+  ProjectObject,
   ProjectType,
   SearchCriteria,
 } from './Project'
 
 export interface InitialState {
-  projects: Projects
+  projects: ProjectObject
   filteredProjects: Project[]
   searchCriteria: SearchCriteria
 }
