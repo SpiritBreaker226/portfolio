@@ -1,41 +1,41 @@
 import { faker } from '@faker-js/faker'
 import { screen } from '@testing-library/react'
 
-import { project, render } from '../../../testUtil'
+import { AppProvider, initialState, project, render } from '../../../testUtil'
+import { InitialState, ProjectObject } from '../../../types'
 import { ProjectDetails } from '../ProjectDetails'
 
-const mockUseParams = jest.fn()
-const mockGetPortfolio = jest.fn()
+const mockDispatch = jest.fn()
 
 const Navigate = () => <div>Redirected</div>
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
-  useParams: () => mockUseParams,
+  useParams: () => ({ id: 'testId' }),
   useNavigate: () => jest.fn(),
   Navigate,
 }))
 
-jest.mock('../../../hooks', () => ({
-  ...jest.requireActual('../../../hooks'),
-  usePortfolio: () => ({ getPortfolio: mockGetPortfolio }),
-}))
-
 describe('ProjectDetails', () => {
-  const setUp = () => render(<ProjectDetails />)
+  const setUp = (state: Partial<InitialState> = {}, dispatch = mockDispatch) =>
+    render(
+      <AppProvider state={{ ...initialState, ...state }} dispatch={dispatch}>
+        <ProjectDetails />
+      </AppProvider>
+    )
 
   it('should show project details', async () => {
-    mockGetPortfolio.mockReturnValue(project)
+    const projectTest: ProjectObject = {}
 
-    setUp()
+    projectTest['testId'] = { ...project, id: 'testId' }
+
+    setUp({ projects: projectTest })
 
     await screen.findByText(project.name)
   })
 
   describe('when no project is found', () => {
     it('should go to page not found', async () => {
-      mockGetPortfolio.mockReturnValue(undefined)
-
       setUp()
 
       await screen.findByText('Redirected')
@@ -44,13 +44,16 @@ describe('ProjectDetails', () => {
 
   describe('when project has no links', () => {
     it('should not show urls', async () => {
-      mockGetPortfolio.mockReturnValue({
+      const projectTest: ProjectObject = {}
+
+      projectTest['testId'] = {
         ...project,
+        id: 'testId',
         sampleCodeUrl: undefined,
         url: undefined,
-      })
+      }
 
-      setUp()
+      setUp({ projects: projectTest })
 
       expect(screen.queryByRole('footer')).not.toBeInTheDocument()
     })
@@ -58,25 +61,31 @@ describe('ProjectDetails', () => {
 
   describe('when project has links', () => {
     it('should show sampleCodeUrl url', async () => {
-      mockGetPortfolio.mockReturnValue({
+      const projectTest: ProjectObject = {}
+
+      projectTest['testId'] = {
         ...project,
+        id: 'testId',
         sampleCodeUrl: faker.internet.url(),
         url: undefined,
-      })
+      }
 
-      setUp()
+      setUp({ projects: projectTest })
 
       await screen.findByRole('link', { name: 'View Sample Code' })
     })
 
     it('should show project url', async () => {
-      mockGetPortfolio.mockReturnValue({
+      const projectTest: ProjectObject = {}
+
+      projectTest['testId'] = {
         ...project,
+        id: 'testId',
         sampleCodeUrl: undefined,
         url: faker.internet.url(),
-      })
+      }
 
-      setUp()
+      setUp({ projects: projectTest })
 
       await screen.findByRole('link', { name: `View ${project.name}` })
     })

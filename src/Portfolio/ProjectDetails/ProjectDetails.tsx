@@ -3,7 +3,7 @@ import { useParams, Navigate, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { LinkButton } from '../../Components'
-import { usePortfolio } from '../../hooks'
+import { useApp } from '../../context'
 import { Icon } from '../Project.style'
 
 const Body = styled.div`
@@ -56,10 +56,11 @@ const ButtonContainer = styled.footer`
 export const ProjectDetails: FC = () => {
   const { id } = useParams()
   const navigate = useNavigate()
+  const {
+    state: { projects },
+  } = useApp()
 
-  const { getPortfolio } = usePortfolio()
-
-  const project = getPortfolio(id as string)
+  const project = projects[id as string]
   const backButton = useCallback(() => navigate(-1), [navigate])
 
   if (!project) {
