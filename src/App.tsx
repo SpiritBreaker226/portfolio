@@ -5,17 +5,20 @@ import { ThemeProvider } from './theme'
 import { AppHeader } from './AppHeader'
 import { AppBody } from './AppBody'
 import { AppFooter } from './AppFooter'
+import { AppProvider } from './context'
 
 const App = () => (
   <ErrorBoundary>
     <ThemeProvider>
-      <Router>
-        <AppHeader />
+      <AppProvider>
+        <Router>
+          <AppHeader />
 
-        <AppBody />
+          <AppBody />
 
-        <AppFooter />
-      </Router>
+          <AppFooter />
+        </Router>
+      </AppProvider>
     </ThemeProvider>
   </ErrorBoundary>
 )
