@@ -10,9 +10,10 @@ import { projectReducer } from '../reducers'
 
 import { Action, InitialState } from '../types'
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
   projects: {},
-  selectedProject: undefined,
+  filteredProjects: [],
+  searchCriteria: { display: 'feature' },
 }
 
 type AppProviderProps = {

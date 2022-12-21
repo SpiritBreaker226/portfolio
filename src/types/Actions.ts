@@ -1,21 +1,51 @@
-import { Project, Projects } from './Project'
+import {
+  DisplayOption,
+  Platform,
+  Project,
+  Projects,
+  ProjectType,
+  SearchCriteria,
+} from './Project'
 
 export interface InitialState {
   projects: Projects
-  selectedProject?: Project
+  filteredProjects: Project[]
+  searchCriteria: SearchCriteria
 }
 
 export enum Types {
   AddProject = 'ADD_PROJECT',
-  SelectedProject = 'SELECTED_PROJECT',
+  Search = 'SEARCH',
+}
+
+export enum UpdateSearchTypes {
+  Text = 'UPDATE_SEARCH_TEXT',
+  Type = 'UPDATE_SEARCH_TYPE',
+  Platform = 'UPDATE_SEARCH_PLATFORM',
+  Display = 'UPDATE_SEARCH_DISPLAY',
 }
 
 type ProjectPayload = {
   [Types.AddProject]: {
     projects: Project[]
   }
-  [Types.SelectedProject]: {
-    selectedProject: Project
+}
+
+type SearchPayload = {
+  [Types.Search]: {
+    searchCriteria: SearchCriteria
+  }
+  [UpdateSearchTypes.Text]: {
+    searchText: string
+  }
+  [UpdateSearchTypes.Type]: {
+    type: ProjectType
+  }
+  [UpdateSearchTypes.Platform]: {
+    platforms: Platform[]
+  }
+  [UpdateSearchTypes.Display]: {
+    display: DisplayOption
   }
 }
 
@@ -33,4 +63,7 @@ type ActionMap<M extends { [index: string]: any }> = {
 export type ProjectActions =
   ActionMap<ProjectPayload>[keyof ActionMap<ProjectPayload>]
 
-export type Action = ProjectActions
+export type SearchActions =
+  ActionMap<SearchPayload>[keyof ActionMap<SearchPayload>]
+
+export type Action = ProjectActions | SearchActions

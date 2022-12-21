@@ -16,10 +16,7 @@ export const projectReducer = (state: InitialState, action: Action) => {
         ...state,
         projects,
       }
-    case Types.SelectedProject:
-      return {
-        ...state,
-        selectedProject: action.payload.selectedProject,
-      }
+    default:
+      return state
   }
 }
