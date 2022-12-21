@@ -6,8 +6,8 @@ import {
   useContext,
   useReducer,
 } from 'react'
-import { projectReducer } from '../reducers'
 
+import { projectReducer, searchReducer } from '../reducers'
 import { Action, InitialState } from '../types'
 
 export const initialState: InitialState = {
@@ -32,7 +32,9 @@ const AppContext = createContext<{
 })
 
 const mainReducer = (state: InitialState, action: Action) => {
-  return projectReducer(state, action)
+  let currentState = projectReducer(state, action)
+
+  return searchReducer(currentState, action)
 }
 
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
