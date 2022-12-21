@@ -2,16 +2,9 @@ import {
   DisplayOption,
   Platform,
   Project,
-  ProjectObject,
   ProjectType,
   SearchCriteria,
 } from './Project'
-
-export interface InitialState {
-  projects: ProjectObject
-  filteredProjects: Project[]
-  searchCriteria: SearchCriteria
-}
 
 export enum Types {
   AddProject = 'ADD_PROJECT',
