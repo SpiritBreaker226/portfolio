@@ -1,14 +1,9 @@
-import {
-  DisplayOption,
-  Platform,
-  Project,
-  ProjectType,
-  SearchCriteria,
-} from './Project'
+import { DisplayOption, Platform, Project, ProjectType } from './Project'
 
 export enum Types {
   AddProject = 'ADD_PROJECT',
   Search = 'SEARCH',
+  ResetSearchCriteria = 'REST_SEARCH_CRITERIA',
 }
 
 export enum UpdateSearchTypes {
@@ -25,9 +20,8 @@ type ProjectPayload = {
 }
 
 type SearchPayload = {
-  [Types.Search]: {
-    searchCriteria: SearchCriteria
-  }
+  [Types.Search]: {}
+  [Types.ResetSearchCriteria]: {}
   [UpdateSearchTypes.Text]: {
     searchText: string
   }
