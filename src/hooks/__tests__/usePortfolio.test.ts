@@ -13,14 +13,4 @@ describe('usePortfolio', () => {
       expect(portfolios[0].id).toEqual(projects[0].id)
     })
   })
-
-  describe('getPortfolio', () => {
-    it('should get a portfolio', () => {
-      const { result } = renderHook(() => usePortfolio())
-
-      const portfolio = result.current.getPortfolio(projects[0].id)
-
-      expect(portfolio?.id).toEqual(projects[0].id)
-    })
-  })
 })
