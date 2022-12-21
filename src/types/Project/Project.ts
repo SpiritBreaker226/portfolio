@@ -14,3 +14,5 @@ export type Project = {
   url?: string
   sampleCodeUrl?: string
 }
+
+export type ProjectObject = { [key: string]: Project }
