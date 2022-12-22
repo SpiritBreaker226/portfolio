@@ -1,25 +1,39 @@
 import { initialState } from '../context'
-import { Action, InitialState, Types, UpdateSearchTypes } from '../types'
+import {
+  Action,
+  InitialState,
+  Project,
+  Types,
+  UpdateSearchTypes,
+} from '../types'
 
 export const searchReducer = (state: InitialState, action: Action) => {
   switch (action.type) {
     case Types.Search:
-      const { searchText } = state.searchCriteria
+      const { searchText, type } = state.searchCriteria
+      const filteredProjects: Project[] = [...state.filteredProjects]
+
+      if (searchText) {
+        filteredProjects.push(
+          ...Object.values(state.projects).filter(
+            (project) =>
+              project.name.includes(searchText) ||
+              project.description.includes(searchText)
+          )
+        )
+      }
+
+      if (type) {
+        filteredProjects.push(
+          ...Object.values(state.projects).filter(
+            (project) => project.type === type
+          )
+        )
+      }
 
       return {
         ...state,
-        filteredProjects:
-          Object.values(state.projects).filter((project) => {
-            let isValueProject = false
-
-            if (searchText) {
-              isValueProject =
-                project.name.includes(searchText) ||
-                project.description.includes(searchText)
-            }
-
-            return isValueProject
-          }) || [],
+        filteredProjects,
       }
     case Types.ResetSearchCriteria:
       return {

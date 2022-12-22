@@ -1,6 +1,12 @@
 import { faker } from '@faker-js/faker'
 
-import { Action, ProjectObject, InitialState, Types } from '../../types'
+import {
+  Action,
+  ProjectObject,
+  InitialState,
+  Types,
+  ProjectType,
+} from '../../types'
 import { searchReducer } from '../searchReducer'
 import { initialState, project } from '../../testUtil'
 
@@ -72,6 +78,42 @@ describe('searchReducer', () => {
           expect.objectContaining({ id: '2483795' }),
           expect.objectContaining({ id: '3658047' }),
         ])
+      )
+    })
+  })
+
+  describe('when searching for type', () => {
+    it('should search projects with open type', () => {
+      const projects: ProjectObject = {}
+
+      projects['2483795'] = {
+        ...project,
+        id: '2483795',
+        type: ProjectType['Open'],
+      }
+      projects['3658047'] = {
+        ...project,
+        id: '3658047',
+        type: ProjectType['Close'],
+      }
+
+      const state = setUp({
+        state: {
+          projects,
+          searchCriteria: {
+            ...initialState.searchCriteria,
+            type: ProjectType['Open'],
+          },
+        },
+        action: {
+          type: Types.Search,
+          payload: {},
+        },
+      })
+
+      expect(state.filteredProjects.length).toEqual(1)
+      expect(state.filteredProjects).toEqual(
+        expect.arrayContaining([expect.objectContaining({ id: '2483795' })])
       )
     })
   })
