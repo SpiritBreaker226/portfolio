@@ -8,6 +8,8 @@ import { ProjectListProps } from '../ProjectList'
 const mockDispatch = jest.fn()
 const mockGetPortfolios = jest.fn()
 
+const PortfolioForm = () => <div>form</div>
+
 const ProjectList = ({ projects }: ProjectListProps) => (
   <div>
     {projects.map(({ id, name }) => (
@@ -15,6 +17,11 @@ const ProjectList = ({ projects }: ProjectListProps) => (
     ))}
   </div>
 )
+
+jest.mock('../PortfolioForm', () => ({
+  ...jest.requireActual('../PortfolioForm'),
+  PortfolioForm,
+}))
 
 jest.mock('../ProjectList', () => ({
   ...jest.requireActual('../ProjectList'),
