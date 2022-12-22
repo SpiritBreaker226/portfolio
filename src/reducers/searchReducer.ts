@@ -10,24 +10,23 @@ import {
 export const searchReducer = (state: InitialState, action: Action) => {
   switch (action.type) {
     case Types.Search:
-      const { searchText, type } = state.searchCriteria
-      const filteredProjects: Project[] = [...state.filteredProjects]
+      const { searchText, type, display } = state.searchCriteria
+      let filteredProjects: Project[] =
+        display === 'feature'
+          ? Object.values(state.projects).filter((project) => project.isFeature)
+          : Object.values(state.projects)
 
       if (searchText) {
-        filteredProjects.push(
-          ...Object.values(state.projects).filter(
-            (project) =>
-              project.name.includes(searchText) ||
-              project.description.includes(searchText)
-          )
+        filteredProjects = filteredProjects.filter(
+          (project) =>
+            project.name.includes(searchText) ||
+            project.description.includes(searchText)
         )
       }
 
       if (type) {
-        filteredProjects.push(
-          ...Object.values(state.projects).filter(
-            (project) => project.type === type
-          )
+        filteredProjects = filteredProjects.filter(
+          (project) => project.type === type
         )
       }
 
