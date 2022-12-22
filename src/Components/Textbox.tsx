@@ -1,6 +1,7 @@
 import { Field, FieldAttributes } from 'formik'
 import { InputHTMLAttributes, FC } from 'react'
 import styled from 'styled-components'
+import { Textfield } from './Textfield.style'
 
 const TextboxContainer = styled.div`
   text-align: left;
@@ -8,23 +9,6 @@ const TextboxContainer = styled.div`
   display: flex;
   flex-flow: column;
   flex: 1;
-`
-
-const Textfield = styled.input.attrs<{ isErroring: boolean }>((props) => ({
-  isErroring: props.isErroring || false,
-}))<{ isErroring: boolean }>`
-  margin-top: 0.25rem;
-  padding: 0.75rem;
-  border: 1px solid ${(props) => props.theme.colors.border};
-  border-radius: 4px;
-
-  ${(props) =>
-    props.isErroring &&
-    `
-    border: 0;
-    outline-color: ${props.theme.colors.error};
-    outline-style: solid;
-    outline-width: 1px;`}}
 `
 
 const ErrorMessage = styled.div`
