@@ -9,7 +9,7 @@ export const projects: Project[] = [
     responsibilities: ['Everything'],
     tags: [Tag['Objective-C']],
     teamSize: 1,
-    platforms: new Set([Platform['mobile']]),
+    platforms: new Set([Platform['mobile'], Platform['game']]),
     type: ProjectType['Open'],
     icon: 'iconASChess.png',
     sampleCodeUrl: 'https://github.com/SpiritBreaker226/asimplechessgame',
@@ -86,7 +86,7 @@ export const projects: Project[] = [
       Tag['Phonegap'],
     ],
     teamSize: 2,
-    platforms: new Set([Platform['mobile']]),
+    platforms: new Set([Platform['mobile'], Platform['game']]),
     type: ProjectType['Close'],
     icon: 'iconOxford.png',
     sampleCodeUrl:
