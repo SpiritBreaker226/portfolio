@@ -29,7 +29,7 @@ type SearchPayload = {
     type?: ProjectType
   }
   [UpdateSearchTypes.Platform]: {
-    platforms?: Set<Platform>
+    platforms: Set<Platform>
   }
   [UpdateSearchTypes.Display]: {
     display: DisplayOption

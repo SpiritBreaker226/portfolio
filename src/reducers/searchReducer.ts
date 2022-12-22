@@ -30,7 +30,7 @@ export const searchReducer = (state: InitialState, action: Action) => {
         )
       }
 
-      if (platforms) {
+      if (platforms.size) {
         filteredProjects = filteredProjects.filter((project) =>
           Array.from(platforms).some((platform) =>
             project.platforms.has(platform)
