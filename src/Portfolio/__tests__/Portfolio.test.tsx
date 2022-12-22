@@ -1,7 +1,7 @@
-import { waitFor } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 
 import { AppProvider, initialState, project, render } from '../../testUtil'
-import { InitialState, Project, Types } from '../../types'
+import { InitialState, Project, ProjectObject, Types } from '../../types'
 import { Portfolio } from '../Portfolio'
 import { ProjectListProps } from '../ProjectList'
 
@@ -10,8 +10,8 @@ const mockGetPortfolios = jest.fn()
 
 const ProjectList = ({ projects }: ProjectListProps) => (
   <div>
-    {projects.map(({ name }) => (
-      <span>{name}</span>
+    {projects.map(({ id, name }) => (
+      <span key={id}>{name}</span>
     ))}
   </div>
 )
@@ -51,5 +51,33 @@ describe('Portfolio', () => {
         })
       )
     )
+
+    await waitFor(() =>
+      expect(mockDispatch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          type: Types.Search,
+          payload: {},
+        })
+      )
+    )
+  })
+
+  describe('when searching are use', () => {
+    it('should use filtered projects', async () => {
+      const projects: ProjectObject = {}
+
+      projects['2483795'] = {
+        ...project,
+        id: '2483795',
+      }
+
+      setUp({
+        projects,
+        filteredProjects: [{ ...project, name: 'Search Project' }],
+        searchCriteria: { display: 'all', searchText: 'search' },
+      })
+
+      await screen.findByText('Search Project')
+    })
   })
 })

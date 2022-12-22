@@ -7,9 +7,10 @@ import { ProjectList } from './ProjectList'
 
 export const Portfolio: FC = () => {
   const {
-    state: { projects },
+    state: { filteredProjects },
     dispatch,
   } = useApp()
+
   const { getPortfolios } = usePortfolio()
   const dispatchProjects = useCallback(getPortfolios, [getPortfolios])
   const dataProjects = dispatchProjects()
@@ -19,11 +20,17 @@ export const Portfolio: FC = () => {
       type: Types.AddProject,
       payload: { projects: dataProjects },
     })
+
+    // show only feature projects
+    dispatch({
+      type: Types.Search,
+      payload: {},
+    })
   }, [dispatch, dataProjects])
 
   return (
     <section>
-      <ProjectList projects={Object.values(projects)} />
+      <ProjectList projects={filteredProjects} />
     </section>
   )
 }
