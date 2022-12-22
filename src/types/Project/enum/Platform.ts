@@ -1,5 +1,5 @@
 export enum Platform {
-  mobile = 'iOS',
+  mobile = 'Mobile',
   game = 'Game',
   web = 'Web',
 }
