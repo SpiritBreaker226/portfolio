@@ -19,8 +19,8 @@ export const searchReducer = (state: InitialState, action: Action) => {
       if (searchText) {
         filteredProjects = filteredProjects.filter(
           (project) =>
-            project.name.includes(searchText) ||
-            project.description.includes(searchText)
+            project.name.toLowerCase().includes(searchText.toLowerCase()) ||
+            project.description.toLowerCase().includes(searchText.toLowerCase())
         )
       }
 
