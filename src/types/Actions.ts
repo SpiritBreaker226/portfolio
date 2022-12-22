@@ -26,10 +26,10 @@ type SearchPayload = {
     searchText: string
   }
   [UpdateSearchTypes.Type]: {
-    type: ProjectType
+    type?: ProjectType
   }
   [UpdateSearchTypes.Platform]: {
-    platforms: Platform[]
+    platforms?: Platform[]
   }
   [UpdateSearchTypes.Display]: {
     display: DisplayOption
