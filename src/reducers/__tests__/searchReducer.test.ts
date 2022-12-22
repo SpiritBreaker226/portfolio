@@ -188,7 +188,7 @@ describe('searchReducer', () => {
     it('should search projects with "the fool" in name & description', () => {
       const projects: ProjectObject = {}
 
-      projects['2483795'] = { ...project, id: '2483795', name: 'the fool' }
+      projects['2483795'] = { ...project, id: '2483795', name: 'The Fool' }
       projects['3658047'] = {
         ...project,
         id: '3658047',
