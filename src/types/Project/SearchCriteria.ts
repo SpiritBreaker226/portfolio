@@ -1,3 +1,4 @@
+import { DisplayOption } from './DisplayOption'
 import { Platform, ProjectType } from './enum'
 
 export type SearchCriteria = {
@@ -6,5 +7,3 @@ export type SearchCriteria = {
   platforms?: Platform[]
   display: DisplayOption
 }
-
-export type DisplayOption = 'feature' | 'all'
