@@ -7,7 +7,7 @@ export type Project = {
   responsibilities: string[]
   tags: Tag[]
   teamSize: number
-  platforms: Platform[]
+  platforms: Set<Platform>
   type: ProjectType
   icon: string
   isFeature: boolean

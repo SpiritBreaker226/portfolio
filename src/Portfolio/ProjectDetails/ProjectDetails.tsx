@@ -85,7 +85,7 @@ export const ProjectDetails: FC = () => {
             </Content>
             <Content>
               <ContentType>Platforms:</ContentType>{' '}
-              {project.platforms.join(', ')}
+              {Array.from(project.platforms).join(', ')}
             </Content>
             <Content>
               <ContentType>Team Size:</ContentType> {project.teamSize}
