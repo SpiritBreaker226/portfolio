@@ -81,7 +81,11 @@ describe('Portfolio', () => {
       setUp({
         projects,
         filteredProjects: [{ ...project, name: 'Search Project' }],
-        searchCriteria: { display: 'all', searchText: 'search' },
+        searchCriteria: {
+          display: 'all',
+          searchText: 'search',
+          platforms: new Set(),
+        },
       })
 
       await screen.findByText('Search Project')
