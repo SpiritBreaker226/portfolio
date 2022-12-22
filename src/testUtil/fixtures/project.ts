@@ -20,11 +20,13 @@ export const project: Project = {
     Tag['Phonegap'],
   ]),
   teamSize: Number(faker.random.numeric()),
-  platforms: faker.helpers.arrayElements([
-    Platform['mobile'],
-    Platform['web'],
-    Platform['game'],
-  ]),
+  platforms: new Set(
+    faker.helpers.arrayElements([
+      Platform['mobile'],
+      Platform['web'],
+      Platform['game'],
+    ])
+  ),
   type: faker.helpers.arrayElement([ProjectType['Close'], ProjectType['Open']]),
   url: faker.helpers.arrayElement([faker.internet.url(), '']),
   icon: faker.image.business(128, 128),
