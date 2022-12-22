@@ -3,6 +3,7 @@ import { FC, useCallback, useEffect } from 'react'
 import { useApp } from '../context'
 import { usePortfolio } from '../hooks'
 import { Types } from '../types'
+import { PortfolioForm } from './PortfolioForm'
 import { ProjectList } from './ProjectList'
 
 export const Portfolio: FC = () => {
@@ -30,6 +31,7 @@ export const Portfolio: FC = () => {
 
   return (
     <section>
+      <PortfolioForm />
       <ProjectList projects={filteredProjects} />
     </section>
   )
