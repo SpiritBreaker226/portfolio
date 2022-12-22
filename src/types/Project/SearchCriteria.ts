@@ -4,6 +4,6 @@ import { Platform, ProjectType } from './enum'
 export type SearchCriteria = {
   searchText?: string
   type?: ProjectType
-  platforms?: Platform[]
+  platforms?: Set<Platform>
   display: DisplayOption
 }

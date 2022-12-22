@@ -286,7 +286,7 @@ describe('searchReducer', () => {
           projects,
           searchCriteria: {
             ...initialState.searchCriteria,
-            platforms: [Platform['mobile']],
+            platforms: new Set([Platform['mobile']]),
           },
         },
         action: {
@@ -321,7 +321,7 @@ describe('searchReducer', () => {
             projects,
             searchCriteria: {
               ...initialState.searchCriteria,
-              platforms: [Platform['game']],
+              platforms: new Set([Platform['game']]),
             },
           },
           action: {
@@ -360,7 +360,7 @@ describe('searchReducer', () => {
             projects,
             searchCriteria: {
               ...initialState.searchCriteria,
-              platforms: [Platform['game'], Platform['web']],
+              platforms: new Set([Platform['game'], Platform['web']]),
             },
           },
           action: {
