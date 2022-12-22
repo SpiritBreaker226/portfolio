@@ -10,7 +10,7 @@ import {
 export const searchReducer = (state: InitialState, action: Action) => {
   switch (action.type) {
     case Types.Search:
-      const { searchText, type, display } = state.searchCriteria
+      const { searchText, type, display, platforms } = state.searchCriteria
       let filteredProjects: Project[] =
         display === 'feature'
           ? Object.values(state.projects).filter((project) => project.isFeature)
@@ -27,6 +27,12 @@ export const searchReducer = (state: InitialState, action: Action) => {
       if (type) {
         filteredProjects = filteredProjects.filter(
           (project) => project.type === type
+        )
+      }
+
+      if (platforms) {
+        filteredProjects = filteredProjects.filter((project) =>
+          platforms.some((platform) => project.platforms.has(platform))
         )
       }
 

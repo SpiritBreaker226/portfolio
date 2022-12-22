@@ -6,6 +6,7 @@ import {
   InitialState,
   Types,
   ProjectType,
+  Platform,
 } from '../../types'
 import { searchReducer } from '../searchReducer'
 import { initialState, project } from '../../testUtil'
@@ -262,6 +263,120 @@ describe('searchReducer', () => {
       expect(state.filteredProjects).toEqual(
         expect.arrayContaining([expect.objectContaining({ id: '2483795' })])
       )
+    })
+  })
+
+  describe('when searching for platform', () => {
+    it('should search projects with mobile platform', () => {
+      const projects: ProjectObject = {}
+
+      projects['2483795'] = {
+        ...project,
+        id: '2483795',
+        platforms: new Set([Platform['mobile']]),
+      }
+      projects['3658047'] = {
+        ...project,
+        id: '3658047',
+        platforms: new Set([Platform['web']]),
+      }
+
+      const state = setUp({
+        state: {
+          projects,
+          searchCriteria: {
+            ...initialState.searchCriteria,
+            platforms: [Platform['mobile']],
+          },
+        },
+        action: {
+          type: Types.Search,
+          payload: {},
+        },
+      })
+
+      expect(state.filteredProjects.length).toEqual(1)
+      expect(state.filteredProjects).toEqual(
+        expect.arrayContaining([expect.objectContaining({ id: '2483795' })])
+      )
+    })
+
+    describe('and with two platforms', () => {
+      it('should find project', () => {
+        const projects: ProjectObject = {}
+
+        projects['2483795'] = {
+          ...project,
+          id: '2483795',
+          platforms: new Set([Platform['mobile'], Platform['game']]),
+        }
+        projects['3658047'] = {
+          ...project,
+          id: '3658047',
+          platforms: new Set([Platform['web']]),
+        }
+
+        const state = setUp({
+          state: {
+            projects,
+            searchCriteria: {
+              ...initialState.searchCriteria,
+              platforms: [Platform['game']],
+            },
+          },
+          action: {
+            type: Types.Search,
+            payload: {},
+          },
+        })
+
+        expect(state.filteredProjects.length).toEqual(1)
+        expect(state.filteredProjects).toEqual(
+          expect.arrayContaining([expect.objectContaining({ id: '2483795' })])
+        )
+      })
+
+      it('should find projects with two platforms selected', () => {
+        const projects: ProjectObject = {}
+
+        projects['2483795'] = {
+          ...project,
+          id: '2483795',
+          platforms: new Set([Platform['mobile'], Platform['game']]),
+        }
+        projects['3658047'] = {
+          ...project,
+          id: '3658047',
+          platforms: new Set([Platform['web']]),
+        }
+        projects['3456783'] = {
+          ...project,
+          id: '3456783',
+          platforms: new Set([Platform['mobile']]),
+        }
+
+        const state = setUp({
+          state: {
+            projects,
+            searchCriteria: {
+              ...initialState.searchCriteria,
+              platforms: [Platform['game'], Platform['web']],
+            },
+          },
+          action: {
+            type: Types.Search,
+            payload: {},
+          },
+        })
+
+        expect(state.filteredProjects.length).toEqual(2)
+        expect(state.filteredProjects).toEqual(
+          expect.arrayContaining([
+            expect.objectContaining({ id: '2483795' }),
+            expect.objectContaining({ id: '3658047' }),
+          ])
+        )
+      })
     })
   })
 })
