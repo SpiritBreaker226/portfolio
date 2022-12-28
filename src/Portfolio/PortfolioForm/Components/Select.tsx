@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import ReactDropdownSelect, {
   SelectProps as ReactDropdownSelectProps,
 } from 'react-dropdown-select'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 
 import { titleCase } from '../../../AppBody/helpers'
 import { useApp } from '../../../context'
@@ -13,7 +13,7 @@ const Container = styled.div`
   flex-flow: column;
 `
 
-const FieldsetLabel = styled.label`
+const FieldsetLabel = styled.h4`
   padding-bottom: 0.25rem;
 `
 
@@ -44,6 +44,8 @@ function Select<T extends string | object>({
   ...rest
 }: SelectFieldProps<T>) {
   const { dispatch } = useApp()
+  const theme = useTheme()
+
   const [reactSelectValues, setReactSelectValues] = useState<
     SelectFieldValue<T>[]
   >([])
@@ -82,9 +84,13 @@ function Select<T extends string | object>({
 
   return (
     <Container>
-      {label && <FieldsetLabel htmlFor={name}>{label}:</FieldsetLabel>}
+      {label && <FieldsetLabel>{label}:</FieldsetLabel>}
 
       <ReactDropdownSelect<SelectFieldValue<T>>
+        color={theme.colors.primary}
+        style={{
+          minWidth: '5rem',
+        }}
         multi={multi}
         {...rest}
         name={name}

@@ -17,10 +17,11 @@ const Container = styled.div`
   padding-bottom: 1rem;
 `
 
-const NonDisplayFilterOptions = styled.fieldset`
+const NonDisplayFilterOptions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 `
 
 const SearchContainer = styled.div`
@@ -28,8 +29,14 @@ const SearchContainer = styled.div`
   flex-flow: column;
 `
 
-const ResetSearchContainer = styled.div`
-  text-align: right;
+const DisplayOptionContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`
+
+const DisplayOptionLabel = styled.h4`
+  margin-right: 0.5rem;
 `
 
 export const PortfolioForm: FC = () => {
@@ -98,16 +105,6 @@ export const PortfolioForm: FC = () => {
 
   return (
     <Container>
-      <fieldset>
-        <Select<DisplayOption>
-          name="display"
-          label="Show"
-          values={[searchCriteria.display]}
-          options={[...displayOptions]}
-          onSelectChange={handleDisplayChange}
-        />
-      </fieldset>
-
       <NonDisplayFilterOptions>
         <SearchContainer>
           <label htmlFor="searchText">Name / Description</label>
@@ -136,11 +133,22 @@ export const PortfolioForm: FC = () => {
           onSelectChange={handlePlatformChange}
           noDataLabel="No platform found"
           multi
+          style={{
+            minWidth: '10rem',
+          }}
         />
-      </NonDisplayFilterOptions>
-      <ResetSearchContainer>
+
         <Button onClick={handleResetSearch}>Reset Search</Button>
-      </ResetSearchContainer>
+      </NonDisplayFilterOptions>
+      <DisplayOptionContainer>
+        <DisplayOptionLabel>Show:</DisplayOptionLabel>
+        <Select<DisplayOption>
+          name="display"
+          values={[searchCriteria.display]}
+          options={[...displayOptions]}
+          onSelectChange={handleDisplayChange}
+        />
+      </DisplayOptionContainer>
     </Container>
   )
 }
