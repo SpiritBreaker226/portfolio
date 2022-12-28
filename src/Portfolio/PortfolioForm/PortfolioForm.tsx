@@ -1,5 +1,6 @@
 import { ChangeEvent, FC } from 'react'
 import styled from 'styled-components'
+import { titleCase } from '../../AppBody/helpers'
 import { Button, Textfield } from '../../Components'
 
 import { useApp } from '../../context'
@@ -133,7 +134,10 @@ export const PortfolioForm: FC = () => {
           name="type"
           label="Type"
           values={[searchCriteria.type || 'all']}
-          options={['all', ...Object.values(ProjectType)]}
+          options={['all', ...Object.values(ProjectType)].map((type) => ({
+            label: titleCase(type),
+            value: type,
+          }))}
           onSelectChange={handleTypeChange}
         />
 
@@ -141,7 +145,10 @@ export const PortfolioForm: FC = () => {
           name="platform"
           label="Platforms"
           values={Array.from(searchCriteria.platforms)}
-          options={Object.values(Platform)}
+          options={Object.values(Platform).map((platform) => ({
+            label: platform,
+            value: platform,
+          }))}
           onSelectChange={handlePlatformChange}
           noDataLabel="No platform found"
           multi
@@ -154,7 +161,10 @@ export const PortfolioForm: FC = () => {
           name="tag"
           label="Tags"
           values={Array.from(searchCriteria.tags)}
-          options={Object.values(Tag)}
+          options={Object.values(Tag).map((tag) => ({
+            label: tag,
+            value: tag,
+          }))}
           onSelectChange={handleTagChange}
           noDataLabel="No tag found"
           multi
@@ -170,7 +180,10 @@ export const PortfolioForm: FC = () => {
         <Select<DisplayOption>
           name="display"
           values={[searchCriteria.display]}
-          options={[...displayOptions]}
+          options={[...displayOptions].map((display) => ({
+            label: titleCase(display),
+            value: display,
+          }))}
           onSelectChange={handleDisplayChange}
         />
       </DisplayOptionContainer>

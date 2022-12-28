@@ -25,7 +25,7 @@ export type SelectFieldValue<T> = {
 export type SelectFieldProps<T extends string | object> = {
   name: string
   values: T[]
-  options: T[]
+  options: SelectFieldValue<T>[]
   onSelectChange: (value: T | Array<T>) => void
   label?: string
   multi?: boolean
@@ -49,25 +49,16 @@ function Select<T extends string | object>({
   const [reactSelectValues, setReactSelectValues] = useState<
     SelectFieldValue<T>[]
   >([])
-  const [reactSelectOptions, setReactSelectOptions] = useState<
-    SelectFieldValue<T>[]
-  >([])
 
   useEffect(() => {
+    // for the non-multi version of the component
     setReactSelectValues(
       values.map((value) => ({
         label: titleCase(value as string),
         value,
       }))
     )
-
-    setReactSelectOptions(
-      options.map((value) => ({
-        label: titleCase(value as string),
-        value,
-      }))
-    )
-  }, [options, values])
+  }, [values])
 
   const handleChange = (values: SelectFieldValue<T>[]) => {
     const currentSelectValues = multi
@@ -94,8 +85,8 @@ function Select<T extends string | object>({
         multi={multi}
         {...rest}
         name={name}
-        values={reactSelectValues ?? []}
-        options={reactSelectOptions ?? []}
+        values={reactSelectValues}
+        options={options}
         onChange={handleChange}
       />
     </Container>
