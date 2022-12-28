@@ -26,7 +26,7 @@ describe('Select', () => {
       setUp({
         name: 'test',
         multi: false,
-        options: ['Omega'],
+        options: [{ label: 'Omega', value: 'omega' }],
       })
 
       fireEvent.keyDown(screen.getByLabelText('Dropdown select'), {
@@ -36,7 +36,7 @@ describe('Select', () => {
       fireEvent.click(screen.getByText('Omega', { exact: false }))
 
       await waitFor(() =>
-        expect(mockOnSelectChange).toHaveBeenCalledWith('Omega')
+        expect(mockOnSelectChange).toHaveBeenCalledWith('omega')
       )
     })
   })
@@ -47,7 +47,10 @@ describe('Select', () => {
         name: 'test',
         label: 'testing',
         multi: true,
-        options: ['Omega', 'Alpha'],
+        options: [
+          { label: 'Omega', value: 'omega' },
+          { label: 'Alpha', value: 'alpha' },
+        ],
       })
 
       fireEvent.keyDown(screen.getByLabelText('Dropdown select'), {
@@ -57,7 +60,7 @@ describe('Select', () => {
       fireEvent.click(screen.getByRole('option', { name: /omega/i }))
 
       await waitFor(() =>
-        expect(mockOnSelectChange).toHaveBeenCalledWith(['Omega'])
+        expect(mockOnSelectChange).toHaveBeenCalledWith(['omega'])
       )
     })
   })
