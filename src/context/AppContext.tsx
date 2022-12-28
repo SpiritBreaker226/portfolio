@@ -13,7 +13,12 @@ import { Action, InitialState } from '../types'
 export const initialState: InitialState = {
   projects: {},
   filteredProjects: [],
-  searchCriteria: { searchText: '', platforms: new Set(), display: 'feature' },
+  searchCriteria: {
+    searchText: '',
+    platforms: new Set(),
+    tags: new Set(),
+    display: 'feature',
+  },
 }
 
 type AppProviderProps = {

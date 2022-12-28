@@ -8,6 +8,7 @@ import {
   displayOptions,
   Platform,
   ProjectType,
+  Tag,
   Types,
   UpdateSearchTypes,
 } from '../../types'
@@ -103,6 +104,17 @@ export const PortfolioForm: FC = () => {
     })
   }
 
+  const handleTagChange = (currentTags: Tag | Tag[]) => {
+    const newSearchTags = new Set(currentTags as Tag[])
+    console.log('newSearchTags', newSearchTags)
+    dispatch({
+      type: UpdateSearchTypes.Tag,
+      payload: {
+        tags: newSearchTags,
+      },
+    })
+  }
+
   return (
     <Container>
       <NonDisplayFilterOptions>
@@ -132,6 +144,19 @@ export const PortfolioForm: FC = () => {
           options={Object.values(Platform)}
           onSelectChange={handlePlatformChange}
           noDataLabel="No platform found"
+          multi
+          style={{
+            minWidth: '10rem',
+          }}
+        />
+
+        <Select<Tag>
+          name="tag"
+          label="Tags"
+          values={Array.from(searchCriteria.tags)}
+          options={Object.values(Tag)}
+          onSelectChange={handleTagChange}
+          noDataLabel="No tag found"
           multi
           style={{
             minWidth: '10rem',

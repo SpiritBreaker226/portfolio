@@ -109,7 +109,7 @@ export const ProjectDetails: FC = () => {
             </Content>
 
             <TagContainer>
-              {project.tags.map((tag) => (
+              {Array.from(project.tags).map((tag) => (
                 <Tag key={`${tag}`}>{tag}</Tag>
               ))}
             </TagContainer>

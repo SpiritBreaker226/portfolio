@@ -11,14 +11,16 @@ export const project: Project = {
     faker.lorem.sentence(6),
     faker.lorem.sentence(5),
   ]),
-  tags: faker.helpers.arrayElements([
-    Tag['C#'],
-    Tag['JavaScript'],
-    Tag['CSS'],
-    Tag['HTML'],
-    Tag['SQLServer'],
-    Tag['Phonegap'],
-  ]),
+  tags: new Set(
+    faker.helpers.arrayElements([
+      Tag['C#'],
+      Tag['JavaScript'],
+      Tag['CSS'],
+      Tag['HTML'],
+      Tag['SQLServer'],
+      Tag['Phonegap'],
+    ])
+  ),
   teamSize: Number(faker.random.numeric()),
   platforms: new Set(
     faker.helpers.arrayElements([

@@ -10,7 +10,9 @@ import {
 export const searchReducer = (state: InitialState, action: Action) => {
   switch (action.type) {
     case Types.Search:
-      const { searchText, type, display, platforms } = state.searchCriteria
+      // TODO look into making the search more effective
+      const { searchText, type, display, platforms, tags } =
+        state.searchCriteria
       let filteredProjects: Project[] =
         display === 'feature'
           ? Object.values(state.projects).filter((project) => project.isFeature)
@@ -35,6 +37,12 @@ export const searchReducer = (state: InitialState, action: Action) => {
           Array.from(platforms).some((platform) =>
             project.platforms.has(platform)
           )
+        )
+      }
+
+      if (tags.size) {
+        filteredProjects = filteredProjects.filter((project) =>
+          Array.from(tags).some((tag) => project.tags.has(tag))
         )
       }
 
@@ -71,6 +79,14 @@ export const searchReducer = (state: InitialState, action: Action) => {
         searchCriteria: {
           ...state.searchCriteria,
           platforms: action.payload.platforms,
+        },
+      }
+    case UpdateSearchTypes.Tag:
+      return {
+        ...state,
+        searchCriteria: {
+          ...state.searchCriteria,
+          tags: action.payload.tags,
         },
       }
     case UpdateSearchTypes.Display:
