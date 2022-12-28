@@ -1,4 +1,4 @@
-import { DisplayOption, Platform, Project, ProjectType } from './Project'
+import { DisplayOption, Platform, Project, ProjectType, Tag } from './Project'
 
 export enum Types {
   AddProject = 'ADD_PROJECT',
@@ -10,6 +10,7 @@ export enum UpdateSearchTypes {
   Text = 'UPDATE_SEARCH_TEXT',
   Type = 'UPDATE_SEARCH_TYPE',
   Platform = 'UPDATE_SEARCH_PLATFORM',
+  Tag = 'UPDATE_SEARCH_TAG',
   Display = 'UPDATE_SEARCH_DISPLAY',
 }
 
@@ -30,6 +31,9 @@ type SearchPayload = {
   }
   [UpdateSearchTypes.Platform]: {
     platforms: Set<Platform>
+  }
+  [UpdateSearchTypes.Tag]: {
+    tags: Set<Tag>
   }
   [UpdateSearchTypes.Display]: {
     display: DisplayOption

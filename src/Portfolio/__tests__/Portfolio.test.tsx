@@ -85,6 +85,7 @@ describe('Portfolio', () => {
           display: 'all',
           searchText: 'search',
           platforms: new Set(),
+          tags: new Set(),
         },
       })
 

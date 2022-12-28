@@ -7,6 +7,7 @@ import {
   Types,
   ProjectType,
   Platform,
+  Tag,
 } from '../../types'
 import { searchReducer } from '../searchReducer'
 import { initialState, project } from '../../testUtil'
@@ -361,6 +362,120 @@ describe('searchReducer', () => {
             searchCriteria: {
               ...initialState.searchCriteria,
               platforms: new Set([Platform['game'], Platform['web']]),
+            },
+          },
+          action: {
+            type: Types.Search,
+            payload: {},
+          },
+        })
+
+        expect(state.filteredProjects.length).toEqual(2)
+        expect(state.filteredProjects).toEqual(
+          expect.arrayContaining([
+            expect.objectContaining({ id: '2483795' }),
+            expect.objectContaining({ id: '3658047' }),
+          ])
+        )
+      })
+    })
+  })
+
+  describe('when searching for tag', () => {
+    it('should search projects with C++ tag', () => {
+      const projects: ProjectObject = {}
+
+      projects['2483795'] = {
+        ...project,
+        id: '2483795',
+        tags: new Set([Tag['C++']]),
+      }
+      projects['3658047'] = {
+        ...project,
+        id: '3658047',
+        tags: new Set([Tag['Ruby']]),
+      }
+
+      const state = setUp({
+        state: {
+          projects,
+          searchCriteria: {
+            ...initialState.searchCriteria,
+            tags: new Set([Tag['C++']]),
+          },
+        },
+        action: {
+          type: Types.Search,
+          payload: {},
+        },
+      })
+
+      expect(state.filteredProjects.length).toEqual(1)
+      expect(state.filteredProjects).toEqual(
+        expect.arrayContaining([expect.objectContaining({ id: '2483795' })])
+      )
+    })
+
+    describe('and with two tags', () => {
+      it('should find project', () => {
+        const projects: ProjectObject = {}
+
+        projects['2483795'] = {
+          ...project,
+          id: '2483795',
+          tags: new Set([Tag['C++'], Tag['SQLServer']]),
+        }
+        projects['3658047'] = {
+          ...project,
+          id: '3658047',
+          tags: new Set([Tag['Ruby']]),
+        }
+
+        const state = setUp({
+          state: {
+            projects,
+            searchCriteria: {
+              ...initialState.searchCriteria,
+              tags: new Set([Tag['SQLServer']]),
+            },
+          },
+          action: {
+            type: Types.Search,
+            payload: {},
+          },
+        })
+
+        expect(state.filteredProjects.length).toEqual(1)
+        expect(state.filteredProjects).toEqual(
+          expect.arrayContaining([expect.objectContaining({ id: '2483795' })])
+        )
+      })
+
+      it('should find projects with two tags selected', () => {
+        const projects: ProjectObject = {}
+
+        projects['2483795'] = {
+          ...project,
+          id: '2483795',
+          tags: new Set([Tag['C++'], Tag['SQLServer']]),
+        }
+        projects['3658047'] = {
+          ...project,
+          id: '3658047',
+          tags: new Set([Tag['Ruby']]),
+        }
+        projects['3456783'] = {
+          ...project,
+          id: '3456783',
+          tags: new Set([Tag['C++']]),
+        }
+
+        const state = setUp({
+          state: {
+            projects,
+            searchCriteria: {
+              ...initialState.searchCriteria,
+              tags: new Set([Tag['SQLServer'], Tag['Ruby']]),
             },
           },
           action: {

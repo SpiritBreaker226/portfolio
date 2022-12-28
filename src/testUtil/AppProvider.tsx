@@ -6,7 +6,12 @@ import { Action, InitialState } from '../types'
 export const initialState: InitialState = {
   projects: {},
   filteredProjects: [],
-  searchCriteria: { searchText: '', platforms: new Set(), display: 'all' },
+  searchCriteria: {
+    searchText: '',
+    platforms: new Set(),
+    tags: new Set(),
+    display: 'all',
+  },
 }
 
 export interface AppProviderProps {

@@ -5,7 +5,7 @@ export type Project = {
   name: string
   description: string
   responsibilities: string[]
-  tags: Tag[]
+  tags: Set<Tag>
   teamSize: number
   platforms: Set<Platform>
   type: ProjectType
