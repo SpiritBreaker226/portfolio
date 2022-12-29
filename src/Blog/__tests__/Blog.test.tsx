@@ -24,12 +24,12 @@ describe('Blog', () => {
     mockErrorFromServer = ''
   })
 
-  it('should show loading', async () => {
+  it('should show post skeleton', async () => {
     mockIsLoading = true
 
     setUp()
 
-    await screen.findByText(/loading/i)
+    await screen.findByRole('tablist')
   })
 
   it('should show posts', async () => {

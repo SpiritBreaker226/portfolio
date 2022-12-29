@@ -12,6 +12,10 @@ declare module 'styled-components' {
       hoverForLinks: string
       error: string
     }
+    loading: {
+      background: string
+      backgroundAfter: string
+    }
     pageStyles: {
       about: {
         bg: string
