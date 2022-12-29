@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { ErrorMessage } from '../Components'
 import { useBlog } from '../hooks'
 import { Post as PostType } from '../types'
+import { PostSkeleton } from './Post'
 
 const PostContainer = styled.article`
   margin-bottom: 0.75rem;
@@ -39,7 +40,11 @@ export const Blog: FC = () => {
   }, [])
 
   if (isLoading) {
-    return <section>Loading...</section>
+    return (
+      <section>
+        <PostSkeleton />
+      </section>
+    )
   }
 
   if (errorFromServer) {
