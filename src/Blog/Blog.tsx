@@ -10,9 +10,12 @@ export type BlogProps = {
 }
 
 export const Blog: FC<BlogProps> = ({ children }) => {
+  const {
+    state: { posts },
+    dispatch,
+  } = useApp()
   const { getPosts, isLoading, errorFromServer } = useBlog()
   const dispatchBlog = useCallback(getPosts, [getPosts])
-  const { dispatch } = useApp()
 
   useEffect(() => {
     const loadingBlog = async () =>
@@ -21,10 +24,10 @@ export const Blog: FC<BlogProps> = ({ children }) => {
         payload: { posts: (await dispatchBlog()) ?? [] },
       })
 
-    loadingBlog()
+    !posts.length && loadingBlog()
   }, [])
 
-  if (isLoading) {
+  if (isLoading && !posts.length) {
     return (
       <section>
         <PostSkeleton />

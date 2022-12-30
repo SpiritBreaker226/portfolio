@@ -10,7 +10,7 @@ const mockGetPosts = jest.fn()
 let mockIsLoading = false
 let mockErrorFromServer = ''
 
-const List: FC = () => <div />
+const List: FC = () => <div>List all posts</div>
 
 jest.mock('../../hooks', () => ({
   ...jest.requireActual('../../hooks'),
@@ -60,7 +60,7 @@ describe('Blog', () => {
 
     mockGetPosts.mockReturnValue(posts)
 
-    setUp({ posts })
+    setUp()
 
     await waitFor(() =>
       expect(mockDispatch).toHaveBeenCalledWith(
@@ -70,6 +70,8 @@ describe('Blog', () => {
         })
       )
     )
+
+    await screen.findByText(/list all posts/i)
   })
 
   describe('when there is an error', () => {
@@ -79,6 +81,34 @@ describe('Blog', () => {
       setUp()
 
       await screen.findByText(/error/i)
+    })
+  })
+
+  describe('when there is already posts', () => {
+    it('should not update data', async () => {
+      const posts = [
+        {
+          ...post,
+          id: 1,
+          title: 'The Real World',
+        },
+        {
+          ...post,
+          id: 2,
+          title: 'The Real Fake',
+        },
+      ]
+
+      setUp({ posts })
+
+      await waitFor(() =>
+        expect(mockDispatch).not.toHaveBeenCalledWith(
+          expect.objectContaining({
+            type: Types.AddPosts,
+            payload: { posts: expect.arrayContaining<Post>([posts[0]]) },
+          })
+        )
+      )
     })
   })
 })
