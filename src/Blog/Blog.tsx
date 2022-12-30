@@ -1,11 +1,15 @@
-import { FC, useCallback, useEffect } from 'react'
+import { FC, ReactNode, useCallback, useEffect } from 'react'
 
-import { ErrorMessage, PostList, PostSkeleton } from '../Components'
+import { ErrorMessage, PostSkeleton } from '../Components'
 import { useApp } from '../context'
 import { useBlog } from '../hooks'
 import { Types } from '../types'
 
-export const Blog: FC = () => {
+export type BlogProps = {
+  children: ReactNode
+}
+
+export const Blog: FC<BlogProps> = ({ children }) => {
   const { getPosts, isLoading, errorFromServer } = useBlog()
   const dispatchBlog = useCallback(getPosts, [getPosts])
   const { dispatch } = useApp()
@@ -36,9 +40,5 @@ export const Blog: FC = () => {
     )
   }
 
-  return (
-    <section>
-      <PostList />
-    </section>
-  )
+  return <section>{children}</section>
 }

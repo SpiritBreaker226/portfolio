@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { About } from '../About'
 import { Blog } from '../Blog'
-import { PageNotFound } from '../Components'
+import { PageNotFound, PostList } from '../Components'
 import { Portfolio, ProjectDetails } from '../Portfolio'
 import { Skills } from '../Skills'
 import { AppBodyContainer } from './AppBody.style'
@@ -28,7 +28,14 @@ export const AppBody: FC = () => (
         <Route path=":id" element={<ProjectDetails />} />
       </Route>
 
-      <Route path="blog" element={<Blog />} />
+      <Route
+        path="blog"
+        element={
+          <Blog>
+            <PostList />
+          </Blog>
+        }
+      />
     </Route>
 
     <Route
