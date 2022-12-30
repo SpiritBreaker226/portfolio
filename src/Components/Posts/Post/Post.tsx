@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { Post as PostType } from '../../types'
+import { Post as PostType } from '../../../types'
 import { PostContainer, PostText, PostFooterText } from './Post.style'
 
 export type PostProps = {}
