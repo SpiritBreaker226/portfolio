@@ -10,11 +10,6 @@ export default createGlobalStyle`
   }
 
   @font-face {
-    font-family: "Boycott";
-    src: url("../theme/fonts/Boycott.ttf");
-  }
-
-  @font-face {
     font-family: 'Sacramento', cursive;
     src: url("../theme/fonts/Sacramento-Regular.ttf");
   }
