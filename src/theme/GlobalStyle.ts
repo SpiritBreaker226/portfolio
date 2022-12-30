@@ -15,10 +15,6 @@ export default createGlobalStyle`
   }
 
   body {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    box-sizing: border-box;
     color: ${theme.colors.text};
     background: ${theme.colors.secondary};
     font-size: 16px;
