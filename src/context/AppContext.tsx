@@ -7,10 +7,11 @@ import {
   useReducer,
 } from 'react'
 
-import { projectReducer, searchReducer } from '../reducers'
+import { postReducer, projectReducer, searchReducer } from '../reducers'
 import { Action, InitialState } from '../types'
 
 export const initialState: InitialState = {
+  posts: [],
   projects: {},
   filteredProjects: [],
   searchCriteria: {
@@ -37,7 +38,9 @@ const AppContext = createContext<{
 })
 
 const mainReducer = (state: InitialState, action: Action) => {
-  let currentState = projectReducer(state, action)
+  let currentState = postReducer(state, action)
+
+  currentState = projectReducer(currentState, action)
 
   return searchReducer(currentState, action)
 }

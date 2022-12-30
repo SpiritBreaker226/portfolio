@@ -4,6 +4,7 @@ import { AppContext } from '../context'
 import { Action, InitialState } from '../types'
 
 export const initialState: InitialState = {
+  posts: [],
   projects: {},
   filteredProjects: [],
   searchCriteria: {

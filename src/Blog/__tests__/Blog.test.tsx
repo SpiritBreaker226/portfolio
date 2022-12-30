@@ -1,8 +1,10 @@
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 
-import { post, render } from '../../testUtil'
+import { AppProvider, initialState, post, render } from '../../testUtil'
+import { InitialState, Post, Types } from '../../types'
 import { Blog } from '../Blog'
 
+const mockDispatch = jest.fn()
 const mockGetPosts = jest.fn()
 let mockIsLoading = false
 let mockErrorFromServer = ''
@@ -17,7 +19,12 @@ jest.mock('../../hooks', () => ({
 }))
 
 describe('Blog', () => {
-  const setUp = () => render(<Blog />)
+  const setUp = (state: Partial<InitialState> = {}, dispatch = mockDispatch) =>
+    render(
+      <AppProvider state={{ ...initialState, ...state }} dispatch={dispatch}>
+        <Blog />
+      </AppProvider>
+    )
 
   afterEach(() => {
     mockIsLoading = false
@@ -33,23 +40,31 @@ describe('Blog', () => {
   })
 
   it('should show posts', async () => {
-    mockGetPosts.mockReturnValue([
+    const posts = [
       {
         ...post,
-        id: '1',
+        id: 1,
         title: 'The Real World',
       },
       {
         ...post,
-        id: '2',
+        id: 2,
         title: 'The Real Fake',
       },
-    ])
+    ]
 
-    setUp()
+    mockGetPosts.mockReturnValue(posts)
 
-    await screen.findByText(/world/i)
-    await screen.findByText(/fake/i)
+    setUp({ posts })
+
+    await waitFor(() =>
+      expect(mockDispatch).toHaveBeenCalledWith(
+        expect.objectContaining({
+          type: Types.AddPosts,
+          payload: { posts: expect.arrayContaining<Post>([posts[0]]) },
+        })
+      )
+    )
   })
 
   describe('when no post is found', () => {
