@@ -1,6 +1,8 @@
+import { Post } from './Blog'
 import { DisplayOption, Platform, Project, ProjectType, Tag } from './Project'
 
 export enum Types {
+  AddPosts = 'ADD_POSTS',
   AddProject = 'ADD_PROJECT',
   Search = 'SEARCH',
   ResetSearchCriteria = 'REST_SEARCH_CRITERIA',
@@ -12,6 +14,12 @@ export enum UpdateSearchTypes {
   Platform = 'UPDATE_SEARCH_PLATFORM',
   Tag = 'UPDATE_SEARCH_TAG',
   Display = 'UPDATE_SEARCH_DISPLAY',
+}
+
+type PostPayload = {
+  [Types.AddPosts]: {
+    posts: Post[]
+  }
 }
 
 type ProjectPayload = {
@@ -51,10 +59,12 @@ type ActionMap<M extends { [index: string]: any }> = {
       }
 }
 
+export type PostActions = ActionMap<PostPayload>[keyof ActionMap<PostPayload>]
+
 export type ProjectActions =
   ActionMap<ProjectPayload>[keyof ActionMap<ProjectPayload>]
 
 export type SearchActions =
   ActionMap<SearchPayload>[keyof ActionMap<SearchPayload>]
 
-export type Action = ProjectActions | SearchActions
+export type Action = PostActions | ProjectActions | SearchActions

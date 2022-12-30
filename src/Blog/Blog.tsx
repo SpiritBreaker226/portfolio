@@ -1,9 +1,10 @@
-import { FC, useCallback, useEffect, useState } from 'react'
+import { FC, useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { ErrorMessage } from '../Components'
+import { useApp } from '../context'
 import { useBlog } from '../hooks'
-import { Post as PostType } from '../types'
+import { Types } from '../types'
 import { Post, PostSkeleton } from './Post'
 
 const NoBlogContainer = styled.section`
@@ -13,10 +14,17 @@ const NoBlogContainer = styled.section`
 export const Blog: FC = () => {
   const { getPosts, isLoading, errorFromServer } = useBlog()
   const dispatchBlog = useCallback(getPosts, [getPosts])
-  const [posts, setPosts] = useState<PostType[]>([])
+  const {
+    state: { posts },
+    dispatch,
+  } = useApp()
 
   useEffect(() => {
-    const loadingBlog = async () => setPosts((await dispatchBlog()) ?? [])
+    const loadingBlog = async () =>
+      dispatch({
+        type: Types.AddPosts,
+        payload: { posts: (await dispatchBlog()) ?? [] },
+      })
 
     loadingBlog()
   }, [])
