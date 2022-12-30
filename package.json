@@ -35,7 +35,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "yarn test && react-scripts build",
+    "build": "cp .env.example .env && yarn test && react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
     "eject": "react-scripts eject"
