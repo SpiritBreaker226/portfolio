@@ -1,23 +1,14 @@
 import { FC, useCallback, useEffect } from 'react'
-import styled from 'styled-components'
 
-import { ErrorMessage } from '../Components'
+import { ErrorMessage, PostList, PostSkeleton } from '../Components'
 import { useApp } from '../context'
 import { useBlog } from '../hooks'
 import { Types } from '../types'
-import { Post, PostSkeleton } from './Post'
-
-const NoBlogContainer = styled.section`
-  text-align: center;
-`
 
 export const Blog: FC = () => {
   const { getPosts, isLoading, errorFromServer } = useBlog()
   const dispatchBlog = useCallback(getPosts, [getPosts])
-  const {
-    state: { posts },
-    dispatch,
-  } = useApp()
+  const { dispatch } = useApp()
 
   useEffect(() => {
     const loadingBlog = async () =>
@@ -45,19 +36,9 @@ export const Blog: FC = () => {
     )
   }
 
-  if (!posts.length) {
-    return (
-      <NoBlogContainer>
-        <p>No Posts Found</p>
-      </NoBlogContainer>
-    )
-  }
-
   return (
     <section>
-      {posts.map((post) => (
-        <Post key={post.id} {...post} />
-      ))}
+      <PostList />
     </section>
   )
 }

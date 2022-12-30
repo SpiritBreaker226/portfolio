@@ -67,16 +67,6 @@ describe('Blog', () => {
     )
   })
 
-  describe('when no post is found', () => {
-    it('should show the no posts message', async () => {
-      mockGetPosts.mockReturnValue([])
-
-      setUp()
-
-      await screen.findByText(/no posts/i)
-    })
-  })
-
   describe('when there is an error', () => {
     it('should show the error message', async () => {
       mockErrorFromServer = 'error'

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled, { css } from 'styled-components'
 
-import { loadingStyle } from '../../theme'
+import { loadingStyle } from '../../../theme'
 import { PostContainer, PostText, PostFooterText } from './Post.style'
 
 const SkeletonText = css`
