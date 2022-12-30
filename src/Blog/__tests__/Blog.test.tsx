@@ -1,4 +1,5 @@
 import { screen, waitFor } from '@testing-library/react'
+import { FC } from 'react'
 
 import { AppProvider, initialState, post, render } from '../../testUtil'
 import { InitialState, Post, Types } from '../../types'
@@ -8,6 +9,8 @@ const mockDispatch = jest.fn()
 const mockGetPosts = jest.fn()
 let mockIsLoading = false
 let mockErrorFromServer = ''
+
+const List: FC = () => <div />
 
 jest.mock('../../hooks', () => ({
   ...jest.requireActual('../../hooks'),
@@ -22,7 +25,9 @@ describe('Blog', () => {
   const setUp = (state: Partial<InitialState> = {}, dispatch = mockDispatch) =>
     render(
       <AppProvider state={{ ...initialState, ...state }} dispatch={dispatch}>
-        <Blog />
+        <Blog>
+          <List />
+        </Blog>
       </AppProvider>
     )
 
