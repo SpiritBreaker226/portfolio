@@ -9,9 +9,11 @@ export default createGlobalStyle`
     padding: 0;
   }
 
-  @font-face {
-    font-family: 'Sacramento', cursive;
-    src: url("../theme/fonts/Sacramento-Regular.ttf");
+  @font-face {font-family: 'Sacramento';
+    src: url("/fonts/Sacramento/Sacramento.woff2") format("woff2"),
+    url("/fonts/Sacramento/Sacramento.woff") format("woff"),
+    url("/fonts/Sacramento/Sacramento.ttf") format("truetype"),
+    url("/fonts/Sacramento/Sacramento.svg#Sacramento") format("svg");
   }
 
   body {
