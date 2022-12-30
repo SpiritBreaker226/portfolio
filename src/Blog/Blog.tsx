@@ -25,7 +25,7 @@ export const Blog: FC<BlogProps> = ({ children }) => {
       })
 
     !posts.length && loadingBlog()
-  }, [])
+  }, [posts.length, dispatchBlog, dispatch])
 
   if (isLoading && !posts.length) {
     return (
