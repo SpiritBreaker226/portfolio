@@ -1,4 +1,5 @@
 export * from './Actions'
 export * from './Blog'
+export * from './enum'
 export * from './InitialState'
 export * from './Project'
