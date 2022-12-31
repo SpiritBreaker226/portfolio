@@ -1,4 +1,5 @@
 export * from './useBlog'
+export * from './useContact'
 export * from './useInfiniteScroll'
 export * from './usePortfolio'
 export * from './useSkills'
