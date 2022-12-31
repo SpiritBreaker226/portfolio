@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import { About } from '../About'
 import { Blog } from '../Blog'
 import { PageNotFound, PostList } from '../Components'
+import { ContactForm } from '../Contact'
 import { Portfolio, ProjectDetails } from '../Portfolio'
 import { Skills } from '../Skills'
 import { AppBodyContainer } from './AppBody.style'
@@ -36,6 +37,8 @@ export const AppBody: FC = () => (
           </Blog>
         }
       />
+
+      <Route path="contact" element={<ContactForm />} />
     </Route>
 
     <Route
