@@ -7,9 +7,9 @@ import sgMail, { MailDataRequired } from '@sendgrid/mail'
 
 const app = express()
 
-dotenv.config()
+dotenv.config({ path: '../.env' })
 
-const port = process.env.PORT || 8080
+const port = process.env.BACKEND_PORT || 8080
 
 app.use(cors())
 
