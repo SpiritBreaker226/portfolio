@@ -46,6 +46,8 @@ describe('ContactForm', () => {
   })
 
   it('should submit a valid contact form', async () => {
+    mockSendContact.mockResolvedValue(true)
+
     setUp()
 
     fillForm()
@@ -64,7 +66,7 @@ describe('ContactForm', () => {
 
   describe('when there is an error', () => {
     it('should display error from useContact', async () => {
-      mockSendContact.mockResolvedValue({ ...contact })
+      mockSendContact.mockResolvedValue(false)
 
       mockErrorFromServer = 'something want wrong'
 

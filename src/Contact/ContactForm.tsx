@@ -38,7 +38,11 @@ export const ContactForm: FC = () => {
   }
 
   const handleSubmit = async (contact: Contact) => {
-    ;(await sendContact(contact)) ?? setShowThankYou(true)
+    const wasItSent = await sendContact(contact)
+
+    if (wasItSent) {
+      setShowThankYou(true)
+    }
   }
 
   return (
