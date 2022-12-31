@@ -5,10 +5,6 @@ import { celebrate, Joi, errors, Segments } from 'celebrate'
 
 import sgMail, { MailDataRequired } from '@sendgrid/mail'
 
-export type SearchRequest = {
-  query: string
-} & Request
-
 const app = express()
 
 dotenv.config()
