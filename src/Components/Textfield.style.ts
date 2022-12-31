@@ -1,14 +1,18 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+export const fieldStyle = css`
+  margin-top: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 4px;
+`
 
 export const Textfield = styled.input.attrs<{ isErroring?: boolean }>(
   (props) => ({
     isErroring: props.isErroring || false,
   })
 )<{ isErroring?: boolean }>`
-  margin-top: 0.25rem;
-  padding: 0.75rem;
-  border: 1px solid ${(props) => props.theme.colors.border};
-  border-radius: 4px;
+  ${fieldStyle}
 
   ${(props) =>
     props.isErroring &&
