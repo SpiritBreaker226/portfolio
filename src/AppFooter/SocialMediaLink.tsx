@@ -13,6 +13,8 @@ import styled from 'styled-components'
 const Link = styled.a`
   border-radius: 8px;
   padding: 0.5rem 1rem;
+  width: 5.5rem;
+  margin-bottom: 1rem;
   background-color: ${(props) => props.theme.colors.secondary};
 
   &:active,
