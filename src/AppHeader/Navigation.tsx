@@ -2,6 +2,8 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
+import { MobileMenu } from './Mobile'
+
 const NavigationLinkContainer = styled(NavLink)`
   padding: 1rem;
   color: ${(props) => props.theme.colors.text};
@@ -14,11 +16,11 @@ const NavigationLinkContainer = styled(NavLink)`
 `
 
 export const Navigation: FC = () => (
-  <nav>
+  <MobileMenu>
     <NavigationLinkContainer to="/">About</NavigationLinkContainer>
     <NavigationLinkContainer to="skills">Skills</NavigationLinkContainer>
     <NavigationLinkContainer to="portfolio">Portfolio</NavigationLinkContainer>
     <NavigationLinkContainer to="blog">Blog</NavigationLinkContainer>
     <NavigationLinkContainer to="contact">Contact</NavigationLinkContainer>
-  </nav>
+  </MobileMenu>
 )

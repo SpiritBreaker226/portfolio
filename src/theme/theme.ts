@@ -1,6 +1,9 @@
 import { DefaultTheme } from 'styled-components'
 
 export const theme: DefaultTheme = {
+  mobile: {
+    turnOnAt: '576px',
+  },
   colors: {
     border: '#46505a',
     text: '#46505a',

@@ -4,6 +4,9 @@ import 'styled-components'
 // and extend them!
 declare module 'styled-components' {
   export interface DefaultTheme {
+    mobile: {
+      turnOnAt: string
+    }
     colors: {
       border: string
       text: string
