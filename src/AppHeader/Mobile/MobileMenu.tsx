@@ -1,9 +1,10 @@
-import { FC, ReactNode, useState } from 'react'
+import { FC, ReactNode, useRef, useState } from 'react'
 import styled from 'styled-components'
+import { useCloseMobileMenuOutside } from './hooks'
 
 import { BurgerMenu } from './BurgerMenu'
 
-const Container = styled.nav.attrs<{ isOpen?: boolean }>((props) => ({
+const Nav = styled.nav.attrs<{ isOpen?: boolean }>((props) => ({
   isOpen: props.isOpen || false,
 }))<{ isOpen?: boolean }>`
   @media (max-width: ${({ theme }) => theme.mobile.turnOnAt}) {
@@ -29,12 +30,15 @@ export type MobileMenuProps = {
 }
 
 export const MobileMenu: FC<MobileMenuProps> = ({ children }) => {
+  const mobileMenuContainer = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 
+  useCloseMobileMenuOutside(mobileMenuContainer, () => setIsOpen(false))
+
   return (
-    <>
+    <div ref={mobileMenuContainer}>
       <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-      <Container isOpen={isOpen}>{children}</Container>
-    </>
+      <Nav isOpen={isOpen}>{children}</Nav>
+    </div>
   )
 }
