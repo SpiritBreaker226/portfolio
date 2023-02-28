@@ -34,7 +34,7 @@ export type SelectFieldProps<T extends string | object> = {
   'name' | 'onChange' | 'options' | 'values'
 >
 
-function Select<T extends string | object>({
+export const Select = <T extends string | object>({
   multi = false,
   name,
   label,
@@ -42,7 +42,7 @@ function Select<T extends string | object>({
   options,
   onSelectChange,
   ...rest
-}: SelectFieldProps<T>) {
+}: SelectFieldProps<T>) => {
   const { dispatch } = useApp()
   const theme = useTheme()
 
@@ -92,5 +92,3 @@ function Select<T extends string | object>({
     </Container>
   )
 }
-
-export default Select

@@ -15,11 +15,11 @@ type InfiniteScrollReturn<T> = {
  *
  * @returns {object}
  */
-function useInfiniteScroll<T>(
+export const useInfiniteScroll = <T,>(
   items: T[],
   limit = 24,
   defaultPage = 1
-): InfiniteScrollReturn<T> {
+): InfiniteScrollReturn<T> => {
   const [page, setPage] = useState(defaultPage)
   const numberOfUsers = limit * page + 1
 
@@ -33,5 +33,3 @@ function useInfiniteScroll<T>(
     items: items.slice(0, numberOfUsers),
   }
 }
-
-export default useInfiniteScroll

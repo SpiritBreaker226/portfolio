@@ -1,7 +1,7 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react'
 
 import { render } from '../../../../testUtil'
-import Select, { SelectFieldProps } from '../Select'
+import { Select, SelectFieldProps } from '../Select'
 
 const mockOnSelectChange = jest.fn()
 

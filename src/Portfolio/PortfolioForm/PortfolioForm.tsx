@@ -13,7 +13,7 @@ import {
   Types,
   UpdateSearchTypes,
 } from '../../types'
-import Select from './Components/Select'
+import { Select } from './Components'
 
 const Container = styled.div`
   padding-bottom: 1rem;

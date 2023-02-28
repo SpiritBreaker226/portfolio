@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
-import useInfiniteScroll from '../../hooks/useInfiniteScroll'
+import { useInfiniteScroll } from '../../hooks/useInfiniteScroll'
 import { Project } from '../../types'
 import { ProjectItem } from './ProjectItem'
 
