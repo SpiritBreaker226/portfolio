@@ -42,7 +42,7 @@ jobs:
           path: node_modules
   
   build:
-    needs: [install]
+    needs: install
     runs-on: ubuntu-latest
     steps:
       - name: Download current state
@@ -62,7 +62,7 @@ jobs:
           path: build
 
   test:
-    needs: [install, build]
+    needs: install
     runs-on: ubuntu-latest
     steps:
       - name: Download current state
@@ -76,7 +76,7 @@ jobs:
           cmd: test # will run `yarn test` command
 
   deploy:
-    needs: [install, build, test]
+    needs: [build, test]
     runs-on: ubuntu-latest
     steps:
       - name: Upload current build
