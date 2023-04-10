@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  build_test:
+  install:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -34,18 +34,30 @@ jobs:
         with:
           cmd: install --frozen-lockfile
           dir: 'thin-backend' # will run `yarn install --frozen-lockfile` in `thin-backend` sub folder
-      
+  
+  build:
+    needs: [install]
+    runs-on: ubuntu-latest
+    steps:
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
           cmd: build # will run `yarn build` command
 
+  test:
+    needs: [install, build]
+    runs-on: ubuntu-latest
+    steps:
       - name: Test React
         uses: borales/actions-yarn@v4
         with:
           cmd: test # will run `yarn test` command
 
-      - name: deploy
+  deploy:
+    needs: [install, build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy to production
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
