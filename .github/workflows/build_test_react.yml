@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: save-state
-          path: ./
+          path: node_modules
   
   build:
     needs: [install]
@@ -59,7 +59,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: save-state-with-build
-          path: ./build
+          path: build
 
   test:
     needs: [install, build]
