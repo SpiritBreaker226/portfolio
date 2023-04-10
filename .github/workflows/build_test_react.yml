@@ -12,20 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-    
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.yarn
+          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-yarn-cache-
+
       - name: Set Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
           cache: 'yarn'
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache.outputs.YARN_CACHE_DIR }}
-          key: ${{ runner.os }}-yarn-root-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
+          cache-dependency-path: |
+            yarn.lock
+            thin-backend/yarn.lock
 
       - name: Run install root
         uses: borales/actions-yarn@v4
@@ -37,29 +40,17 @@ jobs:
         with:
           cmd: install --frozen-lockfile
           dir: 'thin-backend' # will run `yarn install --frozen-lockfile` in `thin-backend` sub folder
-  
-#       - name: Upload current state
-#         uses: actions/upload-artifact@v3.1.2
-#         with:
-#           name: save-state
-#           path: node_modules
-  
   build:
     needs: install
     runs-on: ubuntu-latest
     steps:
-#       - name: Download current state
-#         uses: actions/download-artifact@v3
-#         with:
-#           name: save-state
-
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
           path: ${{ steps.yarn-cache.outputs.YARN_CACHE_DIR }}
-          key: ${{ runner.os }}-yarn-root-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn
+            ${{ runner.os }}-yarn-cache
             
       - name: Build production bundle
         uses: borales/actions-yarn@v4
@@ -80,15 +71,10 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ steps.yarn-cache.outputs.YARN_CACHE_DIR }}
-          key: ${{ runner.os }}-yarn-root-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn
+            ${{ runner.os }}-yarn-cache
     
-#       - name: Download current state
-#         uses: actions/download-artifact@v3
-#         with:
-#           name: save-state
-
       - name: Test React
         uses: borales/actions-yarn@v4
         with:
