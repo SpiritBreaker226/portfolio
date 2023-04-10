@@ -207,7 +207,7 @@ export const projects: Project[] = [
     platforms: new Set([Platform['web']]),
     type: ProjectType['Close'],
     icon: 'iconBenjamin.png',
-    url: 'http://benjaminsparkmemorialchapel.ca',
+    url: 'https://www.benjaminsparkmemorialchapel.ca',
     sampleCodeUrl: 'https://github.com/SpiritBreaker226/codesamples-Benjamins',
     isFeature: true,
   },
@@ -259,7 +259,7 @@ export const projects: Project[] = [
     platforms: new Set([Platform['mobile']]),
     type: ProjectType['Close'],
     icon: 'iconCityVaughan.png',
-    url: 'http://itunes.apple.com/us/app/city-of-vaughan/id896731406',
+    url: 'https://itunes.apple.com/us/app/city-of-vaughan/id896731406',
     sampleCodeUrl:
       'https://github.com/SpiritBreaker226/codesamples-CityOfVaughan',
     isFeature: false,
