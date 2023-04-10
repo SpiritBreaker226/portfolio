@@ -68,7 +68,8 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: build # will run `yarn build` command
-          
+          dir: '../'
+
       - name: Upload current build
         uses: actions/upload-artifact@v2
         with:
@@ -97,6 +98,7 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: test # will run `yarn test` command
+          dir: '../' 
 
   deploy:
     needs: [build, test]
