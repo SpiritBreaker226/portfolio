@@ -34,20 +34,42 @@ jobs:
         with:
           cmd: install --frozen-lockfile
           dir: 'thin-backend' # will run `yarn install --frozen-lockfile` in `thin-backend` sub folder
+          
+      - name: Upload current state
+        uses: actions/upload-artifact@v2
+        with:
+          name: save-state
+          path: ./
   
   build:
     needs: [install]
     runs-on: ubuntu-latest
     steps:
+      - name: Download current state
+        uses: actions/download-artifact@v3
+        with:
+          name: save-state
+      
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
           cmd: build # will run `yarn build` command
+          
+      - name: Upload current build
+        uses: actions/upload-artifact@v2
+        with:
+          name: save-state-with-build
+          path: ./build
 
   test:
     needs: [install, build]
     runs-on: ubuntu-latest
     steps:
+      - name: Download current state
+        uses: actions/download-artifact@v3
+        with:
+          name: save-state
+
       - name: Test React
         uses: borales/actions-yarn@v4
         with:
@@ -57,6 +79,11 @@ jobs:
     needs: [install, build, test]
     runs-on: ubuntu-latest
     steps:
+      - name: Upload current build
+        uses: actions/upload-artifact@v2
+        with:
+          name: save-state-with-build
+      
       - name: deploy to production
         uses: peaceiris/actions-gh-pages@v3
         with:
