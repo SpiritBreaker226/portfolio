@@ -16,10 +16,11 @@ jobs:
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         with:
-          path: ~/.yarn
+          path: ${{ steps.yarn-cache.outputs.YARN_CACHE_DIR }}
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
-            ${{ runner.OS }}-yarn-cache-
+            ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+            ${{ runner.os }}-yarn-cache-
 
       - name: Set Node.js
         uses: actions/setup-node@v3
@@ -47,9 +48,8 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache.outputs.YARN_CACHE_DIR }}
-          key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
+            ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
             ${{ runner.os }}-yarn-cache-
             
       - name: Build production bundle
@@ -70,9 +70,8 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache.outputs.YARN_CACHE_DIR }}
-          key: ${{ runner.os }}-yarn-cache-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
+            ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
             ${{ runner.os }}-yarn-cache-
     
       - name: Test React
