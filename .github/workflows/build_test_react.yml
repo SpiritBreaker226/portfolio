@@ -16,7 +16,7 @@ jobs:
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache.outputs.YARN_CACHE_DIR }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
