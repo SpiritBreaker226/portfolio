@@ -13,15 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Cache NPM dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
-            ${{ runner.os }}-yarn-cache-
-
       - name: Set Node.js
         uses: actions/setup-node@v3
         with:
@@ -30,6 +21,20 @@ jobs:
           cache-dependency-path: |
             yarn.lock
             thin-backend/yarn.lock
+            
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+            ${{ runner.os }}-yarn-cache-
 
       - name: Run install root
         uses: borales/actions-yarn@v4
