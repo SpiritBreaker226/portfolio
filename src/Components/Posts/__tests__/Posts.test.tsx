@@ -2,22 +2,22 @@ import { screen } from '@testing-library/react'
 
 import { AppProvider, initialState, post, render } from '../../../testUtil'
 import { InitialState } from '../../../types'
-import { PostList, PostListProps } from '../PostList'
+import { Posts, PostsProps } from '../Posts'
 
 const mockDispatch = jest.fn()
 
-describe('PostList', () => {
-  const defaultProps: PostListProps = {
+describe('Posts', () => {
+  const defaultProps: PostsProps = {
     numberOfPosts: undefined,
   }
   const setUp = (
-    props: Partial<PostListProps> = {},
+    props: Partial<PostsProps> = {},
     state: Partial<InitialState> = {},
     dispatch = mockDispatch
   ) => {
     render(
       <AppProvider state={{ ...initialState, ...state }} dispatch={dispatch}>
-        <PostList {...defaultProps} {...props} />
+        <Posts {...defaultProps} {...props} />
       </AppProvider>
     )
   }

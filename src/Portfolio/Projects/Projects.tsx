@@ -11,11 +11,11 @@ const Container = styled.section`
   margin: 1em;
 `
 
-export type ProjectListProps = {
+export type ProjectsProps = {
   projects: Project[]
 }
 
-export const ProjectList: FC<ProjectListProps> = ({ projects }) => {
+export const Projects: FC<ProjectsProps> = ({ projects }) => {
   const { fetchMore, items: currentProjects } = useInfiniteScroll<Project>(
     Object.values(projects)
   )

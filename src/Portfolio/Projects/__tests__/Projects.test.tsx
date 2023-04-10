@@ -3,27 +3,27 @@ import { screen } from '@testing-library/react'
 
 import { AppProvider, initialState, project, render } from '../../../testUtil'
 import { InitialState } from '../../../types'
-import { ProjectList, ProjectListProps } from '../ProjectList'
+import { Projects, ProjectsProps } from '../Projects'
 
 const mockDispatch = jest.fn()
 
-describe('ProjectList', () => {
-  const defaultProps: ProjectListProps = {
+describe('Projects', () => {
+  const defaultProps: ProjectsProps = {
     projects: [],
   }
   const setUp = (
-    props: Partial<ProjectListProps> = {},
+    props: Partial<ProjectsProps> = {},
     state: Partial<InitialState> = {},
     dispatch = mockDispatch
   ) => {
     render(
       <AppProvider state={{ ...initialState, ...state }} dispatch={dispatch}>
-        <ProjectList {...defaultProps} {...props} />
+        <Projects {...defaultProps} {...props} />
       </AppProvider>
     )
   }
 
-  it('should show project list', async () => {
+  it('should show projects', async () => {
     const companyName1 = faker.company.name()
     const companyName2 = faker.company.name()
 

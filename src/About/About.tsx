@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from 'styled-components'
 
 import { Blog } from '../Blog'
-import { PostList } from '../Components'
+import { Posts } from '../Components'
 
 const Container = styled.section`
   padding: 1rem;
@@ -28,6 +28,7 @@ export const About: FC = () => {
   return (
     <Container>
       <Image src="/image/home.png" alt={process.env.REACT_APP_DEVELOPER_NAME} />
+
       <AboutContainer>
         <h2>About Me</h2>
         <p>
@@ -64,8 +65,9 @@ export const About: FC = () => {
       </AboutContainer>
 
       <h2>Latest Posts</h2>
+
       <Blog>
-        <PostList numberOfPosts={3} />
+        <Posts numberOfPosts={3} />
       </Blog>
     </Container>
   )

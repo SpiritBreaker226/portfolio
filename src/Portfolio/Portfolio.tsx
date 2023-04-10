@@ -4,7 +4,7 @@ import { useApp } from '../context'
 import { usePortfolio } from '../hooks'
 import { Types } from '../types'
 import { PortfolioForm } from './PortfolioForm'
-import { ProjectList } from './ProjectList'
+import { Projects } from './Projects'
 
 export const Portfolio: FC = () => {
   const {
@@ -32,7 +32,7 @@ export const Portfolio: FC = () => {
   return (
     <section>
       <PortfolioForm />
-      <ProjectList projects={filteredProjects} />
+      <Projects projects={filteredProjects} />
     </section>
   )
 }

@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import { About } from '../About'
 import { Blog } from '../Blog'
-import { PageNotFound, PostList } from '../Components'
+import { PageNotFound, Posts } from '../Components'
 import { ContactForm } from '../Contact'
 import { Portfolio, ProjectDetails } from '../Portfolio'
 import { Skills } from '../Skills'
@@ -33,7 +33,7 @@ export const AppBody: FC = () => (
         path="blog"
         element={
           <Blog>
-            <PostList />
+            <Posts />
           </Blog>
         }
       />

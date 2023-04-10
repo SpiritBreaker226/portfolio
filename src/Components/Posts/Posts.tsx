@@ -8,11 +8,11 @@ const NoBlogContainer = styled.section`
   text-align: center;
 `
 
-export type PostListProps = {
+export type PostsProps = {
   numberOfPosts?: number
 }
 
-export const PostList: FC<PostListProps> = ({ numberOfPosts }) => {
+export const Posts: FC<PostsProps> = ({ numberOfPosts }) => {
   const {
     state: { posts },
   } = useApp()
