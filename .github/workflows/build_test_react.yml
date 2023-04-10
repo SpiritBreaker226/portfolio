@@ -53,6 +53,7 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
+          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
             ${{ runner.os }}-yarn-cache-
@@ -75,6 +76,7 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
+          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
             ${{ runner.os }}-yarn-cache-
