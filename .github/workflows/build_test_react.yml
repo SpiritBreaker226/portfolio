@@ -50,9 +50,15 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     steps:
-      - name: Cache dependencies
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache NPM dependencies
         uses: actions/cache@v3
+        id: yarn-cache
         with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
@@ -73,9 +79,15 @@ jobs:
     needs: install
     runs-on: ubuntu-latest
     steps:
-      - name: Cache dependencies
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache NPM dependencies
         uses: actions/cache@v3
+        id: yarn-cache
         with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
