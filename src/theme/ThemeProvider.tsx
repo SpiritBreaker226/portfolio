@@ -8,11 +8,9 @@ export type ThemeProviderProps = {
   children: ReactNode
 }
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
-  return (
-    <StyledThemeProvider theme={theme}>
-      <GlobalStyle />
-      {children}
-    </StyledThemeProvider>
-  )
-}
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => (
+  <StyledThemeProvider theme={theme}>
+    <GlobalStyle />
+    {children}
+  </StyledThemeProvider>
+)

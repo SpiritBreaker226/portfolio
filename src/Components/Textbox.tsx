@@ -22,27 +22,25 @@ export type TextBoxProps = {
   label: string
 } & Omit<InputHTMLAttributes<HTMLInputElement> & FieldAttributes<any>, 'id'>
 
-export const Textbox: FC<TextBoxProps> = ({ label, name, ...rest }) => {
-  return (
-    <Field name={name}>
-      {({ field, meta }: FieldAttributes<any>) => {
-        const isErroring = meta.touched && meta.error
+export const Textbox: FC<TextBoxProps> = ({ label, name, ...rest }) => (
+  <Field name={name}>
+    {({ field, meta }: FieldAttributes<any>) => {
+      const isErroring = meta.touched && meta.error
 
-        return (
-          <TextboxContainer>
-            <label htmlFor={name}>{label}</label>
+      return (
+        <TextboxContainer>
+          <label htmlFor={name}>{label}</label>
 
-            <Textfield
-              type="text"
-              id={name}
-              isErroring={isErroring}
-              {...rest}
-              {...field}
-            />
-            {isErroring && <ErrorMessage>{meta.error}</ErrorMessage>}
-          </TextboxContainer>
-        )
-      }}
-    </Field>
-  )
-}
+          <Textfield
+            type="text"
+            id={name}
+            isErroring={isErroring}
+            {...rest}
+            {...field}
+          />
+          {isErroring && <ErrorMessage>{meta.error}</ErrorMessage>}
+        </TextboxContainer>
+      )
+    }}
+  </Field>
+)

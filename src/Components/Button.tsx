@@ -23,10 +23,8 @@ export type ButtonProps = {
   isLoading?: boolean
 } & ButtonHTMLAttributes<unknown>
 
-export const Button: FC<ButtonProps> = ({ isLoading, children, ...rest }) => {
-  return (
-    <ButtonContainer type="button" disabled={isLoading} {...rest}>
-      {children}
-    </ButtonContainer>
-  )
-}
+export const Button: FC<ButtonProps> = ({ isLoading, children, ...rest }) => (
+  <ButtonContainer type="button" disabled={isLoading} {...rest}>
+    {children}
+  </ButtonContainer>
+)

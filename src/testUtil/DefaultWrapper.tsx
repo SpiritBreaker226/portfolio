@@ -8,14 +8,12 @@ export type RenderProps = {
   children: ReactNode
 }
 
-export const DefaultWrapper: FC<RenderProps> = ({ children }) => {
-  return (
-    <BrowserRouter>
-      <ThemeProvider>
-        <Formik initialValues={{ requireField: '' }} onSubmit={() => {}}>
-          {children}
-        </Formik>
-      </ThemeProvider>
-    </BrowserRouter>
-  )
-}
+export const DefaultWrapper: FC<RenderProps> = ({ children }) => (
+  <BrowserRouter>
+    <ThemeProvider>
+      <Formik initialValues={{ requireField: '' }} onSubmit={() => {}}>
+        {children}
+      </Formik>
+    </ThemeProvider>
+  </BrowserRouter>
+)
