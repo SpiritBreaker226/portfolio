@@ -1,11 +1,6 @@
-name: CI
+name: Base WorkFlows
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_call:
 
 jobs:
   build_test:
@@ -26,8 +21,3 @@ jobs:
           yarn
           yarn build
           yarn test
-      - name: deploy to production
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./build
