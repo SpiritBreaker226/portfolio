@@ -47,11 +47,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         id: yarn-cache
         with:
-          path: ${{ needs.install.steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
@@ -75,11 +79,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         id: yarn-cache
         with:
-          path: ${{ needs.install.steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
