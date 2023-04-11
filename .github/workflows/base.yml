@@ -49,7 +49,7 @@ jobs:
         uses: actions/cache@v3
         id: yarn-cache
         with:
-          path: ${{ jobs.install.steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ needs.install.steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
@@ -75,7 +75,7 @@ jobs:
         uses: actions/cache@v3
         id: yarn-cache
         with:
-          path: ${{ jobs.install.steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ needs.install.steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
