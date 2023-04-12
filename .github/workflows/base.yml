@@ -60,6 +60,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: save-state-with-build
+          if-no-files-found: error
           path: |
             build
             thin-backend/dist
