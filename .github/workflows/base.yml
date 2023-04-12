@@ -12,10 +12,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: 'yarn'
-          cache-dependency-path: |
-            yarn.lock
-            thin-backend/yarn.lock
 
       - name: Run install root
         uses: borales/actions-yarn@v4
