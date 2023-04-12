@@ -57,7 +57,7 @@ jobs:
           cmd: build # will run `yarn build` command
 
       - name: Upload current build
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: save-state-with-build
           path: |
