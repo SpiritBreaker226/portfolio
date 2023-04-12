@@ -29,7 +29,6 @@ jobs:
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
-            ${{ runner.os }}-yarn-cache-
 
       - name: Run install root
         uses: borales/actions-yarn@v4
@@ -59,7 +58,6 @@ jobs:
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
-            ${{ runner.os }}-yarn-cache-
 
       - name: Build production bundle
         uses: borales/actions-yarn@v4
@@ -90,7 +88,6 @@ jobs:
           key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
-            ${{ runner.os }}-yarn-cache-
 
       - name: Test React
         uses: borales/actions-yarn@v4
