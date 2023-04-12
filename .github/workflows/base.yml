@@ -28,15 +28,13 @@ jobs:
           cmd: install --frozen-lockfile
           dir: 'thin-backend' # will run `yarn install --frozen-lockfile` in `thin-backend` sub folder
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: |
+            node_modules
+            thin-backend/node_modules
           key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
@@ -46,15 +44,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: |
+            node_modules
+            thin-backend/node_modules
           key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
@@ -76,15 +72,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         id: yarn-cache
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: |
+            node_modules
+            thin-backend/node_modules
           key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
             node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
