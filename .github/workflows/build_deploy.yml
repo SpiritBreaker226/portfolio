@@ -4,11 +4,19 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   call-base-workflow:
     uses: ./.github/workflows/base.yml
 
   deploy:
+    environment:
+      name: gh-pages
+      url: ${{ steps.build-publish.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: call-base-workflow
     steps:
@@ -18,25 +26,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: save-state-with-build
-          path: ./build
-
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: ./build
-
-      - name: get thin-backend build
-        uses: actions/download-artifact@v3
-        with:
-          name: save-state-with-build
-          path: ./thin-backend/dist
-
-      - name: Display structure of downloaded files
-        run: ls -R
-        working-directory: ./thin-backend/dist
+          path: build
 
       - name: deploy build folder to production
-        uses: peaceiris/actions-gh-pages@v3
+        id: build-publish
+        uses: bitovi/github-actions-react-to-ghp@v1.2.0
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./build
-          keep_files: true
+          path: build
