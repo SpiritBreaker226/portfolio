@@ -19,18 +19,6 @@ jobs:
         with:
           name: save-state-with-build
 
-      - name: deploy public folder to production
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./public
-
-      - name: deploy think-backend build folder to production
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./thin-backend/dist
-
       - name: deploy build folder to production
         uses: peaceiris/actions-gh-pages@v3
         with:
