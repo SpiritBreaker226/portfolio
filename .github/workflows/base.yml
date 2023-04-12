@@ -26,9 +26,9 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
-            ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
 
       - name: Run install root
         uses: borales/actions-yarn@v4
@@ -55,9 +55,9 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
-            ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
 
       - name: Build production bundle
         uses: borales/actions-yarn@v4
@@ -85,9 +85,9 @@ jobs:
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
           restore-keys: |
-            ${{ runner.OS }}-yarn-cache-${{ hashFiles('**/yarn.json') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('**/yarn.json') }}
 
       - name: Test React
         uses: borales/actions-yarn@v4
