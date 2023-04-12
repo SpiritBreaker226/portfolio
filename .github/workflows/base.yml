@@ -64,7 +64,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: save-state-with-build
-          path: build
+          path: |
+            build
+            thin-backend/dist
 
   test:
     needs: install
