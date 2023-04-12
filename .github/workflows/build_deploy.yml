@@ -20,11 +20,21 @@ jobs:
           name: save-state-with-build
           path: build
 
+      - name: 'Echo download path'
+        run: echo ${{steps.download.outputs.download-path}}
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: build
+
       - name: get thin-backend build
         uses: actions/download-artifact@v3
         with:
           name: save-state-with-build
           path: thin-backend/dist
+
+      - name: 'Echo download path'
+        run: echo ${{steps.download.outputs.download-path}}
 
       - name: deploy build folder to production
         uses: peaceiris/actions-gh-pages@v3
