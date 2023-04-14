@@ -39,13 +39,7 @@ jobs:
           path: build
 
       - name: Deploy build folder to production
-        run: |
-          git config --global user.name $userName
-          git config --global user.email $userEmail
-          git remote set-url origin https://${githubToken}@github.com/${repository}
-          npm run deploy
-        env:
-          userName: 'github-actions[bot]'
-          userEmail: 'github-actions[bot]@users.noreply.github.com'
-          githubToken: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          repository: ${{ github.repository }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build
