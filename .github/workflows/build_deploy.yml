@@ -40,4 +40,4 @@ jobs:
       - name: Build production bundle
         uses: borales/actions-yarn@v4
         with:
-          cmd: deploy -- -u "github-actions-bot <support+actions@github.com>" # will run `yarn build` command
+          cmd: deploy -- -u 'github-actions-bot <support+actions@github.com>' # will run `yarn build` command
