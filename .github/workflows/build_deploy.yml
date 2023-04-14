@@ -28,9 +28,9 @@ jobs:
           path: |
             node_modules
             thin-backend/node_modules
-          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./yarn.lock') }}
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./package.json') }}
           restore-keys: |
-            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./yarn.lock') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./package.json') }}
 
       - name: Get root build
         uses: actions/download-artifact@v3
