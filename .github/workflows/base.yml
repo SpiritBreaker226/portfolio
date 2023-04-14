@@ -31,9 +31,9 @@ jobs:
           path: |
             node_modules
             thin-backend/node_modules
-          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('yarn.json') }}
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./yarn.json') }}
           restore-keys: |
-            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('yarn.json') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./yarn.json') }}
   build:
     needs: install
     runs-on: ubuntu-latest
@@ -47,9 +47,9 @@ jobs:
           path: |
             node_modules
             thin-backend/node_modules
-          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('yarn.json') }}
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./yarn.json') }}
           restore-keys: |
-            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('yarn.json') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./yarn.json') }}
 
       - name: Build production bundle
         uses: borales/actions-yarn@v4
@@ -78,9 +78,9 @@ jobs:
           path: |
             node_modules
             thin-backend/node_modules
-          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('yarn.json') }}
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./yarn.json') }}
           restore-keys: |
-            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('yarn.json') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./yarn.json') }}
 
       - name: Test React
         uses: borales/actions-yarn@v4
