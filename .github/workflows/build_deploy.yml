@@ -40,12 +40,12 @@ jobs:
 
       - name: Deploy build folder to production
         run: |
-          git config --global user.name $user_name
-          git config --global user.email $user_email
-          git remote set-url origin https://${github_token}@github.com/${repository}
+          git config --global user.name $userName
+          git config --global user.email $userEmail
+          git remote set-url origin https://${githubToken}@github.com/${repository}
           npm run deploy
         env:
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          userName: 'github-actions[bot]'
+          userEmail: 'github-actions[bot]@users.noreply.github.com'
+          githubToken: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           repository: ${{ github.repository }}
