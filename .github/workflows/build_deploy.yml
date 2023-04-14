@@ -36,4 +36,7 @@ jobs:
       - name: deploy build folder to production
         uses: borales/actions-yarn@v4
         with:
+          run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           cmd: deploy # will run `yarn deploy` command
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
