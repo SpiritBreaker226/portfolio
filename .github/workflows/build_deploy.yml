@@ -16,6 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Set Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
       - name: Cache NPM dependencies
         uses: actions/cache@v3
         id: yarn-cache
@@ -27,16 +32,20 @@ jobs:
           restore-keys: |
             node-cache-${{ runner.OS }}-yarn-${{ hashFiles('yarn.json') }}
 
-      - name: get root build
+      - name: Get root build
         uses: actions/download-artifact@v3
         with:
           name: save-state-with-build
           path: build
 
-      - name: deploy build folder to production
-        uses: borales/actions-yarn@v4
-        with:
-          run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          cmd: deploy # will run `yarn deploy` command
+      - name: Deploy build folder to production
+        run: |
+          git config --global user.name $user_name
+          git config --global user.email $user_email
+          git remote set-url origin https://${github_token}@github.com/${repository}
+          npm run deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          repository: ${{ github.repository }}

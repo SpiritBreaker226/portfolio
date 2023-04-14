@@ -49,7 +49,7 @@
     "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "echo \"Already build script is for gh-pages requirement\"",
-    "deploy": "gh-pages -- -u \"github-actions-bot <support+actions@github.com>\" -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
