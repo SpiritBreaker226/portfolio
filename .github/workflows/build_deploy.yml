@@ -32,12 +32,14 @@ jobs:
           restore-keys: |
             node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./package.json') }}
 
-      - name: Setup git
-        run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build production bundle
-        uses: borales/actions-yarn@v4
+      - name: Get root build
+        uses: actions/download-artifact@v3
         with:
-          cmd: deploy # will run `yarn build` command
+          name: save-state-with-build
+          path: build
+
+      - name: Deploy build folder to production
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build
