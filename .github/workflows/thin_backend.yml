@@ -31,31 +31,3 @@ jobs:
           key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
           restore-keys: |
             node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
-
-  build:
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Cache NPM dependencies
-        uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            ./thin-backend/node_modules
-          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
-          restore-keys: |
-            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
-
-      - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build:backend # will run `yarn build:backend` command
-
-      - name: Upload current build
-        uses: actions/upload-artifact@v3
-        with:
-          name: save-thin-backend-build
-          if-no-files-found: error
-          path: ./thin-backend/dist

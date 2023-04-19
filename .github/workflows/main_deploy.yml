@@ -36,12 +36,6 @@ jobs:
           restore-keys: |
             node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
 
-      - name: Get Thin-Backend build
-        uses: actions/download-artifact@v3
-        with:
-          name: save-thin-backend-build
-          path: ./thin-backend/dist
-
       - name: Cache Frontend NPM dependencies
         uses: actions/cache@v3
         id: yarn-frontend-cache
