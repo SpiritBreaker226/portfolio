@@ -27,10 +27,10 @@ jobs:
         id: yarn-cache
         with:
           path: |
-            node_modules
-          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('package.json') }}
+            ./thin-backend/node_modules
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
           restore-keys: |
-            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('package.json') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
 
   build:
     needs: install
@@ -43,10 +43,10 @@ jobs:
         id: yarn-cache
         with:
           path: |
-            node_modules
-          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('package.json') }}
+            ./thin-backend/node_modules
+          key: node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
           restore-keys: |
-            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('package.json') }}
+            node-cache-${{ runner.OS }}-yarn-${{ hashFiles('./thin-backend/package.json') }}
 
       - name: Build production bundle
         uses: borales/actions-yarn@v4
@@ -58,4 +58,4 @@ jobs:
         with:
           name: save-thin-backend-build
           if-no-files-found: error
-          path: dist
+          path: ./thin-backend/dist
