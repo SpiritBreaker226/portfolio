@@ -6,12 +6,13 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   thin_backend:
-    uses: ./thin_backend.yml
+    uses: ./.github/workflows/thin_backend.yml
 
   frontend:
-    uses: ./frontend.yml
+    uses: ./.github/workflows/frontend.yml
 
   deploy:
     runs-on: ubuntu-latest
