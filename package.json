@@ -42,7 +42,7 @@
     "start:dev": "concurrently --kill-others \"yarn start:frontend\" \"yarn start:dev:backend\"",
     "start:dev:backend": "cd ./thin-backend && yarn dev",
     "build": "concurrently \"yarn:build:*\"",
-    "build:frontend": "cp .env.example .env && react-scripts build",
+    "build:frontend": "cp .env.example .env && yarn test && react-scripts build",
     "build:backend": "cd ./thin-backend && yarn build",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
