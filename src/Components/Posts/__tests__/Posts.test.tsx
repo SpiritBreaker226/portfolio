@@ -29,7 +29,7 @@ describe('Posts', () => {
         posts: [
           { ...post, id: 1, title: 'The World' },
           { ...post, id: 2, title: 'The Fool' },
-          { ...post, id: 3, title: 'The Sun' },
+          { ...post, id: 3, title: 'The Lovers' },
           { ...post, id: 4, title: 'The Moon' },
         ],
       }
@@ -37,7 +37,7 @@ describe('Posts', () => {
 
     await screen.findByText(/world/i)
     await screen.findByText(/fool/i)
-    await screen.findByText(/sun/i)
+    await screen.findByText(/lovers/i)
     await screen.findByText(/moon/i)
   })
 
@@ -57,7 +57,7 @@ describe('Posts', () => {
           posts: [
             { ...post, id: 1, title: 'The World' },
             { ...post, id: 2, title: 'The Fool' },
-            { ...post, id: 3, title: 'The Sun' },
+            { ...post, id: 3, title: 'The Lovers' },
             { ...post, id: 4, title: 'The Moon' },
           ],
         }
@@ -65,7 +65,7 @@ describe('Posts', () => {
 
       await screen.findByText(/world/i)
       await screen.findByText(/fool/i)
-      expect(screen.queryByText(/sun/i)).not.toBeInTheDocument()
+      expect(screen.queryByText(/lovers/i)).not.toBeInTheDocument()
       expect(screen.queryByText(/moon/i)).not.toBeInTheDocument()
     })
   })
