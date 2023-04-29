@@ -1,4 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 
 import ErrorBoundary from './Components/ErrorBoundary'
 import { ThemeProvider } from './theme'
@@ -18,6 +19,8 @@ const App = () => (
 
           <AppFooter />
         </Router>
+
+        <Analytics />
       </AppProvider>
     </ThemeProvider>
   </ErrorBoundary>
