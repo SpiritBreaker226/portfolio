@@ -7878,10 +7878,10 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
-react-dropdown-select@^4.9.0:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/react-dropdown-select/-/react-dropdown-select-4.9.0.tgz#0fe9dcf7bad8408de0edf42885f3ed10243b1423"
-  integrity sha512-JBTKlUc0TS+RpXcJFre9A7ZtOTEcvM0oParInOb+Ox2J6yrE9XZEPkirVWYlTbPoiQdUJvXmOkCwUBgi7r93nw==
+react-dropdown-select@^4.9.3:
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/react-dropdown-select/-/react-dropdown-select-4.9.3.tgz#505bc336f961809fb30218961970e97398d42011"
+  integrity sha512-QSvt2v3XSLHSiebC3qxlbNzLFP5NSv+tagxlOLRjeOLEqlBD4qZYZVfGO9JPty6l4XEpSwSfyuUp9ksQajURGg==
   dependencies:
     "@emotion/react" "11.8.1"
     "@emotion/styled" "11.8.1"
