@@ -34,7 +34,7 @@ type SearchPayload = {
   }
 }
 
-type ActionMap<M extends { [index: string]: any }> = {
+type ActionMap<M extends { [keyType: string]: unknown }> = {
   [Key in keyof M]: M[Key] extends undefined
     ? {
         type: Key
