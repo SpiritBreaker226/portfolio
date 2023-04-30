@@ -10,7 +10,7 @@
     "@vercel/analytics": "^1.0.0",
     "axios": "0.27.2",
     "chart.js": "^4.0.1",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.0.1",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.0.1",
