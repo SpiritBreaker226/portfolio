@@ -62,10 +62,12 @@ export const About: FC = () => (
       </p>
     </AboutContainer>
 
-    <h2>Latest Posts</h2>
+    <section>
+      <h2>Latest Posts</h2>
 
-    <Blog>
-      <Posts numberOfPosts={3} />
-    </Blog>
+      <Blog>
+        <Posts numberOfPosts={3} />
+      </Blog>
+    </section>
   </Container>
 )
