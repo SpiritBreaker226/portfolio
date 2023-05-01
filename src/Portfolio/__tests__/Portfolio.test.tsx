@@ -3,30 +3,9 @@ import { screen, waitFor } from '@testing-library/react'
 import { AppProvider, initialState, project, render } from '../../testUtil'
 import { InitialState, Project, ProjectObject, Types } from '../../types'
 import { Portfolio } from '../Portfolio'
-import { ProjectsProps } from '../Projects'
 
 const mockDispatch = jest.fn()
 const mockGetPortfolios = jest.fn()
-
-const PortfolioForm = () => <div>form</div>
-
-const Projects = ({ projects }: ProjectsProps) => (
-  <div>
-    {projects.map(({ id, name }) => (
-      <span key={id}>{name}</span>
-    ))}
-  </div>
-)
-
-jest.mock('../PortfolioForm', () => ({
-  ...jest.requireActual('../PortfolioForm'),
-  PortfolioForm,
-}))
-
-jest.mock('../Projects', () => ({
-  ...jest.requireActual('../Projects'),
-  Projects,
-}))
 
 jest.mock('../../hooks', () => ({
   ...jest.requireActual('../../hooks'),
