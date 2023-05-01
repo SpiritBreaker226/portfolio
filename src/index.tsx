@@ -14,6 +14,7 @@ Sentry.init({
   // Session Replay
   replaysSessionSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
   replaysOnErrorSampleRate: 1.0,
+  enabled: false,
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
