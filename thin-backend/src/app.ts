@@ -32,13 +32,13 @@ app.post(
     try {
       sgMail.setApiKey(`${process.env.SENDGRID_KEY}`)
 
-      const email = {
-        from: process.env.EMAIL_FROM,
+      const email: MailDataRequired = {
+        from: process.env.EMAIL_FROM ?? '',
         to: req.body.email,
         subject: `Contact Form Portfolio App - ${req.body.firstName} ${req.body.lastName}`,
         text: `${req.body.question} Phone: ${req.body.phone}`,
         html: `${req.body.question}<br/><br/>Phone: ${req.body.phone}`,
-      } as MailDataRequired
+      }
 
       await sgMail.send(email)
 
