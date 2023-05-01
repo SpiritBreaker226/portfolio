@@ -31,7 +31,7 @@ describe('ContactForm', () => {
     })
     // needs a delay so that the phone can enter in the phone number
     fireEvent.change(screen.getByRole('textbox', { name: 'Phone' }), {
-      target: { value: '+1 (321) 921-5555' },
+      target: { value: '(321) 921-5555' },
     })
     fireEvent.change(screen.getByRole('textbox', { name: 'Question' }), {
       target: { value: faker.hacker.abbreviation() },
@@ -73,6 +73,21 @@ describe('ContactForm', () => {
       setUp()
 
       await screen.findByText(/something want wrong/i)
+    })
+  })
+
+  describe('when testing phone number', () => {
+    it('should not show error on 3219215555', async () => {
+      setUp()
+
+      // needs a delay so that the phone can enter in the phone number
+      fireEvent.change(screen.getByRole('textbox', { name: 'Phone' }), {
+        target: { value: '3219215555' },
+      })
+
+      expect(
+        screen.queryByText('Phone number is an invalid')
+      ).not.toBeInTheDocument()
     })
   })
 })

@@ -1,6 +1,6 @@
 import * as Yup from 'yup'
-import 'yup-phone'
 
+const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
 export const ContactSchema = Yup.object().shape({
   firstName: Yup.string()
     .required('First name is required')
@@ -10,11 +10,9 @@ export const ContactSchema = Yup.object().shape({
     .required('Last name is required')
     .min(2, 'Last name is too Short!')
     .max(50, 'Last name is too Long!'),
-  phone: Yup.string().phone(
-    'US',
-    false,
-    'Required or is an invalid phone number'
-  ),
+  phone: Yup.string()
+    .matches(phoneRegex, 'Phone number is an invalid')
+    .required('Phone number is required'),
   email: Yup.string().required('Email is required').email('Invalid email'),
   question: Yup.string().required('Question is required'),
 })

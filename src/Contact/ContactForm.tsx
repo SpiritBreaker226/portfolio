@@ -78,7 +78,7 @@ export const ContactForm: FC = () => {
             <Textbox
               name="phone"
               label="Phone"
-              placeholder="+1 (321) 921-5555"
+              placeholder="(321) 921-5555"
               type="phone"
               disabled={isSubmitting}
             />
