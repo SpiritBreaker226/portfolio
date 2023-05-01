@@ -10,9 +10,7 @@ export const ContactSchema = Yup.object().shape({
     .required('Last name is required')
     .min(2, 'Last name is too Short!')
     .max(50, 'Last name is too Long!'),
-  phone: Yup.string()
-    .matches(phoneRegex, 'Phone number is an invalid')
-    .required('Phone number is required'),
+  phone: Yup.string().matches(phoneRegex, 'Phone number is an invalid'),
   email: Yup.string().required('Email is required').email('Invalid email'),
   question: Yup.string().required('Question is required'),
 })

@@ -3,6 +3,7 @@ import { fireEvent, screen, waitFor } from '@testing-library/react'
 
 import { contact, render } from '../../testUtil'
 import { ContactForm } from '../ContactForm'
+import { Contact } from '../../types'
 
 const mockSendContact = jest.fn()
 let mockErrorFromServer = ''
@@ -19,22 +20,26 @@ jest.mock('../../hooks', () => ({
 
 describe('ContactForm', () => {
   const setUp = () => render(<ContactForm />)
-  const fillForm = () => {
+  const fillForm = (contactFill: Contact) => {
     fireEvent.change(screen.getByRole('textbox', { name: 'First Name' }), {
-      target: { value: faker.name.firstName() },
+      target: { value: contactFill.firstName },
     })
     fireEvent.change(screen.getByRole('textbox', { name: 'Last Name' }), {
-      target: { value: faker.name.lastName() },
+      target: { value: contactFill.lastName },
     })
     fireEvent.change(screen.getByRole('textbox', { name: 'Email' }), {
-      target: { value: faker.internet.email() },
+      target: { value: contactFill.email },
     })
-    // needs a delay so that the phone can enter in the phone number
-    fireEvent.change(screen.getByRole('textbox', { name: 'Phone' }), {
-      target: { value: '(321) 921-5555' },
-    })
+
+    if (contactFill.phone) {
+      // needs a delay so that the phone can enter in the phone number
+      fireEvent.change(screen.getByRole('textbox', { name: 'Phone' }), {
+        target: { value: contactFill.phone },
+      })
+    }
+
     fireEvent.change(screen.getByRole('textbox', { name: 'Question' }), {
-      target: { value: faker.hacker.abbreviation() },
+      target: { value: contactFill.question },
     })
 
     fireEvent.click(screen.getByRole('button', { name: 'Send' }))
@@ -46,11 +51,13 @@ describe('ContactForm', () => {
   })
 
   it('should submit a valid contact form', async () => {
+    const contactData = { ...contact, phone: '(321) 921-5555' }
+
     mockSendContact.mockResolvedValue(true)
 
     setUp()
 
-    fillForm()
+    fillForm(contactData)
 
     expect(screen.getByRole('textbox', { name: 'First Name' })).toBeDisabled()
     expect(screen.getByRole('textbox', { name: 'Last Name' })).toBeDisabled()
@@ -59,7 +66,30 @@ describe('ContactForm', () => {
     expect(screen.getByRole('textbox', { name: 'Question' })).toBeDisabled()
     expect(screen.getByRole('button', { name: 'Send' })).toBeDisabled()
 
-    await waitFor(() => expect(mockSendContact).toHaveBeenCalled())
+    await waitFor(() =>
+      expect(mockSendContact).toHaveBeenCalledWith(contactData)
+    )
+
+    await screen.findByText(/thank you/i)
+  })
+
+  it('should submit a valid contact form without phone number', async () => {
+    const contactData = { ...contact, phone: '' }
+
+    mockSendContact.mockResolvedValue(true)
+
+    setUp()
+
+    fillForm(contactData)
+
+    await waitFor(() =>
+      expect(mockSendContact).toHaveBeenCalledWith({
+        firstName: contactData.firstName,
+        lastName: contactData.lastName,
+        email: contactData.email,
+        question: contactData.question,
+      })
+    )
 
     await screen.findByText(/thank you/i)
   })

@@ -19,6 +19,10 @@ const LinkContainer = styled.p`
   margin-top: 1rem;
 `
 
+const FormIntro = styled.p`
+  margin-bottom: 1rem;
+`
+
 export const ContactForm: FC = () => {
   const { sendContact, errorFromServer } = useContact()
   const [showThankYou, setShowThankYou] = useState(false)
@@ -38,7 +42,13 @@ export const ContactForm: FC = () => {
   }
 
   const handleSubmit = async (contact: Contact) => {
-    const wasItSent = await sendContact(contact)
+    const contactSentToBackend = { ...contact }
+
+    if (contact.phone === '') {
+      delete contactSentToBackend.phone
+    }
+
+    const wasItSent = await sendContact(contactSentToBackend)
 
     if (wasItSent) {
       setShowThankYou(true)
@@ -47,8 +57,16 @@ export const ContactForm: FC = () => {
 
   return (
     <section>
+      <FormIntro>
+        Greetings! I appreciate your decision to contact me. It is my pleasure
+        to be of assistance. Kindly send a message, and I will respond promptly.
+        I am eager to hear from you!
+      </FormIntro>
+      <FormIntro>
+        The phone number field isn't required, but all other fields are
+        mandatory.
+      </FormIntro>
       <ErrorMessage error={errorFromServer} />
-
       <Formik<Contact>
         initialValues={{
           firstName: '',

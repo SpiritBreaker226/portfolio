@@ -23,7 +23,7 @@ app.post(
     [Segments.BODY]: Joi.object().keys({
       firstName: Joi.string().required(),
       lastName: Joi.string().required(),
-      phone: Joi.string().required(),
+      phone: Joi.string(),
       email: Joi.string().required(),
       question: Joi.string().required(),
     }),
@@ -32,12 +32,17 @@ app.post(
     try {
       sgMail.setApiKey(`${process.env.SENDGRID_KEY}`)
 
+      const phoneText =
+        req.body.phone && req.body.phone !== ''
+          ? `Phone: ${req.body.phone}`
+          : ''
+
       const email: MailDataRequired = {
         from: process.env.EMAIL_FROM ?? '',
         to: req.body.email,
         subject: `Contact Form Portfolio App - ${req.body.firstName} ${req.body.lastName}`,
-        text: `${req.body.question} Phone: ${req.body.phone}`,
-        html: `${req.body.question}<br/><br/>Phone: ${req.body.phone}`,
+        text: `${req.body.question} ${phoneText}`,
+        html: `${req.body.question}<br/><br/>${phoneText}`,
       }
 
       await sgMail.send(email)
