@@ -55,7 +55,9 @@ app.post(
 )
 
 app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at http://localhost:${port}`)
+  console.log(
+    `⚡️[server]: Server is running at ${process.env.REACT_APP_THIN_BACKEND_SERVER_URL}`
+  )
 })
 
 export default app
