@@ -5,19 +5,10 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
     ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-        
-  - package-ecosystem: "npm"
-    directory: "/thin-backend"
-    schedule:
-      interval: "weekly"
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-patch"]
-      
+      - dependency-name: '*'
+        update-types: ['version-update:semver-patch']

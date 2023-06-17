@@ -10,8 +10,7 @@
     "@sentry/react": "^7.50.0",
     "@vercel/analytics": "^1.0.0",
     "axios": "0.27.2",
-    "chart.js": "^4.3.0",
-    "concurrently": "^8.0.1",
+    "chart.js": "^4.0.1",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.0.1",
@@ -37,14 +36,8 @@
     "@types/styled-components": "^5.1.26"
   },
   "scripts": {
-    "start": "concurrently \"yarn:start:*(!dev)\"",
-    "start:frontend": "react-scripts start",
-    "start:backend": "cd ./thin-backend && yarn start",
-    "start:dev": "concurrently --kill-others \"yarn start:frontend\" \"yarn start:dev:backend\"",
-    "start:dev:backend": "cd ./thin-backend && yarn dev",
-    "build": "concurrently \"yarn:build:*\"",
-    "build:frontend": "cp .env.example .env && yarn test && react-scripts build",
-    "build:backend": "cd ./thin-backend && yarn build",
+    "start": "react-scripts start",
+    "build": "cp .env.example .env && yarn test && react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
     "eject": "react-scripts eject"

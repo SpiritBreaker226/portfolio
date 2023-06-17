@@ -23,15 +23,6 @@ describe('Banner', () => {
     mockTitleCase = ''
   })
 
-  it('should show banner any page', async () => {
-    mockUseLocation.mockReturnValue({ pathname: '/contact' })
-    mockTitleCase = 'Contact'
-
-    setUp()
-
-    await screen.findByText('contact', { exact: false })
-  })
-
   describe('when no path is found', () => {
     it('should default to "Page Not Found"', async () => {
       mockUseLocation.mockReturnValue({ pathname: '' })

@@ -41,8 +41,7 @@ export const Skills: FC = () => {
     <>
       <p>
         These Skills are a rough estimation of what I have been doing. Over the
-        course of my career and free time, these are updated yearly. So feel
-        free to contact me about those and what I have been up to recently.
+        course of my career and free time, these are updated yearly.
       </p>
 
       <Bar options={options} data={data} />

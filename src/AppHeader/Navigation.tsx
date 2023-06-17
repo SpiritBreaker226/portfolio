@@ -21,6 +21,5 @@ export const Navigation: FC = () => (
     <NavigationLinkContainer to="skills">Skills</NavigationLinkContainer>
     <NavigationLinkContainer to="portfolio">Portfolio</NavigationLinkContainer>
     <NavigationLinkContainer to="blog">Blog</NavigationLinkContainer>
-    <NavigationLinkContainer to="contact">Contact</NavigationLinkContainer>
   </MobileMenu>
 )

@@ -1,6 +1,5 @@
 export * from './Actions'
 export * from './Blog'
-export * from './Contact'
 export * from './enum'
 export * from './InitialState'
 export * from './Project'
