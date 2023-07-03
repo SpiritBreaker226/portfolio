@@ -107,7 +107,7 @@ export const PortfolioForm: FC = () => {
 
   const handleTagChange = (currentTags: Tag | Tag[]) => {
     const newSearchTags = new Set(currentTags as Tag[])
-    console.log('newSearchTags', newSearchTags)
+
     dispatch({
       type: UpdateSearchTypes.Tag,
       payload: {
