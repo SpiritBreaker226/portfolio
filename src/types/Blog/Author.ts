@@ -1,7 +1,6 @@
 export type Author = {
   name: string
   username: string
-  twitter_username: string
   github_username: string
   user_id: number
   website_url: string

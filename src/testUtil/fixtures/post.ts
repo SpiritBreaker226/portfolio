@@ -49,7 +49,6 @@ export const post: Post = {
   user: {
     name: faker.name.fullName(),
     username: faker.internet.userName(),
-    twitter_username: faker.internet.userName(),
     github_username: faker.internet.userName(),
     user_id: faker.datatype.number(8),
     website_url: faker.internet.url(),

@@ -26,7 +26,6 @@ export const AppFooter: FC = () => (
     <Title>Find Me On Social Media</Title>
 
     <SocialMediaContainer>
-      <SocialMediaLink type="twitter" link="https://twitter.com/JasonStats" />
       <SocialMediaLink type="dev" link="https://dev.to/jstats" />
       <SocialMediaLink
         type="linkedin"
