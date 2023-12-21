@@ -9,8 +9,8 @@ export type Project = {
   teamSize: number
   platforms: Set<Platform>
   type: ProjectType
-  icon: string
   isFeature: boolean
+  icon?: string
   url?: string
   sampleCodeUrl?: string
 }
