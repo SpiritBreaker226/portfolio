@@ -11,12 +11,8 @@ export const searchReducer = (state: InitialState, action: Action) => {
   switch (action.type) {
     case Types.Search:
       // TODO look into making the search more effective
-      const { searchText, type, display, platforms, tags } =
-        state.searchCriteria
-      let filteredProjects: Project[] =
-        display === 'feature'
-          ? Object.values(state.projects).filter((project) => project.isFeature)
-          : Object.values(state.projects)
+      const { searchText, type, platforms, tags } = state.searchCriteria
+      let filteredProjects: Project[] = Object.values(state.projects)
 
       if (searchText) {
         filteredProjects = filteredProjects.filter(
@@ -53,9 +49,7 @@ export const searchReducer = (state: InitialState, action: Action) => {
     case Types.ResetSearchCriteria:
       return {
         ...state,
-        searchCriteria: {
-          ...initialState.searchCriteria,
-        },
+        searchCriteria: initialState.searchCriteria,
       }
     case UpdateSearchTypes.Text:
       return {
@@ -87,14 +81,6 @@ export const searchReducer = (state: InitialState, action: Action) => {
         searchCriteria: {
           ...state.searchCriteria,
           tags: action.payload.tags,
-        },
-      }
-    case UpdateSearchTypes.Display:
-      return {
-        ...state,
-        searchCriteria: {
-          ...state.searchCriteria,
-          display: action.payload.display,
         },
       }
     default:

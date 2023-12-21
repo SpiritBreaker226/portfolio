@@ -5,8 +5,6 @@ import { Button, Textfield } from '../../Components'
 
 import { useApp } from '../../context'
 import {
-  DisplayOption,
-  displayOptions,
   Platform,
   ProjectType,
   Tag,
@@ -29,16 +27,6 @@ const NonDisplayFilterOptions = styled.div`
 const SearchContainer = styled.div`
   display: flex;
   flex-flow: column;
-`
-
-const DisplayOptionContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-`
-
-const DisplayOptionLabel = styled.h4`
-  margin-right: 0.5rem;
 `
 
 export const PortfolioForm: FC = () => {
@@ -68,15 +56,6 @@ export const PortfolioForm: FC = () => {
     dispatch({
       type: Types.Search,
       payload: {},
-    })
-  }
-
-  const handleDisplayChange = (
-    display: DisplayOption | Array<DisplayOption>
-  ) => {
-    dispatch({
-      type: UpdateSearchTypes.Display,
-      payload: { display: display as DisplayOption },
     })
   }
 
@@ -176,18 +155,6 @@ export const PortfolioForm: FC = () => {
 
         <Button onClick={handleResetSearch}>Reset Search</Button>
       </NonDisplayFilterOptions>
-      <DisplayOptionContainer>
-        <DisplayOptionLabel>Show:</DisplayOptionLabel>
-        <Select<DisplayOption>
-          name="display"
-          values={[searchCriteria.display]}
-          options={[...displayOptions].map((display) => ({
-            label: titleCase(display),
-            value: display,
-          }))}
-          onSelectChange={handleDisplayChange}
-        />
-      </DisplayOptionContainer>
     </Container>
   )
 }

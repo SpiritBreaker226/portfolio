@@ -1,6 +1,6 @@
 import { Post } from './Blog'
 import { Types, UpdateSearchTypes } from './enum'
-import { DisplayOption, Platform, Project, ProjectType, Tag } from './Project'
+import { Platform, Project, ProjectType, Tag } from './Project'
 
 type PostPayload = {
   [Types.AddPosts]: {
@@ -28,9 +28,6 @@ type SearchPayload = {
   }
   [UpdateSearchTypes.Tag]: {
     tags: Set<Tag>
-  }
-  [UpdateSearchTypes.Display]: {
-    display: DisplayOption
   }
 }
 

@@ -61,7 +61,6 @@ describe('Portfolio', () => {
         projects,
         filteredProjects: [{ ...project, name: 'Search Project' }],
         searchCriteria: {
-          display: 'all',
           searchText: 'search',
           platforms: new Set(),
           tags: new Set(),

@@ -18,7 +18,6 @@ export const initialState: InitialState = {
     searchText: '',
     platforms: new Set(),
     tags: new Set(),
-    display: 'feature',
   },
 }
 

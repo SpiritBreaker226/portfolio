@@ -10,5 +10,4 @@ export enum UpdateSearchTypes {
   Type = 'UPDATE_SEARCH_TYPE',
   Platform = 'UPDATE_SEARCH_PLATFORM',
   Tag = 'UPDATE_SEARCH_TAG',
-  Display = 'UPDATE_SEARCH_DISPLAY',
 }

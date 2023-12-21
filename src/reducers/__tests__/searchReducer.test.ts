@@ -38,40 +38,6 @@ describe('searchReducer', () => {
     expect(state.filteredProjects.length).toEqual(0)
   })
 
-  it('should show only feature projects', () => {
-    const projects: ProjectObject = {}
-
-    projects['2483795'] = {
-      ...project,
-      id: '2483795',
-      isFeature: true,
-    }
-    projects['3658047'] = {
-      ...project,
-      id: '3658047',
-      isFeature: false,
-    }
-
-    const state = setUp({
-      state: {
-        projects,
-        searchCriteria: {
-          ...initialState.searchCriteria,
-          display: 'feature',
-        },
-      },
-      action: {
-        type: Types.Search,
-        payload: {},
-      },
-    })
-
-    expect(state.filteredProjects.length).toEqual(1)
-    expect(state.filteredProjects).toEqual(
-      expect.arrayContaining([expect.objectContaining({ id: '2483795' })])
-    )
-  })
-
   describe('when state filtered projects exist', () => {
     it('should return no results as if either project no longer has both criterions', () => {
       const projects: ProjectObject = {}
