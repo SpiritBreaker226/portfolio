@@ -4,9 +4,9 @@ import styled, { keyframes } from 'styled-components'
 
 import { Button, LinkButton } from '../../Components'
 import { Project } from '../../types'
-import { Icon } from '../Project.style'
 import { projectSummary } from './helpers'
 import { ProjectTags } from './ProjectTags'
+import { Icon } from '../Icon'
 
 const fade = keyframes`
   0% {
@@ -49,7 +49,7 @@ export const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
   return (
     <Container aria-label={project.name}>
       <LinkButton onClick={toProjectDetailsButton}>
-        <Icon src={`/image/project-icons/${project.icon}`} alt={project.name} />
+        <Icon src={project.icon} name={project.name} />
       </LinkButton>
 
       <Name>{project.name}</Name>

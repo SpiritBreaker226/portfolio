@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { LinkButton } from '../../Components'
 import { useApp } from '../../context'
-import { Icon } from '../Project.style'
+import { Icon } from '../Icon'
 
 const Body = styled.div`
   display: flex;
@@ -75,18 +75,19 @@ export const ProjectDetails: FC = () => {
         </Header>
         <Body>
           <aside>
-            <Icon
-              src={`/image/project-icons/${project.icon}`}
-              alt={project.name}
-            />
+            <Icon src={project.icon} name={project.name} />
+
             <Content>{project.name}</Content>
+
             <Content>
               <ContentType>Type:</ContentType> {project.type}
             </Content>
+
             <Content>
               <ContentType>Platforms:</ContentType>{' '}
               {Array.from(project.platforms).join(', ')}
             </Content>
+
             <Content>
               <ContentType>Team Size:</ContentType> {project.teamSize}
             </Content>
@@ -123,6 +124,7 @@ export const ProjectDetails: FC = () => {
                 View Sample Code
               </a>
             )}
+
             {project.url && (
               <a href={project.url} target="_blank" rel="noreferrer">
                 View {project.name}
