@@ -264,4 +264,17 @@ export const projects: Project[] = [
       'https://github.com/SpiritBreaker226/codesamples-CityOfVaughan',
     isFeature: false,
   },
+  {
+    id: 'e111ea19398940c3ae78eecbf314cf90',
+    name: 'Orders',
+    description:
+      'Build an in-browser application that displays Orders in real-time as they are delivered from a provided server API, and allows users to search their Orders by price.',
+    responsibilities: ['Everything'],
+    tags: new Set([Tag['JavaScript'], Tag['CSS'], Tag['HTML']]),
+    teamSize: 1,
+    platforms: new Set([Platform['web']]),
+    type: ProjectType['Open'],
+    sampleCodeUrl: 'https://github.com/SpiritBreaker226/orders',
+    isFeature: false,
+  },
 ]
