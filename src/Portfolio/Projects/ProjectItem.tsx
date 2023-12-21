@@ -6,6 +6,7 @@ import { Button, LinkButton } from '../../Components'
 import { Project } from '../../types'
 import { Icon } from '../Project.style'
 import { projectSummary } from './helpers'
+import { ProjectTags } from './ProjectTags'
 
 const fade = keyframes`
   0% {
@@ -54,6 +55,8 @@ export const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
       <Name>{project.name}</Name>
 
       <Summary>{projectSummary(project.description)}</Summary>
+
+      <ProjectTags tags={project.tags} />
 
       <Button onClick={toProjectDetailsButton}>View Details</Button>
     </Container>
