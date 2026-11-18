@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FC } from 'react'
 import styled from 'styled-components'
 
+import { config } from '../config'
+
 const Link = styled.a`
   border-radius: 8px;
   padding: 0.5rem 1rem;
@@ -40,7 +42,7 @@ export const SocialMediaLink: FC<SocialMediaLinkProps> = ({ type, link }) => {
     <Link
       href={link}
       title={`See ${
-        process.env.REACT_APP_DEVELOPER_NAME
+        config.developerName
       } account on ${type[0].toUpperCase()}${type.slice(1).toLowerCase()}`}
       target="_blank"
       rel="noreferrer">

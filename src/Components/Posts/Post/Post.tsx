@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import { Post as PostType } from '../../../types'
 import { PostContainer, PostText, PostFooterText } from './Post.style'
+import { config } from '../../../config'
 
 export type PostProps = {}
 
@@ -15,7 +16,7 @@ export const Post: FC<PostType> = ({
   <PostContainer>
     <a
       href={url}
-      title={`See ${title} from ${process.env.REACT_APP_DEVELOPER_NAME} blog`}
+      title={`See ${title} from ${config.developerName} blog`}
       target="_blank"
       rel="noreferrer">
       {title}

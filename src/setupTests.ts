@@ -4,4 +4,6 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom'
 
+jest.mock('./config')
+
 window.HTMLElement.prototype.scrollIntoView = jest.fn()

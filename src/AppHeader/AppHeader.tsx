@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { Navigation } from './Navigation'
+import { config } from '../config'
 
 const Container = styled.header`
   display: flex;
@@ -19,7 +20,7 @@ const Title = styled.h1`
 export const AppHeader: FC = () => (
   <Container>
     <Title>
-      <Link to="/">{process.env.REACT_APP_DEVELOPER_NAME}</Link>
+      <Link to="/">{config.developerName}</Link>
     </Title>
 
     <Navigation />

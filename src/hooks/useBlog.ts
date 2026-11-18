@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useState } from 'react'
 
 import { Post } from '../types'
+import { config } from '../config'
 
 export const useBlog = () => {
   const [errorFromServer, setErrorFromServer] = useState('')
@@ -16,7 +17,7 @@ export const useBlog = () => {
       }
 
       const res = await axios.get<Post[]>(
-        `${process.env.REACT_APP_BLOG_SERVER_URL}?username=${process.env.REACT_APP_BLOG_USERNAME}`
+        `${config.blogServerUrl}?username=${config.blogUsername}`
       )
 
       return await res.data

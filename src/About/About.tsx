@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { Blog } from '../Blog'
 import { Posts } from '../Components'
+import { config } from '../config'
 
 const Container = styled.section`
   padding: 1rem;
@@ -30,7 +31,7 @@ const AboutMeSection = styled.section`
 export const About: FC = () => (
   <Container>
     <AboutMeSection>
-      <Image src="/image/home.png" alt={process.env.REACT_APP_DEVELOPER_NAME} />
+      <Image src="/image/home.png" alt={config.developerName} />
 
       <AboutContainer>
         <h2>About Me</h2>
