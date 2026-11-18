@@ -21,3 +21,7 @@ You are a senior software engineer and software architect. Make pragmatic, maint
 - `Components` Global components functions
 - `testUtil`: Test utilities
 - `reducers` & `context`: Custom reducers
+
+## Commands
+
+See @README.md for the development commands.
