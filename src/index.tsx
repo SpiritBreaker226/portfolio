@@ -4,15 +4,16 @@ import * as Sentry from '@sentry/react'
 
 import App from './App'
 import reportWebVitals from './reportWebVitals'
+import { config } from './config'
 
 Sentry.init({
-  dsn: process.env.REACT_APP_SENTRY_DSN,
-  environment: process.env.NODE_ENV,
+  dsn: config.sentryDsn,
+  environment: config.mode,
   integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],
   // Performance Monitoring
-  tracesSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
+  tracesSampleRate: config.isProduction ? 0.1 : 1.0,
   // Session Replay
-  replaysSessionSampleRate: process.env.NODE_ENV === 'production' ? 0.1 : 1.0,
+  replaysSessionSampleRate: config.isProduction ? 0.1 : 1.0,
   replaysOnErrorSampleRate: 1.0,
   enabled: false,
 })
