@@ -1,14 +1,14 @@
 import { screen, waitFor } from '@testing-library/react'
 
-import { AppProvider, initialState, project, render } from '../../testUtil'
-import { InitialState, Project, ProjectObject, Types } from '../../types'
-import { Portfolio } from '../Portfolio'
+import { AppProvider, initialState, project, render } from '../testUtil'
+import { InitialState, Project, ProjectObject, Types } from '../types'
+import { Portfolio } from './Portfolio'
 
 const mockDispatch = jest.fn()
 const mockGetPortfolios = jest.fn()
 
-jest.mock('../../hooks', () => ({
-  ...jest.requireActual('../../hooks'),
+jest.mock('../hooks', () => ({
+  ...jest.requireActual('../hooks'),
   usePortfolio: () => ({ getPortfolios: mockGetPortfolios }),
 }))
 

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react'
 
-import { projects } from '../../data'
-import { usePortfolio } from '../usePortfolio'
+import { projects } from '../data'
+import { usePortfolio } from './usePortfolio'
 
 describe('usePortfolio', () => {
   describe('getPortfolios', () => {

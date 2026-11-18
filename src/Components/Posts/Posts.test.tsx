@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react'
 
-import { AppProvider, initialState, post, render } from '../../../testUtil'
-import { InitialState } from '../../../types'
-import { Posts, PostsProps } from '../Posts'
+import { AppProvider, initialState, post, render } from '../../testUtil'
+import { InitialState } from '../../types'
+import { Posts, PostsProps } from './Posts'
 
 const mockDispatch = jest.fn()
 

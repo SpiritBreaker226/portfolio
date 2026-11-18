@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react'
 
-import { render } from '../../testUtil'
+import { render } from '../testUtil'
 
-import { Banner } from '../Banner'
+import { Banner } from './Banner'
 
 const mockUseLocation = jest.fn()
 let mockTitleCase = ''
@@ -12,7 +12,7 @@ jest.mock('react-router-dom', () => ({
   useLocation: () => mockUseLocation,
 }))
 
-jest.mock('../helpers', () => ({
+jest.mock('./helpers', () => ({
   titleCase: () => mockTitleCase,
 }))
 

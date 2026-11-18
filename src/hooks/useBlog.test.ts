@@ -1,9 +1,9 @@
 import { act, renderHook } from '@testing-library/react'
 import axios from 'axios'
 
-import { post } from '../../testUtil'
-import { Post as PostType } from '../../types'
-import { useBlog } from '../useBlog'
+import { post } from '../testUtil'
+import { Post as PostType } from '../types'
+import { useBlog } from './useBlog'
 
 jest.mock('axios')
 const mockedAxios = axios as jest.Mocked<typeof axios>

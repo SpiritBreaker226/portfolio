@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker'
 import { screen } from '@testing-library/react'
 
-import { AppProvider, initialState, project, render } from '../../../testUtil'
-import { InitialState } from '../../../types'
-import { Projects, ProjectsProps } from '../Projects'
+import { AppProvider, initialState, project, render } from '../../testUtil'
+import { InitialState } from '../../types'
+import { Projects, ProjectsProps } from './Projects'
 
 const mockDispatch = jest.fn()
 

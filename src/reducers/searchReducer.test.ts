@@ -8,9 +8,9 @@ import {
   ProjectType,
   Platform,
   Tag,
-} from '../../types'
-import { searchReducer } from '../searchReducer'
-import { initialState, project } from '../../testUtil'
+} from '../types'
+import { searchReducer } from './searchReducer'
+import { initialState, project } from '../testUtil'
 
 describe('searchReducer', () => {
   const setUp = ({

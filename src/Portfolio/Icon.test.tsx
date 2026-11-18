@@ -1,8 +1,8 @@
 import { faker } from '@faker-js/faker'
 import { screen } from '@testing-library/react'
 
-import { render } from '../../testUtil'
-import { Icon, IconProps } from '../Icon'
+import { render } from '../testUtil'
+import { Icon, IconProps } from './Icon'
 
 describe('Icon', () => {
   const defaultProps: IconProps = {

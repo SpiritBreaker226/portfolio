@@ -1,8 +1,8 @@
 import { screen } from '@testing-library/react'
 
-import { render } from '../../testUtil'
+import { render } from '../testUtil'
 
-import { ErrorMessage, ErrorMessageProps } from '../ErrorMessage'
+import { ErrorMessage, ErrorMessageProps } from './ErrorMessage'
 
 describe('ErrorMessage', () => {
   const setUp = (props: Partial<ErrorMessageProps> = {}) =>

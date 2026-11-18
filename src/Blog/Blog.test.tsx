@@ -1,9 +1,9 @@
 import { screen, waitFor } from '@testing-library/react'
 import { FC } from 'react'
 
-import { AppProvider, initialState, post, render } from '../../testUtil'
-import { InitialState, Post, Types } from '../../types'
-import { Blog } from '../Blog'
+import { AppProvider, initialState, post, render } from '../testUtil'
+import { InitialState, Post, Types } from '../types'
+import { Blog } from './Blog'
 
 const mockDispatch = jest.fn()
 const mockGetPosts = jest.fn()
@@ -12,8 +12,8 @@ let mockErrorFromServer = ''
 
 const List: FC = () => <div>List all posts</div>
 
-jest.mock('../../hooks', () => ({
-  ...jest.requireActual('../../hooks'),
+jest.mock('../hooks', () => ({
+  ...jest.requireActual('../hooks'),
   useBlog: () => ({
     getPosts: mockGetPosts,
     isLoading: mockIsLoading,

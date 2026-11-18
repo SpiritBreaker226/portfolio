@@ -1,4 +1,4 @@
-import { titleCase } from '../titleCase'
+import { titleCase } from './titleCase'
 
 describe('titleCase', () => {
   it('should have each first letter of each word be capitalize', async () => {
