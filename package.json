@@ -45,11 +45,11 @@
     "vite": "^8.3.8"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "cp .env.example .env && yarn test && react-scripts build",
-    "test": "react-scripts test --watchAll=false",
-    "test:watch": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "cp .env.example .env && yarn test && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "browserslist": {
     "production": [
