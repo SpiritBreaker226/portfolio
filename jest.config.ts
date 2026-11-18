@@ -4,7 +4,7 @@ const config: Config = {
   testEnvironment: 'jsdom',
   roots: ['<rootDir>/src'],
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
-  testMatch: ['**/__tests__/**/*.ts?(x)', '**/*.test.ts?(x)'],
+  testMatch: ['**/*.test.ts?(x)'],
   resetMocks: true,
 }
 
