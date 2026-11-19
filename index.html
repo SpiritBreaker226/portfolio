@@ -4,7 +4,40 @@
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#aa0f13" />
+    <meta name="theme-color" content="#FAFAF9" />
+    <script>
+      ;(function () {
+        const osScheme = matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light'
+
+        let savedScheme = null
+
+        // Safari private mode and blocked site data throw on storage access.
+        try {
+          savedScheme = localStorage.getItem('theme')
+        } catch (error) {}
+
+        const scheme =
+          savedScheme === 'light' || savedScheme === 'dark'
+            ? savedScheme
+            : osScheme
+
+        document.documentElement.dataset.theme = scheme
+        document.documentElement.style.colorScheme = scheme
+
+        // Same hexes as `bg` in src/theme/theme.ts, which this inline script
+        // can't import.
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute('content', scheme === 'dark' ? '#111417' : '#FAFAF9')
+      })()
+    </script>
+    <style>
+      html[data-theme='dark'] {
+        background: #111417;
+      }
+    </style>
 
     <meta
       name="description"
