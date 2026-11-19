@@ -1,14 +1,14 @@
 import { ColorScheme } from '../types'
 
 /**
- * Narrows a stored string to a `ColorScheme`, so a stale or hand-edited
- * `localStorage` value never reaches the theme.
+ * Narrows a stored string or `data-theme` value to a `ColorScheme`, so a
+ * stale, hand-edited or missing value never reaches the theme.
  *
  * @example
  * isColorScheme('Pablo Honey')
  * // => false
  */
-const isColorScheme = (value: string | null): value is ColorScheme =>
+export const isColorScheme = (value?: string | null): value is ColorScheme =>
   value === 'light' || value === 'dark'
 
 /**
@@ -21,7 +21,7 @@ const isColorScheme = (value: string | null): value is ColorScheme =>
  * getSavedColorScheme()
  * // => null
  */
-const getSavedColorScheme = (): ColorScheme | null => {
+export const getSavedColorScheme = (): ColorScheme | null => {
   try {
     const savedScheme = localStorage.getItem('theme')
 
