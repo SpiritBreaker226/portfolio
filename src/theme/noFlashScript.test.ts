@@ -3,7 +3,7 @@ import { readFileSync } from 'fs'
 import { join } from 'path'
 
 import { mockOsColorScheme } from '../testUtil'
-import { lightTheme } from './theme'
+import { darkTheme, lightTheme } from './theme'
 
 const indexHtml = readFileSync(join(__dirname, '../../index.html'), 'utf8')
 
@@ -76,7 +76,7 @@ describe('no-flash script', () => {
   })
 
   test.each([
-    ['dark', '#111417'],
+    ['dark', darkTheme.colors.bg],
     ['light', lightTheme.colors.bg],
   ] as const)(
     'GIVEN the OS prefers %s WHEN the script runs THEN the browser UI follows it and the theme colour is %s',
