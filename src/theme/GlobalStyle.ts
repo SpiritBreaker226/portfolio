@@ -53,7 +53,7 @@ export default createGlobalStyle`
   body {
     font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
     color: ${({ theme }) => theme.colors.text};
-    background: ${({ theme }) => theme.colors.secondary};
+    background: ${({ theme }) => theme.colors.bg};
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

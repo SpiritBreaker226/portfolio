@@ -40,7 +40,7 @@ const TagContainer = styled.div`
 
 const Tag = styled.div`
   background: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.onPrimary};
   padding: 0.5rem 0.75rem;
   border-radius: 1rem;
 `

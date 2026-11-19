@@ -17,12 +17,12 @@ const Link = styled.a`
   padding: 0.5rem 1rem;
   width: 5.5rem;
   margin-bottom: 1rem;
-  background-color: ${(props) => props.theme.colors.secondary};
+  background-color: ${(props) => props.theme.colors.surface};
 
   &:active,
   &:hover {
     background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.onPrimary};
   }
 `
 

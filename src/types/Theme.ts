@@ -4,10 +4,20 @@ export type Theme = {
     turnOnAt: string
   }
   colors: {
+    bg: string
+    surface: string
     border: string
     text: string
-    secondary: string
     primary: string
+    /**
+     * Colour for text, icons and borders drawn on a `primary` background,
+     * such as the banner title, active nav link, button label and tags.
+     * It isn't a shade of `primary`; it's whichever colour reads clearly
+     * against it, so it can be light in one theme and dark in another
+     * (white on the light theme's dark red, near-black on the dark theme's
+     * pink).
+     */
+    onPrimary: string
     hoverForLinks: string
     error: string
   }

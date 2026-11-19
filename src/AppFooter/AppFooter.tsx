@@ -9,7 +9,7 @@ const Container = styled.footer`
 `
 
 const Title = styled.h3`
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.onPrimary};
   margin-bottom: 2rem;
 `
 

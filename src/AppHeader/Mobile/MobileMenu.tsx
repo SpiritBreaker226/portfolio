@@ -13,7 +13,7 @@ const Nav = styled.nav.attrs<{ isOpen?: boolean }>((props) => ({
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: ${({ theme }) => theme.colors.secondary};
+    background: ${({ theme }) => theme.colors.bg};
     height: 100vh;
     text-align: left;
     padding: 2rem;

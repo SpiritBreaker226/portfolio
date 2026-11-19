@@ -11,7 +11,7 @@ const NavigationLinkContainer = styled(NavLink)`
   &:hover,
   &.active {
     background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.onPrimary};
   }
 `
 

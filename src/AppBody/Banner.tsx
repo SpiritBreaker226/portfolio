@@ -7,7 +7,7 @@ import { titleCase } from './helpers'
 
 export const Container = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.colors.onPrimary};
   padding: 3rem 3rem 2rem;
   margin: 2rem 3rem 0 0;
 `
