@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { theme } from './theme'
-
 export default createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -54,8 +52,8 @@ export default createGlobalStyle`
 
   body {
     font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
-    color: ${theme.colors.text};
-    background: ${theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.text};
+    background: ${({ theme }) => theme.colors.secondary};
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -65,11 +63,11 @@ export default createGlobalStyle`
     text-decoration: none;
     font-weight: 600;
     transition: all 0.1s ease 0s;
-    color: ${theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
 
     &:active,
     &:hover {
-      color: ${theme.colors.hoverForLinks};
+      color: ${({ theme }) => theme.colors.hoverForLinks};
     }
   }
 
