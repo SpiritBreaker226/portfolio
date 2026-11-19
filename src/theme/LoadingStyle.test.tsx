@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 import styled, { ThemeProvider } from 'styled-components'
 
 import { loadingStyle } from './LoadingStyle'
-import { theme } from './theme'
+import { lightTheme } from './theme'
 
 const Skeleton = styled.div`
   ${loadingStyle}
@@ -14,7 +14,10 @@ describe('loadingStyle', () => {
 
     render(
       <ThemeProvider
-        theme={{ ...theme, loading: { ...theme.loading, background } }}
+        theme={{
+          ...lightTheme,
+          loading: { ...lightTheme.loading, background },
+        }}
       >
         <Skeleton>Pablo Honey</Skeleton>
       </ThemeProvider>

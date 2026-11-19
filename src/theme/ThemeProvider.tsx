@@ -2,14 +2,14 @@ import { FC, ReactNode } from 'react'
 import { ThemeProvider as StyledThemeProvider } from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
-import { theme } from './theme'
+import { lightTheme } from './theme'
 
 export type ThemeProviderProps = {
   children: ReactNode
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => (
-  <StyledThemeProvider theme={theme}>
+  <StyledThemeProvider theme={lightTheme}>
     <GlobalStyle />
     {children}
   </StyledThemeProvider>

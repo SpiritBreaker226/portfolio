@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from './GlobalStyle'
-import { theme } from './theme'
+import { lightTheme } from './theme'
 
 describe('GlobalStyle', () => {
   test('GIVEN a theme with its own text colour WHEN GlobalStyle renders THEN the body uses that colour', () => {
@@ -10,7 +10,10 @@ describe('GlobalStyle', () => {
 
     render(
       <ThemeProvider
-        theme={{ ...theme, colors: { ...theme.colors, text: textColor } }}
+        theme={{
+          ...lightTheme,
+          colors: { ...lightTheme.colors, text: textColor },
+        }}
       >
         <GlobalStyle />
       </ThemeProvider>

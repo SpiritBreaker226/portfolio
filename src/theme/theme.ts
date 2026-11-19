@@ -1,6 +1,14 @@
-import { DefaultTheme } from 'styled-components'
+import type { Theme } from '../types'
 
-export const theme: DefaultTheme = {
+/**
+ * The site's light colour scheme and layout tokens, passed to every styled
+ * component through the styled-components `ThemeProvider`.
+ *
+ * @example
+ * lightTheme.colors.primary
+ * // => '#AA0F13'
+ */
+export const lightTheme: Theme = {
   mobile: {
     turnOnAt: '576px',
   },
