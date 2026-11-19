@@ -92,4 +92,20 @@ describe('no-flash script', () => {
       )
     }
   )
+
+  test.each([
+    ['dark', darkTheme.colors.bg],
+    ['light', lightTheme.colors.bg],
+  ] as const)(
+    'GIVEN the OS prefers %s WHEN the script runs THEN the page background is %s before the app styles load',
+    (scheme, background) => {
+      mockOsColorScheme(scheme)
+
+      runNoFlashScript()
+
+      expect(document.documentElement).toHaveStyle(
+        `background-color: ${background}`
+      )
+    }
+  )
 })

@@ -33,7 +33,13 @@
           .setAttribute('content', scheme === 'dark' ? '#111417' : '#FAFAF9')
       })()
     </script>
+    <!-- Same hexes as `bg` in src/theme/theme.ts, so the first paint
+         already matches the theme the app renders. -->
     <style>
+      html {
+        background: #FAFAF9;
+      }
+
       html[data-theme='dark'] {
         background: #111417;
       }

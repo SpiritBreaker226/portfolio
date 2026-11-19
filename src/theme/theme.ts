@@ -2,7 +2,9 @@ import type { Theme } from '../types'
 
 /**
  * The site's light colour scheme and layout tokens, passed to every styled
- * component through the styled-components `ThemeProvider`.
+ * component through the styled-components `ThemeProvider`. The no-flash
+ * script and `<style>` in `index.html` repeat `colors.bg`, since they run
+ * before any module loads.
  *
  * @example
  * lightTheme.colors.primary
@@ -40,8 +42,8 @@ export const lightTheme: Theme = {
 /**
  * The site's dark colour scheme, with the same keys as `lightTheme`. Text
  * colours keep at least 4.5:1 contrast on `bg` and `surface`. The
- * no-flash script in `index.html` repeats `colors.bg`, since it runs
- * before any module loads.
+ * no-flash script and `<style>` in `index.html` repeat `colors.bg`, since
+ * they run before any module loads.
  *
  * @example
  * darkTheme.colors.bg
