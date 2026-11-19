@@ -26,9 +26,6 @@ export type Theme = {
     backgroundAfter: string
   }
   pageStyles: {
-    about: {
-      bg: string
-    }
     skills: {
       barColor: string
     }

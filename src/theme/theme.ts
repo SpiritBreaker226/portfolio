@@ -28,9 +28,6 @@ export const lightTheme: Theme = {
       'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
   },
   pageStyles: {
-    about: {
-      bg: '#46505a',
-    },
     skills: {
       barColor: 'rgba(170, 15, 19, 1)',
     },
