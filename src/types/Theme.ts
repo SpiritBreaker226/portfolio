@@ -20,6 +20,8 @@ export type Theme = {
     onPrimary: string
     hoverForLinks: string
     error: string
+    toggleIcon: string
+    toggleTint: string
   }
   loading: {
     background: string

@@ -21,6 +21,8 @@ export const lightTheme: Theme = {
     onPrimary: '#FFFFFF',
     hoverForLinks: '#7e0f13',
     error: '#ff0000',
+    toggleIcon: '#2563EB',
+    toggleTint: '#E8EFFD',
   },
   loading: {
     background: '#ccc',
@@ -55,6 +57,8 @@ export const darkTheme: Theme = {
     onPrimary: '#111417',
     hoverForLinks: '#F79A9C',
     error: '#FF8080',
+    toggleIcon: '#FACC15',
+    toggleTint: 'rgba(250, 204, 21, 0.14)',
   },
   loading: {
     background: '#2B323B',
