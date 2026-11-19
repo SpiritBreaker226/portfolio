@@ -1,4 +1,5 @@
 export * from './AppProvider'
 export * from './DefaultWrapper'
 export * from './fixtures'
+export * from './mockOsColorScheme'
 export * from './render'

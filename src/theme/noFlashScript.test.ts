@@ -2,6 +2,7 @@
 import { readFileSync } from 'fs'
 import { join } from 'path'
 
+import { mockOsColorScheme } from '../testUtil'
 import { lightTheme } from './theme'
 
 const indexHtml = readFileSync(join(__dirname, '../../index.html'), 'utf8')
@@ -23,24 +24,6 @@ const runNoFlashScript = () => {
 
   document.head.innerHTML = page.head.innerHTML
   new Function(script?.textContent ?? '')()
-}
-
-/**
- * Stubs `window.matchMedia` so only the `prefers-color-scheme: dark` query
- * matches, and only when the OS is meant to prefer dark. A script that
- * asks any other query gets `matches: false`.
- *
- * @example
- * mockOsColorScheme('dark')
- * // => matchMedia('(prefers-color-scheme: dark)').matches === true
- */
-const mockOsColorScheme = (scheme: 'light' | 'dark') => {
-  window.matchMedia = jest.fn(
-    (query: string) =>
-      ({
-        matches: query === '(prefers-color-scheme: dark)' && scheme === 'dark',
-      }) as MediaQueryList
-  )
 }
 
 describe('no-flash script', () => {
