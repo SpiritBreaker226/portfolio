@@ -13,10 +13,10 @@ export const lightTheme: Theme = {
     turnOnAt: '576px',
   },
   colors: {
-    bg: '#fff',
+    bg: '#FAFAF9',
     surface: '#FFFFFF',
-    border: '#46505a',
-    text: '#46505a',
+    border: '#E3E1DD',
+    text: '#22282F',
     primary: '#AA0F13',
     onPrimary: '#FFFFFF',
     hoverForLinks: '#7e0f13',
