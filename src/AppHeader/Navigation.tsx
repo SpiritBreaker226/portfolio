@@ -9,9 +9,34 @@ const NavigationLinkContainer = styled(NavLink)`
   color: ${(props) => props.theme.colors.text};
 
   &:hover,
-  &.active {
+  &:focus-visible {
+    background-color: ${(props) => props.theme.colors.surfaceAlt};
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${(props) => props.theme.colors.primary};
+    outline-offset: 2px;
+  }
+
+  &[aria-current='page'] {
     background-color: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.onPrimary};
+  }
+
+  &[aria-current='page']:hover,
+  &[aria-current='page']:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px ${(props) => props.theme.colors.bg},
+      0 0 0 4px ${(props) => props.theme.colors.primary};
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      background-color 150ms ease,
+      color 150ms ease,
+      box-shadow 150ms ease;
   }
 `
 

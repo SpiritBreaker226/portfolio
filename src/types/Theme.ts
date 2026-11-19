@@ -6,6 +6,7 @@ export type Theme = {
   colors: {
     bg: string
     surface: string
+    surfaceAlt: string
     border: string
     text: string
     primary: string
