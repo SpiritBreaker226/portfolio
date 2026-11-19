@@ -1,5 +1,4 @@
 import { css, keyframes } from 'styled-components'
-import { theme } from './theme'
 
 const loading = keyframes`
   100% {
@@ -7,9 +6,19 @@ const loading = keyframes`
   }
 `
 
+/**
+ * Skeleton placeholder style: a block filled with the theme's loading
+ * colour and a shimmer that sweeps across it while content loads. Colours
+ * come from the theme of the component that uses it, so the skeleton
+ * follows whichever theme is active.
+ *
+ * @example
+ * const Title = styled.p`${loadingStyle}`
+ * // => <Title> has a theme.loading.background fill with a moving shimmer
+ */
 export const loadingStyle = css`
   position: relative;
-  background-color: ${theme.loading.background};
+  background-color: ${({ theme }) => theme.loading.background};
 
   &:after {
     content: '';
@@ -19,7 +28,7 @@ export const loadingStyle = css`
     width: 100%;
     height: 100%;
     transform: translateX(-100px);
-    background: ${theme.loading.backgroundAfter};
+    background: ${({ theme }) => theme.loading.backgroundAfter};
     animation: ${loading} 0.8s infinite;
   }
 `
