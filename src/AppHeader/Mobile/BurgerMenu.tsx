@@ -1,57 +1,55 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
-const Container = styled.button.attrs<{ isOpen?: boolean }>((props) => ({
-  isOpen: props.isOpen || false,
-}))<{ isOpen?: boolean }>`
-  position: absolute;
-  top: 3%;
-  right: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
+const Button = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.bg};
+  color: ${({ theme }) => theme.colors.text};
   cursor: pointer;
-  padding: 0;
-  z-index: 10;
-  display: none;
 
-  &:focus {
-    outline: none;
+  &:hover,
+  &:focus-visible {
+    background: ${({ theme }) => theme.colors.surfaceAlt};
   }
 
-  div {
-    width: 2rem;
-    height: 0.25rem;
-    background: ${({ theme }) => theme.colors.primary};
-    border-radius: 10px;
-    margin-bottom: 0.3rem;
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 0.2rem;
-
-    :first-child {
-      transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg)' : 'rotate(0)')};
-    }
-
-    :nth-child(2) {
-      opacity: ${({ isOpen }) => (isOpen ? '0' : '1')};
-      transform: ${({ isOpen }) =>
-        isOpen ? 'translateX(20px)' : 'translateX(0)'};
-    }
-
-    :nth-child(3) {
-      transform: ${({ isOpen }) => (isOpen ? 'rotate(-45deg)' : 'rotate(0)')};
-    }
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+    outline-offset: 2px;
   }
 
-  @media (max-width: ${({ theme }) => theme.mobile.turnOnAt}) {
-    display: block;
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 150ms ease;
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    display: none;
   }
 `
+
+const Icon: FC<{ path: string }> = ({ path }) => (
+  <svg
+    aria-hidden="true"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+  >
+    <path d={path} />
+  </svg>
+)
+
+const menuIconPath = 'M4 6h16M4 12h16M4 18h16'
+const closeIconPath = 'M6 6l12 12M18 6L6 18'
 
 export type BurgerMenuProps = {
   isOpen: boolean
@@ -59,9 +57,13 @@ export type BurgerMenuProps = {
 }
 
 export const BurgerMenu: FC<BurgerMenuProps> = ({ isOpen, setIsOpen }) => (
-  <Container isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-    <div />
-    <div />
-    <div />
-  </Container>
+  <Button
+    type="button"
+    aria-label={isOpen ? 'Close menu' : 'Open menu'}
+    aria-expanded={isOpen}
+    aria-controls="mobile-menu"
+    onClick={() => setIsOpen(!isOpen)}
+  >
+    <Icon path={isOpen ? closeIconPath : menuIconPath} />
+  </Button>
 )

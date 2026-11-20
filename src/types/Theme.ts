@@ -1,8 +1,5 @@
 /** Design tokens the styled-components `ThemeProvider` passes to every styled component. */
 export type Theme = {
-  mobile: {
-    turnOnAt: string
-  }
   /**
    * Mobile-first media queries. Phone styles are the base, so there is no
    * phone query: tablet starts at 576px and desktop at 1024px.

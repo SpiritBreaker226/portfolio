@@ -2,8 +2,6 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-import { MobileMenu } from './Mobile'
-
 const NavigationLinkContainer = styled(NavLink)`
   padding: 1rem;
   color: ${(props) => props.theme.colors.text};
@@ -40,11 +38,37 @@ const NavigationLinkContainer = styled(NavLink)`
   }
 `
 
+const Nav = styled.nav`
+  display: none;
+
+  ${({ theme }) => theme.media.tablet} {
+    display: flex;
+  }
+`
+
+export type NavigationLinksProps = {
+  onLinkClick?: () => void
+}
+
+export const NavigationLinks: FC<NavigationLinksProps> = ({ onLinkClick }) => (
+  <>
+    <NavigationLinkContainer to="/" onClick={onLinkClick}>
+      About
+    </NavigationLinkContainer>
+    <NavigationLinkContainer to="skills" onClick={onLinkClick}>
+      Skills
+    </NavigationLinkContainer>
+    <NavigationLinkContainer to="portfolio" onClick={onLinkClick}>
+      Portfolio
+    </NavigationLinkContainer>
+    <NavigationLinkContainer to="blog" onClick={onLinkClick}>
+      Blog
+    </NavigationLinkContainer>
+  </>
+)
+
 export const Navigation: FC = () => (
-  <MobileMenu>
-    <NavigationLinkContainer to="/">About</NavigationLinkContainer>
-    <NavigationLinkContainer to="skills">Skills</NavigationLinkContainer>
-    <NavigationLinkContainer to="portfolio">Portfolio</NavigationLinkContainer>
-    <NavigationLinkContainer to="blog">Blog</NavigationLinkContainer>
-  </MobileMenu>
+  <Nav aria-label="Main">
+    <NavigationLinks />
+  </Nav>
 )

@@ -11,9 +11,6 @@ import type { Theme } from '../types'
  * // => '#AA0F13'
  */
 export const lightTheme: Theme = {
-  mobile: {
-    turnOnAt: '576px',
-  },
   media: {
     tablet: '@media (min-width: 576px)',
     desktop: '@media (min-width: 1024px)',
@@ -54,7 +51,6 @@ export const lightTheme: Theme = {
  * // => '#111417'
  */
 export const darkTheme: Theme = {
-  mobile: lightTheme.mobile,
   media: lightTheme.media,
   colors: {
     bg: '#111417',

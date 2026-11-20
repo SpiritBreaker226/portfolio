@@ -1,1 +1,1 @@
-export * from './useCloseMobileMenuOutside'
+export * from './useCloseMobileMenu'

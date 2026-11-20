@@ -1,17 +1,21 @@
-import { FC } from 'react'
+import { FC, useCallback, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+import { BurgerMenu, MobileMenu, useCloseMobileMenu } from './Mobile'
 import { Navigation } from './Navigation'
 import { ThemeToggle } from './ThemeToggle'
 import { config } from '../config'
 
 const Container = styled.header`
+  border-bottom: 1px solid ${(props) => props.theme.colors.border};
+`
+
+const Row = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0.75rem;
-  border-bottom: 1px solid ${(props) => props.theme.colors.border};
 `
 
 const Title = styled.h1`
@@ -22,23 +26,31 @@ const Actions = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-
-  /* On phone the burger is absolutely positioned at the right edge, so
-     keep the toggle clear of it. */
-  @media (max-width: ${({ theme }) => theme.mobile.turnOnAt}) {
-    margin-right: 3.75rem;
-  }
 `
 
-export const AppHeader: FC = () => (
-  <Container>
-    <Title>
-      <Link to="/">{config.developerName}</Link>
-    </Title>
+export const AppHeader: FC = () => {
+  const header = useRef<HTMLElement>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-    <Actions>
-      <Navigation />
-      <ThemeToggle />
-    </Actions>
-  </Container>
-)
+  const closeMenu = useCallback(() => setIsMenuOpen(false), [])
+
+  useCloseMobileMenu(header, closeMenu)
+
+  return (
+    <Container ref={header}>
+      <Row>
+        <Title>
+          <Link to="/">{config.developerName}</Link>
+        </Title>
+
+        <Actions>
+          <Navigation />
+          <ThemeToggle />
+          <BurgerMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+        </Actions>
+      </Row>
+
+      {isMenuOpen && <MobileMenu onLinkClick={closeMenu} />}
+    </Container>
+  )
+}

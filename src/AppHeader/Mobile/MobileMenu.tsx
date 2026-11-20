@@ -1,44 +1,26 @@
-import { FC, ReactNode, useRef, useState } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
-import { useCloseMobileMenuOutside } from './hooks'
 
-import { BurgerMenu } from './BurgerMenu'
+import { NavigationLinks } from '../Navigation'
 
-const Nav = styled.nav.attrs<{ isOpen?: boolean }>((props) => ({
-  isOpen: props.isOpen || false,
-}))<{ isOpen?: boolean }>`
-  @media (max-width: ${({ theme }) => theme.mobile.turnOnAt}) {
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: ${({ theme }) => theme.colors.bg};
-    height: 100vh;
-    text-align: left;
-    padding: 2rem;
-    position: absolute;
-    transform: ${({ isOpen }) =>
-      isOpen ? 'translateX(0)' : 'translateX(-100%)'};
-    transition: transform 0.3s ease-in-out;
-    width: 100%;
+const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 20px 16px;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+
+  ${({ theme }) => theme.media.tablet} {
+    display: none;
   }
 `
 
 export type MobileMenuProps = {
-  children: ReactNode
+  onLinkClick: () => void
 }
 
-export const MobileMenu: FC<MobileMenuProps> = ({ children }) => {
-  const mobileMenuContainer = useRef<HTMLDivElement>(null)
-  const [isOpen, setIsOpen] = useState(false)
-
-  useCloseMobileMenuOutside(mobileMenuContainer, () => setIsOpen(false))
-
-  return (
-    <div ref={mobileMenuContainer}>
-      <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-      <Nav isOpen={isOpen}>{children}</Nav>
-    </div>
-  )
-}
+export const MobileMenu: FC<MobileMenuProps> = ({ onLinkClick }) => (
+  <Nav id="mobile-menu" aria-label="Mobile">
+    <NavigationLinks onLinkClick={onLinkClick} />
+  </Nav>
+)
