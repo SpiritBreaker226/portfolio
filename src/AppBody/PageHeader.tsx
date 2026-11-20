@@ -5,11 +5,8 @@ import styled from 'styled-components'
 import { AppBodyContainer } from './AppBody.style'
 import { titleCase } from './helpers'
 
-export const Container = styled.div`
-  background-color: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.onPrimary};
-  padding: 3rem 3rem 2rem;
-  margin: 2rem 3rem 0 0;
+const Title = styled.h1`
+  margin-bottom: 24px;
 `
 
 export const PageHeader: FC = () => {
@@ -17,14 +14,10 @@ export const PageHeader: FC = () => {
   const title = titleCase(pathname) || 'Page Not Found'
 
   return (
-    <>
-      <Container>
-        <h2>{title}</h2>
-      </Container>
+    <AppBodyContainer>
+      <Title>{title}</Title>
 
-      <AppBodyContainer>
-        <Page />
-      </AppBodyContainer>
-    </>
+      <Page />
+    </AppBodyContainer>
   )
 }

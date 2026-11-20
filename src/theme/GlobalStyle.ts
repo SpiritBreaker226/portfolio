@@ -71,6 +71,21 @@ export default createGlobalStyle`
     }
   }
 
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+
+    ${({ theme }) => theme.media.tablet} {
+      font-size: 40px;
+    }
+
+    ${({ theme }) => theme.media.desktop} {
+      font-size: 48px;
+    }
+  }
+
   h2 {
     font-size: 24px;
     font-weight: 700;

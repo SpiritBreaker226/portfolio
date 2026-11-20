@@ -30,7 +30,17 @@ describe('PageHeader', () => {
 
       setUp()
 
-      await screen.findByText('Page Not Found', { exact: false })
+      await screen.findByRole('heading', { level: 1, name: 'Page Not Found' })
     })
+  })
+
+  test('GIVEN a page title from the path WHEN the header renders THEN the title is the level-1 heading', () => {
+    mockTitleCase = 'Wonderwall'
+
+    setUp()
+
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Wonderwall' })
+    ).toBeInTheDocument()
   })
 })

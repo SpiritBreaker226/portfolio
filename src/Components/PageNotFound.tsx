@@ -6,13 +6,22 @@ const Container = styled.section`
   text-align: center;
 `
 
+const Title = styled.h1`
+  margin-bottom: 24px;
+`
+
 const Video = styled.iframe`
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  aspect-ratio: 16 / 9;
   margin: 2rem 0;
+  border: 0;
 `
 
 export const PageNotFound: FC = () => (
   <Container>
-    <h2>Error 404 Not Found</h2>
+    <Title>Error 404 Not Found</Title>
     <p>
       Well, this is awkward. We don't find your page. Here's a video to make it
       up.
