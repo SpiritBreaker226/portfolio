@@ -6,20 +6,37 @@ import { BurgerMenu, MobileMenu, useCloseMobileMenu } from './Mobile'
 import { Navigation } from './Navigation'
 import { ThemeToggle } from './ThemeToggle'
 import { config } from '../config'
+import { containerStyle } from '../theme'
 
 const Container = styled.header`
+  background: ${(props) => props.theme.colors.surface};
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
 `
 
 const Row = styled.div`
+  ${containerStyle}
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0.75rem;
+  gap: 16px;
+  padding-block: 12px;
 `
 
-const Title = styled.h1`
+const Logo = styled(Link)`
   font-family: 'Sacramento', cursive;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  &:focus-visible {
+    outline: 2px solid ${(props) => props.theme.colors.primary};
+    outline-offset: 2px;
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    font-size: 38px;
+  }
 `
 
 const Actions = styled.div`
@@ -39,9 +56,7 @@ export const AppHeader: FC = () => {
   return (
     <Container ref={header}>
       <Row>
-        <Title>
-          <Link to="/">{config.developerName}</Link>
-        </Title>
+        <Logo to="/">{config.developerName}</Logo>
 
         <Actions>
           <Navigation />

@@ -3,7 +3,13 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
 const NavigationLinkContainer = styled(NavLink)`
-  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
   color: ${(props) => props.theme.colors.text};
 
   &:hover,
@@ -43,6 +49,7 @@ const Nav = styled.nav`
 
   ${({ theme }) => theme.media.tablet} {
     display: flex;
+    gap: 4px;
   }
 `
 
