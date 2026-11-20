@@ -14,6 +14,10 @@ export const lightTheme: Theme = {
   mobile: {
     turnOnAt: '576px',
   },
+  media: {
+    tablet: '@media (min-width: 576px)',
+    desktop: '@media (min-width: 1024px)',
+  },
   colors: {
     bg: '#FAFAF9',
     surface: '#FFFFFF',
@@ -51,6 +55,7 @@ export const lightTheme: Theme = {
  */
 export const darkTheme: Theme = {
   mobile: lightTheme.mobile,
+  media: lightTheme.media,
   colors: {
     bg: '#111417',
     surface: '#181C21',

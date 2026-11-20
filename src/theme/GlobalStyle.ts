@@ -55,6 +55,7 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.colors.text};
     background: ${({ theme }) => theme.colors.bg};
     font-size: 16px;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -62,7 +63,6 @@ export default createGlobalStyle`
   a {
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.1s ease 0s;
     color: ${({ theme }) => theme.colors.primary};
 
     &:active,
@@ -72,10 +72,39 @@ export default createGlobalStyle`
   }
 
   h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
     margin-bottom: 1.5rem;
+
+    ${({ theme }) => theme.media.tablet} {
+      font-size: 28px;
+    }
   }
 
-  #root{
-    margin:0 auto;
+  h3 {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html,
+    body {
+      transition:
+        background-color 200ms ease,
+        color 200ms ease;
+    }
+
+    a {
+      transition: color 150ms ease;
+    }
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0 auto;
   }
 `
