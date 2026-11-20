@@ -10,19 +10,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FC } from 'react'
 import styled from 'styled-components'
 
-import { config } from '../config'
-
 const Link = styled.a`
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  width: 5.5rem;
-  margin-bottom: 1rem;
-  background-color: ${(props) => props.theme.colors.surface};
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid ${(props) => props.theme.colors.border};
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: ${(props) => props.theme.colors.text};
 
+  &:hover,
   &:active,
-  &:hover {
-    background-color: ${(props) => props.theme.colors.primary};
-    color: ${(props) => props.theme.colors.onPrimary};
+  &:focus-visible {
+    border-color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${(props) => props.theme.colors.primary};
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition:
+      border-color 150ms ease,
+      color 150ms ease;
   }
 `
 
@@ -32,21 +47,21 @@ library.add(fab)
 export type SocialMediaLinkProps = {
   link: string
   type: IconName
+  label: string
 }
 
-export const SocialMediaLink: FC<SocialMediaLinkProps> = ({ type, link }) => {
+export const SocialMediaLink: FC<SocialMediaLinkProps> = ({
+  type,
+  label,
+  link,
+}) => {
   const iconLookup: IconLookup = { prefix: 'fab', iconName: type }
   const iconDefinition: IconDefinition = findIconDefinition(iconLookup)
 
   return (
-    <Link
-      href={link}
-      title={`See ${
-        config.developerName
-      } account on ${type[0].toUpperCase()}${type.slice(1).toLowerCase()}`}
-      target="_blank"
-      rel="noreferrer">
-      <FontAwesomeIcon icon={iconDefinition} size="4x" />
+    <Link href={link} target="_blank" rel="noreferrer">
+      <FontAwesomeIcon icon={iconDefinition} aria-hidden="true" />
+      {label}
     </Link>
   )
 }

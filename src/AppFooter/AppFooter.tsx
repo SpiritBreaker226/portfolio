@@ -1,40 +1,60 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
+import { config } from '../config'
+import { containerStyle } from '../theme'
 import { SocialMediaLink } from './SocialMediaLink'
 
 const Container = styled.footer`
-  padding: 3rem;
-  background-color: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.surface};
+  border-top: 1px solid ${(props) => props.theme.colors.border};
 `
 
-const Title = styled.h3`
-  color: ${(props) => props.theme.colors.onPrimary};
-  margin-bottom: 2rem;
-`
-
-const SocialMediaContainer = styled.div`
+const Row = styled.div`
+  ${containerStyle}
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 3rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-block: 24px;
+`
+
+const Copyright = styled.p`
+  font-size: 14px;
+  color: ${(props) => props.theme.colors.muted};
+`
+
+const SocialLinks = styled.nav`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 `
 
 export const AppFooter: FC = () => (
   <Container>
-    <Title>Find Me On Social Media</Title>
+    <Row>
+      <Copyright>
+        © {new Date().getFullYear()} {config.developerName}
+      </Copyright>
 
-    <SocialMediaContainer>
-      <SocialMediaLink type="dev" link="https://dev.to/jstats" />
-      <SocialMediaLink
-        type="linkedin"
-        link="https://www.linkedin.com/in/jasonstathopulos"
-      />
-      <SocialMediaLink
-        type="github"
-        link="https://github.com/SpiritBreaker226"
-      />
-    </SocialMediaContainer>
+      <SocialLinks aria-label="Social">
+        <SocialMediaLink
+          type="github"
+          label="GitHub"
+          link="https://github.com/SpiritBreaker226"
+        />
+        <SocialMediaLink
+          type="linkedin"
+          label="LinkedIn"
+          link="https://www.linkedin.com/in/jasonstathopulos"
+        />
+        <SocialMediaLink
+          type="dev"
+          label="DEV"
+          link="https://dev.to/jstats"
+        />
+      </SocialLinks>
+    </Row>
   </Container>
 )

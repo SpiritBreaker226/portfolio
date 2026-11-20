@@ -14,6 +14,8 @@ export type Theme = {
     surfaceAlt: string
     border: string
     text: string
+    /** Secondary text, such as lead copy, dates, excerpts and the © line. */
+    muted: string
     primary: string
     /**
      * Colour for text, icons and borders drawn on a `primary` background,
