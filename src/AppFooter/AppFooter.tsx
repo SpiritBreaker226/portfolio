@@ -35,10 +35,6 @@ export const AppFooter: FC = () => (
         type="github"
         link="https://github.com/SpiritBreaker226"
       />
-      <SocialMediaLink
-        type="instagram"
-        link="https://instagram.com/jasonstats"
-      />
     </SocialMediaContainer>
   </Container>
 )
