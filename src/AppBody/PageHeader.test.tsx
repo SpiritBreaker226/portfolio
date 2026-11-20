@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react'
 
 import { render } from '../testUtil'
 
-import { Banner } from './Banner'
+import { PageHeader } from './PageHeader'
 
 const mockUseLocation = jest.fn()
 let mockTitleCase = ''
@@ -16,8 +16,8 @@ jest.mock('./helpers', () => ({
   titleCase: () => mockTitleCase,
 }))
 
-describe('Banner', () => {
-  const setUp = () => render(<Banner />)
+describe('PageHeader', () => {
+  const setUp = () => render(<PageHeader />)
 
   afterEach(() => {
     mockTitleCase = ''

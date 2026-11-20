@@ -7,7 +7,7 @@ import { PageNotFound, Posts } from '../Components'
 import { Portfolio, ProjectDetails } from '../Portfolio'
 import { Skills } from '../Skills'
 import { AppBodyContainer } from './AppBody.style'
-import { Banner } from './Banner'
+import { PageHeader } from './PageHeader'
 
 export const AppBody: FC = () => (
   <Routes>
@@ -20,7 +20,7 @@ export const AppBody: FC = () => (
       }
     />
 
-    <Route element={<Banner />}>
+    <Route element={<PageHeader />}>
       <Route path="skills" element={<Skills />} />
 
       <Route path="portfolio">

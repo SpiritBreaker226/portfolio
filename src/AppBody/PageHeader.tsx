@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin: 2rem 3rem 0 0;
 `
 
-export const Banner: FC = () => {
+export const PageHeader: FC = () => {
   const { pathname } = useLocation()
   const title = titleCase(pathname) || 'Page Not Found'
 
