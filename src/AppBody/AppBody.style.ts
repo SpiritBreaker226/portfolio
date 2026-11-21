@@ -7,3 +7,7 @@ export const AppBodyContainer = styled.main`
   flex: 1;
   padding-block: 3rem;
 `
+
+export const HomeContainer = styled(AppBodyContainer)`
+  padding-block: 0;
+`

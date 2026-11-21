@@ -2,39 +2,100 @@ import { FC } from 'react'
 import styled from 'styled-components'
 
 import { Blog } from '../Blog'
-import { Posts } from '../Components'
+import { ButtonLink, Posts } from '../Components'
 import { config } from '../config'
 
-const Container = styled.section`
-  padding: 1rem;
-  margin: 1rem 0;
-`
+const Hero = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  padding: 36px 0 48px;
 
-const Image = styled.img`
-  width: 256px;
-  height: 256px;
-  margin: 0 2rem 1rem 0;
-  border-radius: 50%;
-  border-bottom: 2px solid ${(props) => props.theme.colors.border};
-`
-
-const AboutContainer = styled.article`
-  p {
-    margin-bottom: 1rem;
+  ${({ theme }) => theme.media.tablet} {
+    gap: 48px;
+    padding-top: 72px;
   }
 `
 
-const AboutMeSection = styled.section`
+const Photo = styled.img`
+  width: 180px;
+  height: 180px;
+  border: 4px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 50%;
+  object-fit: cover;
+  background: ${({ theme }) => theme.colors.surfaceAlt};
+
+  ${({ theme }) => theme.media.tablet} {
+    width: 220px;
+    height: 220px;
+  }
+`
+
+const HeroText = styled.div`
+  flex: 1 1 380px;
+  min-width: 0;
+`
+
+const Actions = styled.div`
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+`
+
+const Section = styled.section`
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+`
+
+const AboutMe = styled(Section)`
+  padding: 40px 0;
+
+  h2 {
+    margin-bottom: 16px;
+  }
+`
+
+const Bio = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 68ch;
+`
+
+const LatestPosts = styled(Section)`
+  padding: 40px 0 64px;
+`
+
+const LatestPostsHeading = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 16px;
+  margin-bottom: 20px;
 `
 
 export const About: FC = () => (
-  <Container>
-    <AboutMeSection>
-      <Image src="/image/home.png" alt={config.developerName} />
+  <>
+    <Hero>
+      <Photo src="/image/home.png" alt={config.developerName} />
 
-      <AboutContainer>
-        <h2>About Me</h2>
+      <HeroText>
+        <Actions>
+          <ButtonLink to="/portfolio" $variant="primary">
+            View portfolio
+          </ButtonLink>
+          <ButtonLink to="/blog" $variant="secondary">
+            Read the blog
+          </ButtonLink>
+        </Actions>
+      </HeroText>
+    </Hero>
+
+    <AboutMe>
+      <h2>About Me</h2>
+
+      <Bio>
         <p>
           Hi, my name is Jason. I am a web developer who loves solving
           challenging puzzles. The reason I got into programming is interesting.
@@ -66,15 +127,20 @@ export const About: FC = () => (
           management, new email system features, and other projects. All my work
           focused on helping my employers reach and retain customers.
         </p>
-      </AboutContainer>
-    </AboutMeSection>
+      </Bio>
+    </AboutMe>
 
-    <section>
-      <h2>Latest Posts</h2>
+    <LatestPosts>
+      <LatestPostsHeading>
+        <h2>Latest Posts</h2>
+        <a href="https://dev.to/jstats" target="_blank" rel="noreferrer">
+          All posts on DEV <span aria-hidden="true">→</span>
+        </a>
+      </LatestPostsHeading>
 
       <Blog>
         <Posts numberOfPosts={3} />
       </Blog>
-    </section>
-  </Container>
+    </LatestPosts>
+  </>
 )

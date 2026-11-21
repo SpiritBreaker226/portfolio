@@ -6,7 +6,7 @@ import { Blog } from '../Blog'
 import { PageNotFound, Posts } from '../Components'
 import { Portfolio, ProjectDetails } from '../Portfolio'
 import { Skills } from '../Skills'
-import { AppBodyContainer } from './AppBody.style'
+import { AppBodyContainer, HomeContainer } from './AppBody.style'
 import { PageHeader } from './PageHeader'
 
 export const AppBody: FC = () => (
@@ -14,9 +14,9 @@ export const AppBody: FC = () => (
     <Route
       path="/"
       element={
-        <AppBodyContainer>
+        <HomeContainer>
           <About />
-        </AppBodyContainer>
+        </HomeContainer>
       }
     />
 

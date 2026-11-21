@@ -95,7 +95,6 @@ export default createGlobalStyle`
     font-size: 24px;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 1.5rem;
 
     ${({ theme }) => theme.media.tablet} {
       font-size: 28px;
