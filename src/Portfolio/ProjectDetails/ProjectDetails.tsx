@@ -2,23 +2,43 @@ import { FC, useCallback } from 'react'
 import { useParams, Navigate, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { LinkButton } from '../../Components'
+import { chipStyle, LinkButton } from '../../Components'
 import { useApp } from '../../context'
 import { Icon } from '../Icon'
 
 const Body = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  ${({ theme }) => theme.media.tablet} {
+    flex-direction: row;
+    gap: 32px;
+  }
 `
 
 const Header = styled.div`
-  text-align: left;
-  margin-bottom: 2rem;
+  margin-bottom: 24px;
+`
+
+const Summary = styled.aside`
+  ${({ theme }) => theme.media.tablet} {
+    flex: 0 0 220px;
+  }
 `
 
 const Details = styled.div`
-  border-left: 1px solid ${(props) => props.theme.colors.border};
-  margin-left: 2rem;
-  padding-left: 2rem;
+  flex: 1;
+  min-width: 0;
+  padding-top: 24px;
+  border-top: 1px solid ${({ theme }) => theme.colors.border};
+
+  ${({ theme }) => theme.media.tablet} {
+    padding-top: 0;
+    padding-left: 32px;
+    border-top: 0;
+    border-left: 1px solid ${({ theme }) => theme.colors.border};
+  }
 `
 
 const Content = styled.p`
@@ -26,30 +46,36 @@ const Content = styled.p`
 `
 
 const ContentType = styled.span`
-  font-weight: bold;
+  font-weight: 600;
 `
 
 const ResponsibilityContainer = styled.ul`
   margin-bottom: 1rem;
+  padding-left: 1.25rem;
 `
 
 const TagContainer = styled.div`
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 8px;
 `
 
-const Tag = styled.div`
-  background: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.onPrimary};
-  padding: 0.5rem 0.75rem;
-  border-radius: 1rem;
+const Tag = styled.span`
+  ${chipStyle}
+  color: ${({ theme }) => theme.colors.primary};
 `
 
 const ButtonContainer = styled.footer`
-  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 24px;
+  margin-top: 32px;
 
   a {
-    margin-left: 1rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
   }
 `
 
@@ -74,7 +100,7 @@ export const ProjectDetails: FC = () => {
           <LinkButton onClick={backButton}>Back</LinkButton>
         </Header>
         <Body>
-          <aside>
+          <Summary>
             <Icon src={project.icon} name={project.name} />
 
             <Content>{project.name}</Content>
@@ -91,7 +117,7 @@ export const ProjectDetails: FC = () => {
             <Content>
               <ContentType>Team Size:</ContentType> {project.teamSize}
             </Content>
-          </aside>
+          </Summary>
 
           <Details>
             <Content>{project.description}</Content>
