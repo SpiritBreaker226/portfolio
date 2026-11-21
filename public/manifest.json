@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Jason S.",
+  "name": "Jason Stathopulos",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#aa0f13",
-  "background_color": "#ffffff"
+  "theme_color": "#FAFAF9",
+  "background_color": "#FAFAF9"
 }
