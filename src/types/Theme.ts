@@ -13,6 +13,12 @@ export type Theme = {
     surface: string
     surfaceAlt: string
     border: string
+    /**
+     * Outline for form fields, such as text inputs and dropdowns. It is
+     * darker than `border` so a field's edge keeps 3:1 contrast against
+     * the page and card backgrounds.
+     */
+    fieldBorder: string
     text: string
     /** Secondary text, such as lead copy, dates, excerpts and the © line. */
     muted: string

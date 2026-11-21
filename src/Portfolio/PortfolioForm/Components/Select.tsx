@@ -5,16 +5,75 @@ import ReactDropdownSelect, {
 import styled, { useTheme } from 'styled-components'
 
 import { titleCase } from '../../../AppBody/helpers'
+import { fieldLabelStyle, fieldStyle } from '../../../Components'
 import { useApp } from '../../../context'
 import { Types } from '../../../types'
 
 const Container = styled.div`
   display: flex;
   flex-flow: column;
+
+  .react-dropdown-select {
+    ${fieldStyle}
+    padding: 4px 12px;
+    border-color: ${({ theme }) => theme.colors.fieldBorder};
+
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.primary};
+    }
+
+    &:focus-within {
+      outline: 2px solid ${({ theme }) => theme.colors.primary};
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+  }
+
+  .react-dropdown-select-input {
+    color: ${({ theme }) => theme.colors.text};
+
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.muted};
+    }
+  }
+
+  .react-dropdown-select-dropdown {
+    border: 1px solid ${({ theme }) => theme.colors.border};
+    border-radius: 10px;
+    background: ${({ theme }) => theme.colors.surface};
+    color: ${({ theme }) => theme.colors.text};
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  }
+
+  .react-dropdown-select-item {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+    color: ${({ theme }) => theme.colors.text};
+
+    &:hover,
+    &.react-dropdown-select-item-active {
+      background: ${({ theme }) => theme.colors.surfaceAlt};
+    }
+
+    &.react-dropdown-select-item-selected {
+      border-bottom-color: ${({ theme }) => theme.colors.border};
+      background: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.onPrimary};
+    }
+  }
+
+  .react-dropdown-select-no-data {
+    color: ${({ theme }) => theme.colors.muted};
+  }
+
+  .react-dropdown-select-option {
+    border-radius: 999px;
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.onPrimary};
+  }
 `
 
-const FieldsetLabel = styled.h4`
-  padding-bottom: 0.25rem;
+const FieldsetLabel = styled.span`
+  ${fieldLabelStyle}
 `
 
 export type SelectFieldValue<T> = {

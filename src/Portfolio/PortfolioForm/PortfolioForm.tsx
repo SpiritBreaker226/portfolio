@@ -1,7 +1,7 @@
 import { ChangeEvent, FC } from 'react'
 import styled from 'styled-components'
 import { titleCase } from '../../AppBody/helpers'
-import { Button, Textfield } from '../../Components'
+import { Button, fieldLabelStyle, Textfield } from '../../Components'
 
 import { useApp } from '../../context'
 import {
@@ -13,20 +13,36 @@ import {
 } from '../../types'
 import { Select } from './Components'
 
-const Container = styled.div`
-  padding-bottom: 1rem;
-`
-
-const NonDisplayFilterOptions = styled.div`
+const Filters = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  padding-bottom: 32px;
+
+  > * {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  ${({ theme }) => theme.media.tablet} {
+    > * {
+      flex: 1 1 200px;
+    }
+
+    > button {
+      flex: 0 0 auto;
+    }
+  }
 `
 
 const SearchContainer = styled.div`
   display: flex;
   flex-flow: column;
+
+  label {
+    ${fieldLabelStyle}
+  }
 `
 
 export const PortfolioForm: FC = () => {
@@ -97,64 +113,56 @@ export const PortfolioForm: FC = () => {
   }
 
   return (
-    <Container>
-      <NonDisplayFilterOptions>
-        <SearchContainer>
-          <label htmlFor="searchText">Name / Description</label>
+    <Filters>
+      <SearchContainer>
+        <label htmlFor="searchText">Name / Description</label>
 
-          <Textfield
-            type="text"
-            id="searchText"
-            onChange={handleSearchTextChange}
-            value={searchCriteria.searchText}
-          />
-        </SearchContainer>
-
-        <Select<ProjectType | string>
-          name="type"
-          label="Type"
-          values={[searchCriteria.type || 'all']}
-          options={['all', ...Object.values(ProjectType)].map((type) => ({
-            label: titleCase(type),
-            value: type,
-          }))}
-          onSelectChange={handleTypeChange}
+        <Textfield
+          type="text"
+          id="searchText"
+          onChange={handleSearchTextChange}
+          value={searchCriteria.searchText}
         />
+      </SearchContainer>
 
-        <Select<Platform>
-          name="platform"
-          label="Platforms"
-          values={Array.from(searchCriteria.platforms)}
-          options={Object.values(Platform).map((platform) => ({
-            label: platform,
-            value: platform,
-          }))}
-          onSelectChange={handlePlatformChange}
-          noDataLabel="No platform found"
-          multi
-          style={{
-            minWidth: '10rem',
-          }}
-        />
+      <Select<ProjectType | string>
+        name="type"
+        label="Type"
+        values={[searchCriteria.type || 'all']}
+        options={['all', ...Object.values(ProjectType)].map((type) => ({
+          label: titleCase(type),
+          value: type,
+        }))}
+        onSelectChange={handleTypeChange}
+      />
 
-        <Select<Tag>
-          name="tag"
-          label="Tags"
-          values={Array.from(searchCriteria.tags)}
-          options={Object.values(Tag).map((tag) => ({
-            label: tag,
-            value: tag,
-          }))}
-          onSelectChange={handleTagChange}
-          noDataLabel="No tag found"
-          multi
-          style={{
-            minWidth: '10rem',
-          }}
-        />
+      <Select<Platform>
+        name="platform"
+        label="Platforms"
+        values={Array.from(searchCriteria.platforms)}
+        options={Object.values(Platform).map((platform) => ({
+          label: platform,
+          value: platform,
+        }))}
+        onSelectChange={handlePlatformChange}
+        noDataLabel="No platform found"
+        multi
+      />
 
-        <Button onClick={handleResetSearch}>Reset Search</Button>
-      </NonDisplayFilterOptions>
-    </Container>
+      <Select<Tag>
+        name="tag"
+        label="Tags"
+        values={Array.from(searchCriteria.tags)}
+        options={Object.values(Tag).map((tag) => ({
+          label: tag,
+          value: tag,
+        }))}
+        onSelectChange={handleTagChange}
+        noDataLabel="No tag found"
+        multi
+      />
+
+      <Button onClick={handleResetSearch}>Reset Search</Button>
+    </Filters>
   )
 }

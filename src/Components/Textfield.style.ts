@@ -1,10 +1,18 @@
 import styled, { css } from 'styled-components'
 
 export const fieldStyle = css`
-  margin-top: 0.25rem;
-  padding: 0.75rem;
-  border: 1px solid ${(props) => props.theme.colors.border};
-  border-radius: 4px;
+  min-height: 44px;
+  border: 1px solid ${({ theme }) => theme.colors.fieldBorder};
+  border-radius: 10px;
+  background: ${({ theme }) => theme.colors.surface};
+  color: ${({ theme }) => theme.colors.text};
+  font: inherit;
+`
+
+export const fieldLabelStyle = css`
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
 `
 
 export const Textfield = styled.input.attrs<{ isErroring?: boolean }>(
@@ -13,6 +21,13 @@ export const Textfield = styled.input.attrs<{ isErroring?: boolean }>(
   })
 )<{ isErroring?: boolean }>`
   ${fieldStyle}
+  width: 100%;
+  padding: 0 12px;
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+    outline-offset: 2px;
+  }
 
   ${(props) =>
     props.isErroring &&
