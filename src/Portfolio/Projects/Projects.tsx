@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
+import { CardGrid } from '../../Components'
 import { useInfiniteScroll } from '../../hooks/useInfiniteScroll'
 import { Project } from '../../types'
 import { ProjectItem } from './ProjectItem'
 
-const Container = styled.section`
+const Cell = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  margin: 1em;
+  flex-direction: column;
 `
 
 export type ProjectsProps = {
@@ -21,14 +21,14 @@ export const Projects: FC<ProjectsProps> = ({ projects }) => {
   )
 
   return (
-    <Container aria-live="polite">
+    <CardGrid aria-live="polite">
       {currentProjects.map((project, index) => (
-        <span key={project.id}>
+        <Cell key={project.id}>
           <ProjectItem project={project} />
 
           {fetchMore(index)}
-        </span>
+        </Cell>
       ))}
-    </Container>
+    </CardGrid>
   )
 }

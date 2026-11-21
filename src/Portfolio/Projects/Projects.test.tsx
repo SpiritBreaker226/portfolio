@@ -54,4 +54,29 @@ describe('Projects', () => {
     await screen.findByText(companyName1)
     await screen.findByText(companyName2)
   })
+
+  describe('GIVEN a project', () => {
+    describe('WHEN the projects render', () => {
+      beforeEach(() => {
+        const wonderwall = { ...project, id: 'wonderwall', name: 'Wonderwall' }
+
+        setUp(
+          { projects: [wonderwall] },
+          { projects: { [wonderwall.id]: wonderwall } }
+        )
+      })
+
+      test('THEN "View Details" links to the project page', async () => {
+        expect(
+          await screen.findByRole('link', { name: 'View Details' })
+        ).toHaveAttribute('href', '/portfolio/wonderwall')
+      })
+
+      test('THEN the logo links to the project page', async () => {
+        expect(
+          (await screen.findByAltText('Wonderwall')).closest('a')
+        ).toHaveAttribute('href', '/portfolio/wonderwall')
+      })
+    })
+  })
 })

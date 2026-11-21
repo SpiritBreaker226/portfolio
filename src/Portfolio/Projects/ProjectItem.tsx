@@ -1,12 +1,12 @@
-import { FC, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { FC } from 'react'
+import { Link } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 
-import { Button, LinkButton } from '../../Components'
+import { Card } from '../../Components'
 import { Project } from '../../types'
+import { Icon } from '../Icon'
 import { projectSummary } from './helpers'
 import { ProjectTags } from './ProjectTags'
-import { Icon } from '../Icon'
 
 const fade = keyframes`
   0% {
@@ -17,21 +17,31 @@ const fade = keyframes`
   }
 `
 
-const Container = styled.article`
-  animation: ${fade} 2s linear;
-  max-width: 20rem;
-  text-align: center;
-  margin-bottom: 2.5rem;
+const Container = styled(Card)`
+  flex: 1;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: ${fade} 600ms ease;
+  }
 `
 
-const Name = styled.p`
-  margin-bottom: 1rem;
-  font-weight: bold;
+const IconLink = styled(Link)`
+  align-self: flex-start;
+  display: inline-flex;
+  border-radius: 50%;
 `
 
 const Summary = styled.p`
-  margin-bottom 1rem;
-  min-height: 8rem;
+  flex-grow: 1;
+  color: ${({ theme }) => theme.colors.muted};
+`
+
+const DetailsLink = styled(Link)`
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
 `
 
 export type ProjectItemProps = {
@@ -39,26 +49,23 @@ export type ProjectItemProps = {
 }
 
 export const ProjectItem: FC<ProjectItemProps> = ({ project }) => {
-  const navigate = useNavigate()
-
-  const toProjectDetailsButton = useCallback(
-    () => navigate(project.id),
-    [navigate, project]
-  )
+  const detailsPath = `/portfolio/${project.id}`
 
   return (
     <Container aria-label={project.name}>
-      <LinkButton onClick={toProjectDetailsButton}>
+      <IconLink to={detailsPath} tabIndex={-1} aria-hidden="true">
         <Icon src={project.icon} name={project.name} />
-      </LinkButton>
+      </IconLink>
 
-      <Name>{project.name}</Name>
+      <h3>{project.name}</h3>
 
       <Summary>{projectSummary(project.description)}</Summary>
 
       <ProjectTags tags={project.tags} />
 
-      <Button onClick={toProjectDetailsButton}>View Details</Button>
+      <DetailsLink to={detailsPath}>
+        View Details <span aria-hidden="true">→</span>
+      </DetailsLink>
     </Container>
   )
 }
