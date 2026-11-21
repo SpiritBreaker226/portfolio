@@ -19,6 +19,11 @@ export type Theme = {
      * the page and card backgrounds.
      */
     fieldBorder: string
+    /**
+     * Light disc behind project logos, so logos drawn in dark colours stay
+     * visible on dark cards.
+     */
+    iconBg: string
     text: string
     /** Secondary text, such as lead copy, dates, excerpts and the © line. */
     muted: string
