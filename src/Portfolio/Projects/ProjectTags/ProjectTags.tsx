@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react'
 import styled from 'styled-components'
 
-import { Button } from '../../../Components'
+import { chipStyle } from '../../../Components'
 import { useApp } from '../../../context'
 import { Tag, UpdateSearchTypes } from '../../../types'
 
@@ -9,17 +9,26 @@ export type ProjectTagsProps = {
   tags: Set<Tag>
 }
 
-const Tags = styled.section`
-  margin-bottom 1rem;
-  min-height: 8rem;
+const Tags = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 `
 
-const TagButton = styled(Button)`
-  margin-right 1rem;
-  padding: 0.5rem 1rem;
+const TagButton = styled.button.attrs({ type: 'button' })`
+  ${chipStyle}
+  border: none;
+  color: ${({ theme }) => theme.colors.primary};
+  font-family: inherit;
+  cursor: pointer;
 
-  &:last-child {
-    margin-right 0;
+  &:hover {
+    background: ${({ theme }) => theme.colors.border};
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.primary};
+    outline-offset: 2px;
   }
 `
 

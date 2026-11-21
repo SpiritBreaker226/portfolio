@@ -1,6 +1,7 @@
 export * from './Button'
 export * from './ButtonLink'
 export * from './Card'
+export * from './Chip.style'
 export * from './ErrorMessage'
 export * from './LinkButton'
 export * from './PageNotFound'
