@@ -11,17 +11,18 @@ export const Card = styled.article`
 `
 
 /*
-  Wraps cards into as many 280px-wide columns as fit (3 on desktop, 2 on
-  tablet, 1 on phone), growing each card to fill its row. `min-width: 0`
+  Lays cards out in as many equal columns of at least 280px as fit (3 on
+  desktop, 2 on tablet, 1 on phone). A card alone on the last row keeps its
+  column width instead of stretching across the row. `min(280px, 100%)` stops
+  a column overflowing a container narrower than 280px, and `min-width: 0`
   lets long words wrap instead of widening a card past its column.
 */
 export const CardGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 20px;
 
   > * {
-    flex: 1 1 280px;
     min-width: 0;
   }
 `
