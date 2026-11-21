@@ -12,7 +12,7 @@ const lightColors: Theme['colors'] = {
   primary: '#AA0F13',
   onPrimary: '#FFFFFF',
   hoverForLinks: '#7e0f13',
-  error: '#ff0000',
+  error: '#CC0000',
   toggleIcon: '#2563EB',
   toggleTint: '#E8EFFD',
 }
