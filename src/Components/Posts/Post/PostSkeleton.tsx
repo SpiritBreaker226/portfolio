@@ -1,29 +1,37 @@
 import { FC } from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { loadingStyle } from '../../../theme'
-import { PostContainer, PostText, PostFooterText } from './Post.style'
+import { CardGrid } from '../../Card'
+import { PostContainer } from './Post.style'
 
-const SkeletonText = css`
-  height: 1rem;
+const Line = styled.div`
+  ${loadingStyle}
+  overflow: hidden;
+  height: 14px;
+  border-radius: 6px;
 `
 
-const Title = styled(PostText)`
-  ${loadingStyle}
-  ${SkeletonText}
-  max-width: 512px;
+const DateLine = styled(Line)`
+  width: 35%;
 `
 
-const Text = styled(PostText)`
-  ${loadingStyle}
-  ${SkeletonText}
-  max-width: 560px;
+const TitleLine = styled(Line)`
+  width: 85%;
+  height: 20px;
 `
 
-const FooterTextSkeleton = styled(PostFooterText)`
-  ${loadingStyle}
-  ${SkeletonText}
-  max-width: 256px;
+const TextLine = styled(Line)`
+  width: 100%;
+`
+
+const ShortTextLine = styled(Line)`
+  width: 70%;
+`
+
+const LinkLine = styled(Line)`
+  width: 40%;
+  margin-top: 14px;
 `
 
 /*
@@ -37,17 +45,15 @@ const FooterTextSkeleton = styled(PostFooterText)`
   different renders; a more consistent key prop should be used.
 */
 export const PostSkeleton: FC = () => (
-  <div role="tablist">
+  <CardGrid role="tablist">
     {['a', 'b', 'c'].map((letter) => (
       <PostContainer key={`postSkeleton${letter}`}>
-        <Title />
-
-        <Text />
-
-        <footer>
-          <FooterTextSkeleton />
-        </footer>
+        <DateLine />
+        <TitleLine />
+        <TextLine />
+        <ShortTextLine />
+        <LinkLine />
       </PostContainer>
     ))}
-  </div>
+  </CardGrid>
 )

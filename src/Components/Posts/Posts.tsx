@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styled from 'styled-components'
 
 import { useApp } from '../../context'
+import { CardGrid } from '../Card'
 import { Post } from './Post'
 
 const NoBlogContainer = styled.section`
@@ -26,10 +27,10 @@ export const Posts: FC<PostsProps> = ({ numberOfPosts }) => {
   }
 
   return (
-    <>
+    <CardGrid>
       {posts.slice(0, numberOfPosts).map((post) => (
         <Post key={post.id} {...post} />
       ))}
-    </>
+    </CardGrid>
   )
 }

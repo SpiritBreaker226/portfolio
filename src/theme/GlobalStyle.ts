@@ -69,6 +69,11 @@ export default createGlobalStyle`
     &:hover {
       color: ${({ theme }) => theme.colors.hoverForLinks};
     }
+
+    &:focus-visible {
+      outline: 2px solid ${({ theme }) => theme.colors.primary};
+      outline-offset: 2px;
+    }
   }
 
   h1 {

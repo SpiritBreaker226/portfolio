@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 
 import { AppProvider, initialState, post, render } from '../../testUtil'
 import { InitialState } from '../../types'
@@ -67,6 +67,31 @@ describe('Posts', () => {
       await screen.findByText(/fool/i)
       expect(screen.queryByText(/lovers/i)).not.toBeInTheDocument()
       expect(screen.queryByText(/moon/i)).not.toBeInTheDocument()
+    })
+  })
+
+  describe('GIVEN a post', () => {
+    const postTitle = 'Let It Be'
+    const postUrl = 'https://example.com/songs/let-it-be'
+
+    describe('WHEN the posts render', () => {
+      beforeEach(() => {
+        setUp({}, { posts: [{ ...post, title: postTitle, url: postUrl }] })
+      })
+
+      test('THEN its title is a level-3 heading linking to the post', () => {
+        expect(
+          within(
+            screen.getByRole('heading', { level: 3, name: postTitle })
+          ).getByRole('link')
+        ).toHaveAttribute('href', postUrl)
+      })
+
+      test('THEN "Read on DEV" links to the post', () => {
+        expect(
+          screen.getByRole('link', { name: 'Read on DEV' })
+        ).toHaveAttribute('href', postUrl)
+      })
     })
   })
 })

@@ -1,8 +1,13 @@
 import { FC } from 'react'
 
 import { Post as PostType } from '../../../types'
-import { PostContainer, PostText, PostFooterText } from './Post.style'
-import { config } from '../../../config'
+import {
+  PostContainer,
+  PostDate,
+  PostLink,
+  PostText,
+  PostTitle,
+} from './Post.style'
 
 export type PostProps = {}
 
@@ -14,21 +19,20 @@ export const Post: FC<PostType> = ({
   readable_publish_date,
 }) => (
   <PostContainer>
-    <a
-      href={url}
-      title={`See ${title} from ${config.developerName} blog`}
-      target="_blank"
-      rel="noreferrer">
-      {title}
-    </a>
+    <PostDate>
+      <time dateTime={published_timestamp}>{readable_publish_date}</time>
+    </PostDate>
+
+    <PostTitle>
+      <a href={url} target="_blank" rel="noreferrer">
+        {title}
+      </a>
+    </PostTitle>
 
     <PostText>{description}</PostText>
 
-    <footer>
-      <PostFooterText>
-        Posted on{' '}
-        <time dateTime={published_timestamp}>{readable_publish_date}</time>
-      </PostFooterText>
-    </footer>
+    <PostLink href={url} target="_blank" rel="noreferrer">
+      Read on DEV <span aria-hidden="true">→</span>
+    </PostLink>
   </PostContainer>
 )

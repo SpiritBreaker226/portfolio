@@ -10,7 +10,8 @@ const loading = keyframes`
  * Skeleton placeholder style: a block filled with the theme's loading
  * colour and a shimmer that sweeps across it while content loads. Colours
  * come from the theme of the component that uses it, so the skeleton
- * follows whichever theme is active.
+ * follows whichever theme is active. The shimmer only moves for visitors
+ * who haven't asked for reduced motion; everyone else sees a still block.
  *
  * @example
  * const Title = styled.p`${loadingStyle}`
@@ -29,6 +30,11 @@ export const loadingStyle = css`
     height: 100%;
     transform: translateX(-100px);
     background: ${({ theme }) => theme.loading.backgroundAfter};
-    animation: ${loading} 0.8s infinite;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &:after {
+      animation: ${loading} 0.8s infinite;
+    }
   }
 `
