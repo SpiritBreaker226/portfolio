@@ -104,6 +104,7 @@ export const Select = <T extends string | object>({
 }: SelectFieldProps<T>) => {
   const { dispatch } = useApp()
   const theme = useTheme()
+  const labelId = `${name}-label`
 
   const [reactSelectValues, setReactSelectValues] = useState<
     SelectFieldValue<T>[]
@@ -134,7 +135,7 @@ export const Select = <T extends string | object>({
 
   return (
     <Container>
-      {label && <FieldsetLabel>{label}:</FieldsetLabel>}
+      {label && <FieldsetLabel id={labelId}>{label}</FieldsetLabel>}
 
       <ReactDropdownSelect<SelectFieldValue<T>>
         color={theme.colors.primary}
@@ -142,6 +143,14 @@ export const Select = <T extends string | object>({
           minWidth: '5rem',
         }}
         multi={multi}
+        // The library renders a role-less `div` and hard-codes
+        // `aria-label="Dropdown select"` on every dropdown. It spreads
+        // `additionalProps` over both, so the control becomes a combobox
+        // named by its visible label.
+        additionalProps={{
+          role: 'combobox',
+          ...(label && { 'aria-labelledby': labelId }),
+        }}
         {...rest}
         name={name}
         values={reactSelectValues}

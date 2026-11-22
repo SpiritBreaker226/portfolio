@@ -53,7 +53,7 @@ describe('Select', () => {
         ],
       })
 
-      fireEvent.keyDown(screen.getByLabelText('Dropdown select'), {
+      fireEvent.keyDown(screen.getByRole('combobox', { name: 'testing' }), {
         keyCode: 40,
       })
       await screen.findByRole('option', { name: /omega/i })
