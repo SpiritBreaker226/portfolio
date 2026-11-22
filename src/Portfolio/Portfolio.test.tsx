@@ -1,7 +1,9 @@
 import { screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
+import { AppProvider as AppStateProvider } from '../context'
 import { AppProvider, initialState, project, render } from '../testUtil'
-import { InitialState, Project, ProjectObject, Types } from '../types'
+import { InitialState, Project, ProjectObject, Tag, Types } from '../types'
 import { Portfolio } from './Portfolio'
 
 const mockDispatch = jest.fn()
@@ -68,6 +70,31 @@ describe('Portfolio', () => {
       })
 
       await screen.findByText('Search Project')
+    })
+  })
+
+  describe('GIVEN projects with different tags', () => {
+    test('WHEN a tag chip is clicked THEN only projects with that tag are listed', async () => {
+      const user = userEvent.setup()
+      mockGetPortfolios.mockReturnValue([
+        { ...project, id: '1', name: 'Pablo Honey', tags: new Set([Tag.Ruby]) },
+        { ...project, id: '2', name: 'The Bends', tags: new Set([Tag.PHP]) },
+      ])
+
+      render(
+        <AppStateProvider>
+          <Portfolio />
+        </AppStateProvider>
+      )
+
+      await user.click(await screen.findByRole('button', { name: Tag.Ruby }))
+
+      expect(
+        screen.getByRole('article', { name: 'Pablo Honey' })
+      ).toBeInTheDocument()
+      expect(
+        screen.queryByRole('article', { name: 'The Bends' })
+      ).not.toBeInTheDocument()
     })
   })
 })

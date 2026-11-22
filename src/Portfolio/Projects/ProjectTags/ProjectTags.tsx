@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { chipStyle } from '../../../Components'
 import { useApp } from '../../../context'
-import { Tag, UpdateSearchTypes } from '../../../types'
+import { Tag, Types, UpdateSearchTypes } from '../../../types'
 
 export type ProjectTagsProps = {
   tags: Set<Tag>
@@ -35,13 +35,26 @@ const TagButton = styled.button.attrs({ type: 'button' })`
 export const ProjectTags: FC<ProjectTagsProps> = ({ tags }) => {
   const { dispatch } = useApp()
 
+  /**
+   * Filters the projects to the clicked tag. It runs the search itself,
+   * since setting the tag only updates the search criteria and the list
+   * would otherwise stay unfiltered wherever no filter dropdown reacts to
+   * the change.
+   *
+   * @example
+   * handleTagButton(Tag.Ruby)
+   * // => only projects tagged Ruby are listed
+   */
   const handleTagButton = useCallback(
-    (tag: Tag) =>
+    (tag: Tag) => {
       dispatch({
         type: UpdateSearchTypes.Tag,
         payload: { tags: new Set<Tag>([tag]) },
-      }),
-    []
+      })
+
+      dispatch({ type: Types.Search, payload: {} })
+    },
+    [dispatch]
   )
 
   return (
