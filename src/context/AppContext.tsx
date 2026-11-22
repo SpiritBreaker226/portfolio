@@ -7,8 +7,9 @@ import {
   useReducer,
 } from 'react'
 
+import { usePortfolio } from '../hooks'
 import { postReducer, projectReducer, searchReducer } from '../reducers'
-import { Action, InitialState } from '../types'
+import { Action, InitialState, Types } from '../types'
 
 export const initialState: InitialState = {
   posts: [],
@@ -45,7 +46,26 @@ const mainReducer = (state: InitialState, action: Action) => {
 }
 
 const AppProvider: FC<AppProviderProps> = ({ children }) => {
-  const [state, dispatch] = useReducer(mainReducer, initialState)
+  const { getPortfolios } = usePortfolio()
+  const [state, dispatch] = useReducer(
+    mainReducer,
+    initialState,
+    /**
+     * Loads the projects into the first state, so every route has them.
+     * A project page opened from a bookmark, a shared link or a refresh
+     * would otherwise find no project and redirect to Page Not Found.
+     *
+     * @example
+     * withProjects(initialState).projects['pablo-honey'].name
+     * // => 'Pablo Honey'
+     */
+    function withProjects(state: InitialState) {
+      return projectReducer(state, {
+        type: Types.AddProject,
+        payload: { projects: getPortfolios() },
+      })
+    }
+  )
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>

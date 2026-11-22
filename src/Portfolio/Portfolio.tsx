@@ -1,7 +1,6 @@
-import { FC, useCallback, useEffect } from 'react'
+import { FC, useEffect } from 'react'
 
 import { useApp } from '../context'
-import { usePortfolio } from '../hooks'
 import { Types } from '../types'
 import { PortfolioForm } from './PortfolioForm'
 import { Projects } from './Projects'
@@ -12,22 +11,13 @@ export const Portfolio: FC = () => {
     dispatch,
   } = useApp()
 
-  const { getPortfolios } = usePortfolio()
-  const dispatchProjects = useCallback(getPortfolios, [getPortfolios])
-  const dataProjects = dispatchProjects()
-
   useEffect(() => {
-    dispatch({
-      type: Types.AddProject,
-      payload: { projects: dataProjects },
-    })
-
-    // show only feature projects
+    // Fill the list from the loaded projects and the current search criteria.
     dispatch({
       type: Types.Search,
       payload: {},
     })
-  }, [dispatch, dataProjects])
+  }, [dispatch])
 
   return (
     <section>

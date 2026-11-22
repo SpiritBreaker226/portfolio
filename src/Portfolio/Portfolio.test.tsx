@@ -1,9 +1,9 @@
-import { screen, waitFor } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { AppProvider as AppStateProvider } from '../context'
 import { AppProvider, initialState, project, render } from '../testUtil'
-import { InitialState, Project, ProjectObject, Tag, Types } from '../types'
+import { InitialState, ProjectObject, Tag } from '../types'
 import { Portfolio } from './Portfolio'
 
 const mockDispatch = jest.fn()
@@ -25,30 +25,6 @@ describe('Portfolio', () => {
       </AppProvider>
     )
   }
-
-  it('should add project', async () => {
-    mockGetPortfolios.mockReturnValue([project])
-
-    setUp()
-
-    await waitFor(() =>
-      expect(mockDispatch).toHaveBeenCalledWith(
-        expect.objectContaining({
-          type: Types.AddProject,
-          payload: { projects: expect.arrayContaining<Project>([project]) },
-        })
-      )
-    )
-
-    await waitFor(() =>
-      expect(mockDispatch).toHaveBeenCalledWith(
-        expect.objectContaining({
-          type: Types.Search,
-          payload: {},
-        })
-      )
-    )
-  })
 
   describe('when searching are use', () => {
     it('should use filtered projects', async () => {
