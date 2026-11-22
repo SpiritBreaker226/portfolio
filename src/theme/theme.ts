@@ -55,11 +55,6 @@ export const lightTheme: Theme = {
     backgroundAfter:
       'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
   },
-  pageStyles: {
-    skills: {
-      barColor: 'rgba(170, 15, 19, 1)',
-    },
-  },
 }
 
 /**
@@ -79,10 +74,5 @@ export const darkTheme: Theme = {
     background: darkColors.surfaceAlt,
     backgroundAfter:
       'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent)',
-  },
-  pageStyles: {
-    skills: {
-      barColor: '#F2666A',
-    },
   },
 }

@@ -11,9 +11,6 @@ jest.mock('../hooks', () => ({
   usePortfolio: () => ({ getPortfolios: mockGetPortfolios }),
 }))
 
-// Jest can't resolve `react-chartjs-2`, which the Skills page imports.
-jest.mock('../Skills', () => ({ Skills: () => null }))
-
 describe('AppBody', () => {
   afterEach(() => {
     window.history.pushState({}, '', '/')

@@ -46,11 +46,6 @@ export type Theme = {
     background: string
     backgroundAfter: string
   }
-  pageStyles: {
-    skills: {
-      barColor: string
-    }
-  }
 }
 
 // styled-components types `props.theme` and `useTheme()` as its empty
