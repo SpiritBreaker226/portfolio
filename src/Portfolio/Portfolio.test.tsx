@@ -73,4 +73,54 @@ describe('Portfolio', () => {
       ).not.toBeInTheDocument()
     })
   })
+
+  describe('GIVEN a SQL Server project and a PHP project', () => {
+    beforeEach(() => {
+      mockGetPortfolios.mockReturnValue([
+        {
+          ...project,
+          id: '3',
+          name: 'OK Computer',
+          tags: new Set([Tag.SQLServer]),
+        },
+        { ...project, id: '4', name: 'Kid A', tags: new Set([Tag.PHP]) },
+      ])
+    })
+
+    afterEach(() => {
+      window.history.pushState({}, '', '/')
+    })
+
+    test('WHEN the page opens with a SQL Server tag in the URL THEN only the SQL Server project is listed', async () => {
+      window.history.pushState({}, '', '/portfolio?tag=SQL+Server')
+
+      render(
+        <AppStateProvider>
+          <Portfolio />
+        </AppStateProvider>
+      )
+
+      expect(
+        await screen.findByRole('article', { name: 'OK Computer' })
+      ).toBeInTheDocument()
+      expect(
+        screen.queryByRole('article', { name: 'Kid A' })
+      ).not.toBeInTheDocument()
+    })
+
+    test('WHEN the page opens with an unknown tag in the URL THEN every project is listed', async () => {
+      window.history.pushState({}, '', '/portfolio?tag=Amnesiac')
+
+      render(
+        <AppStateProvider>
+          <Portfolio />
+        </AppStateProvider>
+      )
+
+      expect(
+        await screen.findByRole('article', { name: 'OK Computer' })
+      ).toBeInTheDocument()
+      expect(screen.getByRole('article', { name: 'Kid A' })).toBeInTheDocument()
+    })
+  })
 })
