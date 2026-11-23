@@ -6,7 +6,14 @@ import { Posts, PostsProps } from './Posts'
 
 const mockDispatch = jest.fn()
 
-describe('Posts', () => {
+const fourPosts = [
+  { ...post, id: 1, title: 'The World' },
+  { ...post, id: 2, title: 'The Fool' },
+  { ...post, id: 3, title: 'The Lovers' },
+  { ...post, id: 4, title: 'The Moon' },
+]
+
+describe('GIVEN using Posts', () => {
   const defaultProps: PostsProps = {
     numberOfPosts: undefined,
   }
@@ -22,76 +29,52 @@ describe('Posts', () => {
     )
   }
 
-  it('should show all posts', async () => {
-    setUp(
-      {},
-      {
-        posts: [
-          { ...post, id: 1, title: 'The World' },
-          { ...post, id: 2, title: 'The Fool' },
-          { ...post, id: 3, title: 'The Lovers' },
-          { ...post, id: 4, title: 'The Moon' },
-        ],
-      }
-    )
+  test('WHEN there are four posts THEN it shows them all', async () => {
+    setUp({}, { posts: fourPosts })
 
-    await screen.findByText(/world/i)
-    await screen.findByText(/fool/i)
-    await screen.findByText(/lovers/i)
-    await screen.findByText(/moon/i)
+    expect(await screen.findByText(/world/i)).toBeInTheDocument()
+    expect(await screen.findByText(/fool/i)).toBeInTheDocument()
+    expect(await screen.findByText(/lovers/i)).toBeInTheDocument()
+    expect(await screen.findByText(/moon/i)).toBeInTheDocument()
   })
 
-  describe('when no post is found', () => {
-    it('should show the no posts message', async () => {
-      setUp({}, { posts: [] })
+  test('WHEN there are no posts THEN it shows the no posts message', async () => {
+    setUp({}, { posts: [] })
 
-      await screen.findByText(/no posts/i)
-    })
+    expect(await screen.findByText(/no posts/i)).toBeInTheDocument()
   })
 
-  describe('when limiting number of post', () => {
-    it('should some of the posts', async () => {
-      setUp(
-        { numberOfPosts: 2 },
-        {
-          posts: [
-            { ...post, id: 1, title: 'The World' },
-            { ...post, id: 2, title: 'The Fool' },
-            { ...post, id: 3, title: 'The Lovers' },
-            { ...post, id: 4, title: 'The Moon' },
-          ],
-        }
-      )
+  test('WHEN there are four posts and a limit of two THEN it shows only the first two', async () => {
+    setUp({ numberOfPosts: 2 }, { posts: fourPosts })
 
-      await screen.findByText(/world/i)
-      await screen.findByText(/fool/i)
-      expect(screen.queryByText(/lovers/i)).not.toBeInTheDocument()
-      expect(screen.queryByText(/moon/i)).not.toBeInTheDocument()
-    })
+    expect(await screen.findByText(/world/i)).toBeInTheDocument()
+    expect(await screen.findByText(/fool/i)).toBeInTheDocument()
+    expect(screen.queryByText(/lovers/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/moon/i)).not.toBeInTheDocument()
   })
 
-  describe('GIVEN a post', () => {
+  describe('WHEN there is one post', () => {
     const postTitle = 'Let It Be'
     const postUrl = 'https://example.com/songs/let-it-be'
+    const setUpOnePost = () =>
+      setUp({}, { posts: [{ ...post, title: postTitle, url: postUrl }] })
 
-    describe('WHEN the posts render', () => {
-      beforeEach(() => {
-        setUp({}, { posts: [{ ...post, title: postTitle, url: postUrl }] })
-      })
+    test('THEN its title is a level-3 heading linking to the post', () => {
+      setUpOnePost()
 
-      test('THEN its title is a level-3 heading linking to the post', () => {
-        expect(
-          within(
-            screen.getByRole('heading', { level: 3, name: postTitle })
-          ).getByRole('link')
-        ).toHaveAttribute('href', postUrl)
-      })
+      expect(
+        within(
+          screen.getByRole('heading', { level: 3, name: postTitle })
+        ).getByRole('link')
+      ).toHaveAttribute('href', postUrl)
+    })
 
-      test('THEN "Read on DEV" links to the post', () => {
-        expect(
-          screen.getByRole('link', { name: 'Read on DEV' })
-        ).toHaveAttribute('href', postUrl)
-      })
+    test('THEN "Read on DEV" links to the post', () => {
+      setUpOnePost()
+
+      expect(
+        screen.getByRole('link', { name: 'Read on DEV' })
+      ).toHaveAttribute('href', postUrl)
     })
   })
 })

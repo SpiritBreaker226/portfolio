@@ -4,21 +4,19 @@ import { render } from '../testUtil'
 
 import { ErrorMessage, ErrorMessageProps } from './ErrorMessage'
 
-describe('ErrorMessage', () => {
+describe('GIVEN using ErrorMessage', () => {
   const setUp = (props: Partial<ErrorMessageProps> = {}) =>
     render(<ErrorMessage {...props} />)
 
-  it('should not show error message', async () => {
+  test('WHEN there is no error THEN it renders nothing', () => {
     const { container } = setUp({ error: undefined })
 
     expect(container).toBeEmptyDOMElement()
   })
 
-  describe('when error message is a string', () => {
-    it('should display', async () => {
-      setUp({ error: 'erroring' })
+  test('WHEN the error is a string THEN it shows the message', async () => {
+    setUp({ error: 'erroring' })
 
-      await screen.findByText('erroring')
-    })
+    expect(await screen.findByText('erroring')).toBeInTheDocument()
   })
 })
