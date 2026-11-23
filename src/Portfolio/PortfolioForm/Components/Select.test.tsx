@@ -5,7 +5,7 @@ import { Select, SelectFieldProps } from './Select'
 
 const mockOnSelectChange = jest.fn()
 
-describe('Select', () => {
+describe('GIVEN using Select', () => {
   const defaultProps: SelectFieldProps<string> = {
     name: 'test',
     values: [],
@@ -15,13 +15,13 @@ describe('Select', () => {
   const setUp = (props: Partial<SelectFieldProps<string>> = {}) =>
     render(<Select<string> {...defaultProps} {...props} />)
 
-  it('should show label', async () => {
+  test('WHEN given a label THEN it shows the label', async () => {
     setUp({ name: 'test', label: 'World' })
 
-    await screen.findByText(/world/i)
+    expect(await screen.findByText(/world/i)).toBeInTheDocument()
   })
 
-  test('GIVEN a selected value WHEN the select renders THEN it shows the label of its option', () => {
+  test('WHEN a value is selected THEN it shows the label of its option', () => {
     setUp({
       multi: true,
       values: ['ok computer'],
@@ -31,47 +31,43 @@ describe('Select', () => {
     expect(screen.getByText('OK Computer')).toBeInTheDocument()
   })
 
-  describe('when selecting an element', () => {
-    it('should call a single element', async () => {
-      setUp({
-        name: 'test',
-        multi: false,
-        options: [{ label: 'Omega', value: 'omega' }],
-      })
-
-      fireEvent.keyDown(screen.getByLabelText('Dropdown select'), {
-        keyCode: 40,
-      })
-      await screen.findByText('Omega', { exact: false })
-      fireEvent.click(screen.getByText('Omega', { exact: false }))
-
-      await waitFor(() =>
-        expect(mockOnSelectChange).toHaveBeenCalledWith('omega')
-      )
+  test('WHEN an option is picked from a single select THEN it reports that value', async () => {
+    setUp({
+      name: 'test',
+      multi: false,
+      options: [{ label: 'Omega', value: 'omega' }],
     })
+
+    fireEvent.keyDown(screen.getByLabelText('Dropdown select'), {
+      keyCode: 40,
+    })
+    await screen.findByText('Omega', { exact: false })
+    fireEvent.click(screen.getByText('Omega', { exact: false }))
+
+    await waitFor(() =>
+      expect(mockOnSelectChange).toHaveBeenCalledWith('omega')
+    )
   })
 
-  describe('when multiple elements', () => {
-    it('should call an array of elements', async () => {
-      setUp({
-        name: 'test',
-        label: 'testing',
-        multi: true,
-        options: [
-          { label: 'Omega', value: 'omega' },
-          { label: 'Alpha', value: 'alpha' },
-        ],
-      })
-
-      fireEvent.keyDown(screen.getByRole('combobox', { name: 'testing' }), {
-        keyCode: 40,
-      })
-      await screen.findByRole('option', { name: /omega/i })
-      fireEvent.click(screen.getByRole('option', { name: /omega/i }))
-
-      await waitFor(() =>
-        expect(mockOnSelectChange).toHaveBeenCalledWith(['omega'])
-      )
+  test('WHEN an option is picked from a multi select THEN it reports the values as a list', async () => {
+    setUp({
+      name: 'test',
+      label: 'testing',
+      multi: true,
+      options: [
+        { label: 'Omega', value: 'omega' },
+        { label: 'Alpha', value: 'alpha' },
+      ],
     })
+
+    fireEvent.keyDown(screen.getByRole('combobox', { name: 'testing' }), {
+      keyCode: 40,
+    })
+    await screen.findByRole('option', { name: /omega/i })
+    fireEvent.click(screen.getByRole('option', { name: /omega/i }))
+
+    await waitFor(() =>
+      expect(mockOnSelectChange).toHaveBeenCalledWith(['omega'])
+    )
   })
 })

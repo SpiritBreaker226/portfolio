@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 import { screen } from '@testing-library/react'
 
 import { AppProvider, initialState, project, render } from '../../testUtil'
-import { InitialState, ProjectObject } from '../../types'
+import { InitialState, Project } from '../../types'
 import { ProjectDetails } from './ProjectDetails'
 
 const mockDispatch = jest.fn()
@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
   Navigate,
 }))
 
-describe('ProjectDetails', () => {
+describe('GIVEN using ProjectDetails', () => {
   const setUp = (state: Partial<InitialState> = {}, dispatch = mockDispatch) =>
     render(
       <AppProvider state={{ ...initialState, ...state }} dispatch={dispatch}>
@@ -24,70 +24,42 @@ describe('ProjectDetails', () => {
       </AppProvider>
     )
 
-  it('should show project details', async () => {
-    const projectTest: ProjectObject = {}
+  const setUpWithProject = (overrides: Partial<Project> = {}) =>
+    setUp({ projects: { testId: { ...project, id: 'testId', ...overrides } } })
 
-    projectTest['testId'] = { ...project, id: 'testId' }
+  test('WHEN the project exists THEN it shows the project', async () => {
+    setUpWithProject()
 
-    setUp({ projects: projectTest })
-
-    await screen.findByText(project.name)
+    expect(await screen.findByText(project.name)).toBeInTheDocument()
   })
 
-  describe('when no project is found', () => {
-    it('should go to page not found', async () => {
-      setUp()
+  test('WHEN no project matches the id THEN it redirects to Page Not Found', async () => {
+    setUp()
 
-      await screen.findByText('Redirected')
-    })
+    expect(await screen.findByText('Redirected')).toBeInTheDocument()
   })
 
-  describe('when project has no links', () => {
-    it('should not show urls', async () => {
-      const projectTest: ProjectObject = {}
+  test('WHEN the project has no links THEN it shows no links footer', () => {
+    setUpWithProject({ sampleCodeUrl: undefined, url: undefined })
 
-      projectTest['testId'] = {
-        ...project,
-        id: 'testId',
-        sampleCodeUrl: undefined,
-        url: undefined,
-      }
-
-      setUp({ projects: projectTest })
-
-      expect(screen.queryByRole('footer')).not.toBeInTheDocument()
-    })
+    expect(screen.queryByRole('footer')).not.toBeInTheDocument()
   })
 
-  describe('when project has links', () => {
-    it('should show sampleCodeUrl url', async () => {
-      const projectTest: ProjectObject = {}
+  describe('WHEN the project has one link', () => {
+    test('AND it is the sample code THEN it links to the sample code', async () => {
+      setUpWithProject({ sampleCodeUrl: faker.internet.url(), url: undefined })
 
-      projectTest['testId'] = {
-        ...project,
-        id: 'testId',
-        sampleCodeUrl: faker.internet.url(),
-        url: undefined,
-      }
-
-      setUp({ projects: projectTest })
-
-      await screen.findByRole('link', { name: 'View Sample Code' })
+      expect(
+        await screen.findByRole('link', { name: 'View Sample Code' })
+      ).toBeInTheDocument()
     })
 
-    it('should show project url', async () => {
-      const projectTest: ProjectObject = {}
+    test('AND it is the project site THEN it links to the project', async () => {
+      setUpWithProject({ sampleCodeUrl: undefined, url: faker.internet.url() })
 
-      projectTest['testId'] = {
-        ...project,
-        id: 'testId',
-        sampleCodeUrl: undefined,
-        url: faker.internet.url(),
-      }
-
-      setUp({ projects: projectTest })
-
-      await screen.findByRole('link', { name: `View ${project.name}` })
+      expect(
+        await screen.findByRole('link', { name: `View ${project.name}` })
+      ).toBeInTheDocument()
     })
   })
 })

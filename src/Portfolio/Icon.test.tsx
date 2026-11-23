@@ -4,7 +4,7 @@ import { screen } from '@testing-library/react'
 import { render } from '../testUtil'
 import { Icon, IconProps } from './Icon'
 
-describe('Icon', () => {
+describe('GIVEN using Icon', () => {
   const defaultProps: IconProps = {
     src: faker.image.business(128, 128),
     name: faker.company.name(),
@@ -14,17 +14,17 @@ describe('Icon', () => {
     render(<Icon {...defaultProps} {...props} />)
   }
 
-  it('should show project icon', async () => {
+  test('WHEN given a project name THEN the icon is named after the project', async () => {
     const name = faker.company.name()
 
     setUp({ name })
 
-    await screen.findByAltText(name)
+    expect(await screen.findByAltText(name)).toBeInTheDocument()
   })
 
-  it('should show icon placeholder when no icon is provided', async () => {
+  test('WHEN no icon is given THEN it shows the placeholder icon', async () => {
     setUp({ src: undefined })
 
-    await screen.findByAltText('placeholder icon')
+    expect(await screen.findByAltText('placeholder icon')).toBeInTheDocument()
   })
 })

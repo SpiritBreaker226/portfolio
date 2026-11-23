@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 
 import { AppProvider as AppStateProvider } from '../context'
 import { AppProvider, initialState, project, render } from '../testUtil'
-import { InitialState, ProjectObject, Tag } from '../types'
+import { InitialState, Tag } from '../types'
 import { Portfolio } from './Portfolio'
 
 const mockDispatch = jest.fn()
@@ -14,8 +14,8 @@ jest.mock('../hooks', () => ({
   usePortfolio: () => ({ getPortfolios: mockGetPortfolios }),
 }))
 
-describe('Portfolio', () => {
-  const setUp = (
+describe('GIVEN using Portfolio', () => {
+  const setUpWithState = (
     state: Partial<InitialState> = {},
     dispatch = mockDispatch
   ) => {
@@ -26,55 +26,55 @@ describe('Portfolio', () => {
     )
   }
 
-  describe('when searching are use', () => {
-    it('should use filtered projects', async () => {
-      const projects: ProjectObject = {}
+  const setUp = (url = '/') => {
+    const user = userEvent.setup()
+    window.history.pushState({}, '', url)
 
-      projects['2483795'] = {
-        ...project,
-        id: '2483795',
-      }
+    render(
+      <AppStateProvider>
+        <Portfolio />
+      </AppStateProvider>
+    )
 
-      setUp({
-        projects,
-        filteredProjects: [{ ...project, name: 'Search Project' }],
-        searchCriteria: {
-          searchText: 'search',
-          platforms: new Set(),
-          tags: new Set(),
-        },
-      })
+    return user
+  }
 
-      await screen.findByText('Search Project')
-    })
+  afterEach(() => {
+    window.history.pushState({}, '', '/')
   })
 
-  describe('GIVEN projects with different tags', () => {
-    test('WHEN a tag chip is clicked THEN only projects with that tag are listed', async () => {
-      const user = userEvent.setup()
-      mockGetPortfolios.mockReturnValue([
-        { ...project, id: '1', name: 'Pablo Honey', tags: new Set([Tag.Ruby]) },
-        { ...project, id: '2', name: 'The Bends', tags: new Set([Tag.PHP]) },
-      ])
-
-      render(
-        <AppStateProvider>
-          <Portfolio />
-        </AppStateProvider>
-      )
-
-      await user.click(await screen.findByRole('button', { name: Tag.Ruby }))
-
-      expect(
-        screen.getByRole('article', { name: 'Pablo Honey' })
-      ).toBeInTheDocument()
-      expect(
-        screen.queryByRole('article', { name: 'The Bends' })
-      ).not.toBeInTheDocument()
+  test('WHEN there are filtered projects THEN it lists them', async () => {
+    setUpWithState({
+      projects: { '2483795': { ...project, id: '2483795' } },
+      filteredProjects: [{ ...project, name: 'Search Project' }],
+      searchCriteria: {
+        searchText: 'search',
+        platforms: new Set(),
+        tags: new Set(),
+      },
     })
+
+    expect(await screen.findByText('Search Project')).toBeInTheDocument()
   })
 
-  describe('GIVEN a SQL Server project and a PHP project', () => {
+  test('WHEN a tag chip is clicked THEN only projects with that tag are listed', async () => {
+    mockGetPortfolios.mockReturnValue([
+      { ...project, id: '1', name: 'Pablo Honey', tags: new Set([Tag.Ruby]) },
+      { ...project, id: '2', name: 'The Bends', tags: new Set([Tag.PHP]) },
+    ])
+    const user = setUp()
+
+    await user.click(await screen.findByRole('button', { name: Tag.Ruby }))
+
+    expect(
+      screen.getByRole('article', { name: 'Pablo Honey' })
+    ).toBeInTheDocument()
+    expect(
+      screen.queryByRole('article', { name: 'The Bends' })
+    ).not.toBeInTheDocument()
+  })
+
+  describe('WHEN there is a SQL Server project and a PHP project', () => {
     beforeEach(() => {
       mockGetPortfolios.mockReturnValue([
         {
@@ -87,18 +87,8 @@ describe('Portfolio', () => {
       ])
     })
 
-    afterEach(() => {
-      window.history.pushState({}, '', '/')
-    })
-
-    test('WHEN the page opens with a SQL Server tag in the URL THEN only the SQL Server project is listed', async () => {
-      window.history.pushState({}, '', '/portfolio?tag=SQL+Server')
-
-      render(
-        <AppStateProvider>
-          <Portfolio />
-        </AppStateProvider>
-      )
+    test('AND the URL has a SQL Server tag THEN only the SQL Server project is listed', async () => {
+      setUp('/portfolio?tag=SQL+Server')
 
       expect(
         await screen.findByRole('article', { name: 'OK Computer' })
@@ -108,14 +98,8 @@ describe('Portfolio', () => {
       ).not.toBeInTheDocument()
     })
 
-    test('WHEN the page opens with an unknown tag in the URL THEN every project is listed', async () => {
-      window.history.pushState({}, '', '/portfolio?tag=Amnesiac')
-
-      render(
-        <AppStateProvider>
-          <Portfolio />
-        </AppStateProvider>
-      )
+    test('AND the URL has an unknown tag THEN every project is listed', async () => {
+      setUp('/portfolio?tag=Amnesiac')
 
       expect(
         await screen.findByRole('article', { name: 'OK Computer' })
