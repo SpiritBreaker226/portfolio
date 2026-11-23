@@ -11,7 +11,71 @@ jest.mock('../hooks', () => ({
   useSkills: () => mockSkillGroups,
 }))
 
-describe('Skills', () => {
+const twoCategories: SkillGroup[] = [
+  {
+    category: 'Languages',
+    skills: [
+      {
+        name: 'Pablo Honey',
+        category: 'Languages',
+        years: 15,
+        summary: 'OK Computer',
+      },
+    ],
+  },
+  {
+    category: 'Testing',
+    skills: [
+      { name: 'The Bends', category: 'Testing', years: 2, summary: 'Kid A' },
+    ],
+  },
+]
+
+const databaseSkills: SkillGroup[] = [
+  {
+    category: 'Databases',
+    skills: [
+      {
+        name: 'In Rainbows',
+        category: 'Databases',
+        years: 1,
+        summary: 'Hey Jude',
+        tags: [Tag.SQL, Tag.SQLServer],
+      },
+      {
+        name: 'The King of Limbs',
+        category: 'Databases',
+        years: 1,
+        summary: 'Let It Be',
+        tags: [Tag.SQL, Tag.PostgreSQL],
+      },
+      {
+        name: 'A Moon Shaped Pool',
+        category: 'Databases',
+        years: 1,
+        summary: 'Yesterday',
+        tags: [Tag.PHP],
+      },
+      {
+        name: 'Come Together',
+        category: 'Databases',
+        years: 1,
+        summary: 'Here Comes the Sun',
+      },
+    ],
+  },
+]
+
+const sqlServerProject: ProjectObject = {
+  something: {
+    ...project,
+    id: 'something',
+    name: 'Something',
+    tags: new Set([Tag.SQL, Tag.SQLServer]),
+  },
+}
+
+describe('GIVEN using Skills', () => {
   const setUp = (skillGroups: SkillGroup[], projects: ProjectObject = {}) => {
     mockSkillGroups = skillGroups
 
@@ -25,138 +89,71 @@ describe('Skills', () => {
   const card = (skillName: string) =>
     screen.getByRole('article', { name: skillName })
 
-  describe('GIVEN skills in two categories', () => {
-    describe('WHEN the page renders', () => {
-      beforeEach(() => {
-        setUp([
-          {
-            category: 'Languages',
-            skills: [
-              {
-                name: 'Pablo Honey',
-                category: 'Languages',
-                years: 15,
-                summary: 'OK Computer',
-              },
-            ],
-          },
-          {
-            category: 'Testing',
-            skills: [
-              {
-                name: 'The Bends',
-                category: 'Testing',
-                years: 2,
-                summary: 'Kid A',
-              },
-            ],
-          },
-        ])
-      })
+  describe('WHEN there are skills in two categories', () => {
+    test.each([
+      ['Languages', 'Pablo Honey'],
+      ['Testing', 'The Bends'],
+    ])('THEN the %s section lists the "%s" card', (category, skillName) => {
+      setUp(twoCategories)
 
-      test.each([
-        ['Languages', 'Pablo Honey'],
-        ['Testing', 'The Bends'],
-      ])(
-        'THEN the %s section lists the "%s" card',
-        (category, skillName) => {
-          const section = screen.getByRole('region', { name: category })
+      const section = screen.getByRole('region', { name: category })
 
-          expect(
-            within(section).getByRole('heading', { level: 3, name: skillName })
-          ).toBeInTheDocument()
-        }
-      )
+      expect(
+        within(section).getByRole('heading', { level: 3, name: skillName })
+      ).toBeInTheDocument()
+    })
 
-      test('THEN a card shows its years of use', () => {
-        expect(screen.getByText('15+ years')).toBeInTheDocument()
-      })
+    test('THEN a card shows its years of use', () => {
+      setUp(twoCategories)
 
-      test('THEN a card shows its summary', () => {
-        expect(screen.getByText('OK Computer')).toBeInTheDocument()
-      })
+      expect(screen.getByText('15+ years')).toBeInTheDocument()
+    })
+
+    test('THEN a card shows its summary', () => {
+      setUp(twoCategories)
+
+      expect(screen.getByText('OK Computer')).toBeInTheDocument()
     })
   })
 
-  describe('GIVEN only a project tagged SQL and SQL Server', () => {
-    describe('WHEN the page renders', () => {
-      beforeEach(() => {
-        setUp(
-          [
-            {
-              category: 'Databases',
-              skills: [
-                {
-                  name: 'In Rainbows',
-                  category: 'Databases',
-                  years: 1,
-                  summary: 'Hey Jude',
-                  tags: [Tag.SQL, Tag.SQLServer],
-                },
-                {
-                  name: 'The King of Limbs',
-                  category: 'Databases',
-                  years: 1,
-                  summary: 'Let It Be',
-                  tags: [Tag.SQL, Tag.PostgreSQL],
-                },
-                {
-                  name: 'A Moon Shaped Pool',
-                  category: 'Databases',
-                  years: 1,
-                  summary: 'Yesterday',
-                  tags: [Tag.PHP],
-                },
-                {
-                  name: 'Come Together',
-                  category: 'Databases',
-                  years: 1,
-                  summary: 'Here Comes the Sun',
-                },
-              ],
-            },
-          ],
-          {
-            something: {
-              ...project,
-              id: 'something',
-              name: 'Something',
-              tags: new Set([Tag.SQL, Tag.SQLServer]),
-            },
-          }
-        )
-      })
+  describe('WHEN the only project is tagged SQL and SQL Server', () => {
+    test('THEN "See projects" links to the projects for the language tag', () => {
+      setUp(databaseSkills, sqlServerProject)
 
-      test('THEN "See projects" links to the projects for the language tag', () => {
-        expect(
-          within(card('In Rainbows')).getByRole('link', {
-            name: 'See projects',
-          })
-        ).toHaveAttribute('href', '/portfolio?tag=SQL')
-      })
-
-      test('THEN a later tag links to the projects for that tag', () => {
-        expect(
-          within(card('In Rainbows')).getByRole('link', { name: 'SQL Server' })
-        ).toHaveAttribute('href', '/portfolio?tag=SQL+Server')
-      })
-
-      test('THEN a later tag no project carries has no link', () => {
-        expect(
-          within(card('The King of Limbs')).queryByRole('link', {
-            name: 'PostgreSQL',
-          })
-        ).not.toBeInTheDocument()
-      })
-
-      test.each(['A Moon Shaped Pool', 'Come Together'])(
-        'THEN the "%s" card, with no tag any project carries, has no links',
-        (skillName) => {
-          expect(
-            within(card(skillName)).queryByRole('link')
-          ).not.toBeInTheDocument()
-        }
-      )
+      expect(
+        within(card('In Rainbows')).getByRole('link', {
+          name: 'See projects',
+        })
+      ).toHaveAttribute('href', '/portfolio?tag=SQL')
     })
+
+    test('THEN a later tag links to the projects for that tag', () => {
+      setUp(databaseSkills, sqlServerProject)
+
+      expect(
+        within(card('In Rainbows')).getByRole('link', { name: 'SQL Server' })
+      ).toHaveAttribute('href', '/portfolio?tag=SQL+Server')
+    })
+
+    test('THEN a later tag no project carries has no link', () => {
+      setUp(databaseSkills, sqlServerProject)
+
+      expect(
+        within(card('The King of Limbs')).queryByRole('link', {
+          name: 'PostgreSQL',
+        })
+      ).not.toBeInTheDocument()
+    })
+
+    test.each(['A Moon Shaped Pool', 'Come Together'])(
+      'THEN the "%s" card, with no tag any project carries, has no links',
+      (skillName) => {
+        setUp(databaseSkills, sqlServerProject)
+
+        expect(
+          within(card(skillName)).queryByRole('link')
+        ).not.toBeInTheDocument()
+      }
+    )
   })
 })
