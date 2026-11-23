@@ -4,7 +4,9 @@ import { mockOsColorScheme } from '../testUtil'
 import { darkTheme, lightTheme } from '../theme/theme'
 import { useColorScheme } from './useColorScheme'
 
-describe('useColorScheme', () => {
+describe('GIVEN using useColorScheme', () => {
+  const setUp = () => renderHook(() => useColorScheme()).result
+
   afterEach(() => {
     localStorage.clear()
     delete document.documentElement.dataset.theme
@@ -12,29 +14,28 @@ describe('useColorScheme', () => {
     document.head.innerHTML = ''
   })
 
-  test('GIVEN the no-flash script chose dark and the OS prefers light WHEN the hook mounts THEN the mode is dark', () => {
+  test('WHEN the no-flash script chose dark and the OS prefers light THEN the mode is dark', () => {
     document.documentElement.dataset.theme = 'dark'
     mockOsColorScheme('light')
 
-    const { result } = renderHook(() => useColorScheme())
+    const result = setUp()
 
     expect(result.current.mode).toBe('dark')
   })
 
-  test('GIVEN no data-theme is set and the OS prefers dark WHEN the hook mounts THEN the mode is dark', () => {
+  test('WHEN no data-theme is set and the OS prefers dark THEN the mode is dark', () => {
     mockOsColorScheme('dark')
 
-    const { result } = renderHook(() => useColorScheme())
+    const result = setUp()
 
     expect(result.current.mode).toBe('dark')
   })
 
-  test('GIVEN light mode WHEN toggling THEN the page switches to dark and remembers it', () => {
+  test('WHEN toggled from light mode THEN the page switches to dark and remembers it', () => {
     document.head.innerHTML = `<meta name="theme-color" content="${lightTheme.colors.bg}" />`
     document.documentElement.dataset.theme = 'light'
     mockOsColorScheme('light')
-
-    const { result } = renderHook(() => useColorScheme())
+    const result = setUp()
 
     act(() => result.current.toggle())
 
@@ -48,40 +49,39 @@ describe('useColorScheme', () => {
     )
   })
 
-  test('GIVEN nothing is saved WHEN the OS switches to dark THEN the page follows without saving it', () => {
-    document.documentElement.dataset.theme = 'light'
-    const os = mockOsColorScheme('light')
+  describe('WHEN the OS changes colour scheme', () => {
+    test('AND nothing is saved THEN the page follows it without saving', () => {
+      document.documentElement.dataset.theme = 'light'
+      const os = mockOsColorScheme('light')
+      const result = setUp()
 
-    const { result } = renderHook(() => useColorScheme())
+      act(() => os.changeTo('dark'))
 
-    act(() => os.changeTo('dark'))
+      expect(result.current.mode).toBe('dark')
+      expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
+      expect(localStorage.getItem('theme')).toBeNull()
+    })
 
-    expect(result.current.mode).toBe('dark')
-    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
-    expect(localStorage.getItem('theme')).toBeNull()
-  })
+    test('AND the visitor toggled to dark THEN the page stays dark', () => {
+      document.documentElement.dataset.theme = 'light'
+      const os = mockOsColorScheme('light')
+      const result = setUp()
 
-  test('GIVEN the visitor toggled to dark WHEN the OS switches to light THEN the page stays dark', () => {
-    document.documentElement.dataset.theme = 'light'
-    const os = mockOsColorScheme('light')
+      act(() => result.current.toggle())
+      act(() => os.changeTo('light'))
 
-    const { result } = renderHook(() => useColorScheme())
+      expect(result.current.mode).toBe('dark')
+    })
 
-    act(() => result.current.toggle())
-    act(() => os.changeTo('light'))
+    test('AND dark was saved on an earlier visit THEN the page stays dark', () => {
+      localStorage.setItem('theme', 'dark')
+      document.documentElement.dataset.theme = 'dark'
+      const os = mockOsColorScheme('dark')
+      const result = setUp()
 
-    expect(result.current.mode).toBe('dark')
-  })
+      act(() => os.changeTo('light'))
 
-  test('GIVEN dark was saved on an earlier visit WHEN the OS switches to light THEN the page stays dark', () => {
-    localStorage.setItem('theme', 'dark')
-    document.documentElement.dataset.theme = 'dark'
-    const os = mockOsColorScheme('dark')
-
-    const { result } = renderHook(() => useColorScheme())
-
-    act(() => os.changeTo('light'))
-
-    expect(result.current.mode).toBe('dark')
+      expect(result.current.mode).toBe('dark')
+    })
   })
 })
