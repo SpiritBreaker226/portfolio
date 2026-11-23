@@ -7,22 +7,28 @@ import { ThemeToggle } from './ThemeToggle'
 const toDarkLabel = 'Switch to dark mode'
 const toLightLabel = 'Switch to light mode'
 
-describe('ThemeToggle', () => {
+describe('GIVEN using ThemeToggle in light mode', () => {
+  const setUp = () => {
+    const user = userEvent.setup()
+    render(<ThemeToggle />)
+
+    return user
+  }
+
   afterEach(() => {
     localStorage.clear()
     delete document.documentElement.dataset.theme
     document.documentElement.removeAttribute('style')
   })
 
-  test('GIVEN light mode WHEN the toggle renders THEN it offers dark mode', () => {
-    render(<ThemeToggle />)
+  test('THEN it offers dark mode', () => {
+    setUp()
 
     expect(screen.getByRole('button', { name: toDarkLabel })).toBeInTheDocument()
   })
 
-  test('GIVEN light mode WHEN the toggle is clicked THEN it offers light mode', async () => {
-    const user = userEvent.setup()
-    render(<ThemeToggle />)
+  test('WHEN it is clicked THEN it offers light mode', async () => {
+    const user = setUp()
 
     await user.click(screen.getByRole('button', { name: toDarkLabel }))
 
@@ -33,10 +39,9 @@ describe('ThemeToggle', () => {
     ['Enter', '{Enter}'],
     ['Space', ' '],
   ])(
-    'GIVEN light mode WHEN the toggle is focused with Tab and %s is pressed THEN it offers light mode',
+    'WHEN it is focused with Tab and %s is pressed THEN it offers light mode',
     async (_keyName, key) => {
-      const user = userEvent.setup()
-      render(<ThemeToggle />)
+      const user = setUp()
 
       await user.tab()
       await user.keyboard(key)

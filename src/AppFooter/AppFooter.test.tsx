@@ -4,12 +4,12 @@ import { config } from '../config'
 import { render } from '../testUtil'
 import { AppFooter } from './AppFooter'
 
-describe('AppFooter', () => {
+describe('GIVEN using AppFooter', () => {
   afterEach(() => {
     jest.useRealTimers()
   })
 
-  test('GIVEN the year is 1979 WHEN the footer renders THEN the copyright shows 1979', () => {
+  test('WHEN the year is 1979 THEN the copyright shows 1979', () => {
     jest.useFakeTimers({ now: new Date(1979, 5, 1) })
 
     render(<AppFooter />)
@@ -19,7 +19,7 @@ describe('AppFooter', () => {
     ).toBeInTheDocument()
   })
 
-  test('GIVEN the footer WHEN it renders THEN the Social nav links only GitHub, LinkedIn and DEV, in that order', () => {
+  test('THEN the Social nav links only GitHub, LinkedIn and DEV, in that order', () => {
     render(<AppFooter />)
 
     expect(
