@@ -12,6 +12,19 @@ let mockErrorFromServer = ''
 
 const List: FC = () => <div>List all posts</div>
 
+const posts = [
+  {
+    ...post,
+    id: 1,
+    title: 'The Real World',
+  },
+  {
+    ...post,
+    id: 2,
+    title: 'The Real Fake',
+  },
+]
+
 jest.mock('../hooks', () => ({
   ...jest.requireActual('../hooks'),
   useBlog: () => ({
@@ -21,7 +34,7 @@ jest.mock('../hooks', () => ({
   }),
 }))
 
-describe('Blog', () => {
+describe('GIVEN using Blog', () => {
   const setUp = (state: Partial<InitialState> = {}, dispatch = mockDispatch) =>
     render(
       <AppProvider state={{ ...initialState, ...state }} dispatch={dispatch}>
@@ -36,28 +49,15 @@ describe('Blog', () => {
     mockErrorFromServer = ''
   })
 
-  it('should show post skeleton', async () => {
+  test('WHEN posts are loading THEN it shows the post skeleton', async () => {
     mockIsLoading = true
 
     setUp()
 
-    await screen.findByRole('tablist')
+    expect(await screen.findByRole('tablist')).toBeInTheDocument()
   })
 
-  it('should show posts', async () => {
-    const posts = [
-      {
-        ...post,
-        id: 1,
-        title: 'The Real World',
-      },
-      {
-        ...post,
-        id: 2,
-        title: 'The Real Fake',
-      },
-    ]
-
+  test('WHEN the server returns posts THEN it adds them to the state and shows the list', async () => {
     mockGetPosts.mockReturnValue(posts)
 
     setUp()
@@ -70,45 +70,27 @@ describe('Blog', () => {
         })
       )
     )
-
-    await screen.findByText(/list all posts/i)
+    expect(await screen.findByText(/list all posts/i)).toBeInTheDocument()
   })
 
-  describe('when there is an error', () => {
-    it('should show the error message', async () => {
-      mockErrorFromServer = 'error'
+  test('WHEN the server returns an error THEN it shows the error message', async () => {
+    mockErrorFromServer = 'error'
 
-      setUp()
+    setUp()
 
-      await screen.findByText(/error/i)
-    })
+    expect(await screen.findByText(/error/i)).toBeInTheDocument()
   })
 
-  describe('when there is already posts', () => {
-    it('should not update data', async () => {
-      const posts = [
-        {
-          ...post,
-          id: 1,
-          title: 'The Real World',
-        },
-        {
-          ...post,
-          id: 2,
-          title: 'The Real Fake',
-        },
-      ]
+  test('WHEN posts are already in the state THEN it does not add them again', async () => {
+    setUp({ posts })
 
-      setUp({ posts })
-
-      await waitFor(() =>
-        expect(mockDispatch).not.toHaveBeenCalledWith(
-          expect.objectContaining({
-            type: Types.AddPosts,
-            payload: { posts: expect.arrayContaining<Post>([posts[0]]) },
-          })
-        )
+    await waitFor(() =>
+      expect(mockDispatch).not.toHaveBeenCalledWith(
+        expect.objectContaining({
+          type: Types.AddPosts,
+          payload: { posts: expect.arrayContaining<Post>([posts[0]]) },
+        })
       )
-    })
+    )
   })
 })
