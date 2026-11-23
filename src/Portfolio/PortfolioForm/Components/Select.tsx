@@ -4,7 +4,6 @@ import ReactDropdownSelect, {
 } from 'react-dropdown-select'
 import styled, { useTheme } from 'styled-components'
 
-import { titleCase } from '../../../AppBody/helpers'
 import { fieldLabelStyle, fieldStyle } from '../../../Components'
 import { useApp } from '../../../context'
 import { Types } from '../../../types'
@@ -111,14 +110,18 @@ export const Select = <T extends string | object>({
   >([])
 
   useEffect(() => {
-    // for the non-multi version of the component
+    // Selected values show their option's label, so names such as
+    // "SQL Server" keep their casing.
     setReactSelectValues(
-      values.map((value) => ({
-        label: titleCase(value as string),
-        value,
-      }))
+      values.map(
+        (value) =>
+          options.find((option) => option.value === value) ?? {
+            label: String(value),
+            value,
+          }
+      )
     )
-  }, [values])
+  }, [values, options])
 
   const handleChange = (values: SelectFieldValue<T>[]) => {
     const currentSelectValues = multi

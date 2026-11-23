@@ -21,6 +21,16 @@ describe('Select', () => {
     await screen.findByText(/world/i)
   })
 
+  test('GIVEN a selected value WHEN the select renders THEN it shows the label of its option', () => {
+    setUp({
+      multi: true,
+      values: ['ok computer'],
+      options: [{ label: 'OK Computer', value: 'ok computer' }],
+    })
+
+    expect(screen.getByText('OK Computer')).toBeInTheDocument()
+  })
+
   describe('when selecting an element', () => {
     it('should call a single element', async () => {
       setUp({
