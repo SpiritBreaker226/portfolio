@@ -1,8 +1,8 @@
 import { Skill } from '../types'
 import { groupSkillsByCategory } from './groupSkillsByCategory'
 
-describe('groupSkillsByCategory', () => {
-  test('GIVEN skills out of category order WHEN grouping THEN groups follow the category order, keep skill order and leave out empty categories', () => {
+describe('GIVEN using groupSkillsByCategory', () => {
+  test('WHEN skills are out of category order THEN the groups follow the category order, keep skill order and leave out empty categories', () => {
     const pabloHoney: Skill = {
       name: 'Pablo Honey',
       category: 'Testing',
