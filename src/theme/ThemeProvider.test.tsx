@@ -4,12 +4,12 @@ import { mockOsColorScheme } from '../testUtil'
 import { darkTheme } from './theme'
 import { ThemeProvider } from './ThemeProvider'
 
-describe('ThemeProvider', () => {
+describe('GIVEN using ThemeProvider', () => {
   afterEach(() => {
     delete document.documentElement.dataset.theme
   })
 
-  test('GIVEN the page was painted dark and the OS prefers light WHEN the provider renders THEN the body uses the dark background', () => {
+  test('WHEN the page was painted dark and the OS prefers light THEN the body uses the dark background', () => {
     document.documentElement.dataset.theme = 'dark'
     mockOsColorScheme('light')
 

@@ -4,8 +4,8 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './GlobalStyle'
 import { lightTheme } from './theme'
 
-describe('GlobalStyle', () => {
-  test('GIVEN a theme with its own text colour WHEN GlobalStyle renders THEN the body uses that colour', () => {
+describe('GIVEN using GlobalStyle', () => {
+  test('WHEN the theme has its own text colour THEN the body uses that colour', () => {
     const textColor = '#123456'
 
     render(

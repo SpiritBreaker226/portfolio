@@ -26,7 +26,7 @@ const runNoFlashScript = () => {
   new Function(script?.textContent ?? '')()
 }
 
-describe('no-flash script', () => {
+describe('GIVEN using the no-flash script', () => {
   afterEach(() => {
     jest.restoreAllMocks()
     localStorage.clear()
@@ -35,77 +35,79 @@ describe('no-flash script', () => {
     document.head.innerHTML = ''
   })
 
-  test('GIVEN dark is saved and the OS prefers light WHEN the script runs THEN the page is dark', () => {
-    localStorage.setItem('theme', 'dark')
-    mockOsColorScheme('light')
-
-    runNoFlashScript()
-
-    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
-  })
-
-  test.each(['dark', 'light'] as const)(
-    'GIVEN nothing is saved and the OS prefers %s WHEN the script runs THEN the page follows the OS',
-    (scheme) => {
-      mockOsColorScheme(scheme)
+  describe('WHEN the script runs', () => {
+    test('AND dark is saved while the OS prefers light THEN the page is dark', () => {
+      localStorage.setItem('theme', 'dark')
+      mockOsColorScheme('light')
 
       runNoFlashScript()
 
-      expect(document.documentElement).toHaveAttribute('data-theme', scheme)
-    }
-  )
-
-  test('GIVEN an unknown value is saved and the OS prefers dark WHEN the script runs THEN the page is dark', () => {
-    localStorage.setItem('theme', 'Pablo Honey')
-    mockOsColorScheme('dark')
-
-    runNoFlashScript()
-
-    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
-  })
-
-  test('GIVEN reading storage throws and the OS prefers dark WHEN the script runs THEN the page is dark', () => {
-    jest.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
-      throw new Error('The Bends')
+      expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
     })
-    mockOsColorScheme('dark')
 
-    runNoFlashScript()
+    test.each(['dark', 'light'] as const)(
+      'AND nothing is saved while the OS prefers %s THEN the page follows the OS',
+      (scheme) => {
+        mockOsColorScheme(scheme)
 
-    expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
+        runNoFlashScript()
+
+        expect(document.documentElement).toHaveAttribute('data-theme', scheme)
+      }
+    )
+
+    test('AND an unknown value is saved while the OS prefers dark THEN the page is dark', () => {
+      localStorage.setItem('theme', 'Pablo Honey')
+      mockOsColorScheme('dark')
+
+      runNoFlashScript()
+
+      expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
+    })
+
+    test('AND reading storage throws while the OS prefers dark THEN the page is dark', () => {
+      jest.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+        throw new Error('The Bends')
+      })
+      mockOsColorScheme('dark')
+
+      runNoFlashScript()
+
+      expect(document.documentElement).toHaveAttribute('data-theme', 'dark')
+    })
+
+    test.each([
+      ['dark', darkTheme.colors.bg],
+      ['light', lightTheme.colors.bg],
+    ] as const)(
+      'AND the OS prefers %s THEN the browser UI follows it and the theme colour is %s',
+      (scheme, themeColor) => {
+        mockOsColorScheme(scheme)
+
+        runNoFlashScript()
+
+        expect(document.documentElement).toHaveStyle(`color-scheme: ${scheme}`)
+        expect(document.querySelector('meta[name="theme-color"]')).toHaveAttribute(
+          'content',
+          themeColor
+        )
+      }
+    )
+
+    test.each([
+      ['dark', darkTheme.colors.bg],
+      ['light', lightTheme.colors.bg],
+    ] as const)(
+      'AND the OS prefers %s THEN the page background is %s before the app styles load',
+      (scheme, background) => {
+        mockOsColorScheme(scheme)
+
+        runNoFlashScript()
+
+        expect(document.documentElement).toHaveStyle(
+          `background-color: ${background}`
+        )
+      }
+    )
   })
-
-  test.each([
-    ['dark', darkTheme.colors.bg],
-    ['light', lightTheme.colors.bg],
-  ] as const)(
-    'GIVEN the OS prefers %s WHEN the script runs THEN the browser UI follows it and the theme colour is %s',
-    (scheme, themeColor) => {
-      mockOsColorScheme(scheme)
-
-      runNoFlashScript()
-
-      expect(document.documentElement).toHaveStyle(`color-scheme: ${scheme}`)
-      expect(document.querySelector('meta[name="theme-color"]')).toHaveAttribute(
-        'content',
-        themeColor
-      )
-    }
-  )
-
-  test.each([
-    ['dark', darkTheme.colors.bg],
-    ['light', lightTheme.colors.bg],
-  ] as const)(
-    'GIVEN the OS prefers %s WHEN the script runs THEN the page background is %s before the app styles load',
-    (scheme, background) => {
-      mockOsColorScheme(scheme)
-
-      runNoFlashScript()
-
-      expect(document.documentElement).toHaveStyle(
-        `background-color: ${background}`
-      )
-    }
-  )
 })

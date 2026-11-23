@@ -8,8 +8,8 @@ const Skeleton = styled.div`
   ${loadingStyle}
 `
 
-describe('loadingStyle', () => {
-  test('GIVEN a theme with its own loading background WHEN a component uses loadingStyle THEN it uses that background', () => {
+describe('GIVEN using loadingStyle', () => {
+  test('WHEN the theme has its own loading background THEN the component uses that background', () => {
     const background = '#123456'
 
     render(
