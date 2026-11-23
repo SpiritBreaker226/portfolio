@@ -11,22 +11,27 @@ jest.mock('../hooks', () => ({
   usePortfolio: () => ({ getPortfolios: mockGetPortfolios }),
 }))
 
-describe('AppBody', () => {
-  afterEach(() => {
-    window.history.pushState({}, '', '/')
-  })
-
-  test('GIVEN a fresh visit to a project page WHEN the app renders THEN the project is shown', async () => {
-    mockGetPortfolios.mockReturnValue([
-      { ...project, id: 'pablo-honey', name: 'Pablo Honey' },
-    ])
-    window.history.pushState({}, '', '/portfolio/pablo-honey')
+describe('GIVEN using AppBody', () => {
+  const setUp = (url: string) => {
+    window.history.pushState({}, '', url)
 
     render(
       <AppProvider>
         <AppBody />
       </AppProvider>
     )
+  }
+
+  afterEach(() => {
+    window.history.pushState({}, '', '/')
+  })
+
+  test('WHEN a project page is opened directly THEN the project is shown', async () => {
+    mockGetPortfolios.mockReturnValue([
+      { ...project, id: 'pablo-honey', name: 'Pablo Honey' },
+    ])
+
+    setUp('/portfolio/pablo-honey')
 
     expect(await screen.findByText('Pablo Honey')).toBeInTheDocument()
   })

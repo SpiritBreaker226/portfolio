@@ -16,28 +16,29 @@ jest.mock('./helpers', () => ({
   titleCase: () => mockTitleCase,
 }))
 
-describe('PageHeader', () => {
-  const setUp = () => render(<PageHeader />)
+describe('GIVEN using PageHeader', () => {
+  const setUp = (pageTitle: string) => {
+    mockTitleCase = pageTitle
+
+    render(<PageHeader />)
+  }
 
   afterEach(() => {
     mockTitleCase = ''
   })
 
-  describe('when no path is found', () => {
-    it('should default to "Page Not Found"', async () => {
-      mockUseLocation.mockReturnValue({ pathname: '' })
-      mockTitleCase = ''
+  test('WHEN the path has no page title THEN the heading is "Page Not Found"', async () => {
+    mockUseLocation.mockReturnValue({ pathname: '' })
 
-      setUp()
+    setUp('')
 
+    expect(
       await screen.findByRole('heading', { level: 1, name: 'Page Not Found' })
-    })
+    ).toBeInTheDocument()
   })
 
-  test('GIVEN a page title from the path WHEN the header renders THEN the title is the level-1 heading', () => {
-    mockTitleCase = 'Wonderwall'
-
-    setUp()
+  test('WHEN the path has a page title THEN it is the level-1 heading', () => {
+    setUp('Wonderwall')
 
     expect(
       screen.getByRole('heading', { level: 1, name: 'Wonderwall' })
