@@ -7,7 +7,7 @@ export const skillSet: Skill[] = [
     years: 15,
     summary:
       'The language of the browser, used for interactive interfaces, single-page apps and Node.js services.',
-    tag: Tag.JavaScript,
+    tags: [Tag.JavaScript],
   },
   {
     name: 'TypeScript',
@@ -15,6 +15,7 @@ export const skillSet: Skill[] = [
     years: 10,
     summary:
       'JavaScript with static types, which catch mistakes before the code runs and make large codebases easier to change.',
+    tags: [Tag.JavaScript],
   },
   {
     name: 'Ruby',
@@ -22,7 +23,7 @@ export const skillSet: Skill[] = [
     years: 3,
     summary:
       'A dynamic language built for readable code, best known as the language behind Ruby on Rails.',
-    tag: Tag.Ruby,
+    tags: [Tag.Ruby],
   },
   {
     name: 'HTML',
@@ -30,7 +31,7 @@ export const skillSet: Skill[] = [
     years: 15,
     summary:
       'The markup that gives a web page its structure and meaning, which also shapes how assistive technology reads it.',
-    tag: Tag.HTML,
+    tags: [Tag.HTML],
   },
   {
     name: 'CSS',
@@ -38,7 +39,7 @@ export const skillSet: Skill[] = [
     years: 15,
     summary:
       'The styling language of the web, used for layout, typography, theming and responsive design.',
-    tag: Tag.CSS,
+    tags: [Tag.CSS],
   },
   {
     name: 'React',
@@ -46,7 +47,7 @@ export const skillSet: Skill[] = [
     years: 10,
     summary:
       'A library for building user interfaces from reusable components that update when their data changes.',
-    tag: Tag.ReactJS,
+    tags: [Tag.JavaScript, Tag.ReactJS],
   },
   {
     name: 'Redux',
@@ -54,6 +55,7 @@ export const skillSet: Skill[] = [
     years: 5,
     summary:
       'A predictable state container that keeps app state in one store, updated only through actions.',
+    tags: [Tag.ReactJS],
   },
   {
     name: 'Apollo',
@@ -82,6 +84,7 @@ export const skillSet: Skill[] = [
     years: 2,
     summary:
       'A JavaScript runtime outside the browser, used for servers, APIs, scripts and build tools.',
+    tags: [Tag.JavaScript],
   },
   {
     name: 'Express',
@@ -89,6 +92,7 @@ export const skillSet: Skill[] = [
     years: 2,
     summary:
       'A minimal Node.js web framework for routing requests and building APIs.',
+    tags: [Tag.JavaScript],
   },
   {
     name: 'Ruby on Rails',
@@ -96,7 +100,7 @@ export const skillSet: Skill[] = [
     years: 3,
     summary:
       'A full-stack Ruby framework that favours convention over configuration for database-backed web apps.',
-    tag: Tag.Rails,
+    tags: [Tag.Ruby, Tag.Rails],
   },
   {
     name: 'GraphQL',
@@ -118,7 +122,7 @@ export const skillSet: Skill[] = [
     years: 3,
     summary:
       'An open-source relational database known for standards compliance, reliability and rich data types.',
-    tag: Tag.PostgreSQL,
+    tags: [Tag.SQL, Tag.PostgreSQL],
   },
   {
     name: 'MySQL',
@@ -126,7 +130,7 @@ export const skillSet: Skill[] = [
     years: 2,
     summary:
       'A widely used open-source relational database, common in web hosting and content sites.',
-    tag: Tag.mySQL,
+    tags: [Tag.SQL, Tag.mySQL],
   },
   {
     name: 'SQL Server',
@@ -134,7 +138,7 @@ export const skillSet: Skill[] = [
     years: 3,
     summary:
       "Microsoft's relational database, common in business applications and the .NET ecosystem.",
-    tag: Tag.SQLServer,
+    tags: [Tag.SQL, Tag.SQLServer],
   },
   {
     name: 'Jest',
@@ -142,6 +146,7 @@ export const skillSet: Skill[] = [
     years: 5,
     summary:
       'A JavaScript test runner with built-in assertions, mocking and coverage.',
+    tags: [Tag.JavaScript],
   },
   {
     name: 'React Testing Library',
@@ -149,6 +154,7 @@ export const skillSet: Skill[] = [
     years: 6,
     summary:
       'Tests React components the way people use them, by finding elements through roles, labels and text.',
+    tags: [Tag.JavaScript, Tag.ReactJS],
   },
   {
     name: 'RSpec',
@@ -156,6 +162,7 @@ export const skillSet: Skill[] = [
     years: 3,
     summary:
       'A behaviour-driven testing framework for Ruby with readable, spec-style tests.',
+    tags: [Tag.Ruby, Tag.Rails],
   },
   {
     name: 'Cypress',
@@ -191,7 +198,7 @@ export const skillSet: Skill[] = [
     years: 11,
     summary:
       'Distributed version control for tracking changes, branching and collaborating on code.',
-    tag: Tag.Git,
+    tags: [Tag.Git],
   },
   {
     name: 'Okta',

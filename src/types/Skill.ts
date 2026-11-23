@@ -21,8 +21,11 @@ export type Skill = {
   years: number
   /** One or two general sentences on what the skill is used for. */
   summary: string
-  /** Portfolio tag that lists the projects using this skill. */
-  tag?: Tag
+  /**
+   * Portfolio tags that list the projects using this skill, language tag
+   * first (e.g. `SQL` before `SQL Server`).
+   */
+  tags?: Tag[]
 }
 
 export type SkillGroup = {
