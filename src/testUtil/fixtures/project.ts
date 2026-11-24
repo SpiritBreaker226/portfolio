@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker'
 import { Platform, Project, ProjectType, Tag } from '../../types'
 
 export const project: Project = {
-  id: faker.datatype.uuid(),
+  id: faker.string.uuid(),
   name: faker.company.name(),
   description: faker.hacker.phrase(),
   responsibilities: faker.helpers.arrayElements([
@@ -21,7 +21,7 @@ export const project: Project = {
       Tag['Phonegap'],
     ])
   ),
-  teamSize: Number(faker.random.numeric()),
+  teamSize: Number(faker.string.numeric()),
   platforms: new Set(
     faker.helpers.arrayElements([
       Platform['mobile'],
@@ -31,7 +31,7 @@ export const project: Project = {
   ),
   type: faker.helpers.arrayElement([ProjectType['Close'], ProjectType['Open']]),
   url: faker.helpers.arrayElement([faker.internet.url(), '']),
-  icon: faker.image.business(128, 128),
+  icon: faker.image.url({ width: 128, height: 128 }),
   sampleCodeUrl: faker.helpers.arrayElement([faker.internet.url(), '']),
   isFeature: faker.datatype.boolean(),
 }

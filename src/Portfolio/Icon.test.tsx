@@ -6,7 +6,7 @@ import { Icon, IconProps } from './Icon'
 
 describe('GIVEN using Icon', () => {
   const defaultProps: IconProps = {
-    src: faker.image.business(128, 128),
+    src: faker.image.url({ width: 128, height: 128 }),
     name: faker.company.name(),
   }
 
