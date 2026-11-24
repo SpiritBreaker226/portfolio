@@ -48,8 +48,8 @@ export const post: Post = {
     .join(', '),
   user: {
     name: faker.person.fullName(),
-    username: faker.internet.userName(),
-    github_username: faker.internet.userName(),
+    username: faker.internet.username(),
+    github_username: faker.internet.username(),
     user_id: faker.number.int(8),
     website_url: faker.internet.url(),
     profile_image: faker.image.avatar(),
