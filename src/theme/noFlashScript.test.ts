@@ -28,7 +28,7 @@ const runNoFlashScript = () => {
 
 describe('GIVEN using the no-flash script', () => {
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
     localStorage.clear()
     delete document.documentElement.dataset.theme
     document.documentElement.removeAttribute('style')
@@ -66,7 +66,7 @@ describe('GIVEN using the no-flash script', () => {
     })
 
     test('AND reading storage throws while the OS prefers dark THEN the page is dark', () => {
-      jest.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
         throw new Error('The Bends')
       })
       mockOsColorScheme('dark')

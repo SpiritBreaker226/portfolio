@@ -4,10 +4,10 @@ import { AppProvider } from '../context'
 import { project, render } from '../testUtil'
 import { AppBody } from './AppBody'
 
-const mockGetPortfolios = jest.fn()
+const mockGetPortfolios = vi.fn()
 
-jest.mock('../hooks', () => ({
-  ...jest.requireActual('../hooks'),
+vi.mock('../hooks', async () => ({
+  ...(await vi.importActual('../hooks')),
   usePortfolio: () => ({ getPortfolios: mockGetPortfolios }),
 }))
 

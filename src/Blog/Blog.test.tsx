@@ -5,8 +5,8 @@ import { AppProvider, initialState, post, render } from '../testUtil'
 import { InitialState, Post, Types } from '../types'
 import { Blog } from './Blog'
 
-const mockDispatch = jest.fn()
-const mockGetPosts = jest.fn()
+const mockDispatch = vi.fn()
+const mockGetPosts = vi.fn()
 let mockIsLoading = false
 let mockErrorFromServer = ''
 
@@ -25,8 +25,8 @@ const posts = [
   },
 ]
 
-jest.mock('../hooks', () => ({
-  ...jest.requireActual('../hooks'),
+vi.mock('../hooks', async () => ({
+  ...(await vi.importActual('../hooks')),
   useBlog: () => ({
     getPosts: mockGetPosts,
     isLoading: mockIsLoading,

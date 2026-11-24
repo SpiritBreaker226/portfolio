@@ -4,15 +4,15 @@ import { render } from '../testUtil'
 
 import { PageHeader } from './PageHeader'
 
-const mockUseLocation = jest.fn()
+const mockUseLocation = vi.fn()
 let mockTitleCase = ''
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
+vi.mock('react-router-dom', async () => ({
+  ...(await vi.importActual('react-router-dom')),
   useLocation: () => mockUseLocation,
 }))
 
-jest.mock('./helpers', () => ({
+vi.mock('./helpers', () => ({
   titleCase: () => mockTitleCase,
 }))
 

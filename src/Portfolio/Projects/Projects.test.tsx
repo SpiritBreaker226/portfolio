@@ -5,7 +5,7 @@ import { AppProvider, initialState, project, render } from '../../testUtil'
 import { InitialState } from '../../types'
 import { Projects, ProjectsProps } from './Projects'
 
-const mockDispatch = jest.fn()
+const mockDispatch = vi.fn()
 
 describe('GIVEN using Projects', () => {
   const defaultProps: ProjectsProps = {

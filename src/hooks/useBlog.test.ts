@@ -5,8 +5,8 @@ import { post } from '../testUtil'
 import { Post as PostType } from '../types'
 import { useBlog } from './useBlog'
 
-jest.mock('axios')
-const mockedAxios = axios as jest.Mocked<typeof axios>
+vi.mock('axios')
+const mockedAxios = vi.mocked(axios, true)
 
 describe('GIVEN using useBlog', () => {
   const setUp = () => renderHook(() => useBlog()).result

@@ -6,11 +6,11 @@ import { AppFooter } from './AppFooter'
 
 describe('GIVEN using AppFooter', () => {
   afterEach(() => {
-    jest.useRealTimers()
+    vi.useRealTimers()
   })
 
   test('WHEN the year is 1979 THEN the copyright shows 1979', () => {
-    jest.useFakeTimers({ now: new Date(1979, 5, 1) })
+    vi.useFakeTimers({ now: new Date(1979, 5, 1) })
 
     render(<AppFooter />)
 

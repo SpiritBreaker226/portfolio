@@ -19,7 +19,7 @@ export const mockOsColorScheme = (scheme: ColorScheme) => {
   let currentScheme = scheme
   const listeners = new Set<(event: MediaQueryListEvent) => void>()
 
-  window.matchMedia = jest.fn(
+  window.matchMedia = vi.fn(
     (query: string) =>
       ({
         get matches() {

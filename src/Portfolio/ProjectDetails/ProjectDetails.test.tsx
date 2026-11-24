@@ -5,14 +5,18 @@ import { AppProvider, initialState, project, render } from '../../testUtil'
 import { InitialState, Project } from '../../types'
 import { ProjectDetails } from './ProjectDetails'
 
-const mockDispatch = jest.fn()
+const mockDispatch = vi.fn()
 
-const Navigate = () => <div>Redirected</div>
+// `vi.mock` runs before the file's own code, so `Navigate` is hoisted
+// with it.
+const { Navigate } = vi.hoisted(() => ({
+  Navigate: () => <div>Redirected</div>,
+}))
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
+vi.mock('react-router-dom', async () => ({
+  ...(await vi.importActual('react-router-dom')),
   useParams: () => ({ id: 'testId' }),
-  useNavigate: () => jest.fn(),
+  useNavigate: () => vi.fn(),
   Navigate,
 }))
 

@@ -3,7 +3,7 @@ import { resolveColorScheme, saveColorScheme } from './colorScheme'
 
 describe('GIVEN using colorScheme', () => {
   afterEach(() => {
-    jest.restoreAllMocks()
+    vi.restoreAllMocks()
     localStorage.clear()
   })
 
@@ -32,7 +32,7 @@ describe('GIVEN using colorScheme', () => {
     })
 
     test('AND reading storage throws while the OS prefers dark THEN it is dark', () => {
-      jest.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
         throw new Error('The Bends')
       })
       mockOsColorScheme('dark')
@@ -49,7 +49,7 @@ describe('GIVEN using colorScheme', () => {
     })
 
     test('AND writing storage throws THEN it does not throw', () => {
-      jest.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
         throw new Error('OK Computer')
       })
 

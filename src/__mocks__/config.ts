@@ -1,8 +1,8 @@
 import { Config } from '../types'
 
 /**
- * Fixed app settings for Jest, which cannot parse the `import.meta.env`
- * reads in `src/config.ts`.
+ * Fixed app settings for tests, so results don't depend on the local
+ * `.env` that `src/config.ts` reads.
  *
  * @example
  * config.mode

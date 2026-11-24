@@ -6,11 +6,11 @@ import { AppProvider, initialState, project, render } from '../testUtil'
 import { InitialState, Tag } from '../types'
 import { Portfolio } from './Portfolio'
 
-const mockDispatch = jest.fn()
-const mockGetPortfolios = jest.fn()
+const mockDispatch = vi.fn()
+const mockGetPortfolios = vi.fn()
 
-jest.mock('../hooks', () => ({
-  ...jest.requireActual('../hooks'),
+vi.mock('../hooks', async () => ({
+  ...(await vi.importActual('../hooks')),
   usePortfolio: () => ({ getPortfolios: mockGetPortfolios }),
 }))
 

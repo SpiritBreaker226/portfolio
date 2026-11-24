@@ -4,7 +4,7 @@ import { AppProvider, initialState, post, render } from '../../testUtil'
 import { InitialState } from '../../types'
 import { Posts, PostsProps } from './Posts'
 
-const mockDispatch = jest.fn()
+const mockDispatch = vi.fn()
 
 const fourPosts = [
   { ...post, id: 1, title: 'The World' },

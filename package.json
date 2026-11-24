@@ -47,9 +47,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "cp .env.example .env && yarn test && tsc --noEmit && vite build",
+    "build": "cp .env.example .env && vitest run && tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "test": "vitest",
+    "test:run": "vitest run"
   }
 }

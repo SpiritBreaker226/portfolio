@@ -6,8 +6,8 @@ import { Skills } from './Skills'
 
 let mockSkillGroups: SkillGroup[] = []
 
-jest.mock('../hooks', () => ({
-  ...jest.requireActual('../hooks'),
+vi.mock('../hooks', async () => ({
+  ...(await vi.importActual('../hooks')),
   useSkills: () => mockSkillGroups,
 }))
 

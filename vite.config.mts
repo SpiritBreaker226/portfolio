@@ -10,5 +10,15 @@ export default defineConfig({
     setupFiles: ['./src/setupTests.ts'],
     include: ['src/**/*.test.{ts,tsx}'],
     mockReset: true,
+    // Vitest ignores the `browser` field in `package.json`, so it would
+    // load styled-components' server build, where `createGlobalStyle`
+    // never injects into the DOM. Vite ships the browser build, so tests
+    // use it too.
+    alias: [
+      {
+        find: /^styled-components$/,
+        replacement: 'styled-components/dist/styled-components.browser.cjs.js',
+      },
+    ],
   },
 })

@@ -3,9 +3,9 @@ import type { Config } from './types'
 /**
  * App settings read from the `VITE_*` environment variables at build time.
  *
- * This is the only module that reads `import.meta.env`, because Jest
- * cannot parse `import.meta`. Tests replace it with
- * `src/__mocks__/config.ts`.
+ * This is the only module that reads `import.meta.env`, so tests can
+ * swap every setting at once for the fixed values in
+ * `src/__mocks__/config.ts`, whatever the local `.env` holds.
  *
  * @example
  * config.developerName

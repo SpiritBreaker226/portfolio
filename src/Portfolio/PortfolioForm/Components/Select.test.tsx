@@ -3,7 +3,7 @@ import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { render } from '../../../testUtil'
 import { Select, SelectFieldProps } from './Select'
 
-const mockOnSelectChange = jest.fn()
+const mockOnSelectChange = vi.fn()
 
 describe('GIVEN using Select', () => {
   const defaultProps: SelectFieldProps<string> = {
