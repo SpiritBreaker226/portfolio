@@ -11,7 +11,7 @@ import { RefObject, useEffect } from 'react'
  * // => a mousedown outside the header, or Escape, calls setIsMenuOpen(false)
  */
 export const useCloseMobileMenu = (
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   close: () => void
 ) => {
   useEffect(() => {
