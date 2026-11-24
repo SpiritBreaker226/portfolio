@@ -21,8 +21,7 @@
     "jsx": "react-jsx",
     "types": [
       "vite/client",
-      "jest",
-      "testing-library__jest-dom"
+      "jest"
     ]
   },
   "include": [
