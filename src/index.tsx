@@ -9,7 +9,10 @@ import { config } from './config'
 Sentry.init({
   dsn: config.sentryDsn,
   environment: config.mode,
-  integrations: [new Sentry.BrowserTracing(), new Sentry.Replay()],
+  integrations: [
+    Sentry.browserTracingIntegration(),
+    Sentry.replayIntegration(),
+  ],
   // Performance Monitoring
   tracesSampleRate: config.isProduction ? 0.1 : 1.0,
   // Session Replay
