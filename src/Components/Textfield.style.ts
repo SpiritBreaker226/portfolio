@@ -15,11 +15,11 @@ export const fieldLabelStyle = css`
   font-weight: 600;
 `
 
-export const Textfield = styled.input.attrs<{ isErroring?: boolean }>(
+export const Textfield = styled.input.attrs<{ $isErroring?: boolean }>(
   (props) => ({
-    isErroring: props.isErroring || false,
+    $isErroring: props.$isErroring || false,
   })
-)<{ isErroring?: boolean }>`
+)<{ $isErroring?: boolean }>`
   ${fieldStyle}
   width: 100%;
   padding: 0 12px;
@@ -30,7 +30,7 @@ export const Textfield = styled.input.attrs<{ isErroring?: boolean }>(
   }
 
   ${(props) =>
-    props.isErroring &&
+    props.$isErroring &&
     `
     border: 0;
     outline-color: ${props.theme.colors.error};
