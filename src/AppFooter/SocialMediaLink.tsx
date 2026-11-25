@@ -60,7 +60,7 @@ export const SocialMediaLink: FC<SocialMediaLinkProps> = ({
 
   return (
     <Link href={link} target="_blank" rel="noreferrer">
-      <FontAwesomeIcon icon={iconDefinition} aria-hidden="true" />
+      <FontAwesomeIcon icon={iconDefinition} aria-hidden="true" widthAuto />
       {label}
     </Link>
   )
