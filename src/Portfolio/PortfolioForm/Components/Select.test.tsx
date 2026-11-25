@@ -31,6 +31,19 @@ describe('GIVEN using Select', () => {
     expect(screen.getByText('OK Computer')).toBeInTheDocument()
   })
 
+  test('WHEN Backspace is pressed in a single select THEN it keeps its value', () => {
+    setUp({
+      values: ['the bends'],
+      options: [{ label: 'The Bends', value: 'the bends' }],
+    })
+
+    fireEvent.keyDown(screen.getByLabelText('Dropdown select'), {
+      key: 'Backspace',
+    })
+
+    expect(screen.getByText('The Bends')).toBeInTheDocument()
+  })
+
   test('WHEN an option is picked from a single select THEN it reports that value', async () => {
     setUp({
       name: 'test',

@@ -146,6 +146,9 @@ export const Select = <T extends string | object>({
           minWidth: '5rem',
         }}
         multi={multi}
+        // A single select always holds one value, so Backspace must not
+        // remove it.
+        backspaceDelete={multi}
         // The library renders a role-less `div` and hard-codes
         // `aria-label="Dropdown select"` on every dropdown. It spreads
         // `additionalProps` over both, so the control becomes a combobox
