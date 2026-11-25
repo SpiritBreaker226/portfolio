@@ -8,9 +8,7 @@ export type RenderProps = {
 }
 
 export const DefaultWrapper: FC<RenderProps> = ({ children }) => (
-  <BrowserRouter
-    future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-  >
+  <BrowserRouter>
     <ThemeProvider>{children}</ThemeProvider>
   </BrowserRouter>
 )

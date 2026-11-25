@@ -12,9 +12,7 @@ const App = () => (
   <ErrorBoundary>
     <ThemeProvider>
       <AppProvider>
-        <Router
-          future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
-        >
+        <Router>
           <AppHeader />
 
           <AppBody />
