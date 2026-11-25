@@ -28,6 +28,9 @@ export const Portfolio: FC = () => {
     const tag = searchParams.get('tag')
 
     if (isTag(tag)) {
+      // A tag link starts a new search, so an earlier search on this page
+      // can't hide the tag's projects.
+      dispatch({ type: Types.ResetSearchCriteria, payload: {} })
       dispatch({
         type: UpdateSearchTypes.Tag,
         payload: { tags: new Set<Tag>([tag]) },
