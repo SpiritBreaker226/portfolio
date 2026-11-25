@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import ReactDropdownSelect, {
+import ReactDropdownSelect from 'react-dropdown-select'
+import type {
   SelectProps as ReactDropdownSelectProps,
-} from 'react-dropdown-select'
+} from 'react-dropdown-select/types/select-types'
 import styled, { useTheme } from 'styled-components'
 
 import { fieldLabelStyle, fieldStyle } from '../../../Components'
