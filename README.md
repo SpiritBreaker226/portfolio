@@ -17,10 +17,18 @@ Requires Node 24 (the exact version is in `.nvmrc`, so `nvm use` picks it up) an
 yarn install
 ```
 
-| Command         | What it does                                                                  |
-| --------------- | ----------------------------------------------------------------------------- |
-| `yarn dev`      | Start the Vite dev server                                                     |
-| `yarn build`    | Copy `.env.example` to `.env`, run the tests and `tsc`, then build to `dist/` |
-| `yarn preview`  | Serve the `dist/` build locally                                               |
-| `yarn test`     | Run the Vitest suites in watch mode                                           |
-| `yarn test:run` | Run the Vitest suites once                                                    |
+| Command             | What it does                                                                  |
+| ------------------- | ----------------------------------------------------------------------------- |
+| `yarn dev`          | Start the Vite dev server                                                     |
+| `yarn build`        | Copy `.env.example` to `.env`, run the tests and `tsc`, then build to `dist/` |
+| `yarn preview`      | Serve the `dist/` build locally                                               |
+| `yarn test`         | Run the Vitest suites in watch mode                                           |
+| `yarn test:run`     | Run the Vitest suites once                                                    |
+| `yarn test:e2e`     | Start `yarn dev` and run the Cypress specs headless in Chrome                 |
+| `yarn cypress:open` | Open Cypress to run specs one by one against a running `yarn dev`             |
+
+### Integration tests
+
+Cypress specs live in `cypress/e2e` and run in Chrome against the dev server, so they cover what the Vitest suites can't: whole pages, navigation between them, and React's development-only checks. `yarn build` doesn't run them; run `yarn test:e2e` before pushing.
+
+`cypress:open` needs `yarn dev` running in another terminal. Failing runs save screenshots to `cypress/screenshots`, which git ignores.

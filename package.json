@@ -44,7 +44,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "test:e2e": "start-server-and-test dev http://localhost:5173 cypress:run"
+    "cypress:run:ci": "cypress run",
+    "cypress:run": "cypress run --browser chrome",
+    "test:e2e": "start-server-and-test 'yarn dev' http://localhost:5173 'yarn cypress:run'"
   }
 }
