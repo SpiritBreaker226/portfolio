@@ -39,7 +39,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "cp .env.example .env && vitest run && tsc --noEmit && vite build",
+    "build": "cp .env.example .env && vitest run && tsc --noEmit && tsc -p cypress --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",

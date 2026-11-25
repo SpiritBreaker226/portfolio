@@ -17,15 +17,15 @@ Requires Node 24 (the exact version is in `.nvmrc`, so `nvm use` picks it up) an
 yarn install
 ```
 
-| Command             | What it does                                                                  |
-| ------------------- | ----------------------------------------------------------------------------- |
-| `yarn dev`          | Start the Vite dev server                                                     |
-| `yarn build`        | Copy `.env.example` to `.env`, run the tests and `tsc`, then build to `dist/` |
-| `yarn preview`      | Serve the `dist/` build locally                                               |
-| `yarn test`         | Run the Vitest suites in watch mode                                           |
-| `yarn test:run`     | Run the Vitest suites once                                                    |
-| `yarn test:e2e`     | Start `yarn dev` and run the Cypress specs headless in Chrome                 |
-| `yarn cypress:open` | Open Cypress to run specs one by one against a running `yarn dev`             |
+| Command             | What it does                                                                                                  |
+| ------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `yarn dev`          | Start the Vite dev server                                                                                     |
+| `yarn build`        | Copy `.env.example` to `.env`, run the tests, type-check the app and the Cypress specs, then build to `dist/` |
+| `yarn preview`      | Serve the `dist/` build locally                                                                               |
+| `yarn test`         | Run the Vitest suites in watch mode                                                                           |
+| `yarn test:run`     | Run the Vitest suites once                                                                                    |
+| `yarn test:e2e`     | Start `yarn dev` and run the Cypress specs headless in Chrome                                                 |
+| `yarn cypress:open` | Open Cypress to run specs one by one against a running `yarn dev`                                             |
 
 ### Integration tests
 
