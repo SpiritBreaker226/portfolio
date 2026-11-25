@@ -124,7 +124,21 @@ export const Select = <T extends string | object>({
     )
   }, [values, options])
 
+  /**
+   * Reports the dropdown's new selection through `onSelectChange` and
+   * reruns the search. A single select always holds one value, so an
+   * empty selection from it is ignored. The dropdown reports one when
+   * StrictMode replays its effects in development.
+   *
+   * @example
+   * handleChange([{ label: 'SQL Server', value: 'SQL Server' }])
+   * // => onSelectChange('SQL Server'), then a Search dispatch
+   */
   const handleChange = (values: SelectFieldValue<T>[]) => {
+    if (!multi && values.length === 0) {
+      return
+    }
+
     const currentSelectValues = multi
       ? values.map(({ value }) => value)
       : values[0].value
