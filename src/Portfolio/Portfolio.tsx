@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams } from 'react-router'
 
 import { useApp } from '../context'
 import { Tag, Types, UpdateSearchTypes } from '../types'

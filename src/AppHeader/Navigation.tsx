@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router'
 
 const NavigationLinkContainer = styled(NavLink)`
   display: inline-flex;

@@ -7,8 +7,8 @@ import { PageHeader } from './PageHeader'
 const mockUseLocation = vi.fn()
 let mockTitleCase = ''
 
-vi.mock('react-router-dom', async () => ({
-  ...(await vi.importActual('react-router-dom')),
+vi.mock('react-router', async () => ({
+  ...(await vi.importActual('react-router')),
   useLocation: () => mockUseLocation,
 }))
 

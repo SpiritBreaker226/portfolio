@@ -1,5 +1,5 @@
 import { FC, useMemo } from 'react'
-import { createSearchParams, Link } from 'react-router-dom'
+import { createSearchParams, Link } from 'react-router'
 import styled from 'styled-components'
 
 import { Card, chipStyle } from '../Components'

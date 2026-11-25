@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import styled from 'styled-components'
 
 import { buttonStyle, ButtonVariant, buttonVariants } from './Button.style'

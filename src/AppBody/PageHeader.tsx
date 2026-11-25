@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Outlet as Page, useLocation } from 'react-router-dom'
+import { Outlet as Page, useLocation } from 'react-router'
 import styled from 'styled-components'
 
 import { AppBodyContainer } from './AppBody.style'

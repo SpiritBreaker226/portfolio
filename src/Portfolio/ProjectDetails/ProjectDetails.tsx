@@ -1,5 +1,5 @@
 import { FC, useCallback } from 'react'
-import { useParams, Navigate, useNavigate } from 'react-router-dom'
+import { useParams, Navigate, useNavigate } from 'react-router'
 import styled from 'styled-components'
 
 import { chipStyle, LinkButton } from '../../Components'
