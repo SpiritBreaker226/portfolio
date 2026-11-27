@@ -10,6 +10,7 @@
 /cypress/screenshots
 /cypress/videos
 /cypress/downloads
+/cypress/snapshots/diff
 
 # production
 /build
