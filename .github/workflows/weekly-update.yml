@@ -1,0 +1,90 @@
+# Gates the weekly dependency update. The weekly routine pushes its upgrade
+# commits to `deps/weekly`; this workflow runs the build, the Cypress specs
+# and the screenshot comparison on them. When everything passes, it
+# fast-forwards `main` to `deps/weekly`, which Vercel then deploys, and closes
+# any open "Weekly update failed" issue. When anything fails, `main` stays
+# put and the failure is reported on that issue.
+name: Weekly update
+
+on:
+  push:
+    branches: [deps/weekly]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: weekly-update
+  cancel-in-progress: false
+
+env:
+  FAILURE_TITLE: Weekly update failed
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
+      - uses: browser-actions/setup-chrome@v2.2.0
+        id: chrome
+        with:
+          chrome-version: 158.0.8127.36
+          install-dependencies: true
+
+      - run: yarn install --frozen-lockfile
+
+      - run: yarn build
+
+      - name: Cypress specs and screenshots
+        run: >-
+          yarn start-server-and-test 'yarn dev' http://localhost:5173
+          'yarn cypress run --browser ${{ steps.chrome.outputs.chrome-path }}
+          && yarn cypress:visual --browser ${{ steps.chrome.outputs.chrome-path }}'
+
+      - name: Fast-forward main
+        if: github.ref == 'refs/heads/deps/weekly'
+        run: git push origin HEAD:main
+
+      - name: Close the failure issue
+        if: github.ref == 'refs/heads/deps/weekly'
+        run: |
+          for number in $(gh api "repos/$GITHUB_REPOSITORY/issues?state=open&per_page=100" \
+            --jq ".[] | select(.pull_request == null and .title == \"$FAILURE_TITLE\") | .number"); do
+            gh api "repos/$GITHUB_REPOSITORY/issues/$number/comments" \
+              -f body="Passed in $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID, and \`main\` now includes the update."
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/$number" -f state=closed
+          done
+
+      - name: Upload screenshots and diffs
+        if: failure()
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: weekly-update-failure
+          path: |
+            cypress/screenshots
+            cypress/snapshots/diff
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Report the failure
+        if: failure()
+        run: |
+          body="The checks on \`$GITHUB_REF_NAME\` (\`${GITHUB_SHA::8}\`) failed, so \`main\` was not updated. Log, screenshots and diffs: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          number=$(gh api "repos/$GITHUB_REPOSITORY/issues?state=open&per_page=100" \
+            --jq ".[] | select(.pull_request == null and .title == \"$FAILURE_TITLE\") | .number" | head -1)
+          if [ -n "$number" ]; then
+            gh api "repos/$GITHUB_REPOSITORY/issues/$number/comments" -f body="$body"
+          else
+            gh api "repos/$GITHUB_REPOSITORY/issues" -f title="$FAILURE_TITLE" -f body="$body"
+          fi

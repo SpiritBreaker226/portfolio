@@ -3,6 +3,11 @@
   "framework": "vite",
   "buildCommand": "yarn build",
   "outputDirectory": "dist",
+  "git": {
+    "deploymentEnabled": {
+      "deps/weekly": false
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
