@@ -47,8 +47,8 @@
     "cypress:open": "cypress open",
     "cypress:run:ci": "cypress run",
     "cypress:run": "cypress run --browser chrome",
-    "cypress:visual": "cypress run --browser chrome --config specPattern=cypress/visual/**/*.cy.ts --expose visualRegressionType=regression",
-    "cypress:visual:base": "cypress run --browser chrome --config specPattern=cypress/visual/**/*.cy.ts --expose visualRegressionType=base",
-    "test:e2e":"start-server-and-test 'yarn dev' http://localhost:5173 'yarn cypress:run'"
+    "cypress:visual": "cypress run --config specPattern=cypress/visual/**/*.cy.ts --expose visualRegressionType=regression",
+    "cypress:visual:base": "cypress run --config specPattern=cypress/visual/**/*.cy.ts --expose visualRegressionType=base",
+    "test:e2e": "start-server-and-test 'yarn dev' http://localhost:5173 'yarn cypress:run'"
   }
 }

@@ -1,0 +1,44 @@
+# Renders the screenshot baselines on GitHub's runner with a pinned Chrome,
+# the same setup the weekly update compares against. Run it by hand after a
+# deliberate design change, download the `visual-baselines` artifact, review
+# the images and commit them to `cypress/snapshots/base`.
+name: Visual baselines
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
+      - uses: browser-actions/setup-chrome@v2.2.0
+        id: chrome
+        with:
+          chrome-version: 158.0.8127.36
+          install-dependencies: true
+
+      - run: yarn install --frozen-lockfile
+
+      - run: cp .env.example .env
+
+      - name: Render baselines
+        run: >-
+          yarn start-server-and-test 'yarn dev' http://localhost:5173
+          'yarn cypress:visual:base --browser ${{ steps.chrome.outputs.chrome-path }}'
+
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: visual-baselines
+          path: cypress/snapshots/base
+          if-no-files-found: error
+          retention-days: 7
