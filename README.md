@@ -32,3 +32,15 @@ yarn install
 Cypress specs live in `cypress/e2e` and run in Chrome against the dev server, so they cover what the Vitest suites can't: whole pages, navigation between them, and React's development-only checks. `yarn build` doesn't run them; run `yarn test:e2e` before pushing.
 
 `cypress:open` needs `yarn dev` running in another terminal. Failing runs save screenshots to `cypress/screenshots`, which git ignores.
+
+### Screenshot tests
+
+`cypress/visual` compares full-page screenshots of every page, in light and dark at 375, 768 and 1280 pixels wide, against the baselines in `cypress/snapshots/base`. They must match pixel for pixel, and fonts and anti-aliasing differ between machines, so the screenshots run only on GitHub Actions, in a pinned build of Chrome for Testing. Saved posts in `cypress/fixtures/posts.json` stand in for the live dev.to feed.
+
+After a deliberate design change, refresh the baselines:
+
+1. Push the change, then run the **Visual baselines** workflow on `main` from the Actions tab.
+2. Download its `visual-baselines` artifact and unzip it into `cypress/snapshots/base`, replacing the old images.
+3. Review the new images, then commit them.
+
+The **Weekly update** workflow runs the build, the Cypress specs and the screenshot comparison on the `deps/weekly` branch. It moves `main` forward only when all of them pass, and reports any failure in a "Weekly update failed" issue.
